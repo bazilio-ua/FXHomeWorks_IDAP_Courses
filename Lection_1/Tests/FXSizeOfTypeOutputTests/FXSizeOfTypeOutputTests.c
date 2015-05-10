@@ -22,4 +22,5 @@ void FXSizeOfTypeOutputTests(void) {
 	FXSizeOfTypePrint(double);
 	FXSizeOfTypePrint(long double);
 	FXSizeOfTypePrint(void);
+	FXSizeOfTypePrint(bool);
 }

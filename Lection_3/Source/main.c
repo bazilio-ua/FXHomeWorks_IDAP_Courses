@@ -8,6 +8,9 @@
 
 #include <stdio.h>
 
+#include "FXDataStruct.h"
+#include "FXDataStructTests.h"
+
 #define performTests(testName) \
 	printf(#testName " started...\n"); \
 	testName(); \

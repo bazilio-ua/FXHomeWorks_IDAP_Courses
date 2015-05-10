@@ -10,6 +10,7 @@
 #define Lection_1_FXSizeOfTypeOutputTests_h
 
 #include <stdio.h>
+#include <stdbool.h>
 
 extern
 void FXSizeOfTypeOutputTests(void);

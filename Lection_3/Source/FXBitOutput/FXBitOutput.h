@@ -17,4 +17,7 @@ void FXByteValueOutput(char *byteAddress);
 extern
 void FXBitFieldValueOutput(void *byteAddress, size_t size);
 
+extern
+void FXBitFieldValueOutputRev(void *byteAddress, size_t size);
+
 #endif

@@ -18,7 +18,7 @@ static const unsigned char kFXBitCount = 8;
 
 void FXByteValueOutput(char *byteAddress) {
 	unsigned char value = *byteAddress; // cache value from address
-	for (unsigned char shiftBitCount = kFXBitCount; shiftBitCount > 0; shiftBitCount--) { // start from least? most significant bit
+	for (unsigned char shiftBitCount = kFXBitCount; shiftBitCount > 0; shiftBitCount--) { // start from most (least?) significant bit
 		unsigned char shiftedValue = value >> (shiftBitCount - 1); // bitwise right-shifted of value by bit count
 		printf("%d", (shiftedValue & 1));
 		if (shiftBitCount != 1) {
@@ -37,6 +37,22 @@ void FXBitFieldValueOutput(void *byteAddress, size_t size) { // *void is for var
 	}
 	printf("}");
 }
+
+void FXBitFieldValueOutputRev(void *byteAddress, size_t size) { // *void is for various types (universal method)
+	printf("{");
+//	char *bitfieldAddress = (char *)byteAddress + size - 1; // cast out types to *char
+	
+	for (unsigned short index = 0; index < size; index++) {
+		char byte = ((char *)byteAddress)[index];
+		
+		FXByteValueOutput(&byte);		
+//		FXByteValueOutput(bitfieldAddress);
+//		bitfieldAddress--;
+		printf(", ");
+	}
+	printf("}");
+}
+
 
 #pragma mark -
 #pragma mark Private Implementation

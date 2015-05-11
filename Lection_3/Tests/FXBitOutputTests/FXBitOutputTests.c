@@ -37,8 +37,14 @@ void FXByteOutputTests(void) {
 }
 
 void FXBitFieldOutputTests(void) {
-	int testValue = 1;
+	int testValue = 7;
+//	char *testValue[] = {"u","n","i","x"};
 	
 	printf("testValue\n");
 	FXBitFieldValueOutput(&testValue, sizeof(testValue));
+	printf("\n");
+	
+	printf("rev. testValue\n");
+	FXBitFieldValueOutputRev(&testValue, sizeof(testValue));
+	printf("\n");
 }

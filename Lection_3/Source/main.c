@@ -10,6 +10,8 @@
 
 #include "FXDataStruct.h"
 #include "FXDataStructTests.h"
+#include "FXBitOutput.h"
+#include "FXBitOutputTests.h"
 
 #define performTests(testName) \
 	printf(#testName " started...\n"); \
@@ -21,6 +23,7 @@ int main(int argc, const char *argv[]) {
 	printf("Lection 3 homework\n");
 	
 	performTests(FXDataStructTests); // part 1
+	performTests(FXBitOutputTests); // part 2
 	
 	return 0;
 }
@@ -36,4 +39,4 @@ int main(int argc, const char *argv[]) {
  - создать тестовый метод, который бы с помощью offsetof выводил расположение каждого из элементов структуры;
  - создать тестовый метод, который бы выводил размер всей структуры;
  2. Создать универсальный метод для вывода битов числа (различных типов) в консоль.
- */
+*/

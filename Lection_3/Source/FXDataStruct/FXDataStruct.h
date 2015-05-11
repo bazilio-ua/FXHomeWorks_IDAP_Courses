@@ -71,7 +71,6 @@ typedef struct Sorted_Union {
 	long l1;
 	long long ll1;
 	double d1;
-
 } Sorted_Union_t;
 
 #endif

@@ -1,6 +1,6 @@
 //
 //  main.c
-//  Lection_4
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/6/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
@@ -15,7 +15,7 @@
 
 int main(int argc, const char *argv[]) {
 	// insert code here...
-	printf("Lection 4\n");
+	printf("Lection 4 homework\n");
 	
 	return 0;
 }

@@ -1,13 +1,13 @@
 //
 //  FXParentOutputTests.h
-//  Lection_1
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/9/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef Lection_1_FXParentOutputTests_h
-#define Lection_1_FXParentOutputTests_h
+#ifndef FXHomeWorks_FXParentOutputTests_h
+#define FXHomeWorks_FXParentOutputTests_h
 
 #include <stdio.h>
 

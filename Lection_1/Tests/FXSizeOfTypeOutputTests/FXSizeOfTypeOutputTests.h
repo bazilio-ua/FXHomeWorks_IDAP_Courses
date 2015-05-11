@@ -1,13 +1,13 @@
 //
 //  FXSizeOfTypeOutputTests.h
-//  Lection_1
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/9/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef Lection_1_FXSizeOfTypeOutputTests_h
-#define Lection_1_FXSizeOfTypeOutputTests_h
+#ifndef FXHomeWorks_FXSizeOfTypeOutputTests_h
+#define FXHomeWorks_FXSizeOfTypeOutputTests_h
 
 #include <stdio.h>
 #include <stdbool.h>

@@ -1,6 +1,6 @@
 //
 //  FXDataStructTests.c
-//  Lection_3
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/10/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
@@ -42,6 +42,7 @@ void FXDataStructOutputOffsetOfTests(void) {
 	printf("offset of (stuct Unsorted_t, s2) is %lu\n", offsetof(Unsorted_t, s2));
 	printf("offset of (stuct Unsorted_t, i1) is %lu\n", offsetof(Unsorted_t, i1));
 	printf("offset of (stuct Unsorted_t, s3) is %lu\n", offsetof(Unsorted_t, s3));
+	printf("offset of (stuct Unsorted_t, l1) is %lu\n", offsetof(Unsorted_t, l1));
 	printf("offset of (stuct Unsorted_t, ll1) is %lu\n", offsetof(Unsorted_t, ll1));
 	printf("offset of (stuct Unsorted_t, f1) is %lu\n", offsetof(Unsorted_t, f1));
 	printf("offset of (stuct Unsorted_t, b1) is %lu\n", offsetof(Unsorted_t, b1));

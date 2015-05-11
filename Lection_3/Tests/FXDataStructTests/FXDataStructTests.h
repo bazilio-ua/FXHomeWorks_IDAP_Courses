@@ -1,13 +1,13 @@
 //
 //  FXDataStructTests.h
-//  Lection_3
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/10/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef Lection_3_FXDataStructTests_h
-#define Lection_3_FXDataStructTests_h
+#ifndef FXHomeWorks_FXDataStructTests_h
+#define FXHomeWorks_FXDataStructTests_h
 
 #include <stdio.h>
 #include <stddef.h> // for offsetof

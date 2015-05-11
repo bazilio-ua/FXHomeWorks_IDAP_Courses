@@ -1,13 +1,13 @@
 //
 //  FXPrimitiveOutputType.h
-//  Lection_2
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/6/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef Lection_2_FXPrimitiveOutputType_h
-#define Lection_2_FXPrimitiveOutputType_h
+#ifndef FXHomeWorks_FXPrimitiveOutputType_h
+#define FXHomeWorks_FXPrimitiveOutputType_h
 
 #include <stdio.h>
 

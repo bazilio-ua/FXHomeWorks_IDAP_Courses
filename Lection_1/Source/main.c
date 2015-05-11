@@ -1,6 +1,6 @@
 //
 //  main.c
-//  Lection_1
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/4/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
@@ -20,7 +20,7 @@
 
 int main(int argc, const char *argv[]) {
 	// insert code here...
-	printf("Lection 1\n");
+	printf("Lection 1 homework\n");
 	
 	performTests(FXSizeOfTypeOutputTests); // part 1
 	performTests(FXParentOutputTests); // part 2

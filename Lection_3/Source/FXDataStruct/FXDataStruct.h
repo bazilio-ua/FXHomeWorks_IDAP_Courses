@@ -1,13 +1,13 @@
 //
 //  FXDataStruct.h
-//  Lection_3
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 5/10/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef Lection_3_FXDataStruct_h
-#define Lection_3_FXDataStruct_h
+#ifndef FXHomeWorks_FXDataStruct_h
+#define FXHomeWorks_FXDataStruct_h
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -17,7 +17,7 @@ typedef struct Unsorted {
 	short s2;
 	int i1;
 	short s3;
-//	long l1;
+	long l1;
 	long long ll1;
 	float f1;
 	bool b1;
@@ -43,7 +43,7 @@ typedef struct Sorted {
 	short s3;
 	int i1;
 	float f1;
-//	long l1;
+	long l1;
 	long long ll1;
 	double d1;
 } Sorted_t;
@@ -55,20 +55,23 @@ typedef struct Sorted_Union {
 	
 	union {
 		struct { // bit-field
-			bool b1 : 1;
-			bool b2 : 1;
-			bool b3 : 1;
-			bool b4 : 1;
-			bool b5 : 1;
-			bool b6 : 1;
+			bool b1:1;
+			bool b2:1;
+			bool b3:1;
+			bool b4:1;
+			bool b5:1;
+			bool b6:1;
 		};
-		char *str1;
-		int i1;
-		float f1;
-//		long l1;
-		long long ll1;
-		double d1;
+		unsigned char bitFields;
 	};
+	
+	char *str1;
+	int i1;
+	float f1;
+	long l1;
+	long long ll1;
+	double d1;
+
 } Sorted_Union_t;
 
 #endif

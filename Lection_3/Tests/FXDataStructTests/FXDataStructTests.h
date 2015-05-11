@@ -10,5 +10,9 @@
 #define Lection_3_FXDataStructTests_h
 
 #include <stdio.h>
+#include <stddef.h> // for offsetof
+
+extern
+void FXDataStructTests(void);
 
 #endif

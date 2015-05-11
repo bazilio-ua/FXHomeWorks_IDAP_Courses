@@ -20,6 +20,8 @@ int main(int argc, const char *argv[]) {
 	// insert code here...
 	printf("Lection 3\n");
 	
+	performTests(FXDataStructTests); // part 1
+	
 	return 0;
 }
 

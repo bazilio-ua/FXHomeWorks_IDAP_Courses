@@ -12,12 +12,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-struct Unsorted {
+typedef struct Unsorted {
 	short s1;
 	short s2;
 	int i1;
 	short s3;
-	long long l1;
+//	long l1;
+	long long ll1;
 	float f1;
 	bool b1;
 	bool b2;
@@ -26,11 +27,11 @@ struct Unsorted {
 	bool b5;
 	double d1;
 	bool b6;
-	char *str;
-};
+	char *str1;
+} Unsorted_t;
 
-struct Sorted {
-	char *str;
+typedef struct Sorted {
+	char *str1;
 	bool b1;
 	bool b2;
 	bool b3;
@@ -42,11 +43,12 @@ struct Sorted {
 	short s3;
 	int i1;
 	float f1;
-	long long l1;
+//	long l1;
+	long long ll1;
 	double d1;
-};
+} Sorted_t;
 
-struct Sorted_Union {
+typedef struct Sorted_Union {
 	short s1;
 	short s2;
 	short s3;
@@ -60,12 +62,13 @@ struct Sorted_Union {
 			bool b5 : 1;
 			bool b6 : 1;
 		};
-		char *str;
+		char *str1;
 		int i1;
 		float f1;
-		long long l1;
+//		long l1;
+		long long ll1;
 		double d1;
 	};
-};
+} Sorted_Union_t;
 
 #endif

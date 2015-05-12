@@ -10,6 +10,7 @@
 #define FXHomeWorks_FXBitOutput_h
 
 #include <stdio.h>
+#include <stdbool.h>
 
 extern
 void FXByteValueOutput(char *byteAddress);

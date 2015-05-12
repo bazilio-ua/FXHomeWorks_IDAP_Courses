@@ -6,4 +6,6 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
+#include <stdio.h>
+
 #include "FXDataStruct.h"

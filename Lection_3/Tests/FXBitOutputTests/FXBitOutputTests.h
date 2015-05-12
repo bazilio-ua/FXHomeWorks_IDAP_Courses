@@ -9,8 +9,6 @@
 #ifndef FXHomeWorks_FXBitOutputTests_h
 #define FXHomeWorks_FXBitOutputTests_h
 
-#include <stdio.h>
-
 extern
 void FXBitOutputTests(void);
 

@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
+#include <stdio.h>
+#include <stddef.h> // for offsetof
+
 #include "FXDataStructTests.h"
 #include "FXDataStruct.h"
 
@@ -38,19 +41,19 @@ void FXDataStructOutputSizeTests(void) {
 
 void FXDataStructOutputOffsetOfTests(void) {
 	printf("Struct's elements placement:\n");
-	printf("offset of (stuct Unsorted_t, s1) is %lu\n", offsetof(Unsorted_t, s1));
-	printf("offset of (stuct Unsorted_t, s2) is %lu\n", offsetof(Unsorted_t, s2));
-	printf("offset of (stuct Unsorted_t, i1) is %lu\n", offsetof(Unsorted_t, i1));
-	printf("offset of (stuct Unsorted_t, s3) is %lu\n", offsetof(Unsorted_t, s3));
-	printf("offset of (stuct Unsorted_t, l1) is %lu\n", offsetof(Unsorted_t, l1));
-	printf("offset of (stuct Unsorted_t, ll1) is %lu\n", offsetof(Unsorted_t, ll1));
-	printf("offset of (stuct Unsorted_t, f1) is %lu\n", offsetof(Unsorted_t, f1));
-	printf("offset of (stuct Unsorted_t, b1) is %lu\n", offsetof(Unsorted_t, b1));
-	printf("offset of (stuct Unsorted_t, b2) is %lu\n", offsetof(Unsorted_t, b2));
-	printf("offset of (stuct Unsorted_t, b3) is %lu\n", offsetof(Unsorted_t, b3));
-	printf("offset of (stuct Unsorted_t, b4) is %lu\n", offsetof(Unsorted_t, b4));
-	printf("offset of (stuct Unsorted_t, b5) is %lu\n", offsetof(Unsorted_t, b5));
-	printf("offset of (stuct Unsorted_t, d1) is %lu\n", offsetof(Unsorted_t, d1));
-	printf("offset of (stuct Unsorted_t, b6) is %lu\n", offsetof(Unsorted_t, b6));
-	printf("offset of (stuct Unsorted_t, str1) is %lu\n", offsetof(Unsorted_t, str1));
+	printf("offset of (stuct Unsorted_t, shortVar1) is %lu\n", offsetof(Unsorted_t, shortVar1));
+	printf("offset of (stuct Unsorted_t, shortVar2) is %lu\n", offsetof(Unsorted_t, shortVar2));
+	printf("offset of (stuct Unsorted_t, intVar1) is %lu\n", offsetof(Unsorted_t, intVar1));
+	printf("offset of (stuct Unsorted_t, shortVar3) is %lu\n", offsetof(Unsorted_t, shortVar3));
+	printf("offset of (stuct Unsorted_t, longVar1) is %lu\n", offsetof(Unsorted_t, longVar1));
+	printf("offset of (stuct Unsorted_t, longlongVar1) is %lu\n", offsetof(Unsorted_t, longlongVar1));
+	printf("offset of (stuct Unsorted_t, floatVar1) is %lu\n", offsetof(Unsorted_t, floatVar1));
+	printf("offset of (stuct Unsorted_t, boolVar1) is %lu\n", offsetof(Unsorted_t, boolVar1));
+	printf("offset of (stuct Unsorted_t, boolVar2) is %lu\n", offsetof(Unsorted_t, boolVar2));
+	printf("offset of (stuct Unsorted_t, boolVar3) is %lu\n", offsetof(Unsorted_t, boolVar3));
+	printf("offset of (stuct Unsorted_t, boolVar4) is %lu\n", offsetof(Unsorted_t, boolVar4));
+	printf("offset of (stuct Unsorted_t, boolVar5) is %lu\n", offsetof(Unsorted_t, boolVar5));
+	printf("offset of (stuct Unsorted_t, doubleVar1) is %lu\n", offsetof(Unsorted_t, doubleVar1));
+	printf("offset of (stuct Unsorted_t, boolVar6) is %lu\n", offsetof(Unsorted_t, boolVar6));
+	printf("offset of (stuct Unsorted_t, stringVar1) is %lu\n", offsetof(Unsorted_t, stringVar1));
 }

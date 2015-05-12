@@ -9,8 +9,6 @@
 #ifndef FXHomeWorks_FXParentOutputTests_h
 #define FXHomeWorks_FXParentOutputTests_h
 
-#include <stdio.h>
-
 extern
 void FXParentOutputTests(void);
 

@@ -9,68 +9,67 @@
 #ifndef FXHomeWorks_FXDataStruct_h
 #define FXHomeWorks_FXDataStruct_h
 
-#include <stdio.h>
-#include <stdbool.h>
+#include <stdbool.h> // for bool
 
 typedef struct Unsorted {
-	short s1;
-	short s2;
-	int i1;
-	short s3;
-	long l1;
-	long long ll1;
-	float f1;
-	bool b1;
-	bool b2;
-	bool b3;
-	bool b4;
-	bool b5;
-	double d1;
-	bool b6;
-	char *str1;
+	short shortVar1;
+	short shortVar2;
+	int intVar1;
+	short shortVar3;
+	long longVar1;
+	long long longlongVar1;
+	float floatVar1;
+	bool boolVar1;
+	bool boolVar2;
+	bool boolVar3;
+	bool boolVar4;
+	bool boolVar5;
+	double doubleVar1;
+	bool boolVar6;
+	char *stringVar1;
 } Unsorted_t;
 
 typedef struct Sorted {
-	char *str1;
-	bool b1;
-	bool b2;
-	bool b3;
-	bool b4;
-	bool b5;
-	bool b6;
-	short s1;
-	short s2;
-	short s3;
-	int i1;
-	float f1;
-	long l1;
-	long long ll1;
-	double d1;
+	double doubleVar1;
+	long long longlongVar1;
+	long longVar1;
+	float floatVar1;
+	int intVar1;
+	short shortVar1;
+	short shortVar2;
+	short shortVar3;
+	char *stringVar1;
+	bool boolVar1;
+	bool boolVar2;
+	bool boolVar3;
+	bool boolVar4;
+	bool boolVar5;
+	bool boolVar6;
 } Sorted_t;
 
 typedef struct Sorted_Union {
-	short s1;
-	short s2;
-	short s3;
+	double doubleVar1;
+	long long longlongVar1;
+	long longVar1;
+	float floatVar1;
+	int intVar1;
+	char *stringVar1;
+	
+	short shortVar1;
+	short shortVar2;
+	short shortVar3;
 	
 	union {
 		struct { // bit-field
-			bool b1:1;
-			bool b2:1;
-			bool b3:1;
-			bool b4:1;
-			bool b5:1;
-			bool b6:1;
+			bool boolVar1:1;
+			bool boolVar2:1;
+			bool boolVar3:1;
+			bool boolVar4:1;
+			bool boolVar5:1;
+			bool boolVar6:1;
 		};
 		unsigned char bitFields;
 	};
-	
-	char *str1;
-	int i1;
-	float f1;
-	long l1;
-	long long ll1;
-	double d1;
 } Sorted_Union_t;
 
 #endif

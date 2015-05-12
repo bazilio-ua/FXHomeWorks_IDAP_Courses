@@ -9,9 +9,6 @@
 #ifndef FXHomeWorks_FXDataStructTests_h
 #define FXHomeWorks_FXDataStructTests_h
 
-#include <stdio.h>
-#include <stddef.h> // for offsetof
-
 extern
 void FXDataStructTests(void);
 

@@ -9,9 +9,6 @@
 #ifndef FXHomeWorks_FXSizeOfTypeOutputTests_h
 #define FXHomeWorks_FXSizeOfTypeOutputTests_h
 
-#include <stdio.h>
-#include <stdbool.h>
-
 extern
 void FXSizeOfTypeOutputTests(void);
 

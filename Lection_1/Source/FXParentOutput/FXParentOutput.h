@@ -9,8 +9,6 @@
 #ifndef FXHomeWorks_FXParentOutput_h
 #define FXHomeWorks_FXParentOutput_h
 
-#include <stdio.h>
-
 typedef enum {
 	FXParentUndefined,
 	FXParentMother,

@@ -9,8 +9,6 @@
 #ifndef FXHomeWorks_FXPrimitiveOutputTypeTests_h
 #define FXHomeWorks_FXPrimitiveOutputTypeTests_h
 
-#include <stdio.h>
-
 extern
 void FXPrimitiveOutputTypeTest(void);
 

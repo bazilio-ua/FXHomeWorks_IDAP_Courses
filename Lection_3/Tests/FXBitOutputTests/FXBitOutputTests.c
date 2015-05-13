@@ -25,21 +25,21 @@ void FXBitFieldOutputTests(void);
 
 void FXBitOutputTests(void) {
 	FXByteOutputTests();
-//	FXBitFieldOutputTests();
+	FXBitFieldOutputTests();
 }
 
 #pragma mark -
 #pragma mark Private Implementation
 
 void FXByteOutputTests(void) {
-	char testValue = 7;
+	char testValue = 255;
 	
 	FXByteValueOutput(&testValue); // take address of testValue
 	printf(".\n");
 }
 
 void FXBitFieldOutputTests(void) {
-	int testValue = 7;
+	int testValue = 127;
 //	char *testValue[] = {"u","n","i","x"};
 	
 	printf("testValue\n");

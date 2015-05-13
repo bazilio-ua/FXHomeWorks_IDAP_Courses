@@ -15,6 +15,7 @@
 #pragma mark Private Declaration
 
 static const unsigned char kFXBitCount = 8; // size of byte
+static const unsigned char kFXByteMask = 1 << (kFXBitCount - 1); // 128
 
 static
 bool FXisLittleEndian(void);
@@ -23,14 +24,12 @@ bool FXisLittleEndian(void);
 #pragma mark Public Implementation
 
 void FXByteValueOutput(char *byteAddress) {
-	unsigned char value = *byteAddress; // cache value from address
-	for (unsigned char shiftBitCount = kFXBitCount; shiftBitCount > 0; shiftBitCount--) { // start from most (least? for) significant bit
-		unsigned char shiftedValue = value >> (shiftBitCount - 1); // bitwise right-shifted of value by bit count
-		printf("%d", (shiftedValue & 1));
-		if (shiftBitCount != 1) {
+    for (unsigned char shiftByteMask = kFXByteMask; shiftByteMask > 0; shiftByteMask >>= 1) {
+		printf("%d", (*byteAddress & shiftByteMask) ? 1 : 0);
+		if (shiftByteMask != 1) {
 			printf(" ");
 		}
-	}
+    }
 }
 
 void FXBitFieldValueOutput(void *byteAddress, size_t size) { // *void is for various types (universal method)

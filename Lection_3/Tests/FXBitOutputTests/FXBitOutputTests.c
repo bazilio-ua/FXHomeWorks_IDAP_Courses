@@ -25,7 +25,7 @@ void FXBitFieldOutputTests(void);
 
 void FXBitOutputTests(void) {
 	FXByteOutputTests();
-	FXBitFieldOutputTests();
+//	FXBitFieldOutputTests();
 }
 
 #pragma mark -

@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stddef.h> // for offsetof
+//#include <stdlib.h>
 
 #include "FXDataStructTests.h"
 #include "FXDataStruct.h"
@@ -16,44 +17,61 @@
 #pragma mark Private Declaration
 
 static
-void FXDataStructOutputSizeTests(void);
+void FXDataStructSizeOutputTests(void);
 
 static
-void FXDataStructOutputOffsetOfTests(void);
+void FXDataStructOffsetOfOutputTests(void);
+
+#define FXDataStructOffsetOfPrint(structure, element) \
+	printf("\tstucture '" #structure "' has element '" #element"' with size: %lu and offset: %lu\n", \
+	sizeof(((structure *)0)->element), \
+	offsetof(structure, element))
 
 #pragma mark -
 #pragma mark Public Implementation
 
 void FXDataStructTests(void) {
-	FXDataStructOutputSizeTests();
-	FXDataStructOutputOffsetOfTests();
+	FXDataStructSizeOutputTests();
+	FXDataStructOffsetOfOutputTests();
 }
 
 #pragma mark -
 #pragma mark Private Implementation
 
-void FXDataStructOutputSizeTests(void) {
+void FXDataStructSizeOutputTests(void) {
 	printf("Struct sizes:\n");
 	printf("\tUnsorted - %lu bytes\n", sizeof( Unsorted_t ));
 	printf("\tSorted - %lu bytes\n", sizeof( Sorted_t ));
 	printf("\tSorted with Union - %lu bytes\n", sizeof( Sorted_Union_t ));
+
+	printf("\tsizeof Sorted_Union_t->intVar1 - %lu bytes\n", sizeof( ((Sorted_Union_t *)0)->intVar1 )); // take size by address ptr
+	printf("\tsizeof Sorted_Union_t.intVar1 - %lu bytes\n", sizeof( ((Sorted_Union_t){0}).intVar1 )); // take size by variable
 }
 
-void FXDataStructOutputOffsetOfTests(void) {
+void FXDataStructOffsetOfOutputTests(void) {
 	printf("Struct's elements placement:\n");
-	printf("offset of (stuct Unsorted_t, shortVar1) is %lu\n", offsetof(Unsorted_t, shortVar1));
-	printf("offset of (stuct Unsorted_t, shortVar2) is %lu\n", offsetof(Unsorted_t, shortVar2));
-	printf("offset of (stuct Unsorted_t, intVar1) is %lu\n", offsetof(Unsorted_t, intVar1));
-	printf("offset of (stuct Unsorted_t, shortVar3) is %lu\n", offsetof(Unsorted_t, shortVar3));
-	printf("offset of (stuct Unsorted_t, longVar1) is %lu\n", offsetof(Unsorted_t, longVar1));
-	printf("offset of (stuct Unsorted_t, longlongVar1) is %lu\n", offsetof(Unsorted_t, longlongVar1));
-	printf("offset of (stuct Unsorted_t, floatVar1) is %lu\n", offsetof(Unsorted_t, floatVar1));
-	printf("offset of (stuct Unsorted_t, boolVar1) is %lu\n", offsetof(Unsorted_t, boolVar1));
-	printf("offset of (stuct Unsorted_t, boolVar2) is %lu\n", offsetof(Unsorted_t, boolVar2));
-	printf("offset of (stuct Unsorted_t, boolVar3) is %lu\n", offsetof(Unsorted_t, boolVar3));
-	printf("offset of (stuct Unsorted_t, boolVar4) is %lu\n", offsetof(Unsorted_t, boolVar4));
-	printf("offset of (stuct Unsorted_t, boolVar5) is %lu\n", offsetof(Unsorted_t, boolVar5));
-	printf("offset of (stuct Unsorted_t, doubleVar1) is %lu\n", offsetof(Unsorted_t, doubleVar1));
-	printf("offset of (stuct Unsorted_t, boolVar6) is %lu\n", offsetof(Unsorted_t, boolVar6));
-	printf("offset of (stuct Unsorted_t, stringVar1) is %lu\n", offsetof(Unsorted_t, stringVar1));
+	FXDataStructOffsetOfPrint(Unsorted_t, shortVar1);
+	FXDataStructOffsetOfPrint(Unsorted_t, shortVar2);
+	FXDataStructOffsetOfPrint(Unsorted_t, intVar1);
+	FXDataStructOffsetOfPrint(Unsorted_t, shortVar3);
+	FXDataStructOffsetOfPrint(Unsorted_t, longVar1);
+	FXDataStructOffsetOfPrint(Unsorted_t, longlongVar1);
+	FXDataStructOffsetOfPrint(Unsorted_t, floatVar1);
+	FXDataStructOffsetOfPrint(Unsorted_t, boolVar1);
+	FXDataStructOffsetOfPrint(Unsorted_t, boolVar2);
+	FXDataStructOffsetOfPrint(Unsorted_t, boolVar3);
+	FXDataStructOffsetOfPrint(Unsorted_t, boolVar4);
+	FXDataStructOffsetOfPrint(Unsorted_t, boolVar5);
+	FXDataStructOffsetOfPrint(Unsorted_t, doubleVar1);
+	FXDataStructOffsetOfPrint(Unsorted_t, boolVar6);
+	FXDataStructOffsetOfPrint(Unsorted_t, stringVar1);
+
+/*	Sorted_Union_t *a = NULL;
+	a = malloc(sizeof(Sorted_Union_t));
+	float b = 0.1f;
+	a->floatVar1 = b;
+	a->longVar1 = (long)b;
+	a->boolVar1 = true;
+	a->boolVar5 = true;
+	free(a);	*/
 }

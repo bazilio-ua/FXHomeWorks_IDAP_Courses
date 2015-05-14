@@ -7,7 +7,6 @@
 //
 
 #include <stdio.h>
-#include <stdbool.h>
 
 #include "FXBitOutput.h"
 
@@ -18,7 +17,7 @@ static const unsigned char kFXBitCount = 8; // size of byte
 static const unsigned char kFXByteMask = 1 << (kFXBitCount - 1); // 128
 
 static
-bool FXisLittleEndian(void);
+FXByteOrder FXDetectByteOrder(void);
 
 #pragma mark -
 #pragma mark Public Implementation
@@ -32,41 +31,59 @@ void FXByteValueOutput(char *byteAddress) {
     }
 }
 
-void FXBitFieldValueOutput(void *byteAddress, size_t size) { // *void is for various types (universal method)
-	printf("{");
-	char *bitfieldAddress = (char *)byteAddress + size - 1; // cast out types to *char
-	for (unsigned short index = 0; index < size; index++) {
-		FXByteValueOutput(bitfieldAddress);
-		bitfieldAddress--;
-		printf(", ");
-	}
-	printf("}");
-}
-
-void FXBitFieldValueOutputRev(void *byteAddress, size_t size) { // *void is for various types (universal method)
-	printf("{");
-//	char *bitfieldAddress = (char *)byteAddress + size - 1; // cast out types to *char
+void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setOrder) {
+	FXByteOrder detectedOrder = FXDetectByteOrder();
 	
-	for (unsigned short index = 0; index < size; index++) {
-		char byte = ((char *)byteAddress)[index];
-		
-		FXByteValueOutput(&byte);		
-//		FXByteValueOutput(bitfieldAddress);
-//		bitfieldAddress--;
-		printf(", ");
+	if (detectedOrder == kFXLittleEndian) {
+		printf("Little-endian byte order\n");
+		printf("{");
+		for (unsigned short index = size; index > 0; index--) {
+			FXByteValueOutput(&((char *)byteAddress)[index - 1]);
+			if (index != 1) {
+				printf(", ");
+			}
+		}
+		printf("}");
+	} else if (detectedOrder == kFXBigEndian) {
+		printf("Big-endian byte order\n");
+		printf("{");
+		for (unsigned short index = 0; index < size; index++) {
+			FXByteValueOutput(&((char *)byteAddress)[index]);
+			if (index != size - 1) {
+				printf(", ");
+			}
+		}
+		printf("}");
+	} else {
+		printf("Unsupported byte order\n");
 	}
-	printf("}");
 }
-
 
 #pragma mark -
 #pragma mark Private Implementation
 
-bool FXisLittleEndian(void) {
-	unsigned short byteorder = 1; /* 0x0001 */
-	if ( *((unsigned char *) &byteorder) == 1 ) {
-		return true;
+FXByteOrder FXDetectByteOrder(void) {
+	unsigned int byteOrder = 0x12345678;
+                             /* U N I X */
+
+/*
+LE  order: 78 56 34 12
+            X  I  N  U
+
+PDP order: 34 12 78 56
+            N  U  X  I
+
+BE  order: 12 34 56 78
+            U  N  I  X
+*/
+
+	if ( *(char *)&byteOrder == 0x78 ) {
+		return kFXLittleEndian;
+	} else if ( *(char *)&byteOrder == 0x34 ) {
+		return kFXPDPEndian;
+	} else if ( *(char *)&byteOrder == 0x12 ) {
+		return kFXBigEndian;
 	} else {
-		return false;
+		return kFXUnknownEndian;
 	}
 }

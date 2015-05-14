@@ -39,14 +39,11 @@ void FXByteOutputTests(void) {
 }
 
 void FXBitFieldOutputTests(void) {
-	int testValue = 127;
-//	char *testValue[] = {"u","n","i","x"};
+//	int testValue = 2147483647; // max int
+	int testValue = 1;
+	FXByteOrder order = kFXLittleEndian;
 	
 	printf("testValue\n");
-	FXBitFieldValueOutput(&testValue, sizeof(testValue));
-	printf("\n");
-	
-	printf("rev. testValue\n");
-	FXBitFieldValueOutputRev(&testValue, sizeof(testValue));
+	FXBitFieldValueOutput(&testValue, sizeof(testValue), order);
 	printf("\n");
 }

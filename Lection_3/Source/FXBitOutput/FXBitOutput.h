@@ -9,13 +9,17 @@
 #ifndef FXHomeWorks_FXBitOutput_h
 #define FXHomeWorks_FXBitOutput_h
 
+typedef enum {
+	kFXUnknownEndian,
+	kFXLittleEndian,
+	kFXPDPEndian, // aka Middle-endian
+	kFXBigEndian
+} FXByteOrder;
+
 extern
 void FXByteValueOutput(char *byteAddress);
 
 extern
-void FXBitFieldValueOutput(void *byteAddress, size_t size);
-
-extern
-void FXBitFieldValueOutputRev(void *byteAddress, size_t size);
+void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setOrder);
 
 #endif

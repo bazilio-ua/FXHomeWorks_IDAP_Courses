@@ -66,13 +66,4 @@ void FXDataStructOffsetOfOutputTests(void) {
 	FXDataStructOffsetOfPrint(Unsorted_t, doubleVar1);
 	FXDataStructOffsetOfPrint(Unsorted_t, boolVar6);
 	FXDataStructOffsetOfPrint(Unsorted_t, stringVar1);
-
-/*	Sorted_Union_t *a = NULL;
-	a = malloc(sizeof(Sorted_Union_t));
-	float b = 0.1f;
-	a->floatVar1 = b;
-	a->longVar1 = (long)b;
-	a->boolVar1 = true;
-	a->boolVar5 = true;
-	free(a);	*/
 }

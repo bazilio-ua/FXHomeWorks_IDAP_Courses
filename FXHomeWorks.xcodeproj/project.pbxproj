@@ -11,6 +11,8 @@
 		4237150C1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150D1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150E1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
+		423715361B0747BE000A4877 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715341B0747BE000A4877 /* main.c */; };
+		423715381B07481E000A4877 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		426948191AFAA34A00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948151AFAA33A00974906 /* main.c */; };
 		426948251AFAA3A900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948231AFAA3A900974906 /* main.c */; };
@@ -53,6 +55,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		423715251B074733000A4877 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		42B474691AFAA1EB00AD71F0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -70,6 +81,10 @@
 		4214E91C1AFA9E1A00D0E018 /* Lection_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_3; sourceTree = BUILT_PRODUCTS_DIR; };
 		423715091B070D3B000A4877 /* FXTestsMacro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXTestsMacro.c; sourceTree = "<group>"; };
 		4237150A1B070D3B000A4877 /* FXTestsMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTestsMacro.h; sourceTree = "<group>"; };
+		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
+		423715341B0747BE000A4877 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		423715371B07481E000A4877 /* FXObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXObject.c; sourceTree = "<group>"; };
+		423715391B07482B000A4877 /* FXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObject.h; sourceTree = "<group>"; };
 		42617EE21AFF49430019934C /* FXPrimitiveOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputType.h; sourceTree = "<group>"; };
 		42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXPrimitiveOutputTypeTests.c; sourceTree = "<group>"; };
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
@@ -117,6 +132,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		423715241B074733000A4877 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42B474681AFAA1EB00AD71F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,6 +157,7 @@
 				4214E9041AFA9C3C00D0E018 /* Lection_2 */,
 				4214E91E1AFA9E1A00D0E018 /* Lection_3 */,
 				42B4746D1AFAA1EB00AD71F0 /* Lection_4 */,
+				423715291B074733000A4877 /* FXObjects */,
 				4214E8F21AFA9BF100D0E018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -146,6 +169,7 @@
 				4214E9021AFA9C3C00D0E018 /* Lection_2 */,
 				4214E91C1AFA9E1A00D0E018 /* Lection_3 */,
 				42B4746B1AFAA1EB00AD71F0 /* Lection_4 */,
+				423715271B074733000A4877 /* FXObjects */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +219,40 @@
 				4237150A1B070D3B000A4877 /* FXTestsMacro.h */,
 			);
 			path = FXTestsMacro;
+			sourceTree = "<group>";
+		};
+		423715291B074733000A4877 /* FXObjects */ = {
+			isa = PBXGroup;
+			children = (
+				423715321B0747BE000A4877 /* Source */,
+				423715351B0747BE000A4877 /* Tests */,
+			);
+			path = FXObjects;
+			sourceTree = "<group>";
+		};
+		423715321B0747BE000A4877 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				423715331B0747BE000A4877 /* FXObject */,
+				423715341B0747BE000A4877 /* main.c */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		423715331B0747BE000A4877 /* FXObject */ = {
+			isa = PBXGroup;
+			children = (
+				423715371B07481E000A4877 /* FXObject.c */,
+				423715391B07482B000A4877 /* FXObject.h */,
+			);
+			path = FXObject;
+			sourceTree = "<group>";
+		};
+		423715351B0747BE000A4877 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		42617EE01AFF49430019934C /* FXPrimitiveOutputType */ = {
@@ -424,6 +482,23 @@
 			productReference = 4214E91C1AFA9E1A00D0E018 /* Lection_3 */;
 			productType = "com.apple.product-type.tool";
 		};
+		423715261B074733000A4877 /* FXObjects */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 423715301B074733000A4877 /* Build configuration list for PBXNativeTarget "FXObjects" */;
+			buildPhases = (
+				423715231B074733000A4877 /* Sources */,
+				423715241B074733000A4877 /* Frameworks */,
+				423715251B074733000A4877 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXObjects;
+			productName = FXObjects;
+			productReference = 423715271B074733000A4877 /* FXObjects */;
+			productType = "com.apple.product-type.tool";
+		};
 		42B4746A1AFAA1EB00AD71F0 /* Lection_4 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B474721AFAA1EB00AD71F0 /* Build configuration list for PBXNativeTarget "Lection_4" */;
@@ -465,6 +540,7 @@
 				4214E9011AFA9C3C00D0E018 /* Lection_2 */,
 				4214E91B1AFA9E1A00D0E018 /* Lection_3 */,
 				42B4746A1AFAA1EB00AD71F0 /* Lection_4 */,
+				423715261B074733000A4877 /* FXObjects */,
 			);
 		};
 /* End PBXProject section */
@@ -502,6 +578,15 @@
 				426CDA8B1B012D120002B2EF /* FXBitOutput.c in Sources */,
 				426CDA8F1B012D3E0002B2EF /* FXBitOutputTests.c in Sources */,
 				4237150D1B070D3B000A4877 /* FXTestsMacro.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		423715231B074733000A4877 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				423715361B0747BE000A4877 /* main.c in Sources */,
+				423715381B07481E000A4877 /* FXObject.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +689,20 @@
 			};
 			name = Release;
 		};
+		4237152E1B074733000A4877 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4237152F1B074733000A4877 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		42B474731AFAA1EB00AD71F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -656,6 +755,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		423715301B074733000A4877 /* Build configuration list for PBXNativeTarget "FXObjects" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4237152E1B074733000A4877 /* Debug */,
+				4237152F1B074733000A4877 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		42B474721AFAA1EB00AD71F0 /* Build configuration list for PBXNativeTarget "Lection_4" */ = {
 			isa = XCConfigurationList;

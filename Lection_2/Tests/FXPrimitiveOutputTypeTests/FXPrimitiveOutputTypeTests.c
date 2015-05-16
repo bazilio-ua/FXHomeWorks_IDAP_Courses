@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 
+#include "FXTestsMacro.h"
+
 #include "FXPrimitiveOutputTypeTests.h"
 #include "FXPrimitiveOutputType.h"
 
@@ -29,8 +31,8 @@ void FXPrimitiveOutputTypeMacroTests(void);
 #pragma mark Public Implementation
 
 void FXPrimitiveOutputTypeTest(void) {
-	FXPrimitiveOutputTypeMethodTests();
-	FXPrimitiveOutputTypeMacroTests();
+	performTest(FXPrimitiveOutputTypeMethodTests);
+	performTest(FXPrimitiveOutputTypeMacroTests);
 }
 
 #pragma mark -

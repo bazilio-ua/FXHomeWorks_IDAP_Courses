@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 
+#include "FXTestsMacro.h"
+
 #include "FXBitOutputTests.h"
 #include "FXBitOutput.h"
 
@@ -24,8 +26,8 @@ void FXBitFieldOutputTests(void);
 #pragma mark Public Implementation
 
 void FXBitOutputTests(void) {
-	FXByteOutputTests();
-	FXBitFieldOutputTests();
+	performTest(FXByteOutputTests);
+	performTest(FXBitFieldOutputTests);
 }
 
 #pragma mark -

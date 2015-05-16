@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 
+#include "FXTestsMacro.h"
+
 #include "FXParentOutputTests.h"
 #include "FXParentOutput.h"
 
@@ -30,8 +32,8 @@ void FXParentGetTypeValueTests(int value);
 #pragma mark Public Implementations
 
 void FXParentOutputTests(void) {
-	FXParentGetTypeTests();
-	FXParentOutputIteratedTests();
+	performTest(FXParentGetTypeTests);
+	performTest(FXParentOutputIteratedTests);
 }
 
 #pragma mark -

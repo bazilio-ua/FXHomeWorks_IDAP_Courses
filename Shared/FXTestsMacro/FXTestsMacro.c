@@ -13,7 +13,7 @@
 #pragma mark -
 #pragma mark Private Declarations
 
-static unsigned char kFXTestLevel = 0;
+static unsigned char kFXTestLevelCount = 0;
 
 void FXPerformTestPrintMinusCountOfLevel(unsigned char count);
 
@@ -21,11 +21,11 @@ void FXPerformTestPrintMinusCountOfLevel(unsigned char count);
 #pragma mark Public Implementation
 
 void _FXPerformTestPrintHeader(void) {
-	FXPerformTestPrintMinusCountOfLevel(++kFXTestLevel);
+	FXPerformTestPrintMinusCountOfLevel(++kFXTestLevelCount);
 }
 
 void _FXPerformTestPrintFooter(void) {
-	FXPerformTestPrintMinusCountOfLevel(kFXTestLevel--);
+	FXPerformTestPrintMinusCountOfLevel(kFXTestLevelCount--);
 }
 
 #pragma mark -

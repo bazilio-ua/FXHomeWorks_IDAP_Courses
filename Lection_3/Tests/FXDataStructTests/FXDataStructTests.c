@@ -8,7 +8,8 @@
 
 #include <stdio.h>
 #include <stddef.h> // for offsetof
-//#include <stdlib.h>
+
+#include "FXTestsMacro.h"
 
 #include "FXDataStructTests.h"
 #include "FXDataStruct.h"
@@ -31,8 +32,8 @@ void FXDataStructOffsetOfOutputTests(void);
 #pragma mark Public Implementation
 
 void FXDataStructTests(void) {
-	FXDataStructSizeOutputTests();
-	FXDataStructOffsetOfOutputTests();
+	performTest(FXDataStructSizeOutputTests);
+	performTest(FXDataStructOffsetOfOutputTests);
 }
 
 #pragma mark -

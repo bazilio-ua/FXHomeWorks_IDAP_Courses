@@ -12,7 +12,7 @@
 
 int main(int argc, const char *argv[]) {
 	// insert code here...
-	printf("Lection 4 homework\n");
+	printf("Lection 4 homework.. this part is done in Lection 3\n");
 	
 	return 0;
 }

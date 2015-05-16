@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include "FXTestsMacro.h"
-
 #include "FXPrimitiveOutputType.h"
 #include "FXPrimitiveOutputTypeTests.h"
 

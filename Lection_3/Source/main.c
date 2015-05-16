@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include "FXTestsMacro.h"
-
 #include "FXDataStruct.h"
 #include "FXDataStructTests.h"
 #include "FXBitOutput.h"

@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include "FXTestsMacro.h"
-
 #include "FXParentOutputTests.h"
 #include "FXParentOutput.h"
 

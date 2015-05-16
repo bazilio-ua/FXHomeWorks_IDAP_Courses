@@ -40,10 +40,10 @@ void FXByteOutputTests(void) {
 
 void FXBitFieldOutputTests(void) {
 //	int testValue = 2147483647; // max int
-	int testValue = 1;
+	int testValue = 65535;
 	FXByteOrder order = kFXLittleEndian;
 	
-	printf("testValue\n");
+	printf("testValue: type (int), value: %d\n", testValue);
 	FXBitFieldValueOutput(&testValue, sizeof(testValue), order);
 	printf("\n");
 }

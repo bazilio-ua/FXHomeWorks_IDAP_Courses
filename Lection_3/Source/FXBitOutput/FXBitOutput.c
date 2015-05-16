@@ -31,11 +31,24 @@ void FXByteValueOutput(char *byteAddress) {
     }
 }
 
-void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setOrder) {
-	FXByteOrder detectedOrder = FXDetectByteOrder();
+void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setByteOrder) {
+	FXByteOrder detectedByteOrder = FXDetectByteOrder();
+	FXByteOrder usingByteOrder;
+	if (setByteOrder == kFXLittleEndian || setByteOrder == kFXBigEndian) {
+		if (setByteOrder == detectedByteOrder) {
+			printf("Using detected byte order\n");
+			usingByteOrder = detectedByteOrder;
+		} else {
+			printf("Override detected byte order\n");
+			usingByteOrder = setByteOrder;
+		}
+	} else {
+		printf("Set unsupported byte order -- using detected\n");
+		usingByteOrder = detectedByteOrder;
+	}
 	
-	if (detectedOrder == kFXLittleEndian) {
-		printf("Little-endian byte order\n");
+	if (usingByteOrder == kFXLittleEndian) {
+		printf("Using Little-endian byte order\n");
 		printf("{");
 		for (unsigned short index = size; index > 0; index--) {
 			FXByteValueOutput(&((char *)byteAddress)[index - 1]);
@@ -44,8 +57,8 @@ void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setOrder)
 			}
 		}
 		printf("}");
-	} else if (detectedOrder == kFXBigEndian) {
-		printf("Big-endian byte order\n");
+	} else if (usingByteOrder == kFXBigEndian) {
+		printf("Using Big-endian byte order\n");
 		printf("{");
 		for (unsigned short index = 0; index < size; index++) {
 			FXByteValueOutput(&((char *)byteAddress)[index]);

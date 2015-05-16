@@ -20,7 +20,7 @@
 
 int main(int argc, const char *argv[]) {
 	// insert code here...
-	printf("Lection 3 homework\n");
+	printf("Lection 3 and 4 homework\n");
 	
 	performTests(FXDataStructTests); // part 1
 	performTests(FXBitOutputTests); // part 2

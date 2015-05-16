@@ -20,6 +20,6 @@ extern
 void FXByteValueOutput(char *byteAddress);
 
 extern
-void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setOrder);
+void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setByteOrder);
 
 #endif

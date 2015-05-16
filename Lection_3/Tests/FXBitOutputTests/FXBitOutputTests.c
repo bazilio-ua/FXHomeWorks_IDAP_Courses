@@ -34,8 +34,9 @@ void FXBitOutputTests(void) {
 #pragma mark Private Implementation
 
 void FXByteOutputTests(void) {
-	char testValue = 255;
+	char testValue = 127;
 	
+	printf("testValue: type (char), value: %d\n", testValue);
 	FXByteValueOutput(&testValue); // take address of testValue
 	printf(".\n");
 }

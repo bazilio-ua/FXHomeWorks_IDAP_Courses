@@ -7,3 +7,53 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
+
+#include "FXObject.h"
+
+#pragma mark -
+#pragma mark Public Implementation
+
+void *__FXObjectCreate(size_t objectSize, FXObjectDeallocatorCallback deallocateCallback) {
+	assert(objectSize != 0); // sanity size
+	
+	FXObject *object = calloc(1, objectSize);
+	
+	assert(object != NULL); // sanity object alloc
+	
+	object->_referenceCount = 1;
+	object->_deallocator = deallocateCallback;
+	
+	return object;
+}
+
+void *FXObjectRetain(void *object) {
+	if (object != NULL) {
+		((FXObject *)object)->_referenceCount++;
+	}
+	
+	return object;
+}
+
+void FXObjectRelease(void *object) {
+	if (object != NULL) {
+		unsigned long long count = ((FXObject *)object)->_referenceCount - 1;
+		((FXObject *)object)->_referenceCount = count;
+		
+		if (count == 0) {
+			((FXObject *)object)->_deallocator(object); // call dealloc if our obj is not used by anyone
+		}
+	}
+}
+
+unsigned long long FXObjectGetReferenceCount(void *object) {
+	if (object != NULL) {
+		return ((FXObject *)object)->_referenceCount;
+	} else {
+		return 0;
+	}
+}
+
+void __FXObjectDeallocate(void *object) {
+	free(object);
+}

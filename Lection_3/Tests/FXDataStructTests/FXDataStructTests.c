@@ -10,7 +10,6 @@
 #include <stddef.h> // for offsetof
 
 #include "FXTestsMacro.h"
-
 #include "FXDataStructTests.h"
 #include "FXDataStruct.h"
 

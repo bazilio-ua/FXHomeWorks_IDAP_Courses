@@ -13,6 +13,8 @@
 		4237150E1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		423715361B0747BE000A4877 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715341B0747BE000A4877 /* main.c */; };
 		423715381B07481E000A4877 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
+		4237153C1B0753AA000A4877 /* FXObjectTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4237153B1B0753AA000A4877 /* FXObjectTests.c */; };
+		4237153E1B07568E000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		426948191AFAA34A00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948151AFAA33A00974906 /* main.c */; };
 		426948251AFAA3A900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948231AFAA3A900974906 /* main.c */; };
@@ -85,6 +87,8 @@
 		423715341B0747BE000A4877 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		423715371B07481E000A4877 /* FXObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXObject.c; sourceTree = "<group>"; };
 		423715391B07482B000A4877 /* FXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObject.h; sourceTree = "<group>"; };
+		4237153B1B0753AA000A4877 /* FXObjectTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXObjectTests.c; sourceTree = "<group>"; };
+		4237153D1B0753B7000A4877 /* FXObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObjectTests.h; sourceTree = "<group>"; };
 		42617EE21AFF49430019934C /* FXPrimitiveOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputType.h; sourceTree = "<group>"; };
 		42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXPrimitiveOutputTypeTests.c; sourceTree = "<group>"; };
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
@@ -251,8 +255,18 @@
 		423715351B0747BE000A4877 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4237153A1B07538B000A4877 /* FXObjectTests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		4237153A1B07538B000A4877 /* FXObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				4237153B1B0753AA000A4877 /* FXObjectTests.c */,
+				4237153D1B0753B7000A4877 /* FXObjectTests.h */,
+			);
+			path = FXObjectTests;
 			sourceTree = "<group>";
 		};
 		42617EE01AFF49430019934C /* FXPrimitiveOutputType */ = {
@@ -587,6 +601,8 @@
 			files = (
 				423715361B0747BE000A4877 /* main.c in Sources */,
 				423715381B07481E000A4877 /* FXObject.c in Sources */,
+				4237153C1B0753AA000A4877 /* FXObjectTests.c in Sources */,
+				4237153E1B07568E000A4877 /* FXTestsMacro.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

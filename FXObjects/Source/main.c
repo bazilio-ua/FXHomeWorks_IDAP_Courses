@@ -8,9 +8,14 @@
 
 #include <stdio.h>
 
+#include "FXTestsMacro.h"
+#include "FXObjectTests.h"
+
 int main(int argc, const char *argv[]) {
 	// insert code here...
 	printf("Objects in C!\n");
+	
+	performTest(FXObjectTests);
 	
 	return 0;
 }

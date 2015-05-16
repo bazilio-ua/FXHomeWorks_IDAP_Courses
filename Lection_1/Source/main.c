@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include "FXTestsMacro.h"
-
 #include "FXParentOutput.h"
 #include "FXSizeOfTypeOutput.h"
 #include "FXParentOutputTests.h"

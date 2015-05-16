@@ -8,10 +8,7 @@
 
 #include <stdio.h>
 
-#define performTests(testName) \
-	printf(#testName " started...\n"); \
-	testName(); \
-	printf(#testName " ...finished\n");
+#include "FXTestsMacro.h"
 
 int main(int argc, const char *argv[]) {
 	// insert code here...

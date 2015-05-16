@@ -8,22 +8,19 @@
 
 #include <stdio.h>
 
+#include "FXTestsMacro.h"
+
 #include "FXParentOutput.h"
 #include "FXSizeOfTypeOutput.h"
 #include "FXParentOutputTests.h"
 #include "FXSizeOfTypeOutputTests.h"
 
-#define performTests(testName) \
-	printf(#testName " started...\n"); \
-	testName(); \
-	printf(#testName " ...finished\n");
-
 int main(int argc, const char *argv[]) {
 	// insert code here...
 	printf("Lection 1 homework\n");
 	
-	performTests(FXSizeOfTypeOutputTests); // part 1
-	performTests(FXParentOutputTests); // part 2
+	performTest(FXSizeOfTypeOutputTests); // part 1
+	performTest(FXParentOutputTests); // part 2
 	
 	return 0;
 }

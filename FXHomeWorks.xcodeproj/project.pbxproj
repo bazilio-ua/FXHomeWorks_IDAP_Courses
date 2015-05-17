@@ -30,6 +30,7 @@
 		42D78C6A1B08ADD20036BA48 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D78C671B08AD910036BA48 /* main.c */; };
 		42D78C6B1B08ADF90036BA48 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		42D78C6C1B08AE160036BA48 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
+		42D78C6E1B08AF900036BA48 /* FXHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D78C6D1B08AF900036BA48 /* FXHuman.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,6 +127,8 @@
 		42CE1C431AFE90060092C406 /* FXSizeOfTypeOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSizeOfTypeOutputTests.h; sourceTree = "<group>"; };
 		42D78C5A1B08AD290036BA48 /* FXHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXHuman; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D78C671B08AD910036BA48 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		42D78C6D1B08AF900036BA48 /* FXHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHuman.c; sourceTree = "<group>"; };
+		42D78C6F1B08AFA00036BA48 /* FXHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHuman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,6 +489,8 @@
 		42D78C661B08AD910036BA48 /* FXHuman */ = {
 			isa = PBXGroup;
 			children = (
+				42D78C6D1B08AF900036BA48 /* FXHuman.c */,
+				42D78C6F1B08AFA00036BA48 /* FXHuman.h */,
 			);
 			path = FXHuman;
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				42D78C6A1B08ADD20036BA48 /* main.c in Sources */,
 				42D78C6B1B08ADF90036BA48 /* FXTestsMacro.c in Sources */,
 				42D78C6C1B08AE160036BA48 /* FXObject.c in Sources */,
+				42D78C6E1B08AF900036BA48 /* FXHuman.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

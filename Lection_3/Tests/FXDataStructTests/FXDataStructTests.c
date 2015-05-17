@@ -12,6 +12,7 @@
 #include "FXTestsMacro.h"
 #include "FXDataStructTests.h"
 #include "FXDataStruct.h"
+#include "FXHuman.h"
 
 #pragma mark -
 #pragma mark Private Declaration
@@ -43,6 +44,8 @@ void FXDataStructSizeOutputTests(void) {
 	printf("\tUnsorted - %lu bytes\n", sizeof( Unsorted_t ));
 	printf("\tSorted - %lu bytes\n", sizeof( Sorted_t ));
 	printf("\tSorted with Union - %lu bytes\n", sizeof( Sorted_Union_t ));
+	
+	printf("FXHuman struct has size: %lu bytes\n", sizeof(FXHuman));
 
 	printf("\tsizeof Sorted_Union_t->intVar1 - %lu bytes\n", sizeof( ((Sorted_Union_t *)0)->intVar1 )); // take size by address ptr
 	printf("\tsizeof Sorted_Union_t.intVar1 - %lu bytes\n", sizeof( ((Sorted_Union_t){0}).intVar1 )); // take size by variable
@@ -65,4 +68,19 @@ void FXDataStructOffsetOfOutputTests(void) {
 	FXDataStructOffsetOfPrint(Unsorted_t, doubleVar1);
 	FXDataStructOffsetOfPrint(Unsorted_t, boolVar6);
 	FXDataStructOffsetOfPrint(Unsorted_t, stringVar1);
+
+	// Testing a Human
+	printf("\n");
+	
+	FXDataStructOffsetOfPrint(FXHuman, _super);
+	FXDataStructOffsetOfPrint(FXHuman, _gender);
+	FXDataStructOffsetOfPrint(FXHuman, _name);
+	FXDataStructOffsetOfPrint(FXHuman, _age);
+	FXDataStructOffsetOfPrint(FXHuman, _isAlive);
+	FXDataStructOffsetOfPrint(FXHuman, _isMarried);
+	FXDataStructOffsetOfPrint(FXHuman, _mother);
+	FXDataStructOffsetOfPrint(FXHuman, _father);
+	FXDataStructOffsetOfPrint(FXHuman, _spouse);
+	FXDataStructOffsetOfPrint(FXHuman, _friends);
+	FXDataStructOffsetOfPrint(FXHuman, _children);
 }

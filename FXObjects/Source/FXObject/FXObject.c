@@ -39,7 +39,6 @@ void FXObjectRelease(void *object) {
 	if (object != NULL) {
 		unsigned long long count = ((FXObject *)object)->_referenceCount - 1;
 		((FXObject *)object)->_referenceCount = count;
-		
 		if (count == 0) {
 			((FXObject *)object)->_deallocator(object); // call dealloc if our obj is not used by anyone
 		}

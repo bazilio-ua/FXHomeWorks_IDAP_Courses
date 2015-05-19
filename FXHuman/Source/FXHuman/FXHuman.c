@@ -8,12 +8,74 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 #include "FXHuman.h"
 
-FXHuman *FXHumanCreate(char *name, FXHumanGender gender) {
+#pragma mark -
+#pragma mark Private Declaration
+
+static const int kFXMaxNameLength = 64;
+static const int kFXMaxChildrenCount = 20;
+
+struct FXHuman {
+	FXObject _super; // inheritance from FXObject
+	
+	char _name[kFXMaxNameLength];
+	FXHumanGender _gender;
+	int _age;
+	
+	FXHuman *_mother;
+	FXHuman *_father;
+	FXHuman *_spouse;
+	
+	FXHuman *_children[kFXMaxChildrenCount];
+	int _childrenCount;
+};
+
+static
+void FXHumanSetName(FXHuman *human, char *name);
+
+static
+char *FXHumanGetName(FXHuman *human);
+
+static
+void FXHumanSetAge(FXHuman *human, int age);
+
+static
+int FXHumanGetAge(FXHuman *human);
+
+static
+void FXHumanSetGender(FXHuman *human, FXHumanGender gender);
+
+static
+FXHumanGender FXHumanGetGender(FXHuman *human);
+
+// spouse
+static
+void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
+
+static
+FXHuman *FXHumanGetSpouse(FXHuman *human);
+
+// parents
+static
+void FXHumanSetMother(FXHuman *human, FXHuman *mother);
+
+static
+FXHuman *FXHumanGetMother(FXHuman *human);
+
+static
+void FXHumanSetFather(FXHuman *human, FXHuman *father);
+
+static
+FXHuman *FXHumanGetFather(FXHuman *human);
+
+#pragma mark -
+#pragma mark Public Methods Implementation
+
+FXHuman *FXHumanCreateWithParameters(char *name, FXHumanGender gender) {
 	FXHuman *human = FXObjectCreateOfType(FXHuman);
-	assert(NULL != human); // sanity
 	
 	FXHumanSetName(human, name);
 	FXHumanSetGender(human, gender);
@@ -30,12 +92,29 @@ void __FXHumanDeallocate(FXHuman *human) {
 	__FXObjectDeallocate(human);
 }
 
-void FXHumanRelease(FXHuman *human) {
+// marriage
+void FXHumanMarriage(FXHuman *human, FXHuman *spouse) {
 }
+
+// divorce
+void FXHumanDivorce(FXHuman *human) {
+}
+
+// children
+FXHuman *FXHumanCreateChild(FXHuman *human) {
+	return NULL;
+}
+
+int FXHumanGetChildrenCount(FXHuman *human) {
+	return 0;
+}
+
+#pragma mark -
+#pragma mark Private Accessors Implementation
 
 void FXHumanSetName(FXHuman *human, char *name) {
 	if (NULL != human) {
-		human->_name = name;
+		strncpy(human->_name, name, sizeof(human->_name));
 	}
 }
 
@@ -69,33 +148,7 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 	if (NULL != human) {
 		return human->_gender;
 	}
-	return kFXHumanGenderUndefined;
-}
-
-void FXHumanSetIsAlive(FXHuman *human, bool alive) {
-	if (NULL != human) {
-		human->_isAlive = alive;
-	}
-}
-
-bool FXHumanGetIsAlive(FXHuman *human) {
-	if (NULL != human) {
-		return human->_isAlive;
-	}
-	return false;
-}
-
-void FXHumanSetMaritalStatus(FXHuman *human, FXHumanMaritalStatus status) {
-	if (NULL != human) {
-		human->_maritalStatus = status;
-	}
-}
-
-FXHumanMaritalStatus FXHumanGetMaritalStatus(FXHuman *human) {
-	if (NULL != human) {
-		return human->_maritalStatus;
-	}
-	return kFXumanStatusUndefined;
+	return 0;
 }
 
 // spouse
@@ -139,20 +192,3 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 	return NULL;
 }
 
-// children
-FXHuman *FXHumanCreateChild(FXHuman *human, FXHuman *spouse) {
-	return NULL;
-}
-
-int FXHumanGetChildrenCount(FXHuman *human) {
-	return 0;
-}
-
-// friends
-FXHuman *FXHumanAddFriend(FXHuman *human, FXHuman *newFriend) {
-	return NULL;
-}
-
-int FXHumanGetFriendsCount(FXHuman *human) {
-	return 0;
-}

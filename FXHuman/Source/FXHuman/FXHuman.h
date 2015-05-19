@@ -19,108 +19,25 @@ typedef enum {
 	kFXHumanGenderFemale
 } FXHumanGender;
 
-typedef enum {
-	kFXumanStatusUndefined,
-	kFXumanStatusSingle,
-	kFXumanStatusMarried,
-	kFXumanStatusDivorced
-} FXHumanMaritalStatus;
-
 typedef struct FXHuman FXHuman;
 
-struct FXHuman {
-	FXObject _super; // inheritance from FXObject
-	
-	char *_name;
-	FXHumanGender _gender;
-	int _age;
-	
-	bool _isAlive;
-	FXHumanMaritalStatus _maritalStatus;
-	
-	FXHuman *_mother;
-	FXHuman *_father;
-	FXHuman *_spouse;
-//	FXHuman **_children;
-//	FXHuman **_friends;
-	FXHuman *_children[20];
-	FXHuman *_friends[20];
-};
-
-#pragma mark -
-#pragma mark Public Accessors
-
 extern
-FXHuman *FXHumanCreate(char *name, FXHumanGender gender);
+FXHuman *FXHumanCreateWithParameters(char *name, FXHumanGender gender);
 
 extern
 void __FXHumanDeallocate(FXHuman *human);
 
-extern
-void FXHumanRelease(FXHuman *human);
+// marriage
+void FXHumanMarriage(FXHuman *human, FXHuman *spouse);
 
-extern
-void FXHumanSetName(FXHuman *human, char *name);
-
-extern
-char *FXHumanGetName(FXHuman *human);
-
-extern
-void FXHumanSetAge(FXHuman *human, int age);
-
-extern
-int FXHumanGetAge(FXHuman *human);
-
-extern
-void FXHumanSetGender(FXHuman *human, FXHumanGender gender);
-
-extern
-FXHumanGender FXHumanGetGender(FXHuman *human);
-
-extern
-void FXHumanSetIsAlive(FXHuman *human, bool alive);
-
-extern
-bool FXHumanGetIsAlive(FXHuman *human);
-
-extern
-void FXHumanSetMaritalStatus(FXHuman *human, FXHumanMaritalStatus status);
-
-extern
-FXHumanMaritalStatus FXHumanGetMaritalStatus(FXHuman *human);
-
-// spouse
-extern
-void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
-
-extern
-FXHuman *FXHumanGetSpouse(FXHuman *human);
-
-// parents
-extern
-void FXHumanSetMother(FXHuman *human, FXHuman *mother);
-
-extern
-FXHuman *FXHumanGetMother(FXHuman *human);
-
-extern
-void FXHumanSetFather(FXHuman *human, FXHuman *father);
-
-extern
-FXHuman *FXHumanGetFather(FXHuman *human);
+// divorce
+void FXHumanDivorce(FXHuman *human);
 
 // children
 extern
-FXHuman *FXHumanCreateChild(FXHuman *human, FXHuman *spouse);
+FXHuman *FXHumanCreateChild(FXHuman *human);
 
 extern
 int FXHumanGetChildrenCount(FXHuman *human);
-
-// friends
-extern
-FXHuman *FXHumanAddFriend(FXHuman *human, FXHuman *newFriend);
-
-extern
-int FXHumanGetFriendsCount(FXHuman *human);
 
 #endif

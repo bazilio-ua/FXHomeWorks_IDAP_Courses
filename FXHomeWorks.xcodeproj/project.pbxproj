@@ -22,6 +22,7 @@
 		4269482D1AFAA3CA00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4269482B1AFAA3CA00974906 /* main.c */; };
 		426CDA8B1B012D120002B2EF /* FXBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA891B012D120002B2EF /* FXBitOutput.c */; };
 		426CDA8F1B012D3E0002B2EF /* FXBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA8D1B012D3E0002B2EF /* FXBitOutputTests.c */; };
+		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
 		42A6B7B21AFFCFD3004D43C6 /* FXDataStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */; };
 		42CE1C221AFE45710092C406 /* FXParentOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 42CE1C1D1AFE45710092C406 /* FXParentOutput.c */; };
@@ -113,6 +114,8 @@
 		426CDA8A1B012D120002B2EF /* FXBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBitOutput.h; sourceTree = "<group>"; };
 		426CDA8D1B012D3E0002B2EF /* FXBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXBitOutputTests.c; sourceTree = "<group>"; };
 		426CDA8E1B012D3E0002B2EF /* FXBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBitOutputTests.h; sourceTree = "<group>"; };
+		429172BA1B0E609100FB9860 /* FXHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHumanTests.c; sourceTree = "<group>"; };
+		429172BC1B0E609F00FB9860 /* FXHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHumanTests.h; sourceTree = "<group>"; };
 		42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStruct.c; sourceTree = "<group>"; };
 		42A6B7AA1AFFC980004D43C6 /* FXDataStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataStruct.h; sourceTree = "<group>"; };
 		42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStructTests.c; sourceTree = "<group>"; };
@@ -406,6 +409,15 @@
 			path = FXBitOutputTests;
 			sourceTree = "<group>";
 		};
+		429172B81B0E606F00FB9860 /* FXHumanTests */ = {
+			isa = PBXGroup;
+			children = (
+				429172BA1B0E609100FB9860 /* FXHumanTests.c */,
+				429172BC1B0E609F00FB9860 /* FXHumanTests.h */,
+			);
+			path = FXHumanTests;
+			sourceTree = "<group>";
+		};
 		42A6B7A81AFFC980004D43C6 /* FXDataStruct */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +510,7 @@
 		42D78C681B08AD910036BA48 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				429172B81B0E606F00FB9860 /* FXHumanTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -701,6 +714,7 @@
 				42D78C6B1B08ADF90036BA48 /* FXTestsMacro.c in Sources */,
 				42D78C6C1B08AE160036BA48 /* FXObject.c in Sources */,
 				42D78C6E1B08AF900036BA48 /* FXHuman.c in Sources */,
+				429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +914,7 @@
 				42D78C621B08AD290036BA48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

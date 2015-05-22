@@ -35,32 +35,6 @@ struct FXHuman {
 };
 
 static
-void FXHumanSetGender(FXHuman *human, FXHumanGender gender);
-
-static
-FXHumanGender FXHumanGetGender(FXHuman *human);
-
-// spouse
-static
-void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
-
-static
-FXHuman *FXHumanGetSpouse(FXHuman *human);
-
-// parents
-static
-void FXHumanSetMother(FXHuman *human, FXHuman *mother);
-
-static
-FXHuman *FXHumanGetMother(FXHuman *human);
-
-static
-void FXHumanSetFather(FXHuman *human, FXHuman *father);
-
-static
-FXHuman *FXHumanGetFather(FXHuman *human);
-
-static
 void FXHumanAddChild(FXHuman *human, FXHuman *child);
 
 static
@@ -80,9 +54,9 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) 
 
 void __FXHumanDeallocate(FXHuman *human) {
 	// FIXME this is not needed when dealloc?
-	FXHumanSetName(human, NULL);
-	FXHumanSetGender(human, 0);
-	FXHumanSetAge(human, 0);
+//	FXHumanSetName(human, NULL);
+//	FXHumanSetGender(human, 0);
+//	FXHumanSetAge(human, 0);
 	//
 	
 	__FXObjectDeallocate(human);
@@ -115,51 +89,6 @@ int FXHumanGetAge(FXHuman *human) {
 	
 	return 0;
 }
-
-// marriage: FIXME return bool about success/fail?
-void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
-	if (NULL != human && NULL != wed && human != wed) {
-		FXHuman *spouse = FXHumanGetSpouse(human);
-		if (wed != spouse) {
-			if (NULL != spouse) {
-				FXHumanDivorce(human);
-			}
-			FXHumanSetSpouse(human, wed);
-			FXHumanSetSpouse(wed, human);
-		}
-	}	
-}
-
-// divorce
-void FXHumanDivorce(FXHuman *human) {
-	if (NULL != human) {
-		FXHuman *spouse = FXHumanGetSpouse(human);
-		if (NULL != spouse) {
-			FXHumanSetSpouse(human, NULL);
-			FXHumanSetSpouse(spouse, NULL);
-		}
-	}
-}
-
-// children
-FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, FXHumanGender gender) {
-	if (NULL != human) {
-		FXHuman *spouse = FXHumanGetSpouse(human);
-		if (NULL != spouse) {
-			FXHuman *child = FXHumanCreateWithParameters(name, age, gender);
-			FXHumanSetFather(child, human);
-			FXHumanSetMother(child, spouse);
-			// set and also added child into father's/mother's children array
-			
-			return child;
-		}
-	}
-	
-	return NULL;
-}
-
-#pragma mark -
-#pragma mark Private Accessors Implementation
 
 void FXHumanSetGender(FXHuman *human, FXHumanGender gender) {
 	if (NULL != human) {
@@ -222,6 +151,51 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 	
 	return NULL;
 }
+
+// marriage: FIXME return bool about success/fail?
+void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
+	if (NULL != human && NULL != wed && human != wed) {
+		FXHuman *spouse = FXHumanGetSpouse(human);
+		if (wed != spouse) {
+			if (NULL != spouse) {
+				FXHumanDivorce(human);
+			}
+			FXHumanSetSpouse(human, wed);
+			FXHumanSetSpouse(wed, human);
+		}
+	}	
+}
+
+// divorce
+void FXHumanDivorce(FXHuman *human) {
+	if (NULL != human) {
+		FXHuman *spouse = FXHumanGetSpouse(human);
+		if (NULL != spouse) {
+			FXHumanSetSpouse(human, NULL);
+			FXHumanSetSpouse(spouse, NULL);
+		}
+	}
+}
+
+// children
+FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, FXHumanGender gender) {
+	if (NULL != human) {
+		FXHuman *spouse = FXHumanGetSpouse(human);
+		if (NULL != spouse) {
+			FXHuman *child = FXHumanCreateWithParameters(name, age, gender);
+			FXHumanSetFather(child, human);
+			FXHumanSetMother(child, spouse);
+			// set and also added child into father's/mother's children array
+			
+			return child;
+		}
+	}
+	
+	return NULL;
+}
+
+#pragma mark -
+#pragma mark Private Accessors Implementation
 
 void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {

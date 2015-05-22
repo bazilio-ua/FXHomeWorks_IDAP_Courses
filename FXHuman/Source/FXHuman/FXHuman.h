@@ -37,6 +37,32 @@ void FXHumanSetAge(FXHuman *human, int age);
 extern
 int FXHumanGetAge(FXHuman *human);
 
+extern
+void FXHumanSetGender(FXHuman *human, FXHumanGender gender);
+
+extern
+FXHumanGender FXHumanGetGender(FXHuman *human);
+
+// spouse
+extern
+void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
+
+extern
+FXHuman *FXHumanGetSpouse(FXHuman *human);
+
+// parents
+extern
+void FXHumanSetMother(FXHuman *human, FXHuman *mother);
+
+extern
+FXHuman *FXHumanGetMother(FXHuman *human);
+
+extern
+void FXHumanSetFather(FXHuman *human, FXHuman *father);
+
+extern
+FXHuman *FXHumanGetFather(FXHuman *human);
+
 // marriage
 extern
 void FXHumanMarriage(FXHuman *human, FXHuman *spouse);

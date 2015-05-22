@@ -9,6 +9,7 @@
 #ifndef FXHomeWorks_FXHumanTests_h
 #define FXHomeWorks_FXHumanTests_h
 
-
+extern
+void FXHumanBehaviourTests(void);
 
 #endif

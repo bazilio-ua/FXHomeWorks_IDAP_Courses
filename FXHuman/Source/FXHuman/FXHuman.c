@@ -120,11 +120,10 @@ int FXHumanGetAge(FXHuman *human) {
 void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	if (NULL != human && NULL != wed && human != wed) {
 		FXHuman *spouse = FXHumanGetSpouse(human);
-		if (NULL != spouse && wed != spouse) {
-			FXHumanDivorce(human);
-			FXHumanSetSpouse(human, wed);
-			FXHumanSetSpouse(wed, human);
-		} else if (NULL == spouse) {
+		if (wed != spouse) {
+			if (NULL != spouse) {
+				FXHumanDivorce(human);
+			}
 			FXHumanSetSpouse(human, wed);
 			FXHumanSetSpouse(wed, human);
 		}
@@ -179,7 +178,9 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 // spouse
 void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	if (NULL != human && NULL != spouse && human != spouse) {
-		human->_spouse = spouse;
+		if (FXHumanGetGender(human) != FXHumanGetGender(spouse)) {
+			human->_spouse = spouse;
+		}
 	}
 }
 

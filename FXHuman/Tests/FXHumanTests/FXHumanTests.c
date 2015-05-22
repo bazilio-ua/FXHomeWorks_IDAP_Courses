@@ -7,3 +7,19 @@
 //
 
 #include <stdio.h>
+
+#include "FXTestsMacro.h"
+#include "FXHumanTests.h"
+
+#pragma mark -
+#pragma mark Private Declaration
+
+#pragma mark -
+#pragma mark Public Implementation
+
+void FXHumanBehaviourTests(void) {
+
+}
+
+#pragma mark -
+#pragma mark Private Implementation

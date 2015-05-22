@@ -8,9 +8,14 @@
 
 #include <stdio.h>
 
+#include "FXTestsMacro.h"
+#include "FXHumanTests.h"
+
 int main (int argc, const char *argv[]) {
 	// insert code here...
 	printf("Make Human\n");
+	
+	performTest(FXHumanBehaviourTests);
 	
 	return 0;
 }

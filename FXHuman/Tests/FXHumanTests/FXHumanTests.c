@@ -27,11 +27,13 @@ void FXHumanBehaviourTests(void) {
 	void *anakin = FXHumanCreateWithParameters("Anakin Skywalker", 0, kFXHumanGenderMale);
 	FXHumanSetMother(anakin, shmi);
 	FXHumanSetAge(anakin, 20);
-	
-//	FXObjectRelease(shmi);
-	
+		
 	void *padme = FXHumanCreateWithParameters("Padme Amidala", 25, kFXHumanGenderFemale);
-	
+
+	FXHumanPrintInfo(shmi);
+	FXObjectRelease(shmi);
+	FXHumanPrintInfo(shmi);
+
 	FXHumanMarriage(anakin, padme);
 	
 	void *luke = FXHumanCreateChildWithParameters(anakin, "Luke Skywalker", 0, kFXHumanGenderMale);
@@ -40,12 +42,15 @@ void FXHumanBehaviourTests(void) {
 	FXHumanSetAge(luke, 20);
 	FXHumanSetAge(leia, 20);
 	
+//	FXHumanGetChildrenCount(padme);
+//	FXHumanDeleteChildFromParent(padme, luke);
+//	FXHumanGetChildrenCount(padme);
+	
 	
 	FXHumanPrintInfo(luke);
 	FXHumanPrintInfo(leia);
 	FXHumanPrintInfo(anakin);
 	FXHumanPrintInfo(padme);
-	FXHumanPrintInfo(shmi);
 	
 }
 
@@ -70,6 +75,7 @@ void FXHumanPrintInfo(FXHuman *human) {
 	printf("\tmother opject: %p\n", FXHumanGetMother(human));
 	printf("\tfather opject: %p\n", FXHumanGetFather(human));
 	printf("\tspouse opject: %p\n", FXHumanGetSpouse(human));
-	printf("*** end of info ***\n");
+	
+	printf("*** end of info ***\n\n");
 }
 

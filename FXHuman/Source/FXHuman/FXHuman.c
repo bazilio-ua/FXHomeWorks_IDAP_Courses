@@ -34,12 +34,6 @@ struct FXHuman {
 	FXHuman *_children[kFXMaxChildrenCount];
 };
 
-static
-void FXHumanAddChild(FXHuman *human, FXHuman *child);
-
-static
-int FXHumanGetChildrenCount(FXHuman *human);
-
 #pragma mark -
 #pragma mark Public Methods Implementation
 
@@ -53,11 +47,23 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) 
 }
 
 void __FXHumanDeallocate(FXHuman *human) {
-	// FIXME this is not needed when dealloc?
-//	FXHumanSetName(human, NULL);
-//	FXHumanSetGender(human, 0);
-//	FXHumanSetAge(human, 0);
-	//
+	
+	// remove self in parent's children array
+	FXHumanDeleteChildFromParent(FXHumanGetMother(human), human);
+	FXHumanDeleteChildFromParent(FXHumanGetFather(human), human);
+	// remove pointers to parent
+	FXHumanSetMother(human, NULL);
+	FXHumanSetFather(human, NULL);
+	
+	// remove self in partner spouse pointer 
+	FXHumanDeletePartnerFromSpouse(human);
+	// remove pointer to spouse
+	FXHumanSetSpouse(human, NULL);
+	
+	// remove self as parent in your children array
+	FXHumanDeleteParentFromChild(human);
+	// remove all pointers to children
+	FXHumanDeleteChildren(human);
 	
 	__FXObjectDeallocate(human);
 }
@@ -121,6 +127,17 @@ FXHuman *FXHumanGetSpouse(FXHuman *human) {
 	return NULL;
 }
 
+void FXHumanDeletePartnerFromSpouse(FXHuman *human) { // for dealloc
+	if (NULL != human) { 
+		FXHuman *partner = FXHumanGetSpouse(human);
+		if (NULL != partner) {
+			if (FXHumanGetSpouse(partner) == human) {
+				FXHumanSetSpouse(partner, NULL);
+			}
+		}
+	}
+}
+
 // parents
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (NULL != human && NULL != mother && human != mother) {
@@ -152,7 +169,7 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 	return NULL;
 }
 
-// marriage: FIXME return bool about success/fail?
+// marriage: TODO return bool about success/fail?
 void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	if (NULL != human && NULL != wed && human != wed) {
 		FXHuman *spouse = FXHumanGetSpouse(human);
@@ -183,9 +200,9 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 		FXHuman *spouse = FXHumanGetSpouse(human);
 		if (NULL != spouse) {
 			FXHuman *child = FXHumanCreateWithParameters(name, age, gender);
+			// set and add child into parents children array
 			FXHumanSetFather(child, human);
 			FXHumanSetMother(child, spouse);
-			// set and also added child into father's/mother's children array
 			
 			return child;
 		}
@@ -193,9 +210,6 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 	
 	return NULL;
 }
-
-#pragma mark -
-#pragma mark Private Accessors Implementation
 
 void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
@@ -206,10 +220,59 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	}
 }
 
-int FXHumanGetChildrenCount(FXHuman *human) { // this is really needed? TODO merge to FXHumanAddChild
+void FXHumanDeleteChildFromParent(FXHuman *human, FXHuman *child) { // for dealloc
+	if (NULL != human && NULL != child && human != child) {
+		int count;
+		for (count = 0; count < kFXMaxChildrenCount; count++) {
+			if (human->_children[count] == child) {
+				human->_children[count] = NULL;
+				human->_childrenCount--;
+				break;
+			}
+		}
+		
+		for (/*count*/; count < kFXMaxChildrenCount; count++) {
+			human->_children[count] = human->_children[count + 1];
+		}
+	}
+}
+
+void FXHumanDeleteParentFromChild(FXHuman *human) { // for dealloc
+	if (NULL != human) {
+		for (int count = 0; count < kFXMaxChildrenCount; count++) {
+			FXHuman *child = human->_children[count];
+			if (NULL != child) {
+				FXHuman *father = FXHumanGetFather(child);
+				FXHuman *mother = FXHumanGetMother(child);
+				if (human == father) {
+					FXHumanSetFather(child, NULL);
+				}
+				
+				if (human == mother) {
+					FXHumanSetMother(child, NULL);
+				}
+			}
+		}
+	}
+}
+
+void FXHumanDeleteChildren(FXHuman *human) { // for dealloc
+	if (NULL != human) {
+		for (int count = 0; count < kFXMaxChildrenCount; count++) {
+			human->_children[count] = NULL;
+		}
+		human->_childrenCount = 0;
+	}
+}
+
+int FXHumanGetChildrenCount(FXHuman *human) {
 	if (NULL != human) {
 		return human->_childrenCount;
 	}
 	
 	return 0;
 }
+
+#pragma mark -
+#pragma mark Private Accessors Implementation
+

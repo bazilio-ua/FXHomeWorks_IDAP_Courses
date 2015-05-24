@@ -50,6 +50,9 @@ void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
 extern
 FXHuman *FXHumanGetSpouse(FXHuman *human);
 
+extern
+void FXHumanDeletePartnerFromSpouse(FXHuman *human);
+
 // parents
 extern
 void FXHumanSetMother(FXHuman *human, FXHuman *mother);
@@ -74,5 +77,20 @@ void FXHumanDivorce(FXHuman *human);
 // children
 extern
 FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, FXHumanGender gender);
+
+extern
+void FXHumanAddChild(FXHuman *human, FXHuman *child);
+
+extern
+void FXHumanDeleteChildFromParent(FXHuman *human, FXHuman *child);
+
+extern
+void FXHumanDeleteParentFromChild(FXHuman *human);
+
+extern
+void FXHumanDeleteChildren(FXHuman *human);
+
+extern
+int FXHumanGetChildrenCount(FXHuman *human);
 
 #endif

@@ -47,6 +47,9 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) 
 }
 
 void __FXHumanDeallocate(FXHuman *human) {
+	FXHumanSetName(human, "");
+	FXHumanSetAge(human, 0);
+	FXHumanSetGender(human, 0);
 	
 	// remove self in parent's children array
 	FXHumanDeleteChildFromParent(FXHumanGetMother(human), human);

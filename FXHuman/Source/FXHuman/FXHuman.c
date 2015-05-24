@@ -112,7 +112,7 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 
 // spouse
 void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
-	if (NULL != human && NULL != spouse && human != spouse) {
+	if (NULL != human && human != spouse) {
 		if (FXHumanGetGender(human) != FXHumanGetGender(spouse)) {
 			human->_spouse = spouse;
 		}
@@ -140,7 +140,7 @@ void FXHumanDeletePartnerFromSpouse(FXHuman *human) { // for dealloc
 
 // parents
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
-	if (NULL != human && NULL != mother && human != mother) {
+	if (NULL != human && human != mother) {
 		human->_mother = mother;
 		FXHumanAddChild(mother, human);
 	}
@@ -155,7 +155,7 @@ FXHuman *FXHumanGetMother(FXHuman *human) {
 }
 
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
-	if (NULL != human && NULL != father && human != father) {
+	if (NULL != human && human != father) {
 		human->_father = father;
 		FXHumanAddChild(father, human);
 	}

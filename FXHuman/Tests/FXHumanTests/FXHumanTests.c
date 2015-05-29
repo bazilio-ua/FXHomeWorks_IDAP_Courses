@@ -27,14 +27,16 @@ void FXHumanBehaviourTests(void) {
 	void *anakin = FXHumanCreateWithParameters("Anakin Skywalker", 0, kFXHumanGenderMale);
 	FXHumanSetMother(anakin, shmi);
 	FXHumanSetAge(anakin, 20);
-		
+	
 	void *padme = FXHumanCreateWithParameters("Padme Amidala", 25, kFXHumanGenderFemale);
 
-	FXHumanPrintInfo(shmi);
-	FXObjectRelease(shmi);
-	FXHumanPrintInfo(shmi);
+//	FXHumanPrintInfo(shmi);
+//	FXObjectRelease(shmi);
+//	FXHumanPrintInfo(shmi);
 
-	FXHumanMarriage(anakin, padme);
+	bool success = false;
+	success = FXHumanMarriage(anakin, padme);
+	printf("marriage is %s\n", success ? "successful" : "failed");
 	
 	void *luke = FXHumanCreateChildWithParameters(anakin, "Luke Skywalker", 0, kFXHumanGenderMale);
 	void *leia = FXHumanCreateChildWithParameters(anakin, "Leia Organa", 0, kFXHumanGenderFemale);
@@ -46,11 +48,11 @@ void FXHumanBehaviourTests(void) {
 //	FXHumanDeleteChildFromParent(padme, luke);
 //	FXHumanGetChildrenCount(padme);
 	
-	
-	FXHumanPrintInfo(luke);
-	FXHumanPrintInfo(leia);
+	FXHumanPrintInfo(shmi);
 	FXHumanPrintInfo(anakin);
 	FXHumanPrintInfo(padme);
+	FXHumanPrintInfo(luke);
+	FXHumanPrintInfo(leia);
 	
 }
 

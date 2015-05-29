@@ -9,6 +9,8 @@
 #ifndef FXHomeWorks_FXHuman_h
 #define FXHomeWorks_FXHuman_h
 
+#include <stdbool.h>
+
 #include "FXObject.h"
 
 typedef enum {
@@ -66,9 +68,12 @@ void FXHumanSetFather(FXHuman *human, FXHuman *father);
 extern
 FXHuman *FXHumanGetFather(FXHuman *human);
 
+extern
+bool FXHumanIsMarried(FXHuman *human);
+
 // marriage
 extern
-void FXHumanMarriage(FXHuman *human, FXHuman *spouse);
+bool FXHumanMarriage(FXHuman *human, FXHuman *wed);
 
 // divorce
 extern

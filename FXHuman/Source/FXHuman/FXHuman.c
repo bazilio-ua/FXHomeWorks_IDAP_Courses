@@ -23,14 +23,14 @@ struct FXHuman {
 	FXObject _super; // inheritance from FXObject
 	
 	char _name[kFXMaxNameLength];
-	int _age;
+	unsigned int _age;
 	FXHumanGender _gender;
 	
 	FXHuman *_mother;
 	FXHuman *_father;
 	FXHuman *_spouse;
 	
-	int _childrenCount;
+	unsigned int _childrenCount;
 	FXHuman *_children[kFXMaxChildrenCount];
 };
 
@@ -71,9 +71,70 @@ void __FXHumanDeallocate(FXHuman *human) {
 	__FXObjectDeallocate(human);
 }
 
+void FXHumanDeletePartnerFromSpouse(FXHuman *human) { // for dealloc
+	if (NULL != human) { 
+		FXHuman *partner = FXHumanGetSpouse(human);
+		if (NULL != partner) {
+			if (FXHumanGetSpouse(partner) == human) {
+				FXHumanSetSpouse(partner, NULL);
+			}
+		}
+	}
+}
+
+// ***
+bool FXHumanIsMarried(FXHuman *human) {
+	if (NULL != FXHumanGetSpouse(human)) {
+		return true;
+	}
+	
+	return false;
+}
+
+// marriage
+bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
+	bool result = false;
+	if (NULL != human && NULL != wed && human != wed) {
+		if (wed != FXHumanGetSpouse(human)) {
+			FXHumanGender humanGender = FXHumanGetGender(human);
+			FXHumanGender wedGender = FXHumanGetGender(wed);
+			if (kFXHumanGenderUndefined != humanGender && 
+				kFXHumanGenderUndefined != wedGender) {
+				if (humanGender != wedGender) {
+					if (true == FXHumanIsMarried(human)) {
+						FXHumanDivorce(human);
+					}
+					
+					if (true == FXHumanIsMarried(wed)) {
+						FXHumanDivorce(wed);
+					}
+					
+					FXHumanSetSpouse(human, wed);
+					FXHumanSetSpouse(wed, human);
+					result = true;
+				}
+			}
+		}
+	}
+	
+	return result;
+}
+
+// divorce
+void FXHumanDivorce(FXHuman *human) {
+	FXHuman *spouse = FXHumanGetSpouse(human);
+	if (NULL != spouse) {
+		FXHumanSetSpouse(human, NULL);
+		FXHumanSetSpouse(spouse, NULL);
+	}
+}
+
+
+// name
 void FXHumanSetName(FXHuman *human, char *name) {
 	if (NULL != human) {
-		strncpy(human->_name, name, sizeof(human->_name));
+		memmove(human->_name, name, sizeof(human->_name) - 1);
+		human->_name[sizeof(human->_name) - 1] = '\0';
 	}
 }
 
@@ -85,6 +146,7 @@ char *FXHumanGetName(FXHuman *human) {
 	return NULL;
 }
 
+// age
 void FXHumanSetAge(FXHuman *human, int age) {
 	if (NULL != human) {
 		human->_age = age;
@@ -99,6 +161,7 @@ int FXHumanGetAge(FXHuman *human) {
 	return 0;
 }
 
+// gender
 void FXHumanSetGender(FXHuman *human, FXHumanGender gender) {
 	if (NULL != human) {
 		human->_gender = gender;
@@ -116,9 +179,7 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 // spouse
 void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	if (NULL != human && human != spouse) {
-		if (FXHumanGetGender(human) != FXHumanGetGender(spouse)) {
-			human->_spouse = spouse;
-		}
+		human->_spouse = spouse;
 	}
 }
 
@@ -128,17 +189,6 @@ FXHuman *FXHumanGetSpouse(FXHuman *human) {
 	}
 	
 	return NULL;
-}
-
-void FXHumanDeletePartnerFromSpouse(FXHuman *human) { // for dealloc
-	if (NULL != human) { 
-		FXHuman *partner = FXHumanGetSpouse(human);
-		if (NULL != partner) {
-			if (FXHumanGetSpouse(partner) == human) {
-				FXHumanSetSpouse(partner, NULL);
-			}
-		}
-	}
 }
 
 // parents
@@ -172,30 +222,6 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 	return NULL;
 }
 
-// marriage: TODO return bool about success/fail?
-void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
-	if (NULL != human && NULL != wed && human != wed) {
-		FXHuman *spouse = FXHumanGetSpouse(human);
-		if (wed != spouse) {
-			if (NULL != spouse) {
-				FXHumanDivorce(human);
-			}
-			FXHumanSetSpouse(human, wed);
-			FXHumanSetSpouse(wed, human);
-		}
-	}	
-}
-
-// divorce
-void FXHumanDivorce(FXHuman *human) {
-	if (NULL != human) {
-		FXHuman *spouse = FXHumanGetSpouse(human);
-		if (NULL != spouse) {
-			FXHumanSetSpouse(human, NULL);
-			FXHumanSetSpouse(spouse, NULL);
-		}
-	}
-}
 
 // children
 FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, FXHumanGender gender) {

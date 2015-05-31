@@ -156,9 +156,7 @@ void FXHumanRemoveChildren(FXHuman *human) {
 			if (NULL != child) {
 				FXHumanRemoveChild(human, child);
 			}
-			human->_children[count] = NULL;
 		}
-		human->_childrenCount = 0;
 	}
 }
 
@@ -262,18 +260,22 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 
 // dealloc
 void __FXHumanDeallocate(FXHuman *human) {
-	FXHumanSetName(human, "");
-	FXHumanSetAge(human, 0);
-	FXHumanSetGender(human, 0);
-	
+	// clear parents
 	FXHumanRemoveChild(FXHumanGetMother(human), human);
 	FXHumanRemoveChild(FXHumanGetFather(human), human);
 	
+	// divorce with partner
 	if (true == FXHumanIsMarried(human)) {
 		FXHumanDivorce(human);
 	}
 	
+	// clear children
 	FXHumanRemoveChildren(human);
+	
+	// we clear it last, because we need gender for properly clear children
+	FXHumanSetName(human, "");
+	FXHumanSetAge(human, 0);
+	FXHumanSetGender(human, 0);
 	
 	__FXObjectDeallocate(human);
 }

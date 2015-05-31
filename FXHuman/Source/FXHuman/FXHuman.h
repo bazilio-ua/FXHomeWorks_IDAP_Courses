@@ -24,56 +24,13 @@ typedef struct FXHuman FXHuman;
 extern
 FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender);
 
-extern
-void __FXHumanDeallocate(FXHuman *human);
-
-extern
-void FXHumanSetName(FXHuman *human, char *name);
-
-extern
-char *FXHumanGetName(FXHuman *human);
-
-extern
-void FXHumanSetAge(FXHuman *human, int age);
-
-extern
-int FXHumanGetAge(FXHuman *human);
-
-extern
-void FXHumanSetGender(FXHuman *human, FXHumanGender gender);
-
-extern
-FXHumanGender FXHumanGetGender(FXHuman *human);
-
-// spouse
-extern
-void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
-
-extern
-FXHuman *FXHumanGetSpouse(FXHuman *human);
-/*
-extern
-void FXHumanDeletePartnerFromSpouse(FXHuman *human);
-*/
-// parents
-extern
-void FXHumanSetMother(FXHuman *human, FXHuman *mother);
-
-extern
-FXHuman *FXHumanGetMother(FXHuman *human);
-
-extern
-void FXHumanSetFather(FXHuman *human, FXHuman *father);
-
-extern
-FXHuman *FXHumanGetFather(FXHuman *human);
-
-extern
-bool FXHumanIsMarried(FXHuman *human);
-
 // marriage
 extern
 bool FXHumanMarriage(FXHuman *human, FXHuman *wed);
+
+// isMarried
+extern
+bool FXHumanIsMarried(FXHuman *human);
 
 // divorce
 extern
@@ -90,18 +47,54 @@ extern
 void FXHumanRemoveChild(FXHuman *human, FXHuman *child);
 
 extern
-void FXHumanDeleteChildFromParent(FXHuman *human, FXHuman *child);
-
-extern
 void FXHumanRemoveChildren(FXHuman *human);
 
 extern
-void FXHumanDeleteParentFromChild(FXHuman *human);
-
-extern
-void FXHumanDeleteChildren(FXHuman *human);
-
-extern
 int FXHumanGetChildrenCount(FXHuman *human);
+
+// name
+extern
+void FXHumanSetName(FXHuman *human, char *name);
+
+extern
+char *FXHumanGetName(FXHuman *human);
+
+// age
+extern
+void FXHumanSetAge(FXHuman *human, int age);
+
+extern
+int FXHumanGetAge(FXHuman *human);
+
+// gender
+extern
+void FXHumanSetGender(FXHuman *human, FXHumanGender gender);
+
+extern
+FXHumanGender FXHumanGetGender(FXHuman *human);
+
+// spouse
+extern
+void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
+
+extern
+FXHuman *FXHumanGetSpouse(FXHuman *human);
+
+// parents
+extern
+void FXHumanSetMother(FXHuman *human, FXHuman *mother);
+
+extern
+FXHuman *FXHumanGetMother(FXHuman *human);
+
+extern
+void FXHumanSetFather(FXHuman *human, FXHuman *father);
+
+extern
+FXHuman *FXHumanGetFather(FXHuman *human);
+
+// dealloc
+extern
+void __FXHumanDeallocate(FXHuman *human);
 
 #endif

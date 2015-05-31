@@ -51,10 +51,10 @@ void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
 
 extern
 FXHuman *FXHumanGetSpouse(FXHuman *human);
-
+/*
 extern
 void FXHumanDeletePartnerFromSpouse(FXHuman *human);
-
+*/
 // parents
 extern
 void FXHumanSetMother(FXHuman *human, FXHuman *mother);

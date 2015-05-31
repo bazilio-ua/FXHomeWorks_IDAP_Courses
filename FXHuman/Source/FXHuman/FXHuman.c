@@ -57,11 +57,15 @@ void __FXHumanDeallocate(FXHuman *human) {
 	// remove pointers to parent
 	FXHumanSetMother(human, NULL);
 	FXHumanSetFather(human, NULL);
-	
+/*	
 	// remove self in partner spouse pointer 
 	FXHumanDeletePartnerFromSpouse(human);
 	// remove pointer to spouse
 	FXHumanSetSpouse(human, NULL);
+*/
+	if (true == FXHumanIsMarried(human)) {
+		FXHumanDivorce(human);
+	}
 	
 	// remove self as parent in your children array
 	FXHumanDeleteParentFromChild(human);
@@ -71,6 +75,7 @@ void __FXHumanDeallocate(FXHuman *human) {
 	__FXObjectDeallocate(human);
 }
 
+/*
 void FXHumanDeletePartnerFromSpouse(FXHuman *human) { // for dealloc
 	if (NULL != human) { 
 		FXHuman *partner = FXHumanGetSpouse(human);
@@ -81,15 +86,8 @@ void FXHumanDeletePartnerFromSpouse(FXHuman *human) { // for dealloc
 		}
 	}
 }
+*/
 
-// ***
-bool FXHumanIsMarried(FXHuman *human) {
-	if (NULL != FXHumanGetSpouse(human)) {
-		return true;
-	}
-	
-	return false;
-}
 
 // marriage
 bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
@@ -118,6 +116,15 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	}
 	
 	return result;
+}
+
+// ***
+bool FXHumanIsMarried(FXHuman *human) {
+	if (NULL != FXHumanGetSpouse(human)) {
+		return true;
+	}
+	
+	return false;
 }
 
 // divorce
@@ -195,7 +202,7 @@ FXHuman *FXHumanGetSpouse(FXHuman *human) {
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (NULL != human && human != mother) {
 		human->_mother = mother;
-		FXHumanAddChild(mother, human);
+//		FXHumanAddChild(mother, human);
 	}
 }
 
@@ -210,7 +217,7 @@ FXHuman *FXHumanGetMother(FXHuman *human) {
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 	if (NULL != human && human != father) {
 		human->_father = father;
-		FXHumanAddChild(father, human);
+//		FXHumanAddChild(father, human);
 	}
 }
 
@@ -229,10 +236,14 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 		FXHuman *spouse = FXHumanGetSpouse(human);
 		if (NULL != spouse) {
 			FXHuman *child = FXHumanCreateWithParameters(name, age, gender);
-			// set and add child into parents children array
-			FXHumanSetFather(child, human);
-			FXHumanSetMother(child, spouse);
 			
+			// set and add child into parents children array
+//			FXHumanSetFather(child, human);
+//			FXHumanSetMother(child, spouse);
+
+			FXHumanAddChild(human, child);
+			FXHumanAddChild(spouse, child);
+
 			return child;
 		}
 	}
@@ -242,9 +253,17 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 
 void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
-		if (FXHumanGetChildrenCount(human) < kFXMaxChildrenCount) {
-			human->_children[human->_childrenCount] = child;
-			human->_childrenCount++;
+		FXHumanGender humanGender = FXHumanGetGender(human);
+		if (kFXHumanGenderUndefined != humanGender) {
+			if (FXHumanGetChildrenCount(human) < kFXMaxChildrenCount) {
+				human->_children[human->_childrenCount] = child;
+				human->_childrenCount++;
+				if (kFXHumanGenderMale == humanGender) {
+					FXHumanSetFather(child, human);
+				} else if (kFXHumanGenderFemale == humanGender) {
+					FXHumanSetMother(child, human);
+				}
+			}
 		}
 	}
 }

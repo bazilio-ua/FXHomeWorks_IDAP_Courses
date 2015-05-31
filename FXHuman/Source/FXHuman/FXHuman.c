@@ -50,13 +50,16 @@ void __FXHumanDeallocate(FXHuman *human) {
 	FXHumanSetName(human, "");
 	FXHumanSetAge(human, 0);
 	FXHumanSetGender(human, 0);
-	
+/*	
 	// remove self in parent's children array
 	FXHumanDeleteChildFromParent(FXHumanGetMother(human), human);
 	FXHumanDeleteChildFromParent(FXHumanGetFather(human), human);
 	// remove pointers to parent
 	FXHumanSetMother(human, NULL);
 	FXHumanSetFather(human, NULL);
+*/	
+	FXHumanRemoveChild(FXHumanGetMother(human), human);
+	FXHumanRemoveChild(FXHumanGetFather(human), human);
 /*	
 	// remove self in partner spouse pointer 
 	FXHumanDeletePartnerFromSpouse(human);
@@ -66,11 +69,13 @@ void __FXHumanDeallocate(FXHuman *human) {
 	if (true == FXHumanIsMarried(human)) {
 		FXHumanDivorce(human);
 	}
-	
+/*	
 	// remove self as parent in your children array
 	FXHumanDeleteParentFromChild(human);
 	// remove all pointers to children
 	FXHumanDeleteChildren(human);
+*/
+	FXHumanRemoveChildren(human);
 	
 	__FXObjectDeallocate(human);
 }
@@ -291,23 +296,38 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 	}
 }
 
-void FXHumanDeleteChildFromParent(FXHuman *human, FXHuman *child) { // for dealloc
-	if (NULL != human && NULL != child && human != child) {
-		int count;
-		for (count = 0; count < kFXMaxChildrenCount; count++) {
-			if (human->_children[count] == child) {
-				human->_children[count] = NULL;
-				human->_childrenCount--;
-				break;
+//void FXHumanDeleteChildFromParent(FXHuman *human, FXHuman *child) { // for dealloc
+//	if (NULL != human && NULL != child && human != child) {
+//		int count;
+//		for (count = 0; count < kFXMaxChildrenCount; count++) {
+//			if (human->_children[count] == child) {
+//				human->_children[count] = NULL;
+//				human->_childrenCount--;
+//				break;
+//			}
+//		}
+//		
+//		for (/*count*/; count < kFXMaxChildrenCount; count++) {
+//			human->_children[count] = human->_children[count + 1];
+//		}
+//	}
+//}
+
+
+void FXHumanRemoveChildren(FXHuman *human) {
+	if (NULL != human) {
+		for (int count = 0; count < kFXMaxChildrenCount; count++) {
+			FXHuman *child = human->_children[count];
+			if (NULL != child) {
+				FXHumanRemoveChild(human, child);
 			}
+			human->_children[count] = NULL;
 		}
-		
-		for (/*count*/; count < kFXMaxChildrenCount; count++) {
-			human->_children[count] = human->_children[count + 1];
-		}
+		human->_childrenCount = 0;
 	}
 }
 
+/*
 void FXHumanDeleteParentFromChild(FXHuman *human) { // for dealloc
 	if (NULL != human) {
 		for (int count = 0; count < kFXMaxChildrenCount; count++) {
@@ -326,7 +346,8 @@ void FXHumanDeleteParentFromChild(FXHuman *human) { // for dealloc
 		}
 	}
 }
-
+*/
+/*
 void FXHumanDeleteChildren(FXHuman *human) { // for dealloc
 	if (NULL != human) {
 		for (int count = 0; count < kFXMaxChildrenCount; count++) {
@@ -335,6 +356,7 @@ void FXHumanDeleteChildren(FXHuman *human) { // for dealloc
 		human->_childrenCount = 0;
 	}
 }
+*/
 
 int FXHumanGetChildrenCount(FXHuman *human) {
 	if (NULL != human) {

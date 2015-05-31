@@ -268,6 +268,29 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	}
 }
 
+void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
+	if (NULL != human && NULL != child && human != child) {
+		int count;
+		for (count = 0; count < kFXMaxChildrenCount; count++) {
+			if (human->_children[count] == child) {
+				human->_children[count] = NULL;
+				human->_childrenCount--;
+				break;
+			}
+		}
+		for (/*count*/; count < kFXMaxChildrenCount; count++) {
+			human->_children[count] = human->_children[count + 1];
+		}
+		
+		FXHumanGender humanGender = FXHumanGetGender(human);
+		if (kFXHumanGenderMale == humanGender) {
+			FXHumanSetFather(child, NULL);
+		} else if (kFXHumanGenderFemale == humanGender) {
+			FXHumanSetMother(child, NULL);
+		}
+	}
+}
+
 void FXHumanDeleteChildFromParent(FXHuman *human, FXHuman *child) { // for dealloc
 	if (NULL != human && NULL != child && human != child) {
 		int count;

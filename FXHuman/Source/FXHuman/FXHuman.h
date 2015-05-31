@@ -87,6 +87,9 @@ extern
 void FXHumanAddChild(FXHuman *human, FXHuman *child);
 
 extern
+void FXHumanRemoveChild(FXHuman *human, FXHuman *child);
+
+extern
 void FXHumanDeleteChildFromParent(FXHuman *human, FXHuman *child);
 
 extern

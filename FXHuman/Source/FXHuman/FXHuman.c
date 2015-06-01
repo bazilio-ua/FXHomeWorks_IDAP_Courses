@@ -56,6 +56,7 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 			if (kFXHumanGenderUndefined != humanGender && 
 				kFXHumanGenderUndefined != wedGender) {
 				if (humanGender != wedGender) {
+					
 					if (true == FXHumanIsMarried(human)) {
 						FXHumanDivorce(human);
 					}
@@ -66,6 +67,7 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 					
 					FXHumanSetSpouse(human, wed);
 					FXHumanSetSpouse(wed, human);
+					
 					result = true;
 				}
 			}
@@ -109,13 +111,28 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 	return NULL;
 }
 
+void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
+	if (NULL != human && index < kFXMaxChildrenCount) {
+		human->_children[index] = child;
+		if (NULL != child) {
+			human->_childrenCount++;
+		} else {
+			human->_childrenCount--;
+		}
+	}
+}
+
 void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
 		FXHumanGender humanGender = FXHumanGetGender(human);
 		if (kFXHumanGenderUndefined != humanGender) {
-			if (FXHumanGetChildrenCount(human) < kFXMaxChildrenCount) {
-				human->_children[human->_childrenCount] = child;
-				human->_childrenCount++;
+			unsigned int childrenCount = FXHumanGetChildrenCount(human);
+			if (/*FXHumanGetChildrenCount(human)*/childrenCount < kFXMaxChildrenCount) {
+				
+//				human->_children[human->_childrenCount] = child;
+//				human->_childrenCount++;
+				FXHumanSetChildAtIndex(human, child, /*FXHumanGetChildrenCount(human)*/childrenCount);
+				
 				if (kFXHumanGenderMale == humanGender) {
 					FXHumanSetFather(child, human);
 				} else if (kFXHumanGenderFemale == humanGender) {
@@ -131,8 +148,11 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 		int count;
 		for (count = 0; count < kFXMaxChildrenCount; count++) {
 			if (human->_children[count] == child) {
-				human->_children[count] = NULL;
-				human->_childrenCount--;
+				
+//				human->_children[count] = NULL;
+//				human->_childrenCount--;
+				FXHumanSetChildAtIndex(human, NULL, count);
+				
 				break;
 			}
 		}

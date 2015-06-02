@@ -39,13 +39,15 @@ void FXHumanBehaviourTests(void) {
 	void *leia = FXHumanCreateChildWithParameters(anakin, "Leia Organa", 0, kFXHumanGenderFemale);
 	FXHumanSetAge(leia, 20);
 	
+//	FXHumanDivorce(anakin);
+	
 	FXHumanPrintInfo(shmi);
 	FXHumanPrintInfo(anakin);
 	FXHumanPrintInfo(padme);
 	FXHumanPrintInfo(luke);
 	FXHumanPrintInfo(leia);
 
-	FXObjectRelease(shmi);
+//	FXObjectRelease(shmi);
 	
 	FXHumanPrintInfo(shmi);
 	FXHumanPrintInfo(anakin);

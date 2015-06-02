@@ -186,10 +186,15 @@ int FXHumanGetChildrenCount(FXHuman *human) {
 }
 
 // name
-void FXHumanSetName(FXHuman *human, char *name) {
+void FXHumanSetName(FXHuman *human, const char *name) {
 	if (NULL != human) {
-		memmove(human->_name, name, sizeof(human->_name) - 1);
-		human->_name[sizeof(human->_name) - 1] = '\0';
+		size_t length = strlen(name);
+		if (length < kFXMaxNameLength) {
+			memmove(human->_name, name, length);
+		} else {
+			memmove(human->_name, name, kFXMaxNameLength - 1);
+			human->_name[kFXMaxNameLength - 1] = '\0';
+		}
 	}
 }
 

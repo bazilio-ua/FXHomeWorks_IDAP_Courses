@@ -57,7 +57,7 @@ int FXHumanGetChildrenCount(FXHuman *human);
 
 // name
 extern
-void FXHumanSetName(FXHuman *human, char *name);
+void FXHumanSetName(FXHuman *human, const char *name);
 
 extern
 char *FXHumanGetName(FXHuman *human);

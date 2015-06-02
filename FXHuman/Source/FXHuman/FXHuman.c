@@ -133,12 +133,7 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 		if (kFXHumanGenderUndefined != humanGender) {
 			unsigned int childrenCount = FXHumanGetChildrenCount(human);
 			if (childrenCount < kFXMaxChildrenCount) {
-				
-//				human->_children[childrenCount] = child;
-//				human->_childrenCount++;
-				
 				FXHumanSetChildAtIndex(human, child, childrenCount);
-				
 				if (kFXHumanGenderMale == humanGender) {
 					FXHumanSetFather(child, human);
 				} else if (kFXHumanGenderFemale == humanGender) {
@@ -154,12 +149,7 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 		unsigned int count;
 		for (count = 0; count < kFXMaxChildrenCount; count++) {
 			if (human->_children[count] == child) {
-				
-//				human->_children[count] = NULL;
-//				human->_childrenCount--;
-				
 				FXHumanSetChildAtIndex(human, NULL, count);
-				
 				break;
 			}
 		}
@@ -244,9 +234,6 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 // spouse
 void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	if (NULL != human && human != spouse) {
-		
-//		human->_spouse = spouse; //orig.
-		
 		if (NULL != spouse) { // marriage case
 			FXObjectRetain(spouse);
 			if (kFXHumanGenderMale == FXHumanGetGender(human)) {

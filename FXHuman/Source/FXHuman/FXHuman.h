@@ -50,7 +50,7 @@ extern
 void FXHumanRemoveChild(FXHuman *human, FXHuman *child);
 
 extern
-void FXHumanRemoveChildren(FXHuman *human);
+void FXHumanRemoveAllChildren(FXHuman *human);
 
 extern
 int FXHumanGetChildrenCount(FXHuman *human);

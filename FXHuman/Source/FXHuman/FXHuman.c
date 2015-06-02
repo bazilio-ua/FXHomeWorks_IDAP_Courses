@@ -145,7 +145,7 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 
 void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
-		int count;
+		unsigned int count;
 		for (count = 0; count < kFXMaxChildrenCount; count++) {
 			if (human->_children[count] == child) {
 				
@@ -169,7 +169,7 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 	}
 }
 
-void FXHumanRemoveChildren(FXHuman *human) {
+void FXHumanRemoveAllChildren(FXHuman *human) {
 	if (NULL != human) {
 		for (int count = 0; count < kFXMaxChildrenCount; count++) {
 			FXHuman *child = human->_children[count];
@@ -290,7 +290,7 @@ void __FXHumanDeallocate(FXHuman *human) {
 	}
 	
 	// clear children
-	FXHumanRemoveChildren(human);
+	FXHumanRemoveAllChildren(human);
 	
 	// we clear it last, because we need gender for properly clear children
 	FXHumanSetName(human, "");

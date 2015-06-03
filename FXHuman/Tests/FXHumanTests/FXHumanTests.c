@@ -73,7 +73,9 @@ void FXHumanBehaviourTests(void) {
 	assert(2 == FXObjectGetReferenceCount(padme));
 	
 	//	do divorce
-	FXHumanDivorce(anakin);
+	if (true == FXHumanIsMarried(anakin)) {
+		FXHumanDivorce(anakin);
+	}
 	//		after divorce reference count for Anakin should stay unchanged and be equal 1
 	assert(1 == FXObjectGetReferenceCount(anakin));
 	//		after divorce reference count for Padme should be equal 1
@@ -98,7 +100,9 @@ void FXHumanBehaviourTests(void) {
 	assert(3 == FXObjectGetReferenceCount(leia));
 	
 	//	do divorce
-	FXHumanDivorce(padme);
+	if (true == FXHumanIsMarried(padme)) {
+		FXHumanDivorce(padme);
+	}
 	//		after divorce reference count for Anakin should stay unchanged and be equal 1
 	assert(1 == FXObjectGetReferenceCount(anakin));
 	//		after divorce reference count for Padme should be equal 1
@@ -111,7 +115,7 @@ void FXHumanBehaviourTests(void) {
 	FXObjectRelease(padme);
 	// reference count for her children must be 2
 	assert(2 == FXObjectGetReferenceCount(luke));
-	assert(2 == FXObjectGetReferenceCount(leia)); // this don't work
+	assert(2 == FXObjectGetReferenceCount(leia));
 	
 	FXHumanPrintInfo(shmi);
 	FXHumanPrintInfo(anakin);
@@ -134,9 +138,9 @@ void FXHumanPrintInfo(FXHuman *human) {
 	printf("\thuman object: %p\n", human);
 	printf("\tname: %s\n", FXHumanGetName(human));
 	int gender = FXHumanGetGender(human);
-	printf("\tgender: %s\n",	(gender == kFXHumanGenderMale) ? "male" : 
-								(gender == kFXHumanGenderFemale) ? "female" : 
-												"undefined");
+	printf("\tgender: %s\n",	(gender == kFXHumanGenderMale) ?	"male" : 
+								(gender == kFXHumanGenderFemale) ?	"female" : 
+																	"undefined");
 	printf("\tage: %d\n", FXHumanGetAge(human));
 	printf("\tmother object: %p\n", FXHumanGetMother(human));
 	printf("\tfather object: %p\n", FXHumanGetFather(human));

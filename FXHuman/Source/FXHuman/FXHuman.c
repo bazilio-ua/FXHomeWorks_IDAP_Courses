@@ -168,8 +168,10 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 
 void FXHumanRemoveAllChildren(FXHuman *human) {
 	if (NULL != human) {
-//		for (int count = 0; count < kFXMaxChildrenCount; count++) {
-		for (int count = kFXMaxChildrenCount - 1; count >= 0; count--) {
+//		for (int count = 0; count < kFXMaxChildrenCount; count++) { // wrong
+//		for (int count = kFXMaxChildrenCount - 1; count >= 0; count--) {
+		int count = kFXMaxChildrenCount;
+		while (count--) {
 			FXHuman *child = human->_children[count];
 			if (NULL != child) {
 				FXHumanRemoveChild(human, child);
@@ -300,8 +302,10 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 // dealloc
 void __FXHumanDeallocate(FXHuman *human) {
 	// clear parents
-	FXHumanRemoveChild(FXHumanGetMother(human), human);
-	FXHumanRemoveChild(FXHumanGetFather(human), human);
+//	FXHumanRemoveChild(FXHumanGetMother(human), human); // wrong
+//	FXHumanRemoveChild(FXHumanGetFather(human), human); // wrong
+	FXHumanSetMother(human, NULL);
+	FXHumanSetFather(human, NULL);
 	
 	// divorce with partner
 	if (true == FXHumanIsMarried(human)) {

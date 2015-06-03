@@ -168,7 +168,8 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 
 void FXHumanRemoveAllChildren(FXHuman *human) {
 	if (NULL != human) {
-		for (int count = 0; count < kFXMaxChildrenCount; count++) {
+//		for (int count = 0; count < kFXMaxChildrenCount; count++) {
+		for (int count = kFXMaxChildrenCount - 1; count >= 0; count--) {
 			FXHuman *child = human->_children[count];
 			if (NULL != child) {
 				FXHumanRemoveChild(human, child);

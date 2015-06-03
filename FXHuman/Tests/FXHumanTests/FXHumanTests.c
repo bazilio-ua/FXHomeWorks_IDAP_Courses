@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
 
 #include "FXTestsMacro.h"
 #include "FXHumanTests.h"
@@ -22,35 +23,101 @@ void FXHumanPrintInfo(FXHuman *human);
 #pragma mark Public Implementation
 
 void FXHumanBehaviourTests(void) {
+	//	create Shmi
 	void *shmi = FXHumanCreateWithParameters("Shmi Skywalker", 29, kFXHumanGenderFemale);
+	//		pointer to Shmi should'n be NULL
+	assert(NULL != shmi);
+	//		reference count should be 1
+	assert(1 == FXObjectGetReferenceCount(shmi));
+	//		retain Shmi
+	FXObjectRetain(shmi);
+	//			after retaining Shmi reference count must be 2
+	assert(2 == FXObjectGetReferenceCount(shmi));
+	//		release Shmi
+	FXObjectRelease(shmi);
+	//			after release Shmi reference count should be 1
+	assert(1 == FXObjectGetReferenceCount(shmi));
 	
+	//	create Anakin
 	void *anakin = FXHumanCreateWithParameters("Anakin Skywalker", 0, kFXHumanGenderMale);
+	//		after creation Anakin's age should be 0
+	assert(0 == FXHumanGetAge(anakin));
+	//		add Anakin as child to Shmi
 	FXHumanAddChild(shmi, anakin);
+	//		after adding Anakin as child his reference count must be 2
+	assert(2 == FXObjectGetReferenceCount(anakin));
+	//		set age to Anakin
 	FXHumanSetAge(anakin, 20);
+	//		age must be 20
+	assert(20 == FXHumanGetAge(anakin));
 	
+	//	create Padme
 	void *padme = FXHumanCreateWithParameters("Padme Amidala", 25, kFXHumanGenderFemale);
+	//		gender of Padme should be a kFXHumanGenderFemale
+	assert(kFXHumanGenderFemale == FXHumanGetGender(padme));
+	//		reference count to Padme should be 1
+	assert(1 == FXObjectGetReferenceCount(padme));
 
+	// release Shmi
+	FXObjectRelease(shmi);
+	// reference count of her child must be 1
+	assert(1 == FXObjectGetReferenceCount(anakin));
+	
+	//	do marriage with Anakin and Padme
 	bool success = false;
 	success = FXHumanMarriage(anakin, padme);
 	printf("marriage is %s\n", success ? "successful" : "failed");
+	//		after marriage reference count for Anakin should stay unchanged and be equal 1
+	assert(1 == FXObjectGetReferenceCount(anakin));
+	//		after marriage reference count for Padme should change and be equal 2
+	assert(2 == FXObjectGetReferenceCount(padme));
 	
+	//	do divorce
+	FXHumanDivorce(anakin);
+	//		after divorce reference count for Anakin should stay unchanged and be equal 1
+	assert(1 == FXObjectGetReferenceCount(anakin));
+	//		after divorce reference count for Padme should be equal 1
+	assert(1 == FXObjectGetReferenceCount(padme));
+
+	//	do marriage again
+	success = false;
+	success = FXHumanMarriage(anakin, padme);
+	printf("marriage is %s\n", success ? "successful" : "failed");
+	//		after marriage reference count for Anakin should stay unchanged and be equal 1
+	assert(1 == FXObjectGetReferenceCount(anakin));
+	//		after marriage reference count for Padme should be equal 2
+	assert(2 == FXObjectGetReferenceCount(padme));
+	
+	//	create children for Anakin and Padme
 	void *luke = FXHumanCreateChildWithParameters(anakin, "Luke Skywalker", 0, kFXHumanGenderMale);
 	FXHumanSetAge(luke, 20);
 	void *leia = FXHumanCreateChildWithParameters(anakin, "Leia Organa", 0, kFXHumanGenderFemale);
 	FXHumanSetAge(leia, 20);
+	//		children's reference count must be equal 3
+	assert(3 == FXObjectGetReferenceCount(luke));
+	assert(3 == FXObjectGetReferenceCount(leia));
 	
-//	FXHumanDivorce(anakin);
+	//	do divorce
+	FXHumanDivorce(padme);
+	//		after divorce reference count for Anakin should stay unchanged and be equal 1
+	assert(1 == FXObjectGetReferenceCount(anakin));
+	//		after divorce reference count for Padme should be equal 1
+	assert(1 == FXObjectGetReferenceCount(padme));
+	//		children's reference count must be equal 3
+	assert(3 == FXObjectGetReferenceCount(luke));
+	assert(3 == FXObjectGetReferenceCount(leia));
+	
+	//	release Padme
+	FXObjectRelease(padme);
+	// reference count for her children must be 2
+	assert(2 == FXObjectGetReferenceCount(luke));
+	assert(2 == FXObjectGetReferenceCount(leia)); // this don't work
 	
 	FXHumanPrintInfo(shmi);
 	FXHumanPrintInfo(anakin);
 	FXHumanPrintInfo(padme);
 	FXHumanPrintInfo(luke);
 	FXHumanPrintInfo(leia);
-
-//	FXObjectRelease(shmi);
-	
-	FXHumanPrintInfo(shmi);
-	FXHumanPrintInfo(anakin);
 }
 
 #pragma mark -

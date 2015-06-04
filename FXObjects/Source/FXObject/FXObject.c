@@ -37,9 +37,10 @@ void *FXObjectRetain(void *object) {
 
 void FXObjectRelease(void *object) {
 	if (object != NULL) {
-		unsigned long long count = ((FXObject *)object)->_referenceCount - 1;
+/*		unsigned long long count = ((FXObject *)object)->_referenceCount - 1;
 		((FXObject *)object)->_referenceCount = count;
-		if (count == 0) {
+		if (count == 0) {	*/
+		if (--((FXObject *)object)->_referenceCount == 0) {
 			((FXObject *)object)->_deallocator(object); // call dealloc if our obj is not used by anyone
 		}
 	}
@@ -48,9 +49,9 @@ void FXObjectRelease(void *object) {
 unsigned long long FXObjectGetReferenceCount(void *object) {
 	if (object != NULL) {
 		return ((FXObject *)object)->_referenceCount;
-	} else {
-		return 0;
 	}
+	
+	return 0;
 }
 
 void __FXObjectDeallocate(void *object) {

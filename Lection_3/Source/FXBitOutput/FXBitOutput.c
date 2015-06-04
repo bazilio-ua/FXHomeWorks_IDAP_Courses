@@ -31,6 +31,7 @@ void FXByteValueOutput(char *byteAddress) {
     }
 }
 
+// TODO: redone this with using ptrdiff_t
 void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setByteOrder) {
 	FXByteOrder detectedByteOrder = FXDetectByteOrder();
 	FXByteOrder usingByteOrder;

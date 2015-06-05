@@ -11,13 +11,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 typedef void (*FXObjectDeallocatorCallback)(void *); // define signature for Object dealloc callback
 
 typedef struct {
-	unsigned long long _referenceCount;
+	uint64_t _referenceCount;
 	FXObjectDeallocatorCallback _deallocator;
 } FXObject;
+
+extern
+void __FXObjectDeallocate(void *object);
 
 extern
 void *__FXObjectCreate(size_t objectSize, FXObjectDeallocatorCallback deallocateCallback);
@@ -32,9 +36,6 @@ extern
 void FXObjectRelease(void *object);
 
 extern
-unsigned long long FXObjectGetReferenceCount(void *object);
-
-extern
-void __FXObjectDeallocate(void *object);
+uint64_t FXObjectGetReferenceCount(void *object);
 
 #endif

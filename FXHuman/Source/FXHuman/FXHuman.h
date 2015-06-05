@@ -21,6 +21,10 @@ typedef enum {
 
 typedef struct FXHuman FXHuman;
 
+// dealloc
+extern
+void __FXHumanDeallocate(FXHuman *human);
+
 extern
 FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender);
 
@@ -95,9 +99,5 @@ void FXHumanSetFather(FXHuman *human, FXHuman *father);
 
 extern
 FXHuman *FXHumanGetFather(FXHuman *human);
-
-// dealloc
-extern
-void __FXHumanDeallocate(FXHuman *human);
 
 #endif

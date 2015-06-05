@@ -63,6 +63,8 @@ void FXHumanBehaviourTests(void) {
 	// reference count of her child must be 1
 	assert(1 == FXObjectGetReferenceCount(anakin));
 	
+//	FXHumanSetGender(anakin, kFXHumanGenderUndefined);
+//	FXHumanSetGender(padme, kFXHumanGenderUndefined);
 	//	do marriage with Anakin and Padme
 	bool success = false;
 	success = FXHumanMarriage(anakin, padme);

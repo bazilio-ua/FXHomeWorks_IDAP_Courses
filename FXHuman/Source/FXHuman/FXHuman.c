@@ -7,7 +7,6 @@
 //
 
 #include <stdio.h>
-#include <assert.h>
 #include <string.h>
 #include <stdbool.h>
 
@@ -37,6 +36,24 @@ struct FXHuman {
 #pragma mark -
 #pragma mark Public Methods Implementation
 
+// dealloc
+void __FXHumanDeallocate(FXHuman *human) {
+	FXHumanSetMother(human, NULL);
+	FXHumanSetFather(human, NULL);
+	
+	if (true == FXHumanIsMarried(human)) {
+		FXHumanDivorce(human);
+	}
+	
+	FXHumanRemoveAllChildren(human);
+	
+	FXHumanSetName(human, "");
+	FXHumanSetAge(human, 0);
+	FXHumanSetGender(human, 0);
+	
+	__FXObjectDeallocate(human);
+}
+
 FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) {
 	FXHuman *human = FXObjectCreateOfType(FXHuman);
 	FXHumanSetName(human, name);
@@ -53,8 +70,9 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 		if (wed != FXHumanGetSpouse(human)) {
 			FXHumanGender humanGender = FXHumanGetGender(human);
 			FXHumanGender wedGender = FXHumanGetGender(wed);
-			if (kFXHumanGenderUndefined != humanGender && 
-				kFXHumanGenderUndefined != wedGender) {
+//			if (kFXHumanGenderUndefined != humanGender && 
+//				kFXHumanGenderUndefined != wedGender) {
+			if (kFXHumanGenderUndefined != (humanGender && wedGender)) {
 				if (humanGender != wedGender) {
 					
 					if (true == FXHumanIsMarried(human)) {
@@ -295,28 +313,6 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 	}
 	
 	return NULL;
-}
-
-// dealloc
-void __FXHumanDeallocate(FXHuman *human) {
-	// clear parents
-	FXHumanSetMother(human, NULL);
-	FXHumanSetFather(human, NULL);
-	
-	// divorce with partner
-	if (true == FXHumanIsMarried(human)) {
-		FXHumanDivorce(human);
-	}
-	
-	// clear children
-	FXHumanRemoveAllChildren(human);
-	
-	// we clear it last, because we need gender for properly clear children
-	FXHumanSetName(human, "");
-	FXHumanSetAge(human, 0);
-	FXHumanSetGender(human, 0);
-	
-	__FXObjectDeallocate(human);
 }
 
 #pragma mark -

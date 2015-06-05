@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420E32C31B2198060037B6CA /* FXObjectSetter.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectSetter.c */; };
+		420E32C41B2198060037B6CA /* FXObjectSetter.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectSetter.c */; };
 		4237150B1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150C1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150D1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
@@ -92,6 +94,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		420E32C21B2198060037B6CA /* FXObjectSetter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXObjectSetter.c; sourceTree = "<group>"; };
+		420E32C61B2198210037B6CA /* FXObjectSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObjectSetter.h; sourceTree = "<group>"; };
 		4214E8F11AFA9BF100D0E018 /* Lection_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_1; sourceTree = BUILT_PRODUCTS_DIR; };
 		4214E9021AFA9C3C00D0E018 /* Lection_2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_2; sourceTree = BUILT_PRODUCTS_DIR; };
 		4214E91C1AFA9E1A00D0E018 /* Lection_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_3; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,6 +281,8 @@
 			children = (
 				423715371B07481E000A4877 /* FXObject.c */,
 				423715391B07482B000A4877 /* FXObject.h */,
+				420E32C21B2198060037B6CA /* FXObjectSetter.c */,
+				420E32C61B2198210037B6CA /* FXObjectSetter.h */,
 			);
 			path = FXObject;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				423715381B07481E000A4877 /* FXObject.c in Sources */,
 				4237153C1B0753AA000A4877 /* FXObjectTests.c in Sources */,
 				4237153E1B07568E000A4877 /* FXTestsMacro.c in Sources */,
+				420E32C31B2198060037B6CA /* FXObjectSetter.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +722,7 @@
 				42D78C6C1B08AE160036BA48 /* FXObject.c in Sources */,
 				42D78C6E1B08AF900036BA48 /* FXHuman.c in Sources */,
 				429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */,
+				420E32C41B2198060037B6CA /* FXObjectSetter.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

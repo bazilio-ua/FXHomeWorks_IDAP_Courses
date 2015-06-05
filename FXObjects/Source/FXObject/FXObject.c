@@ -14,6 +14,10 @@
 #pragma mark -
 #pragma mark Public Implementation
 
+void __FXObjectDeallocate(void *object) {
+	free(object);
+}
+
 void *__FXObjectCreate(size_t objectSize, FXObjectDeallocatorCallback deallocateCallback) {
 	assert(objectSize != 0); // sanity size
 	
@@ -43,14 +47,10 @@ void FXObjectRelease(void *object) {
 	}
 }
 
-unsigned long long FXObjectGetReferenceCount(void *object) {
+uint64_t FXObjectGetReferenceCount(void *object) {
 	if (object != NULL) {
 		return ((FXObject *)object)->_referenceCount;
 	}
 	
 	return 0;
-}
-
-void __FXObjectDeallocate(void *object) {
-	free(object);
 }

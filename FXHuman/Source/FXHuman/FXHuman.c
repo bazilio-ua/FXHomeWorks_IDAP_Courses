@@ -113,8 +113,8 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) 
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		if (NULL != child) { // add case
 
-//			FXRetainSetter(human, human->_children[index], child); // this not work
-			FXStrongRetainSetter(human, _children[index], child);
+			FXTestRetainSetter(human, (void **)&(human->_children[index]), child); // this is long without using a macro
+//			FXStrongRetainSetter(human, _children[index], child);
 /*			
 			FXObjectRetain(child);
 			FXObjectRelease(human->_children[index]);
@@ -124,8 +124,8 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) 
 			
 		} else if (NULL == child) { // remove case
 			
-//			FXRetainSetter(human, human->_children[index], child); // this not work
-			FXStrongRetainSetter(human, _children[index], child);
+			FXTestRetainSetter(human, (void **)&(human->_children[index]), child); // this is long without using a macro
+//			FXStrongRetainSetter(human, _children[index], child);
 /*			
 			FXObjectRelease(human->_children[index]);
 			human->_children[index] = child;
@@ -267,8 +267,8 @@ FXHuman *FXHumanGetSpouse(FXHuman *human) {
 // parents
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (human != mother) {
-//		FXAssignSetter(human, human->_mother, mother); // this not work
-		FXWeakAssignSetter(human, _mother, mother);
+		FXTestAssignSetter(human, (void **)&(human->_mother), mother); // this is long without using a macro
+//		FXWeakAssignSetter(human, _mother, mother);
 	}
 }
 
@@ -278,8 +278,8 @@ FXHuman *FXHumanGetMother(FXHuman *human) {
 
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 	if (human != father) {
-//		FXAssignSetter(human, human->_father, father); // this not work
-		FXWeakAssignSetter(human, _father, father);
+		FXTestAssignSetter(human, (void **)&(human->_father), father); // this is long without using a macro
+//		FXWeakAssignSetter(human, _father, father);
 	}
 }
 

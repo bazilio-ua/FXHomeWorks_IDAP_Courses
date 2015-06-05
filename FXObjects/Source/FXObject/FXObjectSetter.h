@@ -10,6 +10,12 @@
 #define FXHomeWorks_FXObjectSetter_h
 
 extern
+void FXTestAssignSetter(void *object, void **iVar, void *newVar);
+
+extern
+void FXTestRetainSetter(void *object, void **iVar, void *newVar);
+
+extern
 void FXAssignSetter(void *object, void **iVar, void *newVar);
 
 #define FXWeakAssignSetter(object, iVar, newVar) \

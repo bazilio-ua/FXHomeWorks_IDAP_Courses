@@ -57,20 +57,20 @@ void FXHumanBehaviourTests(void) {
 	assert(kFXHumanGenderFemale == FXHumanGetGender(padme));
 	//		reference count to Padme should be 1
 	assert(1 == FXObjectGetReferenceCount(padme));
-
+/*
 	// release Shmi
 	FXObjectRelease(shmi);
 	// reference count of her child must be 1
 	assert(1 == FXObjectGetReferenceCount(anakin));
-	
+*/	
 //	FXHumanSetGender(anakin, kFXHumanGenderUndefined);
 //	FXHumanSetGender(padme, kFXHumanGenderUndefined);
 	//	do marriage with Anakin and Padme
 	bool success = false;
 	success = FXHumanMarriage(anakin, padme);
 	printf("marriage is %s\n", success ? "successful" : "failed");
-	//		after marriage reference count for Anakin should stay unchanged and be equal 1
-	assert(1 == FXObjectGetReferenceCount(anakin));
+	//		after marriage reference count for Anakin should stay unchanged and be equal 2
+	assert(2 == FXObjectGetReferenceCount(anakin));
 	//		after marriage reference count for Padme should change and be equal 2
 	assert(2 == FXObjectGetReferenceCount(padme));
 	
@@ -78,8 +78,8 @@ void FXHumanBehaviourTests(void) {
 //	if (true == FXHumanIsMarried(anakin)) {
 		FXHumanDivorce(anakin);
 //	}
-	//		after divorce reference count for Anakin should stay unchanged and be equal 1
-	assert(1 == FXObjectGetReferenceCount(anakin));
+	//		after divorce reference count for Anakin should stay unchanged and be equal 2
+	assert(2 == FXObjectGetReferenceCount(anakin));
 	//		after divorce reference count for Padme should be equal 1
 	assert(1 == FXObjectGetReferenceCount(padme));
 
@@ -87,8 +87,8 @@ void FXHumanBehaviourTests(void) {
 	success = false;
 	success = FXHumanMarriage(anakin, padme);
 	printf("marriage is %s\n", success ? "successful" : "failed");
-	//		after marriage reference count for Anakin should stay unchanged and be equal 1
-	assert(1 == FXObjectGetReferenceCount(anakin));
+	//		after marriage reference count for Anakin should stay unchanged and be equal 2
+	assert(2 == FXObjectGetReferenceCount(anakin));
 	//		after marriage reference count for Padme should be equal 2
 	assert(2 == FXObjectGetReferenceCount(padme));
 	

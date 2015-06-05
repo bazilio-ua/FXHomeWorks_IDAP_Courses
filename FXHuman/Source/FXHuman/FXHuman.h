@@ -44,6 +44,9 @@ extern
 void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index);
 
 extern
+FXHuman *FXHumanGetChildAtIndex(FXHuman *human, unsigned int index);
+
+extern
 void FXHumanAddChild(FXHuman *human, FXHuman *child);
 
 extern

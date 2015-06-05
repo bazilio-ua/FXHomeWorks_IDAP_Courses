@@ -100,7 +100,7 @@ void FXHumanBehaviourTests(void) {
 	//		children's reference count must be equal 3
 	assert(3 == FXObjectGetReferenceCount(luke));
 	assert(3 == FXObjectGetReferenceCount(leia));
-	
+/*	
 	//	do divorce
 //	if (true == FXHumanIsMarried(padme)) {
 		FXHumanDivorce(padme);
@@ -124,7 +124,7 @@ void FXHumanBehaviourTests(void) {
 	// reference count for his children must be 1
 	assert(1 == FXObjectGetReferenceCount(luke));
 	assert(1 == FXObjectGetReferenceCount(leia));
-
+*/
 	FXHumanPrintInfo(shmi);
 	FXHumanPrintInfo(anakin);
 	FXHumanPrintInfo(padme);
@@ -153,8 +153,14 @@ void FXHumanPrintInfo(FXHuman *human) {
 	printf("\tmother object: %p\n", FXHumanGetMother(human));
 	printf("\tfather object: %p\n", FXHumanGetFather(human));
 	printf("\tspouse object: %p\n", FXHumanGetSpouse(human));
-	printf("\tchildren count: %d\n", FXHumanGetChildrenCount(human));
+	
+	unsigned int count = FXHumanGetChildrenCount(human);
+	printf("\tchildren count: %d\n", count);
+	printf("\tchild object%s: ", (count > 1) ? "s" : "");
+	while (count--) {
+		printf("%p ", FXHumanGetChildAtIndex(human, count));
+	}
+	printf("\n");
 	
 	printf("*** end of info ***\n\n");
 }
-

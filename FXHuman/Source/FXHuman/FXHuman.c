@@ -112,16 +112,36 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		if (NULL != child) { // add case
+
+//			FXRetainSetter(human, human->_children[index], child); // this not work
+			FXStrongRetainSetter(human, _children[index], child);
+/*			
 			FXObjectRetain(child);
 			FXObjectRelease(human->_children[index]);
 			human->_children[index] = child;
+*/			
 			human->_childrenCount++;
+			
 		} else if (NULL == child) { // remove case
+			
+//			FXRetainSetter(human, human->_children[index], child); // this not work
+			FXStrongRetainSetter(human, _children[index], child);
+/*			
 			FXObjectRelease(human->_children[index]);
 			human->_children[index] = child;
+*/			
 			human->_childrenCount--;
+			
 		}
 	}
+}
+
+FXHuman *FXHumanGetChildAtIndex(FXHuman *human, unsigned int index) {
+	if (NULL != human && index < kFXMaxChildrenCount) {
+		return human->_children[index];
+	}
+	
+	return NULL;	
 }
 
 void FXHumanAddChild(FXHuman *human, FXHuman *child) {
@@ -247,7 +267,8 @@ FXHuman *FXHumanGetSpouse(FXHuman *human) {
 // parents
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (human != mother) {
-		FXAssignSetter(human, human->_mother, mother);
+//		FXAssignSetter(human, human->_mother, mother); // this not work
+		FXWeakAssignSetter(human, _mother, mother);
 	}
 }
 
@@ -257,7 +278,8 @@ FXHuman *FXHumanGetMother(FXHuman *human) {
 
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 	if (human != father) {
-		FXAssignSetter(human, human->_father, father);
+//		FXAssignSetter(human, human->_father, father); // this not work
+		FXWeakAssignSetter(human, _father, father);
 	}
 }
 

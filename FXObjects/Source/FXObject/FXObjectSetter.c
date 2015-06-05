@@ -8,9 +8,9 @@
 
 #include "FXObject.h"
 
-void FXAssignSetter(void *object, void **iVar, void *newVar) {
-	if (NULL != object && iVar != newVar) {
-		*iVar = newVar;
+void FXAssignSetter(void *object, void *iVar, void *newVar) {
+	if (NULL != object) {
+		iVar = newVar;
 	}
 }
 

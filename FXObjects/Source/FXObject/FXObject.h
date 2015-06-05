@@ -13,6 +13,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#include "FXObjectSetter.h"
+
 typedef void (*FXObjectDeallocatorCallback)(void *); // define signature for Object dealloc callback
 
 typedef struct {

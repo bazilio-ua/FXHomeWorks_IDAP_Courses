@@ -9,8 +9,6 @@
 #ifndef FXHomeWorks_FXHuman_h
 #define FXHomeWorks_FXHuman_h
 
-//#include <stdbool.h>
-
 #include "FXObject.h"
 
 typedef enum {

@@ -111,18 +111,11 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 
 void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
+		FXStrongRetainSetter(human, _children[index], child);
 		if (NULL != child) { // add case
-			
-			FXStrongRetainSetter(human, _children[index], child);
-			
 			human->_childrenCount++;
-			
 		} else if (NULL == child) { // remove case
-			
-			FXStrongRetainSetter(human, _children[index], child);
-			
 			human->_childrenCount--;
-			
 		}
 	}
 }
@@ -232,22 +225,10 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 // spouse
 void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	if (NULL != human && human != spouse) {
-		if (NULL != spouse) { // marriage case
-			
-			if (kFXHumanGenderMale == FXHumanGetGender(human)) {
-				FXStrongRetainSetter(human, _spouse, spouse);
-			} else {
-				FXWeakAssignSetter(human, _spouse, spouse);
-			}
-			
-		} else if (NULL == spouse && NULL != FXHumanGetSpouse(human)) { // divorce case
-			
-			if (kFXHumanGenderMale == FXHumanGetGender(human)) {
-				FXStrongRetainSetter(human, _spouse, spouse);
-			} else {
-				FXWeakAssignSetter(human, _spouse, spouse);
-			}
-			
+		if (kFXHumanGenderMale == FXHumanGetGender(human)) {
+			FXStrongRetainSetter(human, _spouse, spouse);
+		} else {
+			FXWeakAssignSetter(human, _spouse, spouse);
 		}
 	}
 }

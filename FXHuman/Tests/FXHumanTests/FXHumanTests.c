@@ -66,9 +66,9 @@ void FXHumanBehaviourTests(void) {
 //	FXHumanSetGender(anakin, kFXHumanGenderUndefined);
 //	FXHumanSetGender(padme, kFXHumanGenderUndefined);
 	//	do marriage with Anakin and Padme
-	bool success = false;
-	success = FXHumanMarriage(anakin, padme);
-	printf("marriage is %s\n", success ? "successful" : "failed");
+//	bool success = false;
+/*	success =*/ FXHumanMarriage(anakin, padme);
+//	printf("marriage is %s\n", success ? "successful" : "failed");
 	//		after marriage reference count for Anakin should stay unchanged and be equal 2
 	assert(2 == FXObjectGetReferenceCount(anakin));
 	//		after marriage reference count for Padme should change and be equal 2
@@ -84,9 +84,9 @@ void FXHumanBehaviourTests(void) {
 	assert(1 == FXObjectGetReferenceCount(padme));
 
 	//	do marriage again
-	success = false;
-	success = FXHumanMarriage(anakin, padme);
-	printf("marriage is %s\n", success ? "successful" : "failed");
+//	success = false;
+/*	success =*/ FXHumanMarriage(anakin, padme);
+//	printf("marriage is %s\n", success ? "successful" : "failed");
 	//		after marriage reference count for Anakin should stay unchanged and be equal 2
 	assert(2 == FXObjectGetReferenceCount(anakin));
 	//		after marriage reference count for Padme should be equal 2

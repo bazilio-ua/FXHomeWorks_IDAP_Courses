@@ -9,7 +9,7 @@
 #ifndef FXHomeWorks_FXHuman_h
 #define FXHomeWorks_FXHuman_h
 
-#include <stdbool.h>
+//#include <stdbool.h>
 
 #include "FXObject.h"
 
@@ -30,7 +30,7 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender);
 
 // marriage
 extern
-bool FXHumanMarriage(FXHuman *human, FXHuman *wed);
+void FXHumanMarriage(FXHuman *human, FXHuman *wed);
 
 // divorce
 extern

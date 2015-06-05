@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 
 #include "FXHuman.h"
 
@@ -60,8 +60,7 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) 
 }
 
 // marriage
-bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
-	bool result = false;
+void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	if (NULL != human && NULL != wed && human != wed) {
 		if (wed != FXHumanGetSpouse(human)) {
 			FXHumanGender humanGender = FXHumanGetGender(human);
@@ -74,14 +73,10 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 					
 					FXHumanSetSpouse(human, wed);
 					FXHumanSetSpouse(wed, human);
-					
-					result = true;
 				}
 			}
 		}
 	}
-	
-	return result;
 }
 
 // divorce
@@ -114,7 +109,7 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) 
 		FXStrongRetainSetter(human, _children[index], child);
 		if (NULL != child) { // add case
 			human->_childrenCount++;
-		} else if (NULL == child) { // remove case
+		} else { // remove case if (NULL == child)
 			human->_childrenCount--;
 		}
 	}

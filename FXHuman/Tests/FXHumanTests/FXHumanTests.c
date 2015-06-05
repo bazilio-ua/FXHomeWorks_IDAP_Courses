@@ -75,9 +75,9 @@ void FXHumanBehaviourTests(void) {
 	assert(2 == FXObjectGetReferenceCount(padme));
 	
 	//	do divorce
-	if (true == FXHumanIsMarried(anakin)) {
+//	if (true == FXHumanIsMarried(anakin)) {
 		FXHumanDivorce(anakin);
-	}
+//	}
 	//		after divorce reference count for Anakin should stay unchanged and be equal 1
 	assert(1 == FXObjectGetReferenceCount(anakin));
 	//		after divorce reference count for Padme should be equal 1
@@ -102,9 +102,9 @@ void FXHumanBehaviourTests(void) {
 	assert(3 == FXObjectGetReferenceCount(leia));
 	
 	//	do divorce
-	if (true == FXHumanIsMarried(padme)) {
+//	if (true == FXHumanIsMarried(padme)) {
 		FXHumanDivorce(padme);
-	}
+//	}
 	//		after divorce reference count for Anakin should stay unchanged and be equal 1
 	assert(1 == FXObjectGetReferenceCount(anakin));
 	//		after divorce reference count for Padme should be equal 1
@@ -118,7 +118,13 @@ void FXHumanBehaviourTests(void) {
 	// reference count for her children must be 2
 	assert(2 == FXObjectGetReferenceCount(luke));
 	assert(2 == FXObjectGetReferenceCount(leia));
-	
+
+	//	release Anakin
+	FXObjectRelease(anakin);
+	// reference count for his children must be 1
+	assert(1 == FXObjectGetReferenceCount(luke));
+	assert(1 == FXObjectGetReferenceCount(leia));
+
 	FXHumanPrintInfo(shmi);
 	FXHumanPrintInfo(anakin);
 	FXHumanPrintInfo(padme);

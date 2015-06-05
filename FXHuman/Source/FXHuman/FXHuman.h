@@ -31,11 +31,11 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender);
 // marriage
 extern
 bool FXHumanMarriage(FXHuman *human, FXHuman *wed);
-
+/*
 // isMarried
 extern
 bool FXHumanIsMarried(FXHuman *human);
-
+*/
 // divorce
 extern
 void FXHumanDivorce(FXHuman *human);

@@ -41,9 +41,9 @@ void __FXHumanDeallocate(FXHuman *human) {
 	FXHumanSetMother(human, NULL);
 	FXHumanSetFather(human, NULL);
 	
-	if (true == FXHumanIsMarried(human)) {
+//	if (true == FXHumanIsMarried(human)) {
 		FXHumanDivorce(human);
-	}
+//	}
 	
 	FXHumanRemoveAllChildren(human);
 	
@@ -70,18 +70,16 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 		if (wed != FXHumanGetSpouse(human)) {
 			FXHumanGender humanGender = FXHumanGetGender(human);
 			FXHumanGender wedGender = FXHumanGetGender(wed);
-//			if (kFXHumanGenderUndefined != humanGender && 
-//				kFXHumanGenderUndefined != wedGender) {
 			if (kFXHumanGenderUndefined != (humanGender && wedGender)) {
 				if (humanGender != wedGender) {
 					
-					if (true == FXHumanIsMarried(human)) {
+//					if (true == FXHumanIsMarried(human)) {
 						FXHumanDivorce(human);
-					}
+//					}
 					
-					if (true == FXHumanIsMarried(wed)) {
+//					if (true == FXHumanIsMarried(wed)) {
 						FXHumanDivorce(wed);
-					}
+//					}
 					
 					FXHumanSetSpouse(human, wed);
 					FXHumanSetSpouse(wed, human);
@@ -94,8 +92,8 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	
 	return result;
 }
-
-// isMarried
+/*
+// isMarried -- it's useless
 bool FXHumanIsMarried(FXHuman *human) {
 	if (NULL != FXHumanGetSpouse(human)) {
 		return true;
@@ -103,7 +101,7 @@ bool FXHumanIsMarried(FXHuman *human) {
 	
 	return false;
 }
-
+*/
 // divorce
 void FXHumanDivorce(FXHuman *human) {
 	FXHuman *spouse = FXHumanGetSpouse(human);
@@ -134,9 +132,10 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) 
 		if (NULL != child) { // add case
 			FXObjectRetain(child);
 			FXObjectRelease(human->_children[index]);
-			human->_children[index] = FXObjectRetain(child);
+//			human->_children[index] = FXObjectRetain(child);
+			human->_children[index] = child;
 			human->_childrenCount++;
-			FXObjectRelease(child);
+//			FXObjectRelease(child);
 		} else if (NULL == child) { // remove case
 			FXObjectRelease(human->_children[index]);
 			human->_children[index] = child;
@@ -259,14 +258,15 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	if (NULL != human && human != spouse) {
 		if (NULL != spouse) { // marriage case
-			FXObjectRetain(spouse);
 			if (kFXHumanGenderMale == FXHumanGetGender(human)) {
+				FXObjectRetain(spouse);
 				FXObjectRelease(human->_spouse);
-				human->_spouse = FXObjectRetain(spouse);
+//				human->_spouse = FXObjectRetain(spouse);
+				human->_spouse = spouse;
+//				FXObjectRelease(spouse);
 			} else {
 				human->_spouse = spouse;
 			}
-			FXObjectRelease(spouse);
 		} else if (NULL == spouse && NULL != FXHumanGetSpouse(human)) { // divorce case
 			if (kFXHumanGenderMale == FXHumanGetGender(human)) {
 				FXObjectRelease(human->_spouse);

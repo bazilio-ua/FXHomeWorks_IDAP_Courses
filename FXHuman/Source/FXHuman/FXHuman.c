@@ -40,13 +40,9 @@ struct FXHuman {
 void __FXHumanDeallocate(FXHuman *human) {
 	FXHumanSetMother(human, NULL);
 	FXHumanSetFather(human, NULL);
-	
-//	if (true == FXHumanIsMarried(human)) {
-		FXHumanDivorce(human);
-//	}
-	
+	FXHumanDivorce(human);
 	FXHumanRemoveAllChildren(human);
-	
+	// do full zeroing allocated memory for our struct before free()
 	FXHumanSetName(human, "");
 	FXHumanSetAge(human, 0);
 	FXHumanSetGender(human, 0);
@@ -73,13 +69,8 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 			if (kFXHumanGenderUndefined != (humanGender && wedGender)) {
 				if (humanGender != wedGender) {
 					
-//					if (true == FXHumanIsMarried(human)) {
-						FXHumanDivorce(human);
-//					}
-					
-//					if (true == FXHumanIsMarried(wed)) {
-						FXHumanDivorce(wed);
-//					}
+					FXHumanDivorce(human);
+					FXHumanDivorce(wed);
 					
 					FXHumanSetSpouse(human, wed);
 					FXHumanSetSpouse(wed, human);
@@ -92,16 +83,7 @@ bool FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	
 	return result;
 }
-/*
-// isMarried -- it's useless
-bool FXHumanIsMarried(FXHuman *human) {
-	if (NULL != FXHumanGetSpouse(human)) {
-		return true;
-	}
-	
-	return false;
-}
-*/
+
 // divorce
 void FXHumanDivorce(FXHuman *human) {
 	FXHuman *spouse = FXHumanGetSpouse(human);
@@ -132,10 +114,8 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) 
 		if (NULL != child) { // add case
 			FXObjectRetain(child);
 			FXObjectRelease(human->_children[index]);
-//			human->_children[index] = FXObjectRetain(child);
 			human->_children[index] = child;
 			human->_childrenCount++;
-//			FXObjectRelease(child);
 		} else if (NULL == child) { // remove case
 			FXObjectRelease(human->_children[index]);
 			human->_children[index] = child;
@@ -197,12 +177,6 @@ void FXHumanRemoveAllChildren(FXHuman *human) {
 
 int FXHumanGetChildrenCount(FXHuman *human) {
 	return (NULL != human) ? human->_childrenCount : 0;
-/*	
-	if (NULL != human) {
-		return human->_childrenCount;
-	}
-	
-	return 0;*/
 }
 
 // name
@@ -220,12 +194,6 @@ void FXHumanSetName(FXHuman *human, const char *name) {
 
 char *FXHumanGetName(FXHuman *human) {
 	return (NULL != human) ? human->_name : NULL;
-/*	
-	if (NULL != human) {
-		return human->_name;
-	}
-	
-	return NULL;*/
 }
 
 // age
@@ -237,12 +205,6 @@ void FXHumanSetAge(FXHuman *human, int age) {
 
 int FXHumanGetAge(FXHuman *human) {
 	return (NULL != human) ? human->_age : 0;
-/*	
-	if (NULL != human) {
-		return human->_age;
-	}
-	
-	return 0;*/
 }
 
 // gender
@@ -254,12 +216,6 @@ void FXHumanSetGender(FXHuman *human, FXHumanGender gender) {
 
 FXHumanGender FXHumanGetGender(FXHuman *human) {
 	return (NULL != human) ? human->_gender : 0;
-/*	
-	if (NULL != human) {
-		return human->_gender;
-	}
-	
-	return 0;*/
 }
 
 // spouse
@@ -269,9 +225,7 @@ void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 			if (kFXHumanGenderMale == FXHumanGetGender(human)) {
 				FXObjectRetain(spouse);
 				FXObjectRelease(human->_spouse);
-//				human->_spouse = FXObjectRetain(spouse);
 				human->_spouse = spouse;
-//				FXObjectRelease(spouse);
 			} else {
 				human->_spouse = spouse;
 			}
@@ -288,12 +242,6 @@ void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 
 FXHuman *FXHumanGetSpouse(FXHuman *human) {
 	return (NULL != human) ? human->_spouse : NULL;
-/*	
-	if (NULL != human) {
-		return human->_spouse;
-	}
-	
-	return NULL;*/
 }
 
 // parents
@@ -301,40 +249,20 @@ void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (human != mother) {
 		FXAssignSetter(human, human->_mother, mother);
 	}
-/*	
-	if (NULL != human && human != mother) {
-		human->_mother = mother;
-	}*/
 }
 
 FXHuman *FXHumanGetMother(FXHuman *human) {
 	return (NULL != human) ? human->_mother : NULL;
-/*	
-	if (NULL != human) {
-		return human->_mother;
-	}
-	
-	return NULL;*/
 }
 
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 	if (human != father) {
 		FXAssignSetter(human, human->_father, father);
 	}
-/*	
-	if (NULL != human && human != father) {
-		human->_father = father;
-	}*/
 }
 
 FXHuman *FXHumanGetFather(FXHuman *human) {
 	return (NULL != human) ? human->_father : NULL;
-/*	
-	if (NULL != human) {
-		return human->_father;
-	}
-	
-	return NULL;*/
 }
 
 #pragma mark -

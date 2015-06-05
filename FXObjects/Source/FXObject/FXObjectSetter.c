@@ -7,7 +7,7 @@
 //
 
 #include "FXObject.h"
-
+/*
 void FXTestAssignSetter(void *object, void **iVar, void *newVar) {
 	if (NULL != object) {
 		
@@ -23,7 +23,7 @@ void FXTestRetainSetter(void *object, void **iVar, void *newVar) {
 		*iVar = newVar;
 	}
 }
-
+*/
 void FXAssignSetter(void *object, void **iVar, void *newVar) {
 	if (NULL != object) {
 		

@@ -112,9 +112,9 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		if (NULL != child) { // add case
-
-			FXTestRetainSetter(human, (void **)&(human->_children[index]), child); // this is long without using a macro
-//			FXStrongRetainSetter(human, _children[index], child);
+			
+//			FXTestRetainSetter(human, (void **)&(human->_children[index]), child); // long version without a macro
+			FXStrongRetainSetter(human, _children[index], child);
 /*			
 			FXObjectRetain(child);
 			FXObjectRelease(human->_children[index]);
@@ -124,8 +124,8 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) 
 			
 		} else if (NULL == child) { // remove case
 			
-			FXTestRetainSetter(human, (void **)&(human->_children[index]), child); // this is long without using a macro
-//			FXStrongRetainSetter(human, _children[index], child);
+//			FXTestRetainSetter(human, (void **)&(human->_children[index]), child); // long version without a macro
+			FXStrongRetainSetter(human, _children[index], child);
 /*			
 			FXObjectRelease(human->_children[index]);
 			human->_children[index] = child;
@@ -243,18 +243,38 @@ void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	if (NULL != human && human != spouse) {
 		if (NULL != spouse) { // marriage case
 			if (kFXHumanGenderMale == FXHumanGetGender(human)) {
-				FXObjectRetain(spouse);
+				
+//				FXTestRetainSetter(human, (void **)&(human->_spouse), spouse); // long version without a macro
+				FXStrongRetainSetter(human, _spouse, spouse);
+				
+/*				FXObjectRetain(spouse);
 				FXObjectRelease(human->_spouse);
 				human->_spouse = spouse;
+*/				
 			} else {
-				human->_spouse = spouse;
+				
+//				FXTestAssignSetter(human, (void **)&(human->_spouse), spouse); // long version without a macro
+				FXWeakAssignSetter(human, _spouse, spouse);
+				
+/*				human->_spouse = spouse;
+*/				
 			}
 		} else if (NULL == spouse && NULL != FXHumanGetSpouse(human)) { // divorce case
 			if (kFXHumanGenderMale == FXHumanGetGender(human)) {
-				FXObjectRelease(human->_spouse);
+				
+//				FXTestRetainSetter(human, (void **)&(human->_spouse), spouse); // long version without a macro
+				FXStrongRetainSetter(human, _spouse, spouse);
+				
+/*				FXObjectRelease(human->_spouse);
 				human->_spouse = spouse;
+*/				
 			} else {
-				human->_spouse = spouse;
+				
+//				FXTestAssignSetter(human, (void **)&(human->_spouse), spouse); // long version without a macro
+				FXWeakAssignSetter(human, _spouse, spouse);
+				
+/*				human->_spouse = spouse;
+*/				
 			}
 		}
 	}
@@ -267,8 +287,8 @@ FXHuman *FXHumanGetSpouse(FXHuman *human) {
 // parents
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (human != mother) {
-		FXTestAssignSetter(human, (void **)&(human->_mother), mother); // this is long without using a macro
-//		FXWeakAssignSetter(human, _mother, mother);
+//		FXTestAssignSetter(human, (void **)&(human->_mother), mother); // long version without a macro
+		FXWeakAssignSetter(human, _mother, mother);
 	}
 }
 
@@ -278,8 +298,8 @@ FXHuman *FXHumanGetMother(FXHuman *human) {
 
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 	if (human != father) {
-		FXTestAssignSetter(human, (void **)&(human->_father), father); // this is long without using a macro
-//		FXWeakAssignSetter(human, _father, father);
+//		FXTestAssignSetter(human, (void **)&(human->_father), father); // long version without a macro
+		FXWeakAssignSetter(human, _father, father);
 	}
 }
 

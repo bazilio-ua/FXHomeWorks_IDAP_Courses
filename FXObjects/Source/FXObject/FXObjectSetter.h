@@ -8,13 +8,13 @@
 
 #ifndef FXHomeWorks_FXObjectSetter_h
 #define FXHomeWorks_FXObjectSetter_h
-
+/*
 extern
 void FXTestAssignSetter(void *object, void **iVar, void *newVar);
 
 extern
 void FXTestRetainSetter(void *object, void **iVar, void *newVar);
-
+*/
 extern
 void FXAssignSetter(void *object, void **iVar, void *newVar);
 

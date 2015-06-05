@@ -30,22 +30,30 @@ void FXObjectTests(void) {
 #pragma mark Private Implementation
 
 void FXObjectAllocationsTests(void) {
-	void *testObject = FXObjectCreateOfType(FXObject);
+	// create an object
+	void *object = FXObjectCreateOfType(FXObject);
 	
-	assert(testObject != NULL);
+	// after creation pointer to object should not be NULL
+	assert(NULL != object);
 	
-	printf("object '%p' was created, reference count is: %llu\n", testObject, FXObjectGetReferenceCount(testObject));
+	// reference count for object should be equal 1
+	assert(1 == FXObjectGetReferenceCount(object));
 	
-	testObject = FXObjectRetain(testObject);
+	// after retain object
+	object = FXObjectRetain(object);
 	
-	printf("object '%p' was retained, reference count is: %llu\n", testObject, FXObjectGetReferenceCount(testObject));
-	
-	FXObjectRelease(testObject);
-	
-	printf("object '%p' was released, reference count is: %llu\n", testObject, FXObjectGetReferenceCount(testObject));
-	
-	FXObjectRelease(testObject);
-	
-	printf("object '%p' was freed, reference count is: %llu\n", testObject, FXObjectGetReferenceCount(testObject)); // at this point object should be freed
-	
+	// reference count for object should be equal 2
+	assert(2 == FXObjectGetReferenceCount(object));
+
+	// after release object
+	FXObjectRelease(object);
+
+	// reference count for object should be equal 1
+	assert(1 == FXObjectGetReferenceCount(object));
+
+	// after release object
+	FXObjectRelease(object);
+
+	// reference count for object should be equal 0 (object has freed)
+	assert(0 == FXObjectGetReferenceCount(object));
 }

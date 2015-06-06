@@ -26,6 +26,13 @@ void FXStringTests(void) {
 		   string, 
 		   FXStringGetString(string), 
 		   FXStringGetStringLength(string));
+	//		set the same string again
+	FXStringSetString(string, "The quick brown fox jumps over the lazy dog");
+	//		print string
+	printf("FXString %p contain string '%s' with length '%lu'\n", 
+		   string, 
+		   FXStringGetString(string), 
+		   FXStringGetStringLength(string));
 	
 	
 	//		after retain
@@ -66,7 +73,7 @@ void FXStringTests(void) {
 		   string, 
 		   FXStringGetString(string), 
 		   FXStringGetStringLength(string));
-
+	
 	
 	//	after set very new text
 	FXStringSetString(string, "The following sentence makes a good copy for practice, as it contains every letter of the alphabet: 'A quick brown fox jumps over the lazy dog.'");

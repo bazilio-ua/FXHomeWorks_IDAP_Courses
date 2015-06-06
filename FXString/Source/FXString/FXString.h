@@ -9,6 +9,24 @@
 #ifndef FXHomeWorks_FXString_h
 #define FXHomeWorks_FXString_h
 
+#include "FXObject.h"
 
+typedef struct FXString FXString;
+
+// dealloc
+extern
+void __FXStringDeallocate(FXString *string);
+
+extern
+FXString *FXStringCreateWithParameters(const char *data);
+
+extern
+void FXStringSetString(FXString *string, const char *data);
+
+extern
+char *FXStringGetString(FXString *string);
+
+extern
+size_t FXStringGetStringLength(FXString *string);
 
 #endif

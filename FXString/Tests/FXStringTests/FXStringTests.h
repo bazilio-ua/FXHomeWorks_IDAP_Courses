@@ -9,6 +9,7 @@
 #ifndef FXHomeWorks_FXStringTests_h
 #define FXHomeWorks_FXStringTests_h
 
-
+extern
+void FXStringTests(void);
 
 #endif

@@ -122,6 +122,13 @@ void FXHumanBehaviourTests(void) {
 	FXHumanPrintInfo(padme);
 	FXHumanPrintInfo(luke);
 	FXHumanPrintInfo(leia);
+	
+	// release them
+	FXObjectRelease(shmi);
+	FXObjectRelease(anakin);
+	FXObjectRelease(padme);
+	FXObjectRelease(luke);
+	FXObjectRelease(leia);
 }
 
 #pragma mark -

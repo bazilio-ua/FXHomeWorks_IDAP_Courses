@@ -8,11 +8,14 @@
 
 #include <stdio.h>
 
+#include "FXTestsMacro.h"
+#include "FXStringTests.h"
+
 int main(int argc, const char *argv[]) {
 	// insert code here...
 	printf("FXString\n");
 	
-	//perform FXString test
+	performTest(FXStringTests);
 	
     return 0;
 }

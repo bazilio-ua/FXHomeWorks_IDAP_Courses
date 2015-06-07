@@ -56,4 +56,7 @@ void FXObjectAllocationsTests(void) {
 
 	// reference count for object should be equal 0 (object was freed)
 	assert(0 == FXObjectGetReferenceCount(object));
+	
+	// release it
+	FXObjectRelease(object);
 }

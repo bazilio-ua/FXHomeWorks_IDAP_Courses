@@ -7,3 +7,62 @@
 //
 
 #include <stdio.h>
+
+#include "FXArray.h"
+
+#pragma mark -
+#pragma mark Private Declaration
+
+struct FXArray {
+	FXObject _super; // inheritance from FXObject
+	
+	void **_data;
+	uint64_t _capacity;
+};
+
+#pragma mark -
+#pragma mark Public Methods Implementation
+
+void __FXArrayDeallocate(FXArray *array) {
+	FXArrayRemoveAllObjects(array);
+	
+	__FXObjectDeallocate(array);
+}
+
+FXArray *FXArrayCreateWithCapacity(uint64_t capacity) {
+	FXArray *array = FXObjectCreateOfType(FXArray);
+	FXArraySetCapacity(array, capacity);
+	
+	return array;
+}
+
+void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
+	
+}
+
+uint64_t FXArrayGetCapacity(FXArray *array) {
+	return 0;
+}
+
+void FXArraySetArray(FXArray *array, void **data) {
+	
+}
+
+void **FXArrayGetArray(FXArray *array) {
+	return NULL;
+}
+
+void FXArrayAddObject(FXArray *array, void *object) {
+	
+}
+
+void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
+	
+}
+
+void FXArrayRemoveAllObjects(FXArray *array) {
+	
+}
+
+#pragma mark -
+#pragma mark Private Accessors Implementation

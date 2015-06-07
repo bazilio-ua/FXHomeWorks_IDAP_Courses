@@ -9,6 +9,39 @@
 #ifndef FXHomeWorks_FXArray_h
 #define FXHomeWorks_FXArray_h
 
+#include "FXObject.h"
 
+typedef struct FXArray FXArray;
+
+// dealloc
+extern
+void __FXArrayDeallocate(FXArray *array);
+
+extern
+FXArray *FXArrayCreateWithCapacity(uint64_t capacity);
+
+extern
+void FXArraySetCapacity(FXArray *array, uint64_t capacity);
+
+extern
+uint64_t FXArrayGetCapacity(FXArray *array);
+
+extern
+void FXArraySetArray(FXArray *array, void **data);
+
+extern
+void **FXArrayGetArray(FXArray *array);
+
+extern
+void FXArrayAddObject(FXArray *array, void *object);
+
+extern
+FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);
+
+extern
+void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index);
+
+extern
+void FXArrayRemoveAllObjects(FXArray *array);
 
 #endif

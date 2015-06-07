@@ -27,6 +27,10 @@
 		4269482D1AFAA3CA00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4269482B1AFAA3CA00974906 /* main.c */; };
 		426CDA8B1B012D120002B2EF /* FXBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA891B012D120002B2EF /* FXBitOutput.c */; };
 		426CDA8F1B012D3E0002B2EF /* FXBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA8D1B012D3E0002B2EF /* FXBitOutputTests.c */; };
+		428083721B24598D00334F99 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4280836F1B24598D00334F99 /* main.c */; };
+		428083741B2459C300334F99 /* FXArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 428083731B2459C300334F99 /* FXArray.c */; };
+		428083771B245A0400334F99 /* FXArrayTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 428083761B245A0400334F99 /* FXArrayTests.c */; };
+		428083791B245ADA00334F99 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
 		42A6B7B21AFFCFD3004D43C6 /* FXDataStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */; };
@@ -88,6 +92,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		428083601B2458A000334F99 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		42B474691AFAA1EB00AD71F0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +152,12 @@
 		426CDA8A1B012D120002B2EF /* FXBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBitOutput.h; sourceTree = "<group>"; };
 		426CDA8D1B012D3E0002B2EF /* FXBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXBitOutputTests.c; sourceTree = "<group>"; };
 		426CDA8E1B012D3E0002B2EF /* FXBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBitOutputTests.h; sourceTree = "<group>"; };
+		428083621B2458A000334F99 /* FXArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXArray; sourceTree = BUILT_PRODUCTS_DIR; };
+		4280836F1B24598D00334F99 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		428083731B2459C300334F99 /* FXArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXArray.c; sourceTree = "<group>"; };
+		428083751B2459CF00334F99 /* FXArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArray.h; sourceTree = "<group>"; };
+		428083761B245A0400334F99 /* FXArrayTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXArrayTests.c; sourceTree = "<group>"; };
+		428083781B245A1200334F99 /* FXArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayTests.h; sourceTree = "<group>"; };
 		429172BA1B0E609100FB9860 /* FXHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHumanTests.c; sourceTree = "<group>"; };
 		429172BC1B0E609F00FB9860 /* FXHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHumanTests.h; sourceTree = "<group>"; };
 		42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStruct.c; sourceTree = "<group>"; };
@@ -195,6 +214,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4280835F1B2458A000334F99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42B474681AFAA1EB00AD71F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,6 +249,7 @@
 				423715291B074733000A4877 /* FXObjects */,
 				42D78C5C1B08AD290036BA48 /* FXHuman */,
 				42643CF11B2320EC00B90F83 /* FXString */,
+				428083641B2458A000334F99 /* FXArray */,
 				4214E8F21AFA9BF100D0E018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -237,6 +264,7 @@
 				423715271B074733000A4877 /* FXObjects */,
 				42D78C5A1B08AD290036BA48 /* FXHuman */,
 				42643CE61B2320AF00B90F83 /* FXString */,
+				428083621B2458A000334F99 /* FXArray */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -489,6 +517,50 @@
 			path = FXBitOutputTests;
 			sourceTree = "<group>";
 		};
+		428083641B2458A000334F99 /* FXArray */ = {
+			isa = PBXGroup;
+			children = (
+				4280836D1B24598D00334F99 /* Source */,
+				428083701B24598D00334F99 /* Tests */,
+			);
+			path = FXArray;
+			sourceTree = "<group>";
+		};
+		4280836D1B24598D00334F99 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4280836E1B24598D00334F99 /* FXArray */,
+				4280836F1B24598D00334F99 /* main.c */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		4280836E1B24598D00334F99 /* FXArray */ = {
+			isa = PBXGroup;
+			children = (
+				428083731B2459C300334F99 /* FXArray.c */,
+				428083751B2459CF00334F99 /* FXArray.h */,
+			);
+			path = FXArray;
+			sourceTree = "<group>";
+		};
+		428083701B24598D00334F99 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				428083711B24598D00334F99 /* FXArrayTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		428083711B24598D00334F99 /* FXArrayTests */ = {
+			isa = PBXGroup;
+			children = (
+				428083761B245A0400334F99 /* FXArrayTests.c */,
+				428083781B245A1200334F99 /* FXArrayTests.h */,
+			);
+			path = FXArrayTests;
+			sourceTree = "<group>";
+		};
 		429172B81B0E606F00FB9860 /* FXHumanTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,6 +755,23 @@
 			productReference = 42643CE61B2320AF00B90F83 /* FXString */;
 			productType = "com.apple.product-type.tool";
 		};
+		428083611B2458A000334F99 /* FXArray */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4280836B1B2458A000334F99 /* Build configuration list for PBXNativeTarget "FXArray" */;
+			buildPhases = (
+				4280835E1B2458A000334F99 /* Sources */,
+				4280835F1B2458A000334F99 /* Frameworks */,
+				428083601B2458A000334F99 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXArray;
+			productName = FXArray;
+			productReference = 428083621B2458A000334F99 /* FXArray */;
+			productType = "com.apple.product-type.tool";
+		};
 		42B4746A1AFAA1EB00AD71F0 /* Lection_4 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B474721AFAA1EB00AD71F0 /* Build configuration list for PBXNativeTarget "Lection_4" */;
@@ -744,6 +833,7 @@
 				423715261B074733000A4877 /* FXObjects */,
 				42D78C591B08AD290036BA48 /* FXHuman */,
 				42643CE51B2320AF00B90F83 /* FXString */,
+				428083611B2458A000334F99 /* FXArray */,
 			);
 		};
 /* End PBXProject section */
@@ -806,6 +896,17 @@
 				42F9A50E1B2344E20070FF94 /* FXObjectSetter.c in Sources */,
 				42F9A5101B2344E80070FF94 /* FXObject.c in Sources */,
 				42D709BE1B23461A0053B63E /* FXTestsMacro.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4280835E1B2458A000334F99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				428083721B24598D00334F99 /* main.c in Sources */,
+				428083741B2459C300334F99 /* FXArray.c in Sources */,
+				428083771B245A0400334F99 /* FXArrayTests.c in Sources */,
+				428083791B245ADA00334F99 /* FXTestsMacro.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +1050,20 @@
 			};
 			name = Release;
 		};
+		428083691B2458A000334F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4280836A1B2458A000334F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		42B474731AFAA1EB00AD71F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1033,6 +1148,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4280836B1B2458A000334F99 /* Build configuration list for PBXNativeTarget "FXArray" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				428083691B2458A000334F99 /* Debug */,
+				4280836A1B2458A000334F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		42B474721AFAA1EB00AD71F0 /* Build configuration list for PBXNativeTarget "Lection_4" */ = {
 			isa = XCConfigurationList;

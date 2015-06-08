@@ -56,6 +56,18 @@ void FXArrayAddObject(FXArray *array, void *object) {
 	
 }
 
+bool FXArrayContainsObject(FXArray *array, void *object) {
+	return false;
+}
+
+uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object) {
+	return 0;
+}
+
+FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index) {
+	return NULL;
+}
+
 void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 	
 }

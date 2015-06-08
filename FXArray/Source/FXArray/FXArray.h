@@ -9,6 +9,8 @@
 #ifndef FXHomeWorks_FXArray_h
 #define FXHomeWorks_FXArray_h
 
+#include <stdbool.h>
+
 #include "FXObject.h"
 
 typedef struct FXArray FXArray;
@@ -34,6 +36,12 @@ void **FXArrayGetArray(FXArray *array);
 
 extern
 void FXArrayAddObject(FXArray *array, void *object);
+
+extern
+bool FXArrayContainsObject(FXArray *array, void *object);
+
+extern
+uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object);
 
 extern
 FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);

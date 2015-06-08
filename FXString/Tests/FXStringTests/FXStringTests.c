@@ -29,7 +29,14 @@ void FXStringTests(void) {
 	//		set the same string again
 	FXStringSetString(string, "The quick brown fox jumps over the lazy dog");
 	//		print string
-	printf("FXString %p contain string '%s' with length '%lu'\n", 
+	printf("FXString %p contain the same string '%s' with length '%lu'\n", 
+		   string, 
+		   FXStringGetString(string), 
+		   FXStringGetStringLength(string));
+	//		set the another string with the same length
+	FXStringSetString(string, "The brown quick fox over jumps the dog lazy");
+	//		print string
+	printf("FXString %p contain another string '%s' with same length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
 		   FXStringGetStringLength(string));

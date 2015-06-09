@@ -16,6 +16,7 @@
 
 static const int kFXMaxNameLength = 64;
 static const int kFXMaxChildrenCount = 20;
+static const int kFXHumanAdultAge = 18;
 
 struct FXHuman {
 	FXObject _super; // inheritance from FXObject
@@ -62,16 +63,20 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) 
 void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	if (NULL != human && NULL != wed && human != wed) {
 		if (wed != FXHumanGetSpouse(human)) {
-			FXHumanGender humanGender = FXHumanGetGender(human);
-			FXHumanGender wedGender = FXHumanGetGender(wed);
-			if (kFXHumanGenderUndefined != (humanGender && wedGender)) {
-				if (humanGender != wedGender) {
-					
-					FXHumanDivorce(human);
-					FXHumanDivorce(wed);
-					
-					FXHumanSetSpouse(human, wed);
-					FXHumanSetSpouse(wed, human);
+			unsigned int humanAge = FXHumanGetAge(human);
+			unsigned int wedAge = FXHumanGetAge(wed);
+			if (kFXHumanAdultAge <= humanAge && kFXHumanAdultAge <= wedAge) {
+				FXHumanGender humanGender = FXHumanGetGender(human);
+				FXHumanGender wedGender = FXHumanGetGender(wed);
+				if (kFXHumanGenderUndefined != humanGender && kFXHumanGenderUndefined != wedGender) {
+					if (humanGender != wedGender) {
+						
+						FXHumanDivorce(human);
+						FXHumanDivorce(wed);
+						
+						FXHumanSetSpouse(human, wed);
+						FXHumanSetSpouse(wed, human);
+					}
 				}
 			}
 		}
@@ -93,6 +98,7 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 		FXHuman *spouse = FXHumanGetSpouse(human);
 		if (NULL != spouse) {
 			FXHuman *child = FXHumanCreateWithParameters(name, age, gender);
+			
 			FXHumanAddChild(human, child);
 			FXHumanAddChild(spouse, child);
 			
@@ -129,6 +135,7 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 			unsigned int childrenCount = FXHumanGetChildrenCount(human);
 			if (childrenCount < kFXMaxChildrenCount) {
 				FXHumanSetChildAtIndex(human, child, childrenCount);
+				
 				if (kFXHumanGenderMale == humanGender) {
 					FXHumanSetFather(child, human);
 				} else if (kFXHumanGenderFemale == humanGender) {

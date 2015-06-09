@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
 
 #include "FXArray.h"
 
@@ -40,7 +41,9 @@ FXArray *FXArrayCreateWithCapacity(uint64_t capacity) {
 }
 
 void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
-	
+	if (NULL != array && array->_capacity != capacity ) {
+		assert(kFXArrayMaxCapacity >= capacity); // sanity
+	}
 }
 
 uint64_t FXArrayGetCapacity(FXArray *array) {

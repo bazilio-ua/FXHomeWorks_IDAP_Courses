@@ -13,6 +13,9 @@
 #pragma mark -
 #pragma mark Private Declaration
 
+static const uint64_t kFXIndexNotFound = UINT64_MAX;
+static const uint64_t kFXArrayMaxCapacity = kFXIndexNotFound - 1;
+
 struct FXArray {
 	FXObject _super; // inheritance from FXObject
 	

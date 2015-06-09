@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 #include "FXStringTests.h"
 #include "FXString.h"
@@ -26,15 +27,25 @@ void FXStringTests(void) {
 		   string, 
 		   FXStringGetString(string), 
 		   FXStringGetStringLength(string));
+	
+	//		cache text from our string
+	char *text = FXStringGetString(string);
 	//		set the same string again
 	FXStringSetString(string, "The quick brown fox jumps over the lazy dog");
+	//		string must be identical
+	assert(0 == strcmp(text, FXStringGetString(string)));
 	//		print string
 	printf("FXString %p contain the same string '%s' with length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
 		   FXStringGetStringLength(string));
+	
+	//		cache length from our string
+	size_t length = FXStringGetStringLength(string);
 	//		set the another string with the same length
 	FXStringSetString(string, "The brown quick fox over jumps the dog lazy");
+	//		length must be the same
+	assert(length == FXStringGetStringLength(string));
 	//		print string
 	printf("FXString %p contain another string '%s' with same length '%lu'\n", 
 		   string, 

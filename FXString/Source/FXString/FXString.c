@@ -41,7 +41,7 @@ FXString *FXStringCreateWithParameters(const char *data) {
 
 void FXStringSetString(FXString *string, const char *data) {
 	if (NULL != string) {
-		size_t oldLength = FXStringGetStringLength(string);
+		size_t oldLength = FXStringGetLength(string);
 		if (NULL != data) { // set new data value
 			size_t length = strlen(data);
 			if (NULL == string->_data) { // if string->_data is NULL
@@ -67,7 +67,7 @@ char *FXStringGetString(FXString *string) {
 	return NULL;
 }
 
-size_t FXStringGetStringLength(FXString *string) {
+size_t FXStringGetLength(FXString *string) {
 	if (NULL != string && NULL != string->_data) {
 		return strlen(string->_data);
 	}

@@ -21,12 +21,12 @@ void FXStringTests(void) {
 	//		reference count must be equal 1
 	assert(1 == FXObjectGetReferenceCount(string));
 	//		string length should be not 0
-	assert(0 != FXStringGetStringLength(string));
+	assert(0 != FXStringGetLength(string));
 	//		print string
 	printf("FXString %p contain string '%s' with length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
-		   FXStringGetStringLength(string));
+		   FXStringGetLength(string));
 	
 	//		cache text from our string
 	char *text = FXStringGetString(string);
@@ -38,19 +38,19 @@ void FXStringTests(void) {
 	printf("FXString %p contain the same string '%s' with length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
-		   FXStringGetStringLength(string));
+		   FXStringGetLength(string));
 	
 	//		cache length from our string
-	size_t length = FXStringGetStringLength(string);
+	size_t length = FXStringGetLength(string);
 	//		set the another string with the same length
 	FXStringSetString(string, "The brown quick fox over jumps the dog lazy");
 	//		length must be the same
-	assert(length == FXStringGetStringLength(string));
+	assert(length == FXStringGetLength(string));
 	//		print string
 	printf("FXString %p contain another string '%s' with same length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
-		   FXStringGetStringLength(string));
+		   FXStringGetLength(string));
 	
 	
 	//		after retain
@@ -70,12 +70,12 @@ void FXStringTests(void) {
 	//		reference count must be equal 1
 	assert(1 == FXObjectGetReferenceCount(string));
 	//		string length should be not 0
-	assert(0 != FXStringGetStringLength(string));
+	assert(0 != FXStringGetLength(string));
 	//		print new string
 	printf("FXString %p contain new string '%s' with length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
-		   FXStringGetStringLength(string));
+		   FXStringGetLength(string));
 	
 	
 	//	after set text to NULL
@@ -85,12 +85,12 @@ void FXStringTests(void) {
 	//		reference count must be equal 1
 	assert(1 == FXObjectGetReferenceCount(string));
 	//		string length should be equal 0
-	assert(0 == FXStringGetStringLength(string));
+	assert(0 == FXStringGetLength(string));
 	//		print NULL string
 	printf("FXString %p contain NULL string '%s' with length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
-		   FXStringGetStringLength(string));
+		   FXStringGetLength(string));
 	
 	
 	//	after set very new text
@@ -100,12 +100,12 @@ void FXStringTests(void) {
 	//		reference count must be equal 1
 	assert(1 == FXObjectGetReferenceCount(string));
 	//		string length should be not 0
-	assert(0 != FXStringGetStringLength(string));
+	assert(0 != FXStringGetLength(string));
 	//		print new string
 	printf("FXString %p contain very new string '%s' with length '%lu'\n", 
 		   string, 
 		   FXStringGetString(string), 
-		   FXStringGetStringLength(string));
+		   FXStringGetLength(string));
 	
 	// release it
 	FXObjectRelease(string);

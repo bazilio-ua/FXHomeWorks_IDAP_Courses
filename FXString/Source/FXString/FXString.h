@@ -27,6 +27,6 @@ extern
 char *FXStringGetString(FXString *string);
 
 extern
-size_t FXStringGetStringLength(FXString *string);
+size_t FXStringGetLength(FXString *string);
 
 #endif

@@ -41,21 +41,53 @@ FXArray *FXArrayCreateWithCapacity(uint64_t capacity) {
 }
 
 void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
-	if (NULL != array && array->_capacity != capacity ) {
+	if (NULL != array && array->_capacity != capacity) {
 		assert(kFXArrayMaxCapacity >= capacity); // sanity
+		
+		uint64_t count = FXArrayGetCount(array);
+		void **data = array->_data;
+		
 	}
 }
 
 uint64_t FXArrayGetCapacity(FXArray *array) {
+	if (NULL != array && NULL != array->_data) {
+		return array->_capacity;
+	}
+	
 	return 0;
 }
 
 void FXArraySetArray(FXArray *array, void **data) {
-	
+	if (NULL != array) {
+		array->_data = data;
+	}
 }
 
 void **FXArrayGetArray(FXArray *array) {
+	if (NULL != array) {
+		return array->_data;
+	}
+	
 	return NULL;
+}
+
+uint64_t FXArrayGetCount(FXArray *array) {
+	if (NULL != array && NULL != array->_data) {
+		uint64_t capacity = array->_capacity;
+		void **data = array->_data;
+		
+		uint64_t count;
+		for (count = 0; count < capacity; count++) {
+			if (NULL == data[count]) {
+				break;
+			}
+		}
+		
+		return count;
+	}
+	
+	return 0;
 }
 
 void FXArrayAddObject(FXArray *array, void *object) {

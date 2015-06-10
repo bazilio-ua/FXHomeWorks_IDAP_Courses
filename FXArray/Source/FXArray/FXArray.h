@@ -35,6 +35,9 @@ extern
 void **FXArrayGetArray(FXArray *array);
 
 extern
+uint64_t FXArrayGetCount(FXArray *array);
+
+extern
 void FXArrayAddObject(FXArray *array, void *object);
 
 extern

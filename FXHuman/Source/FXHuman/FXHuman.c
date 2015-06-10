@@ -70,9 +70,14 @@ void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 				FXHumanGender wedGender = FXHumanGetGender(wed);
 				if (kFXHumanGenderUndefined != humanGender && kFXHumanGenderUndefined != wedGender) {
 					if (humanGender != wedGender) {
+						// we need additionally retain weak wed partner before divorce, just in case
+						FXHuman *weakWed = (kFXHumanGenderFemale == humanGender) ? human : wed;
+						FXObjectRetain(weakWed);
 						
 						FXHumanDivorce(human);
 						FXHumanDivorce(wed);
+						
+						FXObjectRelease(weakWed);
 						
 						FXHumanSetSpouse(human, wed);
 						FXHumanSetSpouse(wed, human);

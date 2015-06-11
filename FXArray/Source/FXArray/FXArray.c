@@ -22,6 +22,7 @@ struct FXArray {
 	
 	void **_data;
 	uint64_t _capacity;
+	uint64_t _count;
 };
 
 #pragma mark -
@@ -94,12 +95,20 @@ void FXArrayAddObject(FXArray *array, void *object) {
 	
 }
 
+void FXArrayRemoveObject(FXArray *array, void *object) {
+	
+}
+
 bool FXArrayContainsObject(FXArray *array, void *object) {
 	return false;
 }
 
 uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object) {
 	return 0;
+}
+
+void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
+	
 }
 
 FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index) {

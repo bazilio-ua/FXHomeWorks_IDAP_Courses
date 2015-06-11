@@ -41,10 +41,16 @@ extern
 void FXArrayAddObject(FXArray *array, void *object);
 
 extern
+void FXArrayRemoveObject(FXArray *array, void *object);
+
+extern
 bool FXArrayContainsObject(FXArray *array, void *object);
 
 extern
 uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object);
+
+extern
+void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index);
 
 extern
 FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);

@@ -30,10 +30,10 @@ extern
 uint64_t FXArrayGetCapacity(FXArray *array);
 
 extern
-void FXArraySetArray(FXArray *array, void **data);
+void FXArraySetData(FXArray *array, void **data);
 
 extern
-void **FXArrayGetArray(FXArray *array);
+void **FXArrayGetData(FXArray *array);
 
 extern
 uint64_t FXArrayProposedCapacity(FXArray *array);
@@ -64,7 +64,7 @@ extern
 uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object);
 
 extern
-void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index); // -> private
+void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index); // -> this should be a private
 
 extern
 FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);

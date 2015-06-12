@@ -22,6 +22,7 @@ void __FXArrayDeallocate(FXArray *array);
 extern
 FXArray *FXArrayCreateWithCapacity(uint64_t capacity);
 
+//<-- these should be a private
 extern
 void FXArraySetCapacity(FXArray *array, uint64_t capacity);
 
@@ -35,7 +36,20 @@ extern
 void **FXArrayGetArray(FXArray *array);
 
 extern
+uint64_t FXArrayProposedCapacity(FXArray *array);
+
+extern
+bool FXArrayShouldResize(FXArray *array);
+
+extern
+void FXArrayResizeIfNeeded(FXArray *array);
+
+extern
+void FXArraySetCount(FXArray *array, uint64_t count);
+
+extern
 uint64_t FXArrayGetCount(FXArray *array);
+//--> these should be a private
 
 extern
 void FXArrayAddObject(FXArray *array, void *object);
@@ -50,7 +64,7 @@ extern
 uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object);
 
 extern
-void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index);
+void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index); // -> private
 
 extern
 FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);

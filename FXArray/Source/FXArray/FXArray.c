@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 
 #include "FXArray.h"
@@ -28,6 +29,7 @@ struct FXArray {
 #pragma mark -
 #pragma mark Public Methods Implementation
 
+// dealloc
 void __FXArrayDeallocate(FXArray *array) {
 	FXArrayRemoveAllObjects(array);
 	
@@ -45,9 +47,21 @@ void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
 	if (NULL != array && array->_capacity != capacity) {
 		assert(kFXArrayMaxCapacity >= capacity); // sanity
 		
-		uint64_t count = FXArrayGetCount(array);
-		void **data = array->_data;
+		size_t size = capacity * sizeof(*array->_data);
+		if (0 != size) { // set new capacity or resize
+			if (NULL == array->_data) {
+				array->_data = malloc(size); // new alloc
+			} else {
+				array->_data = realloc(array->_data, size); // re-alloc
+			}
+			assert(NULL != array->_data); // make sure allocation is successfull
+			
+		} else if (0 == size && NULL != array->_data) { // remove all objects or dealloc
+			free(array->_data);
+			array->_data = NULL;
+		}
 		
+		array->_capacity = capacity;
 	}
 }
 
@@ -73,19 +87,54 @@ void **FXArrayGetArray(FXArray *array) {
 	return NULL;
 }
 
-uint64_t FXArrayGetCount(FXArray *array) {
-	if (NULL != array && NULL != array->_data) {
-		uint64_t capacity = array->_capacity;
-		void **data = array->_data;
+uint64_t FXArrayProposedCapacity(FXArray *array) {
+	if (NULL != array) {
+		uint64_t capacity = FXArrayGetCapacity(array);
+		uint64_t count = FXArrayGetCount(array);
 		
-		uint64_t count;
-		for (count = 0; count < capacity; count++) {
-			if (NULL == data[count]) {
-				break;
-			}
+		uint64_t newCapacity;
+		if (capacity > count) { // trim our array
+			newCapacity = count;
+		} else if (capacity == count) { // do nothing
+			newCapacity = capacity;
+		} else { // increase its size
+			newCapacity = (count * 3) / 2 + 1; // or just [count * 2] ?
 		}
 		
-		return count;
+		return newCapacity;
+	}
+	
+	return 0;
+}
+
+bool FXArrayShouldResize(FXArray *array) {
+	if (NULL != array) {
+		if (array->_capacity != FXArrayProposedCapacity(array)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+void FXArrayResizeIfNeeded(FXArray *array) {
+	if (FXArrayShouldResize(array)) {
+		FXArraySetCapacity(array, FXArrayProposedCapacity(array));
+	}
+}
+
+void FXArraySetCount(FXArray *array, uint64_t count) {
+	if (NULL != array) {
+		assert(kFXArrayMaxCapacity >= count); // sanity
+		
+		array->_count = count;
+		
+		FXArrayResizeIfNeeded(array);
+	}
+}
+
+uint64_t FXArrayGetCount(FXArray *array) {
+	if (NULL != array) {
+		return array->_count;
 	}
 	
 	return 0;

@@ -62,15 +62,6 @@ void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
 			array->_data = NULL;
 		}
 		
-/*		uint64_t oldCapacity = array->_capacity;
-		if (capacity > oldCapacity) { // if we increase our capacity
-			void *newBlock = array->_data[oldCapacity];
-//			void *newBlock = array->_data + oldCapacity;
-			size_t newBlockSize = (capacity - oldCapacity) * sizeof(*array->_data);
-			
-			memset(newBlock, 0, newBlockSize); // zeroing new allocated block
-		}
-*/		
 		uint64_t oldCapacity = array->_capacity;
 		if (capacity > oldCapacity) { // if we increase our capacity
 			size_t size = (capacity - oldCapacity) * sizeof(*array->_data);

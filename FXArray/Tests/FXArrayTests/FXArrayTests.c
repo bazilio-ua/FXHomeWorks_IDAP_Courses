@@ -157,6 +157,62 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	assert(false == FXArrayContainsObject(array, object));
 	assert(false == FXArrayContainsObject(array, object2));
 	
+	//		array capacity should be equal 0
+	assert(0 == FXArrayGetCapacity(array));
+	
+	FXObject *object3 = FXObjectCreateOfType(FXObject); // create test object3
+	
+	//	after one origin object was added 5 times in array
+	for (uint64_t count = 0; count < 5; count++) {
+		FXArrayAddObject(array, object);
+	}
+	
+	//	after one object2 was added 5 times in array
+	for (uint64_t count = 5; count < 10; count++) {
+		FXArrayAddObject(array, object2);
+	}
+	
+	//	after one object3 was added 5 times in array
+	for (uint64_t count = 10; count < 15; count++) {
+		FXArrayAddObject(array, object3);
+	}
+	
+	//		array count must be equal to 15
+	assert(15 == FXArrayGetCount(array));
+	
+	//	after removing all instances of object2
+	FXArrayRemoveAllInstancesOfObject(array, object2);
+	
+	//		array count must be equal to 10
+	assert(10 == FXArrayGetCount(array));
+	
+	//		array must no contain object2
+	assert(false == FXArrayContainsObject(array, object2));
+	
+	//	after removing a first instance of object3
+	FXArrayRemoveFirstInstanceOfObject(array, object3);
+	
+	//		array count must be equal to 9
+	assert(9 == FXArrayGetCount(array));
+	
+	//		array must contain other instances of object3
+	assert(true == FXArrayContainsObject(array, object3));
+	
+	//	after removing all objects from array
+	FXArrayRemoveAllObjects(array);
+	
+	//		array must be empty
+	assert(0 == FXArrayGetCount(array));
+	
+	//		array must no contain origin object and object2
+	assert(false == FXArrayContainsObject(array, object));
+	assert(false == FXArrayContainsObject(array, object2));
+	assert(false == FXArrayContainsObject(array, object3));
+	
+	//		array capacity should be equal 0
+	assert(0 == FXArrayGetCapacity(array));
+	
+	FXObjectRelease(object3);
 	FXObjectRelease(object2);
 	FXObjectRelease(object);
 	FXObjectRelease(array);

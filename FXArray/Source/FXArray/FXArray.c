@@ -156,9 +156,18 @@ void FXArrayAddObject(FXArray *array, void *object) {
 	}
 }
 
-void FXArrayRemoveObject(FXArray *array, void *object) {
+void FXArrayRemoveAllInstancesOfObject(FXArray *array, void *object) {
 	if (NULL != array && NULL != object) {
 		while (FXArrayContainsObject(array, object)) {
+			uint64_t index = FXArrayGetIndexOfObject(array, object);
+			FXArrayRemoveObjectAtIndex(array, index);
+		}
+	}
+}
+
+void FXArrayRemoveFirstInstanceOfObject(FXArray *array, void *object) {
+	if (NULL != array && NULL != object) {
+		if (FXArrayContainsObject(array, object)) {
 			uint64_t index = FXArrayGetIndexOfObject(array, object);
 			FXArrayRemoveObjectAtIndex(array, index);
 		}

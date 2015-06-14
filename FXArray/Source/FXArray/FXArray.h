@@ -57,7 +57,10 @@ extern
 void FXArrayAddObject(FXArray *array, void *object);
 
 extern
-void FXArrayRemoveObject(FXArray *array, void *object);
+void FXArrayRemoveAllInstancesOfObject(FXArray *array, void *object);
+
+extern
+void FXArrayRemoveFirstInstanceOfObject(FXArray *array, void *object);
 
 extern
 bool FXArrayContainsObject(FXArray *array, void *object);

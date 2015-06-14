@@ -65,7 +65,7 @@ void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
 		uint64_t oldCapacity = array->_capacity;
 		if (capacity > oldCapacity) { // if we increase our capacity
 			size_t size = (capacity - oldCapacity) * sizeof(*array->_data);
-			memset(&array->_data[oldCapacity], 0, size); // zeroing new allocated block
+			memset(&array->_data[oldCapacity], 0, size); // zeroing a new allocated block
 		}
 		
 		array->_capacity = capacity;
@@ -235,7 +235,6 @@ void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 		uint64_t count = FXArrayGetCount(array);
 		if (index < (count - 1)) { // if removed object isn't last at index
 			uint64_t objectsCount = count - (index + 1); // get objects count from deleted object to end of index
-			
 			memmove(&data[index], &data[index + 1], objectsCount * sizeof(*data)); // and shift it all to the left
 		}
 		

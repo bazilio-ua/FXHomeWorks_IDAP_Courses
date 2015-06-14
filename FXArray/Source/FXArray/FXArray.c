@@ -248,10 +248,12 @@ void FXArrayRemoveAllObjects(FXArray *array) {
 	if (NULL != array) {
 		uint64_t count = FXArrayGetCount(array);
 		while (count--) {
-			FXArrayRemoveObjectAtIndex(array, count);
+//			FXArrayRemoveObjectAtIndex(array, count);
+			FXArraySetObjectAtIndex(array, NULL, count);
 		}
 		
-		FXArraySetCapacity(array, 0);
+//		FXArraySetCapacity(array, 0);
+		FXArraySetCount(array, 0);
 	}
 }
 

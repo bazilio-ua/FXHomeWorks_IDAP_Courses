@@ -180,6 +180,8 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		array count must be equal to 15
 	assert(15 == FXArrayGetCount(array));
 	
+	printf("array has capacity: %llu and count: %llu\n", FXArrayGetCapacity(array), FXArrayGetCount(array));
+	
 	//	after removing all instances of object2
 	FXArrayRemoveAllInstancesOfObject(array, object2);
 	
@@ -204,7 +206,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		array must be empty
 	assert(0 == FXArrayGetCount(array));
 	
-	//		array must no contain origin object and object2
+	//		array must no contain origin object, object2 and object3
 	assert(false == FXArrayContainsObject(array, object));
 	assert(false == FXArrayContainsObject(array, object2));
 	assert(false == FXArrayContainsObject(array, object3));
@@ -212,6 +214,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		array capacity should be equal 0
 	assert(0 == FXArrayGetCapacity(array));
 	
+	// release them
 	FXObjectRelease(object3);
 	FXObjectRelease(object2);
 	FXObjectRelease(object);

@@ -22,19 +22,27 @@ void FXArrayOneObjectBehaviorTest(void);
 static
 void FXArrayMultiplyObjectBehaviorTest(void);
 
+static
+void FXArrayHighLoadOneObjectPerformanceTest(void);
+
+static
+void FXArrayHighLoadMultiplyObjectsPerformanceTest(void);
+
 #pragma mark -
 #pragma mark Public Implementation
 
 void FXArrayTests(void) {
 	performTest(FXArrayOneObjectBehaviorTest);
 	performTest(FXArrayMultiplyObjectBehaviorTest);
+	performTest(FXArrayHighLoadOneObjectPerformanceTest);
+	performTest(FXArrayHighLoadMultiplyObjectsPerformanceTest);
 }
 
 #pragma mark -
 #pragma mark Private Implementation
 
 void FXArrayOneObjectBehaviorTest(void) {
-	//	after one object was created
+	//	after array was created
 	FXArray *array = FXArrayCreateWithCapacity(2);
 	
 	//		array must be not NULL
@@ -218,5 +226,78 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	FXObjectRelease(object3);
 	FXObjectRelease(object2);
 	FXObjectRelease(object);
+	FXObjectRelease(array);
+}
+
+void FXArrayHighLoadOneObjectPerformanceTest(void) {
+	//	after array was created
+	FXArray *array = FXArrayCreateWithCapacity(0);
+	
+	//	after object was created
+	FXObject *object = FXObjectCreateOfType(FXObject);
+	
+	const uint64_t kFXCount = 200000;
+	//	add one object 'kFXCount' times in array
+	for (uint64_t index = 0; index < kFXCount; index++) {
+		FXArrayAddObject(array, object);
+	}
+	
+	//		reference count of added object must be equal 'kFXCount'+1
+	assert((kFXCount + 1) == FXObjectGetReferenceCount(object));
+	
+	//		array count must be equal 'kFXCount'
+	assert(kFXCount == FXArrayGetCount(array));
+	
+	//	remove one object 'kFXCount' times from array
+	for (uint64_t index = kFXCount; index > 0; --index) {
+		FXArrayRemoveObjectAtIndex(array, index - 1);
+	}
+	
+	//		after removing all objects from array its count must be equal to 0
+	assert(0 == FXArrayGetCount(array));
+	
+	// release them
+	FXObjectRelease(object);
+	FXObjectRelease(array);
+}
+
+void FXArrayHighLoadMultiplyObjectsPerformanceTest(void) {
+	//	after array was created
+	FXArray *array = FXArrayCreateWithCapacity(0);
+	
+	const uint64_t kFXCount = 200000;
+	//	add 'kFXCount's objects in array
+	for (uint64_t index = 0; index < kFXCount; index++) {
+		//	after object was created
+		FXObject *object = FXObjectCreateOfType(FXObject);
+		
+		//		add it to array 'kFXCount' times
+		FXArrayAddObject(array, object);
+		
+		//	release object 'kFXCount' times
+		FXObjectRelease(object);
+	}
+	
+	//	array count must be equal 'kFXCount'
+	assert(kFXCount == FXArrayGetCount(array));
+	
+	//	object at index[0] in array must not be equal to object at index[1] 
+	assert(FXArrayGetObjectAtIndex(array, 0) != FXArrayGetObjectAtIndex(array, 1));
+
+	//	object at index[1] in array must not be equal to object at index['kFXCount'-1] 
+	assert(FXArrayGetObjectAtIndex(array, 1) != FXArrayGetObjectAtIndex(array, kFXCount - 1));
+
+	//	remove 'kFXCount' objects from array
+	for (uint64_t index = kFXCount; index > 0; --index) {
+		FXArrayRemoveObjectAtIndex(array, index - 1);
+	}
+	
+	//		after removing all objects from array its count must be equal to 0
+	assert(0 == FXArrayGetCount(array));
+	
+	//		array capacity should be equal to 0
+	assert(0 == FXArrayGetCapacity(array));
+	
+	// release array
 	FXObjectRelease(array);
 }

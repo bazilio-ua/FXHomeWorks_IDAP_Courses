@@ -105,7 +105,8 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 		} else if (capacity == count) { // do nothing
 			newCapacity = capacity;
 		} else { // increase its size
-			newCapacity = (count * 3) / 2 + 1; // or just [count * 2] ?
+			newCapacity = (count * 3) / 2 + 1; // optimal
+//			newCapacity = count * 2; // not optimal (slow)
 		}
 		
 		return newCapacity;

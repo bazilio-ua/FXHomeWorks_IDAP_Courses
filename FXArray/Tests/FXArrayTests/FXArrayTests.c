@@ -287,15 +287,18 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void) {
 	//	object at index[1] in array must not be equal to object at index['kFXCount'-1] 
 	assert(FXArrayGetObjectAtIndex(array, 1) != FXArrayGetObjectAtIndex(array, kFXCount - 1));
 
-	//	remove 'kFXCount' objects from array
-	for (uint64_t index = kFXCount; index > 0; --index) {
+	//	remove object at index[0] (all 'kFXCount'-1 objects should shift to left)
+	FXArrayRemoveObjectAtIndex(array, 0);
+	
+	//	remove 'kFXCount'-1 objects from array
+	for (uint64_t index = kFXCount - 1; index > 0; --index) {
 		FXArrayRemoveObjectAtIndex(array, index - 1);
 	}
 	
-	//		after removing all objects from array its count must be equal to 0
+	//	after removing all objects from array its count must be equal to 0
 	assert(0 == FXArrayGetCount(array));
 	
-	//		array capacity should be equal to 0
+	//	array capacity should be equal to 0
 	assert(0 == FXArrayGetCapacity(array));
 	
 	// release array

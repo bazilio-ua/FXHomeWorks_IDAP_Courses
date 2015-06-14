@@ -250,7 +250,7 @@ void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 		}
 		
 		data[count - 1] = NULL; // NULL last object
-
+		
 /*		// slow version (shift objects one by one)
 		uint64_t count = FXArrayGetCount(array);
 		for (uint64_t objectsCount = index + 1; objectsCount < count; objectsCount++) {

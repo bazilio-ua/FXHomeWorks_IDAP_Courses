@@ -16,7 +16,7 @@
 #pragma mark -
 #pragma mark Private Declaration
 
-static const uint64_t kFXIndexNotFound = UINT64_MAX;
+const uint64_t kFXIndexNotFound = UINT64_MAX;
 static const uint64_t kFXArrayMaxCapacity = kFXIndexNotFound - 1;
 
 struct FXArray {
@@ -197,8 +197,7 @@ void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
 	if (NULL != array) {
 		assert(index < FXArrayGetCount(array)); // sanity boundary limit
 		
-//		void *currentObject = array->_data[index];
-		void *currentObject = FXArrayGetObjectAtIndex(array, index);
+		void *currentObject = array->_data[index];
 		if (object != currentObject) {
 			// TODO: do it with retain setter
 			FXObjectRetain(object);
@@ -209,7 +208,7 @@ void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
 	}
 }
 
-FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index) {
+void *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index) {
 	if (NULL != array) {
 		assert(index < FXArrayGetCount(array)); // sanity boundary limit
 		
@@ -240,8 +239,8 @@ void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 void FXArrayRemoveAllObjects(FXArray *array) {
 	if (NULL != array) {
 		uint64_t count = FXArrayGetCount(array);
-		for (uint64_t index = 0; index < count; index++) {
-			FXArraySetObjectAtIndex(array, NULL, index);
+		while (count--) {
+			FXArrayRemoveObjectAtIndex(array, count);
 		}
 		
 		FXArraySetCapacity(array, 0);

@@ -13,6 +13,8 @@
 
 #include "FXObject.h"
 
+extern const uint64_t kFXIndexNotFound; // used in test suite
+
 typedef struct FXArray FXArray;
 
 // dealloc
@@ -67,7 +69,7 @@ extern
 void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index); // -> this should be a private
 
 extern
-FXArray *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);
+void *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);
 
 extern
 void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index);

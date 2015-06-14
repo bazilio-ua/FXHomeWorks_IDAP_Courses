@@ -62,12 +62,21 @@ void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
 			array->_data = NULL;
 		}
 		
+		// fast version
 		uint64_t oldCapacity = array->_capacity;
 		if (capacity > oldCapacity) { // if we increase our capacity
 			size_t size = (capacity - oldCapacity) * sizeof(*array->_data);
 			memset(&array->_data[oldCapacity], 0, size); // zeroing a new allocated block
 		}
 		
+/*		// slow version (zeroing objects one by one)
+		uint64_t oldCapacity = array->_capacity;
+		if (capacity > oldCapacity) {
+			for (uint64_t index = oldCapacity; index < capacity; index++) {
+				array->_data[index] = NULL;
+			}
+		}
+*/		
 		array->_capacity = capacity;
 	}
 }
@@ -232,6 +241,7 @@ void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 	if (NULL != array) {
 		FXArraySetObjectAtIndex(array, NULL, index);
 		
+		// fast version
 		void **data = FXArrayGetData(array);
 		uint64_t count = FXArrayGetCount(array);
 		if (index < (count - 1)) { // if removed object isn't last at index
@@ -240,7 +250,17 @@ void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 		}
 		
 		data[count - 1] = NULL; // NULL last object
+
+/*		// slow version (shift objects one by one)
+		uint64_t count = FXArrayGetCount(array);
+		for (uint64_t objectsCount = index + 1; objectsCount < count; objectsCount++) {
+			FXArraySetObjectAtIndex(array, FXArrayGetObjectAtIndex(array, objectsCount), objectsCount - 1);
+			// copy objects from current objectsCount to objectsCount-1
+			// array->_data[objectsCount - 1] = array->_data[objectsCount]
+		}
 		
+		FXArraySetObjectAtIndex(array, NULL, count - 1); // NULL last object
+*/		
 		FXArraySetCount(array, count - 1);
 	}
 }

@@ -34,8 +34,8 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void);
 void FXArrayTests(void) {
 	performTest(FXArrayOneObjectBehaviorTest);
 	performTest(FXArrayMultiplyObjectBehaviorTest);
-//	performTest(FXArrayHighLoadOneObjectPerformanceTest);
-//	performTest(FXArrayHighLoadMultiplyObjectsPerformanceTest);
+	performTest(FXArrayHighLoadOneObjectPerformanceTest);
+	performTest(FXArrayHighLoadMultiplyObjectsPerformanceTest);
 }
 
 #pragma mark -
@@ -184,6 +184,9 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	for (uint64_t count = 10; count < 15; count++) {
 		FXArrayAddObject(array, object3);
 	}
+
+	//		object3 should be in array at index[14]
+	assert(object3 == FXArrayGetObjectAtIndex(array, 14));
 	
 	//		array count must be equal to 15
 	assert(15 == FXArrayGetCount(array));
@@ -196,6 +199,29 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//	after inserting object4 at index 2
 	FXArrayInsertObjectAtIndex(array, object4, 2);
 	
+	
+	//		object should be in array at index[0-1 and 3-5]
+	assert(object == FXArrayGetObjectAtIndex(array, 0));
+	assert(object == FXArrayGetObjectAtIndex(array, 1));
+	
+	assert(object == FXArrayGetObjectAtIndex(array, 3));
+	assert(object == FXArrayGetObjectAtIndex(array, 4));
+	assert(object == FXArrayGetObjectAtIndex(array, 5));
+	
+	//	!!! BEWARE !!! copy-paste
+	assert(object2 == FXArrayGetObjectAtIndex(array, 6));
+	assert(object2 == FXArrayGetObjectAtIndex(array, 7));
+	assert(object2 == FXArrayGetObjectAtIndex(array, 8));
+	assert(object2 == FXArrayGetObjectAtIndex(array, 9));
+	assert(object2 == FXArrayGetObjectAtIndex(array, 10));
+	
+	assert(object3 == FXArrayGetObjectAtIndex(array, 11));
+	assert(object3 == FXArrayGetObjectAtIndex(array, 12));
+	assert(object3 == FXArrayGetObjectAtIndex(array, 13));
+	assert(object3 == FXArrayGetObjectAtIndex(array, 14));
+	assert(object3 == FXArrayGetObjectAtIndex(array, 15));
+	
+	
 	//		array count must be equal to 16
 	assert(16 == FXArrayGetCount(array));
 
@@ -205,11 +231,54 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		object4 should be in array at index[2]
 	assert(object4 == FXArrayGetObjectAtIndex(array, 2));
 	
+	//		object3 should be in array at index[15]
+	assert(object3 == FXArrayGetObjectAtIndex(array, 15));
+	
+	FXObject *object5 = FXObjectCreateOfType(FXObject); // create test object5
+	
+	//	after inserting object into array at last index 15
+	FXArrayInsertObjectAtIndex(array, object5, 15);
+
+	//		array count must be equal to 17
+	assert(17 == FXArrayGetCount(array));
+	
+	//		array must contain object5
+	assert(true == FXArrayContainsObject(array, object5));
+	
+	//		object5 should be in array at index[15]
+	assert(object5 == FXArrayGetObjectAtIndex(array, 15));
+
+	//		object3 should be in array at index[16]
+	assert(object3 == FXArrayGetObjectAtIndex(array, 16));
+	
+	
+	FXObject *object6 = FXObjectCreateOfType(FXObject); // create test object6
+	
+	//	after inserting object into array at last index 16
+	FXArrayInsertObjectAtIndex(array, object6, 16);
+	
+	//		array count must be equal to 18
+	assert(18 == FXArrayGetCount(array));
+
+	//		object6 should be in array at index[16]
+	assert(object6 == FXArrayGetObjectAtIndex(array, 16));
+	
+	//		object3 should be in array at index[17]
+	assert(object3 == FXArrayGetObjectAtIndex(array, 17));
+	
+	printf("reference count object3: %llu \n", FXObjectGetReferenceCount(object3));
+	printf("reference count object6: %llu \n", FXObjectGetReferenceCount(object6));
+	
+	FXArrayRemoveObjectAtIndex(array, 17);
+	
+	printf("reference count object3: %llu \n", FXObjectGetReferenceCount(object3));
+	printf("reference count object6: %llu \n", FXObjectGetReferenceCount(object6));
+	
 	//	after removing all instances of object2
 	FXArrayRemoveAllInstancesOfObject(array, object2);
 	
 	//		array count must be equal to 11
-	assert(11 == FXArrayGetCount(array));
+	assert(12 == FXArrayGetCount(array));
 	
 	//		array must no contain object2
 	assert(false == FXArrayContainsObject(array, object2));
@@ -218,7 +287,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	FXArrayRemoveFirstInstanceOfObject(array, object3);
 	
 	//		array count must be equal to 10
-	assert(10 == FXArrayGetCount(array));
+	assert(11 == FXArrayGetCount(array));
 	
 	//		array must contain other instances of object3
 	assert(true == FXArrayContainsObject(array, object3));
@@ -239,6 +308,8 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	assert(0 == FXArrayGetCapacity(array));
 	
 	// release them
+	FXObjectRelease(object6);
+	FXObjectRelease(object5);
 	FXObjectRelease(object4);
 	FXObjectRelease(object3);
 	FXObjectRelease(object2);
@@ -253,7 +324,7 @@ void FXArrayHighLoadOneObjectPerformanceTest(void) {
 	//	after object was created
 	FXObject *object = FXObjectCreateOfType(FXObject);
 	
-	const uint64_t kFXCount = 200000;
+	const uint64_t kFXCount = 1000000;
 	//	add one object 'kFXCount' times in array
 	for (uint64_t index = 0; index < kFXCount; index++) {
 		FXArrayAddObject(array, object);
@@ -282,7 +353,7 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void) {
 	//	after array was created
 	FXArray *array = FXArrayCreateWithCapacity(0);
 	
-	const uint64_t kFXCount = 200000;
+	const uint64_t kFXCount = 1000000;
 	//	add 'kFXCount's objects in array
 	for (uint64_t index = 0; index < kFXCount; index++) {
 		//	after object was created

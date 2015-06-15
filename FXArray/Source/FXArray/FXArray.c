@@ -89,13 +89,13 @@ uint64_t FXArrayGetCapacity(FXArray *array) {
 	return 0;
 }
 
-void FXArraySetData(FXArray *array, void **data) {
+void FXArraySetArray(FXArray *array, void **data) {
 	if (NULL != array) {
 		array->_data = data;
 	}
 }
 
-void **FXArrayGetData(FXArray *array) {
+void **FXArrayGetArray(FXArray *array) {
 	if (NULL != array) {
 		return array->_data;
 	}
@@ -237,26 +237,45 @@ void *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index) {
 	return NULL;
 }
 
+void FXArrayInsertObjectAtIndex(FXArray *array, void *object, uint64_t index) {
+	if (NULL != array && NULL != object) { // !!! need check index limit !!!
+		uint64_t count = FXArrayGetCount(array); // get current count
+		assert(index < count); // sanity boundary limit
+		
+		FXArraySetCount(array, count + 1); // increase count
+		
+		void **data = FXArrayGetArray(array);
+		if (index < (count - 1)) { // if inserted object is not last at index
+			uint64_t currentCount = count - (index + 1); // get objects count from index of inserted object to end of index
+			memmove(&data[index + 1], &data[index], currentCount * sizeof(*data)); // and shift it all to the right by 1
+		}
+		
+		data[index] = NULL; // NULL it at index
+		
+		FXArraySetObjectAtIndex(array, object, index);
+	}
+}
+
 void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 	if (NULL != array) {
 		FXArraySetObjectAtIndex(array, NULL, index);
 		
 		// fast version
-		void **data = FXArrayGetData(array);
+		void **data = FXArrayGetArray(array);
 		uint64_t count = FXArrayGetCount(array);
 		if (index < (count - 1)) { // if removed object isn't last at index
-			uint64_t objectsCount = count - (index + 1); // get objects count from deleted object to end of index
-			memmove(&data[index], &data[index + 1], objectsCount * sizeof(*data)); // and shift it all to the left
+			uint64_t currentCount = count - (index + 1); // get objects count from deleted object to end of index
+			memmove(&data[index], &data[index + 1], currentCount * sizeof(*data)); // and shift it all to the left by 1
 		}
 		
-		data[count - 1] = NULL; // NULL last object
+		data[count - 1] = NULL; // NULL last object (TODO: move it to condition "if (index < (count - 1))")???
 		
 /*		// slow version (shift objects one by one)
 		uint64_t count = FXArrayGetCount(array);
-		for (uint64_t objectsCount = index + 1; objectsCount < count; objectsCount++) {
-			FXArraySetObjectAtIndex(array, FXArrayGetObjectAtIndex(array, objectsCount), objectsCount - 1);
-			// copy objects from current objectsCount to objectsCount-1
-			// array->_data[objectsCount - 1] = array->_data[objectsCount]
+		for (uint64_t currentCount = index + 1; currentCount < count; currentCount++) {
+			FXArraySetObjectAtIndex(array, FXArrayGetObjectAtIndex(array, currentCount), currentCount - 1);
+			// copy objects from current currentCount to currentCount - 1
+			// array->_data[currentCount - 1] = array->_data[currentCount]
 		}
 		
 		FXArraySetObjectAtIndex(array, NULL, count - 1); // NULL last object

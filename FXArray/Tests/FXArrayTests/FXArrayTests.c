@@ -34,8 +34,8 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void);
 void FXArrayTests(void) {
 	performTest(FXArrayOneObjectBehaviorTest);
 	performTest(FXArrayMultiplyObjectBehaviorTest);
-	performTest(FXArrayHighLoadOneObjectPerformanceTest);
-	performTest(FXArrayHighLoadMultiplyObjectsPerformanceTest);
+//	performTest(FXArrayHighLoadOneObjectPerformanceTest);
+//	performTest(FXArrayHighLoadMultiplyObjectsPerformanceTest);
 }
 
 #pragma mark -
@@ -188,13 +188,28 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		array count must be equal to 15
 	assert(15 == FXArrayGetCount(array));
 	
+	// just print info
 	printf("array has capacity: %llu and count: %llu\n", FXArrayGetCapacity(array), FXArrayGetCount(array));
+	
+	FXObject *object4 = FXObjectCreateOfType(FXObject); // create test object4
+	
+	//	after inserting object4 at index 2
+	FXArrayInsertObjectAtIndex(array, object4, 2);
+	
+	//		array count must be equal to 16
+	assert(16 == FXArrayGetCount(array));
+
+	//		array must contain object4
+	assert(true == FXArrayContainsObject(array, object4));
+
+	//		object4 should be in array at index[2]
+	assert(object4 == FXArrayGetObjectAtIndex(array, 2));
 	
 	//	after removing all instances of object2
 	FXArrayRemoveAllInstancesOfObject(array, object2);
 	
-	//		array count must be equal to 10
-	assert(10 == FXArrayGetCount(array));
+	//		array count must be equal to 11
+	assert(11 == FXArrayGetCount(array));
 	
 	//		array must no contain object2
 	assert(false == FXArrayContainsObject(array, object2));
@@ -202,8 +217,8 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//	after removing a first instance of object3
 	FXArrayRemoveFirstInstanceOfObject(array, object3);
 	
-	//		array count must be equal to 9
-	assert(9 == FXArrayGetCount(array));
+	//		array count must be equal to 10
+	assert(10 == FXArrayGetCount(array));
 	
 	//		array must contain other instances of object3
 	assert(true == FXArrayContainsObject(array, object3));
@@ -218,11 +233,13 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	assert(false == FXArrayContainsObject(array, object));
 	assert(false == FXArrayContainsObject(array, object2));
 	assert(false == FXArrayContainsObject(array, object3));
+	assert(false == FXArrayContainsObject(array, object4));
 	
 	//		array capacity should be equal 0
 	assert(0 == FXArrayGetCapacity(array));
 	
 	// release them
+	FXObjectRelease(object4);
 	FXObjectRelease(object3);
 	FXObjectRelease(object2);
 	FXObjectRelease(object);

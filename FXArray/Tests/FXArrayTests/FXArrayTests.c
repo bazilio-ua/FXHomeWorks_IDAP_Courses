@@ -336,6 +336,9 @@ void FXArrayHighLoadOneObjectPerformanceTest(void) {
 	//		array count must be equal 'kFXCount'
 	assert(kFXCount == FXArrayGetCount(array));
 	
+	// just print info
+	printf("array has capacity: %llu and count: %llu\n", FXArrayGetCapacity(array), FXArrayGetCount(array));
+	
 	//	remove one object 'kFXCount' times from array
 	for (uint64_t index = kFXCount; index > 0; --index) {
 		FXArrayRemoveObjectAtIndex(array, index - 1);
@@ -368,6 +371,9 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void) {
 	
 	//	array count must be equal 'kFXCount'
 	assert(kFXCount == FXArrayGetCount(array));
+	
+	// just print info
+	printf("array has capacity: %llu and count: %llu\n", FXArrayGetCapacity(array), FXArrayGetCount(array));
 	
 	//	object at index[0] in array must not be equal to object at index[1] 
 	assert(FXArrayGetObjectAtIndex(array, 0) != FXArrayGetObjectAtIndex(array, 1));

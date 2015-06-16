@@ -361,7 +361,7 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void) {
 	FXArray *array = FXArrayCreateWithCapacity(0);
 	
 	const uint64_t kFXCount = 1000000;
-	//	add 'kFXCount's objects in array
+	//	add different 'kFXCount's objects in array
 	for (uint64_t index = 0; index < kFXCount; index++) {
 		//	after object was created
 		FXObject *object = FXObjectCreateOfType(FXObject);
@@ -369,7 +369,7 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void) {
 		//		add it to array 'kFXCount' times
 		FXArrayAddObject(array, object);
 		
-		//	release object 'kFXCount' times
+		//	release object
 		FXObjectRelease(object);
 	}
 	

@@ -115,7 +115,7 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 		if (count < capacity) { // if our count is less than capacity
 			if (count == 0) { // release our array
 				newCapacity = 0;
-			} else { // do something, until we have enough capacity
+			} else { // do choice, until we have enough capacity
 				
 				uint64_t halfCapacity = capacity / 2;
 				if (halfCapacity > count) { // trim our array

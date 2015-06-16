@@ -198,7 +198,9 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	
 	//	after inserting object4 at index 2
 	FXArrayInsertObjectAtIndex(array, object4, 2);
+
 	
+	//	!!! BEWARE !!! copy-paste below
 	
 	//		object should be in array at index[0-1 and 3-5]
 	assert(object == FXArrayGetObjectAtIndex(array, 0));
@@ -208,13 +210,14 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	assert(object == FXArrayGetObjectAtIndex(array, 4));
 	assert(object == FXArrayGetObjectAtIndex(array, 5));
 	
-	//	!!! BEWARE !!! copy-paste
+	//		object2 should be in array at index[6-10]
 	assert(object2 == FXArrayGetObjectAtIndex(array, 6));
 	assert(object2 == FXArrayGetObjectAtIndex(array, 7));
 	assert(object2 == FXArrayGetObjectAtIndex(array, 8));
 	assert(object2 == FXArrayGetObjectAtIndex(array, 9));
 	assert(object2 == FXArrayGetObjectAtIndex(array, 10));
 	
+	//		object3 should be in array at index[11-15]
 	assert(object3 == FXArrayGetObjectAtIndex(array, 11));
 	assert(object3 == FXArrayGetObjectAtIndex(array, 12));
 	assert(object3 == FXArrayGetObjectAtIndex(array, 13));
@@ -266,6 +269,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		object3 should be in array at index[17]
 	assert(object3 == FXArrayGetObjectAtIndex(array, 17));
 	
+	//	print objects reference count
 	printf("reference count object3: %llu \n", FXObjectGetReferenceCount(object3));
 	printf("reference count object6: %llu \n", FXObjectGetReferenceCount(object6));
 	

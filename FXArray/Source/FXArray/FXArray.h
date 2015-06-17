@@ -38,6 +38,9 @@ extern
 void **FXArrayGetArray(FXArray *array);
 
 extern
+bool FXArrayCountIsIncreased(FXArray *array);
+
+extern
 uint64_t FXArrayProposedCapacity(FXArray *array);
 
 extern

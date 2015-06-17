@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <assert.h>
 
 #include "FXArray.h"
@@ -25,6 +26,7 @@ struct FXArray {
 	void **_data;
 	uint64_t _capacity;
 	uint64_t _count;
+	bool _countIncreased;
 };
 
 #pragma mark -
@@ -106,18 +108,20 @@ void **FXArrayGetArray(FXArray *array) {
 	return NULL;
 }
 
+bool FXArrayCountIsIncreased(FXArray *array) {
+	if (NULL != array) {
+		return array->_countIncreased;
+	}
+	
+	return false;
+}
+
 uint64_t FXArrayProposedCapacity(FXArray *array) {
 	if (NULL != array) {
-        static uint64_t oldCount = 0;
-        bool doIncrease = false;
-        
 		uint64_t count = FXArrayGetCount(array);
 		uint64_t capacity = FXArrayGetCapacity(array);
+		bool doIncrease = FXArrayCountIsIncreased(array);
 		
-        if (oldCount < count) {
-            doIncrease = true;
-        }
-        
 		uint64_t newCapacity;
 		if (count < capacity) { // if our count is less than capacity
 			if (count == 0) { // release our array
@@ -125,7 +129,7 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 			} else { // do choice, until we have enough capacity
 				
 				uint64_t halfCapacity = capacity / 2;
-				if (halfCapacity > count && !doIncrease) { // trim our array
+				if (halfCapacity > count && !doIncrease) { // trim our array, only if we don't increase count
 					newCapacity = halfCapacity;
 				} else { // do nothing
 					newCapacity = capacity;
@@ -138,8 +142,6 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
                 newCapacity = kFXArrayMaxCapacity;
             }
 		}
-        
-        oldCount = count;
 		
 		return newCapacity;
 	}
@@ -166,6 +168,13 @@ void FXArrayResizeIfNeeded(FXArray *array) {
 void FXArraySetCount(FXArray *array, uint64_t count) {
 	if (NULL != array) {
 		assert(kFXArrayMaxCapacity >= count); // sanity
+		
+		uint64_t previousCount = FXArrayGetCount(array);
+        if (previousCount < count) {
+			array->_countIncreased = true;
+        } else {
+			array->_countIncreased = false;
+		}
 		
 		array->_count = count;
 		

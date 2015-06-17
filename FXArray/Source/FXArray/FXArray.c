@@ -108,9 +108,16 @@ void **FXArrayGetArray(FXArray *array) {
 
 uint64_t FXArrayProposedCapacity(FXArray *array) {
 	if (NULL != array) {
+        static uint64_t oldCount = 0;
+        bool doIncrease = false;
+        
 		uint64_t count = FXArrayGetCount(array);
 		uint64_t capacity = FXArrayGetCapacity(array);
 		
+        if (oldCount < count) {
+            doIncrease = true;
+        }
+        
 		uint64_t newCapacity;
 		if (count < capacity) { // if our count is less than capacity
 			if (count == 0) { // release our array
@@ -118,7 +125,7 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 			} else { // do choice, until we have enough capacity
 				
 				uint64_t halfCapacity = capacity / 2;
-				if (halfCapacity > count) { // trim our array
+				if (halfCapacity > count && !doIncrease) { // trim our array
 					newCapacity = halfCapacity;
 				} else { // do nothing
 					newCapacity = capacity;
@@ -127,6 +134,9 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 			}
 		} else { // increase its size, if (count >= capacity)
 			newCapacity = count * 2; // optimal
+            if (newCapacity > kFXArrayMaxCapacity) {
+                newCapacity = kFXArrayMaxCapacity;
+            }
 		}
 		
 		
@@ -140,6 +150,7 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 //			newCapacity = count * 2; // optimal
 //		}
 		
+        oldCount = count;
 		
 		return newCapacity;
 	}

@@ -150,6 +150,7 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 //			newCapacity = count * 2; // optimal
 //		}
 		
+        
         oldCount = count;
 		
 		return newCapacity;

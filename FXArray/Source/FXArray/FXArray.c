@@ -135,7 +135,7 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 		} else { // increase its size, if (count >= capacity)
 			newCapacity = count * 2; // optimal
             if (newCapacity > kFXArrayMaxCapacity) {
-                newCapacity = kFXArrayMaxCapacity;
+                newCapacity = kFXArrayMaxCapacity - 1;
             }
 		}
 		

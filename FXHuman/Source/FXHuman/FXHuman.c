@@ -33,6 +33,33 @@ struct FXHuman {
 	FXHuman *_children[kFXMaxChildrenCount];
 };
 
+//<-- these should be a private
+// children
+static
+void FXHumanRemoveChild(FXHuman *human, FXHuman *child);
+
+static
+void FXHumanRemoveAllChildren(FXHuman *human);
+
+static
+void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index);
+
+// gender
+static
+void FXHumanSetGender(FXHuman *human, FXHumanGender gender);
+
+// spouse
+static
+void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse);
+
+// parents
+static
+void FXHumanSetMother(FXHuman *human, FXHuman *mother);
+
+static
+void FXHumanSetFather(FXHuman *human, FXHuman *father);
+//--> these should be a private
+
 #pragma mark -
 #pragma mark Public Methods Implementation
 
@@ -114,17 +141,6 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 	return NULL;
 }
 
-void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
-	if (NULL != human && index < kFXMaxChildrenCount) {
-		FXRetainSetter(human, _children[index], child);
-		if (NULL != child) { // add case
-			human->_childrenCount++;
-		} else { // remove case if (NULL == child)
-			human->_childrenCount--;
-		}
-	}
-}
-
 FXHuman *FXHumanGetChildAtIndex(FXHuman *human, unsigned int index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		return human->_children[index];
@@ -146,40 +162,6 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 				} else if (kFXHumanGenderFemale == humanGender) {
 					FXHumanSetMother(child, human);
 				}
-			}
-		}
-	}
-}
-
-void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
-	if (NULL != human && NULL != child && human != child) {
-		unsigned int count;
-		for (count = 0; count < kFXMaxChildrenCount; count++) {
-			if (human->_children[count] == child) {
-				FXHumanSetChildAtIndex(human, NULL, count);
-				break;
-			}
-		}
-		for (/*count*/; count < kFXMaxChildrenCount; count++) {
-			human->_children[count] = human->_children[count + 1];
-		}
-		
-		FXHumanGender humanGender = FXHumanGetGender(human);
-		if (kFXHumanGenderMale == humanGender) {
-			FXHumanSetFather(child, NULL);
-		} else if (kFXHumanGenderFemale == humanGender) {
-			FXHumanSetMother(child, NULL);
-		}
-	}
-}
-
-void FXHumanRemoveAllChildren(FXHuman *human) {
-	if (NULL != human) {
-		int count = kFXMaxChildrenCount;
-		while (count--) {
-			FXHuman *child = human->_children[count];
-			if (NULL != child) {
-				FXHumanRemoveChild(human, child);
 			}
 		}
 	}
@@ -220,16 +202,83 @@ int FXHumanGetAge(FXHuman *human) {
 }
 
 // gender
-void FXHumanSetGender(FXHuman *human, FXHumanGender gender) {
-	FXPrimitiveSetter(human, _gender, gender);
-//	if (NULL != human) {
-//		human->_gender = gender;
-//	}
-}
-
 FXHumanGender FXHumanGetGender(FXHuman *human) {
 	FXPrimitiveGetter(human, _gender);
 //	return (NULL != human) ? human->_gender : 0;
+}
+
+// spouse
+FXHuman *FXHumanGetSpouse(FXHuman *human) {
+	FXPointerGetter(human, _spouse);
+//	return (NULL != human) ? human->_spouse : NULL;
+}
+
+// parents
+FXHuman *FXHumanGetMother(FXHuman *human) {
+	FXPointerGetter(human, _mother);
+//	return (NULL != human) ? human->_mother : NULL;
+}
+
+FXHuman *FXHumanGetFather(FXHuman *human) {
+	FXPointerGetter(human, _father);
+//	return (NULL != human) ? human->_father : NULL;
+}
+
+#pragma mark -
+#pragma mark Private Accessors Implementation
+
+// children
+void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
+	if (NULL != human && index < kFXMaxChildrenCount) {
+		FXRetainSetter(human, _children[index], child);
+		if (NULL != child) { // add case
+			human->_childrenCount++;
+		} else { // remove case if (NULL == child)
+			human->_childrenCount--;
+		}
+	}
+}
+
+void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
+	if (NULL != human && NULL != child && human != child) {
+		unsigned int count;
+		for (count = 0; count < kFXMaxChildrenCount; count++) {
+			if (human->_children[count] == child) {
+				FXHumanSetChildAtIndex(human, NULL, count);
+				break;
+			}
+		}
+		for (/*count*/; count < kFXMaxChildrenCount; count++) {
+			human->_children[count] = human->_children[count + 1];
+		}
+		
+		FXHumanGender humanGender = FXHumanGetGender(human);
+		if (kFXHumanGenderMale == humanGender) {
+			FXHumanSetFather(child, NULL);
+		} else if (kFXHumanGenderFemale == humanGender) {
+			FXHumanSetMother(child, NULL);
+		}
+	}
+}
+
+void FXHumanRemoveAllChildren(FXHuman *human) {
+	if (NULL != human) {
+		int count = kFXMaxChildrenCount;
+		while (count--) {
+			FXHuman *child = human->_children[count];
+			if (NULL != child) {
+				FXHumanRemoveChild(human, child);
+			}
+		}
+	}
+}
+
+// gender
+void FXHumanSetGender(FXHuman *human, FXHumanGender gender) {
+	FXPrimitiveSetter(human, _gender, gender);
+	//	if (NULL != human) {
+	//		human->_gender = gender;
+	//	}
 }
 
 // spouse
@@ -243,11 +292,6 @@ void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	}
 }
 
-FXHuman *FXHumanGetSpouse(FXHuman *human) {
-	FXPointerGetter(human, _spouse);
-//	return (NULL != human) ? human->_spouse : NULL;
-}
-
 // parents
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (human != mother) {
@@ -255,22 +299,8 @@ void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	}
 }
 
-FXHuman *FXHumanGetMother(FXHuman *human) {
-	FXPointerGetter(human, _mother);
-//	return (NULL != human) ? human->_mother : NULL;
-}
-
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 	if (human != father) {
 		FXAssignSetter(human, _father, father);
 	}
 }
-
-FXHuman *FXHumanGetFather(FXHuman *human) {
-	FXPointerGetter(human, _father);
-//	return (NULL != human) ? human->_father : NULL;
-}
-
-#pragma mark -
-#pragma mark Private Accessors Implementation
-

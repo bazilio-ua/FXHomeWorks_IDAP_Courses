@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#include "FXObjectSetter.h"
+#include "FXObjectAccessors.h"
 
 typedef void (*FXObjectDeallocatorCallback)(void *); // define signature for Object dealloc callback
 

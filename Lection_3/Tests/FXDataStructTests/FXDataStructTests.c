@@ -12,10 +12,28 @@
 #include "FXTestsMacro.h"
 #include "FXDataStructTests.h"
 #include "FXDataStruct.h"
-#include "FXHuman.h"
+#include "FXObject.h"
 
 #pragma mark -
 #pragma mark Private Declaration
+
+// human struct for tests
+typedef struct FXHuman FXHuman;
+
+struct FXHuman {
+	FXObject _super; // inheritance from FXObject
+	
+	char _name[64];
+	unsigned int _age;
+	int _gender;
+	
+	FXHuman *_mother;
+	FXHuman *_father;
+	FXHuman *_spouse;
+	
+	unsigned int _childrenCount;
+	FXHuman *_children[20];
+};
 
 static
 void FXDataStructSizeOutputTests(void);
@@ -76,11 +94,8 @@ void FXDataStructOffsetOfOutputTests(void) {
 	FXDataStructOffsetOfPrint(FXHuman, _gender);
 	FXDataStructOffsetOfPrint(FXHuman, _name);
 	FXDataStructOffsetOfPrint(FXHuman, _age);
-	FXDataStructOffsetOfPrint(FXHuman, _isAlive);
-	FXDataStructOffsetOfPrint(FXHuman, _isMarried);
 	FXDataStructOffsetOfPrint(FXHuman, _mother);
 	FXDataStructOffsetOfPrint(FXHuman, _father);
 	FXDataStructOffsetOfPrint(FXHuman, _spouse);
-	FXDataStructOffsetOfPrint(FXHuman, _friends);
 	FXDataStructOffsetOfPrint(FXHuman, _children);
 }

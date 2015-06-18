@@ -1,5 +1,5 @@
 //
-//  FXObjectSetter.c
+//  FXObjectAccessors.c
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 6/5/15.

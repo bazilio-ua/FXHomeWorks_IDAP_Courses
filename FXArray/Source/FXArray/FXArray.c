@@ -28,6 +28,29 @@ struct FXArray {
 	uint64_t _count;
 };
 
+//<-- these should be a private
+static
+void FXArraySetCapacity(FXArray *array, uint64_t capacity);
+
+static
+void FXArraySetData(FXArray *array, void **data);
+
+static
+void **FXArrayGetData(FXArray *array);
+
+static
+uint64_t FXArrayProposedCapacity(FXArray *array, bool doIncrease);
+
+static
+bool FXArrayShouldResize(FXArray *array, bool doIncrease);
+
+static
+void FXArrayResizeIfNeeded(FXArray *array, bool doIncrease);
+
+static
+void FXArraySetCount(FXArray *array, uint64_t count);
+//--> these should be a private
+
 #pragma mark -
 #pragma mark Public Methods Implementation
 
@@ -43,140 +66,6 @@ FXArray *FXArrayCreateWithCapacity(uint64_t capacity) {
 	FXArraySetCapacity(array, capacity);
 	
 	return array;
-}
-
-void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
-	if (NULL != array && array->_capacity != capacity) {
-		assert(kFXArrayMaxCapacity >= capacity); // sanity
-		
-		size_t size = capacity * sizeof(*array->_data);
-		if (0 != size) { // set new capacity or resize
-			if (NULL == array->_data) {
-				array->_data = malloc(size); // new alloc
-			} else {
-				array->_data = realloc(array->_data, size); // re-alloc
-			}
-			assert(NULL != array->_data); // make sure allocation is successfull
-			
-		} else if (0 == size && NULL != array->_data) { // remove all objects or dealloc
-			free(array->_data);
-			array->_data = NULL;
-		}
-		
-		
-		// fast version
-		uint64_t oldCapacity = array->_capacity;
-		if (capacity > oldCapacity) { // if we increase our capacity
-			size_t size = (capacity - oldCapacity) * sizeof(*array->_data);
-			memset(&array->_data[oldCapacity], 0, size); // zeroing a new allocated block
-		}
-		
-		
-//		// 'slow' version (zeroing objects one by one)
-//		uint64_t oldCapacity = array->_capacity;
-//		if (capacity > oldCapacity) {
-//			for (uint64_t index = oldCapacity; index < capacity; index++) {
-//				array->_data[index] = NULL;
-//			}
-//		}
-		
-		
-		array->_capacity = capacity;
-	}
-}
-
-uint64_t FXArrayGetCapacity(FXArray *array) {
-	if (NULL != array && NULL != array->_data) {
-		return array->_capacity;
-	}
-	
-	return 0;
-}
-
-void FXArraySetData(FXArray *array, void **data) {
-	if (NULL != array) {
-		array->_data = data;
-	}
-}
-
-void **FXArrayGetData(FXArray *array) {
-	if (NULL != array) {
-		return array->_data;
-	}
-	
-	return NULL;
-}
-
-uint64_t FXArrayProposedCapacity(FXArray *array, bool doIncrease) {
-	if (NULL != array) {
-		uint64_t count = FXArrayGetCount(array);
-		uint64_t capacity = FXArrayGetCapacity(array);
-		
-		uint64_t newCapacity;
-		if (count < capacity) { // if our count is less than capacity
-			if (count == 0) { // release our array
-				newCapacity = 0;
-			} else { // do choice, until we have enough capacity
-				
-				uint64_t halfCapacity = capacity / 2;
-				if (halfCapacity > count && !doIncrease) { // trim our array, only if we don't increase count
-					newCapacity = halfCapacity;
-				} else { // do nothing
-					newCapacity = capacity;
-				}
-				
-			}
-		} else { // increase its size, if (count >= capacity)
-			newCapacity = count * 2; // optimal
-            if (newCapacity > kFXArrayMaxCapacity) {
-                newCapacity = kFXArrayMaxCapacity;
-            }
-		}
-		
-		return newCapacity;
-	}
-	
-	return 0;
-}
-
-bool FXArrayShouldResize(FXArray *array, bool doIncrease) {
-	if (NULL != array) {
-		if (array->_capacity != FXArrayProposedCapacity(array, doIncrease)) {
-			return true;
-		}
-	}
-	
-	return false;
-}
-
-void FXArrayResizeIfNeeded(FXArray *array, bool doIncrease) {
-	if (FXArrayShouldResize(array, doIncrease)) {
-		FXArraySetCapacity(array, FXArrayProposedCapacity(array, doIncrease));
-	}
-}
-
-void FXArraySetCount(FXArray *array, uint64_t count) {
-	if (NULL != array) {
-		assert(kFXArrayMaxCapacity >= count); // sanity
-		
-		bool doIncrease = false;
-		uint64_t previousCount = FXArrayGetCount(array);
-        if (previousCount < count) {
-			doIncrease = true;
-        }
-		
-		array->_count = count;
-		
-		FXArrayResizeIfNeeded(array, doIncrease);
-	}
-}
-
-uint64_t FXArrayGetCount(FXArray *array) {
-	if (NULL != array) {
-		return array->_count;
-	}
-	
-	return 0;
 }
 
 void FXArrayAddObject(FXArray *array, void *object) {
@@ -240,11 +129,14 @@ void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
 //		void *currentObject = array->_data[index];
 		void *currentObject = FXArrayGetObjectAtIndex(array, index);
 		if (object != currentObject) {
-			// TODO: do it with retain setter
-			FXObjectRetain(object);
-			FXObjectRelease(currentObject);
-			
-			array->_data[index] = object;
+
+			FXRetainSetter(array, _data[index], object);
+
+//			// TODO: do it with retain setter
+//			FXObjectRetain(object);
+//			FXObjectRelease(currentObject);
+//			
+//			array->_data[index] = object;
 		}
 	}
 }
@@ -331,5 +223,139 @@ void FXArrayRemoveAllObjects(FXArray *array) {
 	}
 }
 
+uint64_t FXArrayGetCapacity(FXArray *array) {
+	if (NULL != array && NULL != array->_data) {
+		return array->_capacity;
+	}
+	
+	return 0;
+}
+
+uint64_t FXArrayGetCount(FXArray *array) {
+	if (NULL != array) {
+		return array->_count;
+	}
+	
+	return 0;
+}
+
 #pragma mark -
 #pragma mark Private Accessors Implementation
+
+void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
+	if (NULL != array && array->_capacity != capacity) {
+		assert(kFXArrayMaxCapacity >= capacity); // sanity
+		
+		size_t size = capacity * sizeof(*array->_data);
+		if (0 != size) { // set new capacity or resize
+			if (NULL == array->_data) {
+				array->_data = malloc(size); // new alloc
+			} else {
+				array->_data = realloc(array->_data, size); // re-alloc
+			}
+			assert(NULL != array->_data); // make sure allocation is successfull
+			
+		} else if (0 == size && NULL != array->_data) { // remove all objects or dealloc
+			free(array->_data);
+			array->_data = NULL;
+		}
+		
+		
+		// fast version
+		uint64_t oldCapacity = array->_capacity;
+		if (capacity > oldCapacity) { // if we increase our capacity
+			size_t size = (capacity - oldCapacity) * sizeof(*array->_data);
+			memset(&array->_data[oldCapacity], 0, size); // zeroing a new allocated block
+		}
+		
+		
+		//		// 'slow' version (zeroing objects one by one)
+		//		uint64_t oldCapacity = array->_capacity;
+		//		if (capacity > oldCapacity) {
+		//			for (uint64_t index = oldCapacity; index < capacity; index++) {
+		//				array->_data[index] = NULL;
+		//			}
+		//		}
+		
+		
+		array->_capacity = capacity;
+	}
+}
+
+void FXArraySetData(FXArray *array, void **data) {
+	if (NULL != array) {
+		array->_data = data;
+	}
+}
+
+void **FXArrayGetData(FXArray *array) {
+	if (NULL != array) {
+		return array->_data;
+	}
+	
+	return NULL;
+}
+
+uint64_t FXArrayProposedCapacity(FXArray *array, bool doIncrease) {
+	if (NULL != array) {
+		uint64_t capacity = FXArrayGetCapacity(array);
+		uint64_t count = FXArrayGetCount(array);
+		
+		uint64_t newCapacity;
+		if (count < capacity) { // if our count is less than capacity
+			if (count == 0) { // release our array
+				newCapacity = 0;
+			} else { // do choice, until we have enough capacity
+				
+				uint64_t halfCapacity = capacity / 2;
+				if (halfCapacity > count && !doIncrease) { // trim our array, only if we don't increase count
+					newCapacity = halfCapacity;
+				} else { // do nothing
+					newCapacity = capacity;
+				}
+				
+			}
+		} else { // increase its size, if (count >= capacity)
+			newCapacity = count * 2; // optimal
+            if (newCapacity > kFXArrayMaxCapacity) {
+                newCapacity = kFXArrayMaxCapacity;
+            }
+		}
+		
+		return newCapacity;
+	}
+	
+	return 0;
+}
+
+bool FXArrayShouldResize(FXArray *array, bool doIncrease) {
+	if (NULL != array) {
+		if (array->_capacity != FXArrayProposedCapacity(array, doIncrease)) {
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+void FXArrayResizeIfNeeded(FXArray *array, bool doIncrease) {
+	if (FXArrayShouldResize(array, doIncrease)) {
+		FXArraySetCapacity(array, FXArrayProposedCapacity(array, doIncrease));
+	}
+}
+
+void FXArraySetCount(FXArray *array, uint64_t count) {
+	if (NULL != array) {
+		assert(kFXArrayMaxCapacity >= count); // sanity
+		
+		bool doIncrease = false;
+		uint64_t previousCount = FXArrayGetCount(array);
+        if (previousCount < count) {
+			doIncrease = true;
+        }
+		
+		array->_count = count;
+		
+		FXArrayResizeIfNeeded(array, doIncrease);
+	}
+}

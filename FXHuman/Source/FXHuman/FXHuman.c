@@ -208,24 +208,28 @@ char *FXHumanGetName(FXHuman *human) {
 
 // age
 void FXHumanSetAge(FXHuman *human, int age) {
-	if (NULL != human) {
-		human->_age = age;
-	}
+	FXPrimitiveSetter(human, _age, age);
+//	if (NULL != human) {
+//		human->_age = age;
+//	}
 }
 
 int FXHumanGetAge(FXHuman *human) {
-	return (NULL != human) ? human->_age : 0;
+	FXPrimitiveGetter(human, _age);
+//	return (NULL != human) ? human->_age : 0;
 }
 
 // gender
 void FXHumanSetGender(FXHuman *human, FXHumanGender gender) {
-	if (NULL != human) {
-		human->_gender = gender;
-	}
+	FXPrimitiveSetter(human, _gender, gender);
+//	if (NULL != human) {
+//		human->_gender = gender;
+//	}
 }
 
 FXHumanGender FXHumanGetGender(FXHuman *human) {
-	return (NULL != human) ? human->_gender : 0;
+	FXPrimitiveGetter(human, _gender);
+//	return (NULL != human) ? human->_gender : 0;
 }
 
 // spouse
@@ -240,7 +244,8 @@ void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 }
 
 FXHuman *FXHumanGetSpouse(FXHuman *human) {
-	return (NULL != human) ? human->_spouse : NULL;
+	FXPointerGetter(human, _spouse);
+//	return (NULL != human) ? human->_spouse : NULL;
 }
 
 // parents
@@ -251,7 +256,8 @@ void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 }
 
 FXHuman *FXHumanGetMother(FXHuman *human) {
-	return (NULL != human) ? human->_mother : NULL;
+	FXPointerGetter(human, _mother);
+//	return (NULL != human) ? human->_mother : NULL;
 }
 
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
@@ -261,7 +267,8 @@ void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 }
 
 FXHuman *FXHumanGetFather(FXHuman *human) {
-	return (NULL != human) ? human->_father : NULL;
+	FXPointerGetter(human, _father);
+//	return (NULL != human) ? human->_father : NULL;
 }
 
 #pragma mark -

@@ -25,7 +25,7 @@ void _FXRetainSetter(void *object, void **iVar, void *newVar);
 
 #define FXPrimitiveSetter(object, iVar, newVar) { \
 	if (NULL != object) { \
-		object->_iVar = newVar; \
+		object->iVar = newVar; \
 	} \
 }
 

@@ -10,15 +10,16 @@
 #define FXHomeWorks_FXObjectAccessors_h
 
 extern
-void FXAssignSetter(void *object, void **iVar, void *newVar);
-
-#define FXWeakAssignSetter(object, iVar, newVar) \
-	FXAssignSetter(object, (void **)&(object->iVar), newVar)
+void _FXAssignSetter(void *object, void **iVar, void *newVar);
 
 extern
-void FXRetainSetter(void *object, void **iVar, void *newVar);
+void _FXRetainSetter(void *object, void **iVar, void *newVar);
 
-#define FXStrongRetainSetter(object, iVar, newVar) \
-	FXRetainSetter(object, (void **)&(object->iVar), newVar)
+
+#define FXAssignSetter(object, iVar, newVar) \
+	_FXAssignSetter(object, (void **)&(object->iVar), newVar)
+
+#define FXRetainSetter(object, iVar, newVar) \
+	_FXRetainSetter(object, (void **)&(object->iVar), newVar)
 
 #endif

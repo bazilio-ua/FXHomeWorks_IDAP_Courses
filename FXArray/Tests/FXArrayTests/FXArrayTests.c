@@ -279,7 +279,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	printf("reference count object6: %llu \n", FXObjectGetReferenceCount(object6));
 	
 	//	after removing all instances of object2
-	FXArrayRemoveAllInstancesOfObject(array, object2);
+	FXArrayRemoveObject(array, object2);
 	
 	//		array count must be equal to 11
 	assert(12 == FXArrayGetCount(array));

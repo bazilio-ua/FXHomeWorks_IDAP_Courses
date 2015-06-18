@@ -27,19 +27,19 @@ struct FXString {
 
 // dealloc
 void __FXStringDeallocate(FXString *string) {
-	FXStringSetString(string, NULL);
+	FXStringSetData(string, NULL);
 	
 	__FXObjectDeallocate(string);
 }
 
 FXString *FXStringCreateWithParameters(const char *data) {
 	FXString *string = FXObjectCreateOfType(FXString);
-	FXStringSetString(string, data);
+	FXStringSetData(string, data);
 	
 	return string;
 }
 
-void FXStringSetString(FXString *string, const char *data) {
+void FXStringSetData(FXString *string, const char *data) {
 	if (NULL != string) {
 		size_t oldLength = FXStringGetLength(string);
 		if (NULL != data) { // set new data value
@@ -60,7 +60,7 @@ void FXStringSetString(FXString *string, const char *data) {
 	}
 }
 
-char *FXStringGetString(FXString *string) {
+char *FXStringGetData(FXString *string) {
 	if (NULL != string) {
 		return string->_data;
 	}

@@ -32,22 +32,19 @@ extern
 uint64_t FXArrayGetCapacity(FXArray *array);
 
 extern
-void FXArraySetArray(FXArray *array, void **data);
+void FXArraySetData(FXArray *array, void **data);
 
 extern
-void **FXArrayGetArray(FXArray *array);
+void **FXArrayGetData(FXArray *array);
 
 extern
-bool FXArrayCountIsIncreased(FXArray *array);
+uint64_t FXArrayProposedCapacity(FXArray *array, bool doIncrease);
 
 extern
-uint64_t FXArrayProposedCapacity(FXArray *array);
+bool FXArrayShouldResize(FXArray *array, bool doIncrease);
 
 extern
-bool FXArrayShouldResize(FXArray *array);
-
-extern
-void FXArrayResizeIfNeeded(FXArray *array);
+void FXArrayResizeIfNeeded(FXArray *array, bool doIncrease);
 
 extern
 void FXArraySetCount(FXArray *array, uint64_t count);
@@ -60,7 +57,7 @@ extern
 void FXArrayAddObject(FXArray *array, void *object);
 
 extern
-void FXArrayRemoveAllInstancesOfObject(FXArray *array, void *object);
+void FXArrayRemoveObject(FXArray *array, void *object);
 
 extern
 void FXArrayRemoveFirstInstanceOfObject(FXArray *array, void *object);

@@ -26,7 +26,6 @@ struct FXArray {
 	void **_data;
 	uint64_t _capacity;
 	uint64_t _count;
-	bool _countIncreased;
 };
 
 #pragma mark -
@@ -94,13 +93,13 @@ uint64_t FXArrayGetCapacity(FXArray *array) {
 	return 0;
 }
 
-void FXArraySetArray(FXArray *array, void **data) {
+void FXArraySetData(FXArray *array, void **data) {
 	if (NULL != array) {
 		array->_data = data;
 	}
 }
 
-void **FXArrayGetArray(FXArray *array) {
+void **FXArrayGetData(FXArray *array) {
 	if (NULL != array) {
 		return array->_data;
 	}
@@ -108,19 +107,10 @@ void **FXArrayGetArray(FXArray *array) {
 	return NULL;
 }
 
-bool FXArrayCountIsIncreased(FXArray *array) {
-	if (NULL != array) {
-		return array->_countIncreased;
-	}
-	
-	return false;
-}
-
-uint64_t FXArrayProposedCapacity(FXArray *array) {
+uint64_t FXArrayProposedCapacity(FXArray *array, bool doIncrease) {
 	if (NULL != array) {
 		uint64_t count = FXArrayGetCount(array);
 		uint64_t capacity = FXArrayGetCapacity(array);
-		bool doIncrease = FXArrayCountIsIncreased(array);
 		
 		uint64_t newCapacity;
 		if (count < capacity) { // if our count is less than capacity
@@ -149,9 +139,9 @@ uint64_t FXArrayProposedCapacity(FXArray *array) {
 	return 0;
 }
 
-bool FXArrayShouldResize(FXArray *array) {
+bool FXArrayShouldResize(FXArray *array, bool doIncrease) {
 	if (NULL != array) {
-		if (array->_capacity != FXArrayProposedCapacity(array)) {
+		if (array->_capacity != FXArrayProposedCapacity(array, doIncrease)) {
 			return true;
 		}
 	}
@@ -159,9 +149,9 @@ bool FXArrayShouldResize(FXArray *array) {
 	return false;
 }
 
-void FXArrayResizeIfNeeded(FXArray *array) {
-	if (FXArrayShouldResize(array)) {
-		FXArraySetCapacity(array, FXArrayProposedCapacity(array));
+void FXArrayResizeIfNeeded(FXArray *array, bool doIncrease) {
+	if (FXArrayShouldResize(array, doIncrease)) {
+		FXArraySetCapacity(array, FXArrayProposedCapacity(array, doIncrease));
 	}
 }
 
@@ -169,16 +159,15 @@ void FXArraySetCount(FXArray *array, uint64_t count) {
 	if (NULL != array) {
 		assert(kFXArrayMaxCapacity >= count); // sanity
 		
+		bool doIncrease = false;
 		uint64_t previousCount = FXArrayGetCount(array);
         if (previousCount < count) {
-			array->_countIncreased = true;
-        } else {
-			array->_countIncreased = false;
-		}
+			doIncrease = true;
+        }
 		
 		array->_count = count;
 		
-		FXArrayResizeIfNeeded(array);
+		FXArrayResizeIfNeeded(array, doIncrease);
 	}
 }
 
@@ -198,7 +187,7 @@ void FXArrayAddObject(FXArray *array, void *object) {
 	}
 }
 
-void FXArrayRemoveAllInstancesOfObject(FXArray *array, void *object) {
+void FXArrayRemoveObject(FXArray *array, void *object) {
 	if (NULL != array && NULL != object) {
 		while (FXArrayContainsObject(array, object)) {
 			uint64_t index = FXArrayGetIndexOfObject(array, object);
@@ -246,9 +235,10 @@ uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object) {
 
 void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
 	if (NULL != array) {
-		assert(index < FXArrayGetCount(array)); // sanity boundary limit
+//		assert(index < FXArrayGetCount(array)); // sanity boundary limit
 		
-		void *currentObject = array->_data[index];
+//		void *currentObject = array->_data[index];
+		void *currentObject = FXArrayGetObjectAtIndex(array, index);
 		if (object != currentObject) {
 			// TODO: do it with retain setter
 			FXObjectRetain(object);
@@ -277,7 +267,7 @@ void FXArrayInsertObjectAtIndex(FXArray *array, void *object, uint64_t index) {
 		// fast version
 		FXArraySetCount(array, count + 1); // increase count
 		count = FXArrayGetCount(array); // get new count
-		void **data = FXArrayGetArray(array);
+		void **data = FXArrayGetData(array);
 //		if (index < (count - 1)) { // if inserted object is not last at index
 			uint64_t shiftCount = count - (index + 1); // get objects count from index of inserted object to end of index
 			memmove(&data[index + 1], &data[index], shiftCount * sizeof(*data)); // and shift it all to the right by 1
@@ -306,7 +296,7 @@ void FXArrayRemoveObjectAtIndex(FXArray *array, uint64_t index) {
 		
 		// fast version
 		uint64_t count = FXArrayGetCount(array);
-		void **data = FXArrayGetArray(array);
+		void **data = FXArrayGetData(array);
 		if (index < (count - 1)) { // if removed object isn't last at index
 			uint64_t shiftCount = count - (index + 1); // get objects count from deleted object to end of index
 			memmove(&data[index], &data[index + 1], shiftCount * sizeof(*data)); // and shift it all to the left by 1

@@ -25,70 +25,91 @@ void FXHumanPrintInfo(FXHuman *human);
 void FXHumanBehaviourTests(void) {
 	//	create Shmi
 	void *shmi = FXHumanCreateWithParameters("Shmi Skywalker", 29, kFXHumanGenderFemale);
+	
 	//		pointer to Shmi should not be NULL
 	assert(NULL != shmi);
 	
 	
 	//	create Anakin
 	void *anakin = FXHumanCreateWithParameters("Anakin Skywalker", 0, kFXHumanGenderMale);
+	
 	//		add Anakin as child to Shmi
 	FXHumanAddChild(shmi, anakin);
+	
 	//		after adding Anakin as child
 	//			pointer to Anakin's mother should be equal Shmi
 	assert(shmi == FXHumanGetMother(anakin));
+	
 	//			pointer to Anakin's father should be NULL, because we don't know who is his father
 	assert(NULL == FXHumanGetFather(anakin));
+	
 	//			pointer at index[0] of Shmi children array should be equal Anakin
 	assert(anakin == FXHumanGetChildAtIndex(shmi, 0));
+	
 	//			reference count must be 2
 	assert(2 == FXObjectGetReferenceCount(anakin));
+	
 	//		set age to Anakin
 	FXHumanSetAge(anakin, 20);
+	
 	//		age must be 20
 	assert(20 == FXHumanGetAge(anakin));
 	
 	
 	//	create Padme
 	void *padme = FXHumanCreateWithParameters("Padme Amidala", 25, kFXHumanGenderFemale);
+	
 	//		reference count for Padme should be equal 1
 	assert(1 == FXObjectGetReferenceCount(padme));
 	
 	
 	//	do marriage with Anakin and Padme
 	FXHumanMarriage(padme, anakin);
+	
 	//		after marriage
 	//			Anakin's pointer to spouse should be equal Padme
 	assert(padme == FXHumanGetSpouse(anakin));
+	
 	//			and vise versa
 	assert(anakin == FXHumanGetSpouse(padme));
+	
 	//			reference count for Anakin should stay unchanged and be equal 2
 	assert(2 == FXObjectGetReferenceCount(anakin));
+	
 	//			reference count for Padme should change and be equal 2
 	assert(2 == FXObjectGetReferenceCount(padme));
 	
 	
-	//	do divorce
+	//	do divorce with Anakin and his wife Padme
 	FXHumanDivorce(anakin);
+	
 	//		after divorce
 	//			Anakin's pointer to spouse should be equal NULL
 	assert(NULL == FXHumanGetSpouse(anakin));
+	
 	//			and vise versa for his ex-partner
 	assert(NULL == FXHumanGetSpouse(padme));
+	
 	//			reference count for Anakin should stay unchanged and be equal 2
 	assert(2 == FXObjectGetReferenceCount(anakin));
+	
 	//			reference count for Padme should be equal 1
 	assert(1 == FXObjectGetReferenceCount(padme));
 	
 	
 	//	do marriage again
 	FXHumanMarriage(anakin, padme);
+	
 	//		after marriage
 	//			Anakin's pointer to spouse should be equal Padme
 	assert(padme == FXHumanGetSpouse(anakin));
+	
 	//			and vise versa
 	assert(anakin == FXHumanGetSpouse(padme));
+	
 	//			reference count for Anakin should stay unchanged and be equal 2
 	assert(2 == FXObjectGetReferenceCount(anakin));
+	
 	//			reference count for Padme should change and be equal 2
 	assert(2 == FXObjectGetReferenceCount(padme));
 	
@@ -96,25 +117,27 @@ void FXHumanBehaviourTests(void) {
 	//	create children for Anakin and Padme
 	void *luke = FXHumanCreateChildWithParameters(anakin, "Luke Skywalker", 20, kFXHumanGenderMale);
 	void *leia = FXHumanCreateChildWithParameters(padme, "Leia Organa", 20, kFXHumanGenderFemale);
-	//		after create children
-	//			pointer to Luke/Leia mother should be equal Padme
-	assert(padme == FXHumanGetMother(luke));
-	assert(padme == FXHumanGetMother(leia));
-	//			pointer to Luke/Leia father should be equal Anakin, because (Luke! I'm your father!)
-	assert(anakin == FXHumanGetFather(luke));
-	assert(anakin == FXHumanGetFather(leia));
-	//			pointer at index[0] of Padme children array should be equal Luke
-	assert(luke == FXHumanGetChildAtIndex(padme, 0));
-	//			pointer at index[1] of Padme children array should be equal Leia
-	assert(leia == FXHumanGetChildAtIndex(padme, 1));
-	//			pointer at index[0] of Anakin children array should be equal Luke
-	assert(luke == FXHumanGetChildAtIndex(anakin, 0));
-	//			pointer at index[1] of Anakin children array should be equal Leia
-	assert(leia == FXHumanGetChildAtIndex(anakin, 1));
-	//			children's reference count must be equal 3
-	assert(3 == FXObjectGetReferenceCount(luke));
-	assert(3 == FXObjectGetReferenceCount(leia));
 	
+	FXHuman *childs[2] = {luke, leia};
+	for (uint8_t count = 0; count < 2; count++) {
+		//		after create children
+		//			pointer to Luke/Leia mother should be equal Padme
+		assert(padme == FXHumanGetMother(childs[count]));
+		
+		//			pointer to Luke/Leia father should be equal Anakin, because (Luke! I'm your father!)
+		assert(anakin == FXHumanGetFather(childs[count]));
+		
+		//			pointer at index[0] of Padme children array should be equal Luke
+		//			pointer at index[1] of Padme children array should be equal Leia
+		assert(childs[count] == FXHumanGetChildAtIndex(padme, count));
+		
+		//			pointer at index[0] of Anakin children array should be equal Luke
+		//			pointer at index[1] of Anakin children array should be equal Leia
+		assert(childs[count] == FXHumanGetChildAtIndex(anakin, count));
+		
+		//			children's reference count must be equal 3
+		assert(3 == FXObjectGetReferenceCount(childs[count]));
+	}
 	
 	// print debug info
 	FXHumanPrintInfo(shmi);

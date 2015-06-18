@@ -21,12 +21,12 @@ extern
 FXString *FXStringCreateWithParameters(const char *data);
 
 extern
-void FXStringSetString(FXString *string, const char *data);
+void FXStringSetData(FXString *string, const char *data);
 
 extern
-char *FXStringGetString(FXString *string);
+char *FXStringGetData(FXString *string);
 
 extern
-size_t FXStringGetStringLength(FXString *string);
+size_t FXStringGetLength(FXString *string);
 
 #endif

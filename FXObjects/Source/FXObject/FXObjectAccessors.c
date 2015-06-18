@@ -1,5 +1,5 @@
 //
-//  FXObjectSetter.c
+//  FXObjectAccessors.c
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 6/5/15.
@@ -8,14 +8,14 @@
 
 #include "FXObject.h"
 
-void FXAssignSetter(void *object, void **iVar, void *newVar) {
+void _FXAssignSetter(void *object, void **iVar, void *newVar) {
 	if (NULL != object) {
 		
 		*iVar = newVar;
 	}
 }
 
-void FXRetainSetter(void *object, void **iVar, void *newVar) {
+void _FXRetainSetter(void *object, void **iVar, void *newVar) {
 	if (NULL != object && *iVar != newVar) {
 		FXObjectRetain(newVar);
 		FXObjectRelease(*iVar);

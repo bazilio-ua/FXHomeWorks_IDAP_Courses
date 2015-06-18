@@ -16,6 +16,7 @@
 
 static const int kFXMaxNameLength = 64;
 static const int kFXMaxChildrenCount = 20;
+static const int kFXHumanAdultAge = 18;
 
 struct FXHuman {
 	FXObject _super; // inheritance from FXObject
@@ -62,16 +63,25 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) 
 void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	if (NULL != human && NULL != wed && human != wed) {
 		if (wed != FXHumanGetSpouse(human)) {
-			FXHumanGender humanGender = FXHumanGetGender(human);
-			FXHumanGender wedGender = FXHumanGetGender(wed);
-			if (kFXHumanGenderUndefined != (humanGender && wedGender)) {
-				if (humanGender != wedGender) {
-					
-					FXHumanDivorce(human);
-					FXHumanDivorce(wed);
-					
-					FXHumanSetSpouse(human, wed);
-					FXHumanSetSpouse(wed, human);
+			unsigned int humanAge = FXHumanGetAge(human);
+			unsigned int wedAge = FXHumanGetAge(wed);
+			if (kFXHumanAdultAge <= humanAge && kFXHumanAdultAge <= wedAge) {
+				FXHumanGender humanGender = FXHumanGetGender(human);
+				FXHumanGender wedGender = FXHumanGetGender(wed);
+				if (kFXHumanGenderUndefined != humanGender && kFXHumanGenderUndefined != wedGender) {
+					if (humanGender != wedGender) {
+						// we need additionally retain weak wed partner before divorce, just in case
+						FXHuman *weakWed = (kFXHumanGenderFemale == humanGender) ? human : wed;
+						FXObjectRetain(weakWed);
+						
+						FXHumanDivorce(human);
+						FXHumanDivorce(wed);
+						
+						FXObjectRelease(weakWed);
+						
+						FXHumanSetSpouse(human, wed);
+						FXHumanSetSpouse(wed, human);
+					}
 				}
 			}
 		}
@@ -93,6 +103,7 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 		FXHuman *spouse = FXHumanGetSpouse(human);
 		if (NULL != spouse) {
 			FXHuman *child = FXHumanCreateWithParameters(name, age, gender);
+			
 			FXHumanAddChild(human, child);
 			FXHumanAddChild(spouse, child);
 			
@@ -105,7 +116,7 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 
 void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
-		FXStrongRetainSetter(human, _children[index], child);
+		FXRetainSetter(human, _children[index], child);
 		if (NULL != child) { // add case
 			human->_childrenCount++;
 		} else { // remove case if (NULL == child)
@@ -129,6 +140,7 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 			unsigned int childrenCount = FXHumanGetChildrenCount(human);
 			if (childrenCount < kFXMaxChildrenCount) {
 				FXHumanSetChildAtIndex(human, child, childrenCount);
+				
 				if (kFXHumanGenderMale == humanGender) {
 					FXHumanSetFather(child, human);
 				} else if (kFXHumanGenderFemale == humanGender) {
@@ -220,9 +232,9 @@ FXHumanGender FXHumanGetGender(FXHuman *human) {
 void FXHumanSetSpouse(FXHuman *human, FXHuman *spouse) {
 	if (NULL != human && human != spouse) {
 		if (kFXHumanGenderMale == FXHumanGetGender(human)) {
-			FXStrongRetainSetter(human, _spouse, spouse);
+			FXRetainSetter(human, _spouse, spouse);
 		} else {
-			FXWeakAssignSetter(human, _spouse, spouse);
+			FXAssignSetter(human, _spouse, spouse);
 		}
 	}
 }
@@ -234,7 +246,7 @@ FXHuman *FXHumanGetSpouse(FXHuman *human) {
 // parents
 void FXHumanSetMother(FXHuman *human, FXHuman *mother) {
 	if (human != mother) {
-		FXWeakAssignSetter(human, _mother, mother);
+		FXAssignSetter(human, _mother, mother);
 	}
 }
 
@@ -244,7 +256,7 @@ FXHuman *FXHumanGetMother(FXHuman *human) {
 
 void FXHumanSetFather(FXHuman *human, FXHuman *father) {
 	if (human != father) {
-		FXWeakAssignSetter(human, _father, father);
+		FXAssignSetter(human, _father, father);
 	}
 }
 

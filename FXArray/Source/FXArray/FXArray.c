@@ -30,6 +30,9 @@ struct FXArray {
 
 //<-- these should be a private
 static
+void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index); // -> private
+
+static
 void FXArraySetCapacity(FXArray *array, uint64_t capacity);
 
 static
@@ -122,24 +125,6 @@ uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object) {
 	return 0;
 }
 
-void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
-	if (NULL != array) {
-//		assert(index < FXArrayGetCount(array)); // sanity boundary limit
-		
-//		void *currentObject = array->_data[index];
-		void *currentObject = FXArrayGetObjectAtIndex(array, index);
-		if (object != currentObject) {
-
-			FXRetainSetter(array, _data[index], object);
-
-//			// TODO: do it with retain setter
-//			FXObjectRetain(object);
-//			FXObjectRelease(currentObject);
-//			
-//			array->_data[index] = object;
-		}
-	}
-}
 
 void *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index) {
 	if (NULL != array) {
@@ -241,6 +226,25 @@ uint64_t FXArrayGetCount(FXArray *array) {
 
 #pragma mark -
 #pragma mark Private Accessors Implementation
+
+void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
+	if (NULL != array) {
+		//		assert(index < FXArrayGetCount(array)); // sanity boundary limit
+		
+		//		void *currentObject = array->_data[index];
+		void *currentObject = FXArrayGetObjectAtIndex(array, index);
+		if (object != currentObject) {
+			
+			FXRetainSetter(array, _data[index], object);
+			
+			//			// TODO: do it with retain setter
+			//			FXObjectRetain(object);
+			//			FXObjectRelease(currentObject);
+			//			
+			//			array->_data[index] = object;
+		}
+	}
+}
 
 void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
 	if (NULL != array && array->_capacity != capacity) {

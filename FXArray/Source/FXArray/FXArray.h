@@ -40,9 +40,6 @@ extern
 uint64_t FXArrayGetIndexOfObject(FXArray *array, void *object);
 
 extern
-void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index); // -> this should be a private
-
-extern
 void *FXArrayGetObjectAtIndex(FXArray *array, uint64_t index);
 
 extern

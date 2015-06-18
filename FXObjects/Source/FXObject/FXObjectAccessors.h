@@ -22,4 +22,21 @@ void _FXRetainSetter(void *object, void **iVar, void *newVar);
 #define FXRetainSetter(object, iVar, newVar) \
 	_FXRetainSetter(object, (void **)&(object->iVar), newVar)
 
+
+#define FXPrimitiveSetter(object, iVar, newVar) { \
+	if (NULL != object) { \
+		object->_iVar = newVar; \
+	} \
+}
+
+
+#define FXPointerGetter(object, iVar) { \
+	return (NULL != object) ? object->iVar : NULL; \
+}
+
+#define FXPrimitiveGetter(object, iVar) { \
+	return (NULL != object) ? object->iVar : 0; \
+}
+
+
 #endif

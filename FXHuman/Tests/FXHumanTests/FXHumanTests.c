@@ -176,7 +176,7 @@ void FXHumanPrintInfo(FXHuman *human) {
 	printf("\tfather object: %p\n", FXHumanGetFather(human));
 	printf("\tspouse object: %p\n", FXHumanGetSpouse(human));
 	
-	unsigned int count = FXHumanGetChildrenCount(human);
+	uint32_t count = FXHumanGetChildrenCount(human);
 	printf("\tchildren count: %d\n", count);
 	printf("\tchild object%s: ", (count > 1) ? "s" : "");
 	while (count--) {

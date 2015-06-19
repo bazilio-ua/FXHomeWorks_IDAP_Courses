@@ -7,15 +7,16 @@
 //
 
 #include <stdio.h>
+#include <stdint.h>
 
 #include "FXTestsMacro.h"
 
 #pragma mark -
 #pragma mark Private Declarations
 
-static unsigned char kFXTestLevelCount = 0;
+static uint8_t kFXTestLevelCount = 0;
 
-void FXPerformTestPrintMinusCountOfLevel(unsigned char count);
+void FXPerformTestPrintMinusCountOfLevel(uint8_t count);
 
 #pragma mark -
 #pragma mark Public Implementation
@@ -31,9 +32,9 @@ void _FXPerformTestPrintFooter(void) {
 #pragma mark -
 #pragma mark Private Implementation
 
-void FXPerformTestPrintMinusCountOfLevel(unsigned char count) {
+void FXPerformTestPrintMinusCountOfLevel(uint8_t count) {
 //	printf("\n");
-	for (unsigned char iterator = 0; iterator < count; iterator++) {
+	for (uint8_t iterator = 0; iterator < count; iterator++) {
 		printf("-");
 	}
 }

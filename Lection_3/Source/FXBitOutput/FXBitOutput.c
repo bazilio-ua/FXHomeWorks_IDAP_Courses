@@ -7,14 +7,15 @@
 //
 
 #include <stdio.h>
+#include <stdint.h>
 
 #include "FXBitOutput.h"
 
 #pragma mark -
 #pragma mark Private Declaration
 
-static const unsigned char kFXBitCount = 8; // size of byte
-static const unsigned char kFXByteMask = 1 << (kFXBitCount - 1); // 128
+static const uint8_t kFXBitCount = 8; // size of byte
+static const uint8_t kFXByteMask = 1 << (kFXBitCount - 1); // 128
 
 static
 FXByteOrder FXDetectByteOrder(void);
@@ -23,7 +24,7 @@ FXByteOrder FXDetectByteOrder(void);
 #pragma mark Public Implementation
 
 void FXByteValueOutput(char *byteAddress) {
-    for (unsigned char shiftByteMask = kFXByteMask; shiftByteMask > 0; shiftByteMask >>= 1) {
+    for (uint8_t shiftByteMask = kFXByteMask; shiftByteMask > 0; shiftByteMask >>= 1) {
 		printf("%d", (*byteAddress & shiftByteMask) ? 1 : 0);
 		if (shiftByteMask != 1) {
 			printf(" ");
@@ -51,7 +52,7 @@ void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setByteOr
 	if (usingByteOrder == kFXLittleEndian) {
 		printf("Using Little-endian byte order\n");
 		printf("{");
-		for (unsigned short index = size; index > 0; index--) {
+		for (uint16_t index = size; index > 0; index--) {
 			FXByteValueOutput(&((char *)byteAddress)[index - 1]);
 			if (index != 1) {
 				printf(", ");
@@ -61,7 +62,7 @@ void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setByteOr
 	} else if (usingByteOrder == kFXBigEndian) {
 		printf("Using Big-endian byte order\n");
 		printf("{");
-		for (unsigned short index = 0; index < size; index++) {
+		for (uint16_t index = 0; index < size; index++) {
 			FXByteValueOutput(&((char *)byteAddress)[index]);
 			if (index != size - 1) {
 				printf(", ");
@@ -77,7 +78,7 @@ void FXBitFieldValueOutput(void *byteAddress, size_t size, FXByteOrder setByteOr
 #pragma mark Private Implementation
 
 FXByteOrder FXDetectByteOrder(void) {
-	unsigned int byteOrder = 0x12345678;
+	uint32_t byteOrder = 0x12345678;
                              /* U N I X */
 
 /*

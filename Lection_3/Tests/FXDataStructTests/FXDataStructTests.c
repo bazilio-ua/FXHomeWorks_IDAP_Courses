@@ -24,14 +24,14 @@ struct FXHuman {
 	FXObject _super; // inheritance from FXObject
 	
 	char _name[64];
-	unsigned int _age;
+	uint32_t _age;
 	int _gender;
 	
 	FXHuman *_mother;
 	FXHuman *_father;
 	FXHuman *_spouse;
 	
-	unsigned int _childrenCount;
+	uint32_t _childrenCount;
 	FXHuman *_children[20];
 };
 

@@ -10,6 +10,7 @@
 #define FXHomeWorks_FXDataStruct_h
 
 #include <stdbool.h> // for bool
+#include <stdint.h>
 
 typedef struct Unsorted {
 	short shortVar1;
@@ -68,7 +69,7 @@ typedef struct Sorted_Union {
 			bool boolVar5:1;
 			bool boolVar6:1;
 		};
-		unsigned char bitFields;
+		uint8_t bitFields;
 	};
 } Sorted_Union_t;
 

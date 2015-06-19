@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 
 #include "FXHuman.h"
 
@@ -22,14 +23,14 @@ struct FXHuman {
 	FXObject _super; // inheritance from FXObject
 	
 	char _name[kFXMaxNameLength];
-	unsigned int _age;
+	uint32_t _age;
 	FXHumanGender _gender;
 	
 	FXHuman *_mother;
 	FXHuman *_father;
 	FXHuman *_spouse;
 	
-	unsigned int _childrenCount;
+	uint32_t _childrenCount;
 	FXHuman *_children[kFXMaxChildrenCount];
 };
 
@@ -42,7 +43,7 @@ static
 void FXHumanRemoveAllChildren(FXHuman *human);
 
 static
-void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index);
+void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint32_t index);
 
 // gender
 static
@@ -90,8 +91,8 @@ FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) 
 void FXHumanMarriage(FXHuman *human, FXHuman *wed) {
 	if (NULL != human && NULL != wed && human != wed) {
 		if (wed != FXHumanGetSpouse(human)) {
-			unsigned int humanAge = FXHumanGetAge(human);
-			unsigned int wedAge = FXHumanGetAge(wed);
+			uint32_t humanAge = FXHumanGetAge(human);
+			uint32_t wedAge = FXHumanGetAge(wed);
 			if (kFXHumanAdultAge <= humanAge && kFXHumanAdultAge <= wedAge) {
 				FXHumanGender humanGender = FXHumanGetGender(human);
 				FXHumanGender wedGender = FXHumanGetGender(wed);
@@ -141,7 +142,7 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, F
 	return NULL;
 }
 
-FXHuman *FXHumanGetChildAtIndex(FXHuman *human, unsigned int index) {
+FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint32_t index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		return human->_children[index];
 	}
@@ -153,7 +154,7 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
 		FXHumanGender humanGender = FXHumanGetGender(human);
 		if (kFXHumanGenderUndefined != humanGender) {
-			unsigned int childrenCount = FXHumanGetChildrenCount(human);
+			uint32_t childrenCount = FXHumanGetChildrenCount(human);
 			if (childrenCount < kFXMaxChildrenCount) {
 				FXHumanSetChildAtIndex(human, child, childrenCount);
 				
@@ -228,7 +229,7 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 #pragma mark Private Accessors Implementation
 
 // children
-void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) {
+void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint32_t index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		FXRetainSetter(human, _children[index], child);
 		if (NULL != child) { // add case
@@ -241,7 +242,7 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, unsigned int index) 
 
 void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
-		unsigned int count;
+		uint32_t count;
 		for (count = 0; count < kFXMaxChildrenCount; count++) {
 			if (human->_children[count] == child) {
 				FXHumanSetChildAtIndex(human, NULL, count);

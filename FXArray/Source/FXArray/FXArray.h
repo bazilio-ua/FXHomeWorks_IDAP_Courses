@@ -13,7 +13,7 @@
 
 #include "FXObject.h"
 
-extern const uint64_t kFXIndexNotFound; // used in test suite
+extern const uint64_t kFXIndexNotFound; // used for index limit check
 
 typedef struct FXArray FXArray;
 

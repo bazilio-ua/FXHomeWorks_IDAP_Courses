@@ -229,19 +229,19 @@ uint64_t FXArrayGetCount(FXArray *array) {
 
 void FXArraySetObjectAtIndex(FXArray *array, void *object, uint64_t index) {
 	if (NULL != array) {
-		//		assert(index < FXArrayGetCount(array)); // sanity boundary limit
+//		assert(index < FXArrayGetCount(array)); // sanity boundary limit
 		
-		//		void *currentObject = array->_data[index];
+//		void *currentObject = array->_data[index];
 		void *currentObject = FXArrayGetObjectAtIndex(array, index);
 		if (object != currentObject) {
 			
 			FXRetainSetter(array, _data[index], object);
 			
-			//			// TODO: do it with retain setter
-			//			FXObjectRetain(object);
-			//			FXObjectRelease(currentObject);
-			//			
-			//			array->_data[index] = object;
+//			// TODO: do it with retain setter
+//			FXObjectRetain(object);
+//			FXObjectRelease(currentObject);
+//			
+//			array->_data[index] = object;
 		}
 	}
 }
@@ -273,13 +273,13 @@ void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
 		}
 		
 		
-		//		// 'slow' version (zeroing objects one by one)
-		//		uint64_t oldCapacity = array->_capacity;
-		//		if (capacity > oldCapacity) {
-		//			for (uint64_t index = oldCapacity; index < capacity; index++) {
-		//				array->_data[index] = NULL;
-		//			}
-		//		}
+//		// 'slow' version (zeroing objects one by one)
+//		uint64_t oldCapacity = array->_capacity;
+//		if (capacity > oldCapacity) {
+//			for (uint64_t index = oldCapacity; index < capacity; index++) {
+//				array->_data[index] = NULL;
+//			}
+//		}
 		
 		
 		array->_capacity = capacity;

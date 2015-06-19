@@ -27,6 +27,7 @@
 		4269482D1AFAA3CA00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4269482B1AFAA3CA00974906 /* main.c */; };
 		426CDA8B1B012D120002B2EF /* FXBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA891B012D120002B2EF /* FXBitOutput.c */; };
 		426CDA8F1B012D3E0002B2EF /* FXBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA8D1B012D3E0002B2EF /* FXBitOutputTests.c */; };
+		4270C3771B3488DD000D5D1A /* FXArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 428083731B2459C300334F99 /* FXArray.c */; };
 		428083721B24598D00334F99 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4280836F1B24598D00334F99 /* main.c */; };
 		428083741B2459C300334F99 /* FXArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 428083731B2459C300334F99 /* FXArray.c */; };
 		428083771B245A0400334F99 /* FXArrayTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 428083761B245A0400334F99 /* FXArrayTests.c */; };
@@ -935,6 +936,7 @@
 				429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */,
 				420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */,
 				4290DD281B344B180029D187 /* FXString.c in Sources */,
+				4270C3771B3488DD000D5D1A /* FXArray.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

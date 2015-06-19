@@ -11,6 +11,7 @@
 
 #include "FXObject.h"
 #include "FXString.h"
+#include "FXArray.h"
 
 typedef enum {
 	kFXHumanGenderUndefined,

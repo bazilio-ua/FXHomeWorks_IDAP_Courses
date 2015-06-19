@@ -24,7 +24,7 @@ extern
 void __FXHumanDeallocate(FXHuman *human);
 
 extern
-FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender);
+FXHuman *FXHumanCreateWithParameters(char *name, uint32_t age, FXHumanGender gender);
 
 // marriage
 extern
@@ -36,7 +36,7 @@ void FXHumanDivorce(FXHuman *human);
 
 // children
 extern
-FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, FXHumanGender gender);
+FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, uint32_t age, FXHumanGender gender);
 
 extern
 FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint32_t index);
@@ -45,7 +45,7 @@ extern
 void FXHumanAddChild(FXHuman *human, FXHuman *child);
 
 extern
-int FXHumanGetChildrenCount(FXHuman *human);
+uint32_t FXHumanGetChildrenCount(FXHuman *human);
 
 // name
 extern
@@ -56,10 +56,10 @@ char *FXHumanGetName(FXHuman *human);
 
 // age
 extern
-void FXHumanSetAge(FXHuman *human, int age);
+void FXHumanSetAge(FXHuman *human, uint32_t age);
 
 extern
-int FXHumanGetAge(FXHuman *human);
+uint32_t FXHumanGetAge(FXHuman *human);
 
 // gender
 extern

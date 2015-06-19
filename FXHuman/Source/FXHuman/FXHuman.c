@@ -15,9 +15,9 @@
 #pragma mark -
 #pragma mark Private Declaration
 
-static const int kFXMaxNameLength = 64;
-static const int kFXMaxChildrenCount = 20;
-static const int kFXHumanAdultAge = 18;
+static const size_t kFXMaxNameLength = 64;
+static const uint32_t kFXMaxChildrenCount = 20;
+static const uint32_t kFXHumanAdultAge = 18;
 
 struct FXHuman {
 	FXObject _super; // inheritance from FXObject
@@ -78,7 +78,7 @@ void __FXHumanDeallocate(FXHuman *human) {
 	__FXObjectDeallocate(human);
 }
 
-FXHuman *FXHumanCreateWithParameters(char *name, int age, FXHumanGender gender) {
+FXHuman *FXHumanCreateWithParameters(char *name, uint32_t age, FXHumanGender gender) {
 	FXHuman *human = FXObjectCreateOfType(FXHuman);
 	FXHumanSetName(human, name);
 	FXHumanSetAge(human, age);
@@ -126,7 +126,7 @@ void FXHumanDivorce(FXHuman *human) {
 }
 
 // children
-FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, int age, FXHumanGender gender) {
+FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, uint32_t age, FXHumanGender gender) {
 	if (NULL != human) {
 		FXHuman *spouse = FXHumanGetSpouse(human);
 		if (NULL != spouse) {
@@ -168,7 +168,7 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	}
 }
 
-int FXHumanGetChildrenCount(FXHuman *human) {
+uint32_t FXHumanGetChildrenCount(FXHuman *human) {
 	return (NULL != human) ? human->_childrenCount : 0;
 }
 
@@ -190,14 +190,14 @@ char *FXHumanGetName(FXHuman *human) {
 }
 
 // age
-void FXHumanSetAge(FXHuman *human, int age) {
+void FXHumanSetAge(FXHuman *human, uint32_t age) {
 	FXPrimitiveSetter(human, _age, age);
 //	if (NULL != human) {
 //		human->_age = age;
 //	}
 }
 
-int FXHumanGetAge(FXHuman *human) {
+uint32_t FXHumanGetAge(FXHuman *human) {
 	FXPrimitiveGetter(human, _age);
 //	return (NULL != human) ? human->_age : 0;
 }
@@ -264,7 +264,7 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 
 void FXHumanRemoveAllChildren(FXHuman *human) {
 	if (NULL != human) {
-		int count = kFXMaxChildrenCount;
+		uint32_t count = kFXMaxChildrenCount;
 		while (count--) {
 			FXHuman *child = human->_children[count];
 			if (NULL != child) {

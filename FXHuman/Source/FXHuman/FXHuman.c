@@ -71,7 +71,7 @@ void __FXHumanDeallocate(FXHuman *human) {
 	FXHumanDivorce(human);
 	FXHumanRemoveAllChildren(human);
 	// do full zeroing allocated memory for our struct before free()
-	FXHumanSetName(human, "");
+	FXHumanSetName(human, NULL);
 	FXHumanSetAge(human, 0);
 	FXHumanSetGender(human, 0);
 	
@@ -175,12 +175,16 @@ uint32_t FXHumanGetChildrenCount(FXHuman *human) {
 // name
 void FXHumanSetName(FXHuman *human, const char *name) {
 	if (NULL != human) {
-		size_t length = strlen(name);
-		if (length < kFXMaxNameLength) {
-			memmove(human->_name, name, length);
+		if (NULL != name) {
+			size_t length = strlen(name);
+			if (length < kFXMaxNameLength) {
+				memmove(human->_name, name, length);
+			} else {
+				memmove(human->_name, name, kFXMaxNameLength - 1);
+				human->_name[kFXMaxNameLength - 1] = '\0';
+			}
 		} else {
-			memmove(human->_name, name, kFXMaxNameLength - 1);
-			human->_name[kFXMaxNameLength - 1] = '\0';
+			human->_name[0] = '\0';
 		}
 	}
 }

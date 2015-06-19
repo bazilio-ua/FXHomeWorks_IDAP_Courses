@@ -152,6 +152,14 @@ void FXHumanBehaviourTests(void) {
 	FXObjectRelease(padme);
 	FXObjectRelease(luke);
 	FXObjectRelease(leia);
+	
+//	void *dummy = FXHumanCreateWithParameters("Unknown", 29, kFXHumanGenderUndefined);
+//	FXHumanPrintInfo(dummy);
+//	FXHumanSetName(dummy, NULL);
+//	FXHumanPrintInfo(dummy);
+//	FXHumanSetName(dummy, "Unknown Human");
+//	FXHumanPrintInfo(dummy);
+//	FXObjectRelease(dummy);
 }
 
 #pragma mark -

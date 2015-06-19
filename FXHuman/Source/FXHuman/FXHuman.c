@@ -335,11 +335,12 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 		
 		FXArray *children = FXHumanGetChildren(human);
 		
+		// take index, check index and remove at index.. this long
 //		uint64_t index = FXArrayGetIndexOfObject(children, child);
 //		if (kFXIndexNotFound != index) {
 //			FXArrayRemoveObjectAtIndex(children, index);
 //		}
-		// or
+		// or just
 		FXArrayRemoveObject(children, child);
 		
 		

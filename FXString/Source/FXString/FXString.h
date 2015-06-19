@@ -26,6 +26,7 @@ void FXStringSetData(FXString *string, const char *data);
 extern
 char *FXStringGetData(FXString *string);
 
+// return data length including terminating `\0'
 extern
 size_t FXStringGetLength(FXString *string);
 

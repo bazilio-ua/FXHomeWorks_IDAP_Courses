@@ -189,7 +189,7 @@ void FXHumanSetName(FXHuman *human, const char *name) {
 		} else { // if 'name' is equal to NULL (deallocation case)
 			
 			if (NULL != human->_name) { // if our object FXString _name exist
-//				FXStringSetData(human->_name, NULL);
+//				FXStringSetData(human->_name, NULL); // this set is don't needed, release do it
 				FXObjectRelease(human->_name); // just release it
 				human->_name = NULL;
 			}

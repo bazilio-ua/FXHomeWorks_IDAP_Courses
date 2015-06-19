@@ -15,14 +15,16 @@
 #pragma mark -
 #pragma mark Private Declaration
 
-static const size_t kFXMaxNameLength = 64;
+//static const size_t kFXMaxNameLength = 64;
 static const uint32_t kFXMaxChildrenCount = 20;
 static const uint32_t kFXHumanAdultAge = 18;
 
 struct FXHuman {
 	FXObject _super; // inheritance from FXObject
 	
-	char _name[kFXMaxNameLength];
+	FXString *_name;
+//	char _name[kFXMaxNameLength];
+	
 	uint32_t _age;
 	FXHumanGender _gender;
 	
@@ -175,22 +177,42 @@ uint32_t FXHumanGetChildrenCount(FXHuman *human) {
 // name
 void FXHumanSetName(FXHuman *human, const char *name) {
 	if (NULL != human) {
-		if (NULL != name) {
-			size_t length = strlen(name);
-			if (length < kFXMaxNameLength) {
-				memmove(human->_name, name, length);
-			} else {
-				memmove(human->_name, name, kFXMaxNameLength - 1);
-				human->_name[kFXMaxNameLength - 1] = '\0';
+		if (NULL != name) { // if we have some  data in 'name' to set
+			
+			if (NULL == human->_name) { // if our object FXString _name dosn't exist (creation case)
+				FXString *string = FXStringCreateWithParameters(name); // create one with data 'name'
+				human->_name = string;
+			} else { // if we set another 'name' (change name case)
+				FXStringSetData(human->_name, name);
 			}
-		} else {
-			human->_name[0] = '\0';
+			
+		} else { // if 'name' is equal to NULL (deallocation case)
+			
+			if (NULL != human->_name) { // if our object FXString _name exist
+//				FXStringSetData(human->_name, NULL);
+				FXObjectRelease(human->_name); // just release it
+				human->_name = NULL;
+			}
+			
 		}
+		
+//		if (NULL != name) {
+//			size_t length = strlen(name);
+//			if (length < kFXMaxNameLength) {
+//				memmove(human->_name, name, length);
+//			} else {
+//				memmove(human->_name, name, kFXMaxNameLength - 1);
+//				human->_name[kFXMaxNameLength - 1] = '\0';
+//			}
+//		} else {
+//			human->_name[0] = '\0';
+//		}
 	}
 }
 
 char *FXHumanGetName(FXHuman *human) {
-	return (NULL != human) ? human->_name : NULL;
+	return (NULL != human) ? FXStringGetData(human->_name) : NULL;
+//	return (NULL != human) ? human->_name : NULL;
 }
 
 // age

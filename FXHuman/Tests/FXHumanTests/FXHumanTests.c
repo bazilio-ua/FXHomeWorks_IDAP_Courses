@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 #include <assert.h>
 
 #include "FXTestsMacro.h"
@@ -29,9 +30,11 @@ void FXHumanBehaviourTests(void) {
 	//		pointer to Shmi should not be NULL
 	assert(NULL != shmi);
 	
-	
 	//	create Anakin
 	void *anakin = FXHumanCreateWithParameters("Anakin Skywalker", 0, kFXHumanGenderMale);
+	
+	//	check returning name is identical to created name
+	assert(0 == strcmp("Anakin Skywalker", FXHumanGetName(anakin)));
 	
 	//		add Anakin as child to Shmi
 	FXHumanAddChild(shmi, anakin);
@@ -153,13 +156,13 @@ void FXHumanBehaviourTests(void) {
 	FXObjectRelease(luke);
 	FXObjectRelease(leia);
 	
-//	void *dummy = FXHumanCreateWithParameters("Unknown", 29, kFXHumanGenderUndefined);
-//	FXHumanPrintInfo(dummy);
-//	FXHumanSetName(dummy, NULL);
-//	FXHumanPrintInfo(dummy);
-//	FXHumanSetName(dummy, "Unknown Human");
-//	FXHumanPrintInfo(dummy);
-//	FXObjectRelease(dummy);
+	void *unknown = FXHumanCreateWithParameters("Unknown", 0, kFXHumanGenderUndefined);
+	FXHumanPrintInfo(unknown);
+	FXHumanSetName(unknown, NULL);
+	FXHumanPrintInfo(unknown);
+	FXHumanSetName(unknown, "Unknown human");
+	FXHumanPrintInfo(unknown);
+	FXObjectRelease(unknown);
 }
 
 #pragma mark -

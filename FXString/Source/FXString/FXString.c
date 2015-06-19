@@ -44,7 +44,7 @@ void FXStringSetData(FXString *string, const char *data) {
 		size_t oldLength = FXStringGetLength(string);
 		char *oldData = FXStringGetData(string);
 		if (NULL != data) { // set new data value
-			size_t length = strlen(data);
+			size_t length = strlen(data) + 1; // + 1 is for terminating `\0'
 			size_t size = length * sizeof(*string->_data);
 			if (NULL == oldData) { // if string->_data is NULL
 				string->_data = malloc(size); // we need to allocate some memory
@@ -71,7 +71,7 @@ char *FXStringGetData(FXString *string) {
 
 size_t FXStringGetLength(FXString *string) {
 	if (NULL != string && NULL != string->_data) {
-		return strlen(string->_data);
+		return strlen(string->_data) + 1; // + 1 is for terminating `\0'
 	}
 	
 	return 0;

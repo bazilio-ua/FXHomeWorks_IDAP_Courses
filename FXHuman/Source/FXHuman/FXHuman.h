@@ -10,6 +10,7 @@
 #define FXHomeWorks_FXHuman_h
 
 #include "FXObject.h"
+#include "FXString.h"
 
 typedef enum {
 	kFXHumanGenderUndefined,

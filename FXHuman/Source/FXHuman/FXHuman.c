@@ -16,7 +16,7 @@
 #pragma mark Private Declaration
 
 //static const size_t kFXMaxNameLength = 64;
-static const uint32_t kFXMaxChildrenCount = 20;
+static const uint64_t kFXMaxChildrenCount = 20;
 static const uint32_t kFXHumanAdultAge = 18;
 
 struct FXHuman {
@@ -32,7 +32,7 @@ struct FXHuman {
 	FXHuman *_father;
 	FXHuman *_spouse;
 	
-	uint32_t _childrenCount;
+	uint64_t _childrenCount;
 	FXHuman *_children[kFXMaxChildrenCount];
 };
 
@@ -45,7 +45,7 @@ static
 void FXHumanRemoveAllChildren(FXHuman *human);
 
 static
-void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint32_t index);
+void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint64_t index);
 
 // gender
 static
@@ -144,7 +144,7 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, uint32_t a
 	return NULL;
 }
 
-FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint32_t index) {
+FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint64_t index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		return human->_children[index];
 	}
@@ -154,15 +154,15 @@ FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint32_t index) {
 
 void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
-		FXHumanGender humanGender = FXHumanGetGender(human);
-		if (kFXHumanGenderUndefined != humanGender) {
-			uint32_t childrenCount = FXHumanGetChildrenCount(human);
-			if (childrenCount < kFXMaxChildrenCount) {
-				FXHumanSetChildAtIndex(human, child, childrenCount);
+		FXHumanGender gender = FXHumanGetGender(human);
+		if (kFXHumanGenderUndefined != gender) {
+			uint64_t count = FXHumanGetChildrenCount(human);
+			if (count < kFXMaxChildrenCount) {
+				FXHumanSetChildAtIndex(human, child, count);
 				
-				if (kFXHumanGenderMale == humanGender) {
+				if (kFXHumanGenderMale == gender) {
 					FXHumanSetFather(child, human);
-				} else if (kFXHumanGenderFemale == humanGender) {
+				} else if (kFXHumanGenderFemale == gender) {
 					FXHumanSetMother(child, human);
 				}
 			}
@@ -170,7 +170,7 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	}
 }
 
-uint32_t FXHumanGetChildrenCount(FXHuman *human) {
+uint64_t FXHumanGetChildrenCount(FXHuman *human) {
 	return (NULL != human) ? human->_childrenCount : 0;
 }
 
@@ -189,7 +189,6 @@ void FXHumanSetName(FXHuman *human, const char *name) {
 		} else { // if 'name' is equal to NULL (deallocation case)
 			
 			if (NULL != human->_name) { // if our object FXString _name exist
-//				FXStringSetData(human->_name, NULL); // this set is don't needed, release do it
 				FXObjectRelease(human->_name); // just release it
 				human->_name = NULL;
 			}
@@ -255,7 +254,7 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 #pragma mark Private Accessors Implementation
 
 // children
-void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint32_t index) {
+void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint64_t index) {
 	if (NULL != human && index < kFXMaxChildrenCount) {
 		FXRetainSetter(human, _children[index], child);
 		if (NULL != child) { // add case
@@ -268,7 +267,7 @@ void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint32_t index) {
 
 void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
-		uint32_t count;
+		uint64_t count;
 		for (count = 0; count < kFXMaxChildrenCount; count++) {
 			if (human->_children[count] == child) {
 				FXHumanSetChildAtIndex(human, NULL, count);
@@ -279,10 +278,10 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 			human->_children[count] = human->_children[count + 1];
 		}
 		
-		FXHumanGender humanGender = FXHumanGetGender(human);
-		if (kFXHumanGenderMale == humanGender) {
+		FXHumanGender gender = FXHumanGetGender(human);
+		if (kFXHumanGenderMale == gender) {
 			FXHumanSetFather(child, NULL);
-		} else if (kFXHumanGenderFemale == humanGender) {
+		} else if (kFXHumanGenderFemale == gender) {
 			FXHumanSetMother(child, NULL);
 		}
 	}
@@ -290,7 +289,7 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 
 void FXHumanRemoveAllChildren(FXHuman *human) {
 	if (NULL != human) {
-		uint32_t count = kFXMaxChildrenCount;
+		uint64_t count = kFXMaxChildrenCount;
 		while (count--) {
 			FXHuman *child = human->_children[count];
 			if (NULL != child) {

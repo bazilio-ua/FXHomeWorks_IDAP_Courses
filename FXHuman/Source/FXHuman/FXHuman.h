@@ -40,13 +40,13 @@ extern
 FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, uint32_t age, FXHumanGender gender);
 
 extern
-FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint32_t index);
+FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint64_t index);
 
 extern
 void FXHumanAddChild(FXHuman *human, FXHuman *child);
 
 extern
-uint32_t FXHumanGetChildrenCount(FXHuman *human);
+uint64_t FXHumanGetChildrenCount(FXHuman *human);
 
 // name
 extern

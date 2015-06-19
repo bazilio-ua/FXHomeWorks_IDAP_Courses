@@ -156,13 +156,13 @@ void FXHumanBehaviourTests(void) {
 	FXObjectRelease(luke);
 	FXObjectRelease(leia);
 	
-	void *unknown = FXHumanCreateWithParameters("Unknown", 0, kFXHumanGenderUndefined);
-	FXHumanPrintInfo(unknown);
-	FXHumanSetName(unknown, NULL);
-	FXHumanPrintInfo(unknown);
-	FXHumanSetName(unknown, "Unknown human");
-	FXHumanPrintInfo(unknown);
-	FXObjectRelease(unknown);
+//	void *unknown = FXHumanCreateWithParameters("Unknown", 0, kFXHumanGenderUndefined);
+//	FXHumanPrintInfo(unknown);
+//	FXHumanSetName(unknown, NULL);
+//	FXHumanPrintInfo(unknown);
+//	FXHumanSetName(unknown, "Unknown human");
+//	FXHumanPrintInfo(unknown);
+//	FXObjectRelease(unknown);
 }
 
 #pragma mark -
@@ -187,8 +187,8 @@ void FXHumanPrintInfo(FXHuman *human) {
 	printf("\tfather object: %p\n", FXHumanGetFather(human));
 	printf("\tspouse object: %p\n", FXHumanGetSpouse(human));
 	
-	uint32_t count = FXHumanGetChildrenCount(human);
-	printf("\tchildren count: %d\n", count);
+	uint64_t count = FXHumanGetChildrenCount(human);
+	printf("\tchildren count: %llu\n", count);
 	printf("\tchild object%s: ", (count > 1) ? "s" : "");
 	while (count--) {
 		printf("%p ", FXHumanGetChildAtIndex(human, count));

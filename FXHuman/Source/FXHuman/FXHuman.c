@@ -158,9 +158,12 @@ FXHuman *FXHumanCreateChildWithParameters(FXHuman *human, char *name, uint32_t a
 
 FXHuman *FXHumanGetChildAtIndex(FXHuman *human, uint64_t index) {
 	if (NULL != human && index < FXHumanGetChildrenCount(human)) {
-		FXArray *children = FXHumanGetChildren(human);
 		
-		return FXArrayGetObjectAtIndex(children, index);
+		return FXArrayGetObjectAtIndex(FXHumanGetChildren(human), index);
+		
+//		FXArray *children = FXHumanGetChildren(human);
+//		
+//		return FXArrayGetObjectAtIndex(children, index);
 	}
 	
 	return NULL;
@@ -176,9 +179,11 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
 		FXHumanGender gender = FXHumanGetGender(human);
 		if (kFXHumanGenderUndefined != gender) {
+
+			FXArrayAddObject(FXHumanGetChildren(human), child);
 			
-			FXArray *children = FXHumanGetChildren(human);
-			FXArrayAddObject(children, child);
+//			FXArray *children = FXHumanGetChildren(human);
+//			FXArrayAddObject(children, child);
 			
 //			uint64_t count = FXHumanGetChildrenCount(human);
 //			if (count < kFXMaxChildrenCount) {
@@ -197,8 +202,12 @@ void FXHumanAddChild(FXHuman *human, FXHuman *child) {
 
 uint64_t FXHumanGetChildrenCount(FXHuman *human) {
 	if (NULL != human) {
-		FXArray *children = FXHumanGetChildren(human);
-		return FXArrayGetCount(children);
+		
+		return FXArrayGetCount(FXHumanGetChildren(human));
+		
+//		FXArray *children = FXHumanGetChildren(human);
+//		
+//		return FXArrayGetCount(children);
 	}
 	
 	return 0;
@@ -209,18 +218,22 @@ uint64_t FXHumanGetChildrenCount(FXHuman *human) {
 // name
 void FXHumanSetName(FXHuman *human, const char *name) {
 	if (NULL != human) {
+		
+		FXString *previousName = human->_name;
 		if (NULL != name) { // if we have some  data in 'name' to set
 			
-			if (NULL == human->_name) { // if our object FXString _name dosn't exist (creation case)
-				FXString *string = FXStringCreateWithParameters(name); // create one with data 'name'
-				human->_name = string;
+			if (NULL == previousName) { // if our object FXString _name dosn't exist (creation case)
+				human->_name = FXStringCreateWithParameters(name); // create one with data 'name'
+				
+//				FXString *string = FXStringCreateWithParameters(name); // create one with data 'name'
+//				human->_name = string;
 			} else { // if we set another 'name' (change name case)
 				FXStringSetData(human->_name, name);
 			}
 			
 		} else { // if 'name' is equal to NULL (deallocation case)
 			
-			if (NULL != human->_name) { // if our object FXString _name exist
+			if (NULL != previousName) { // if our object FXString _name exist
 				FXObjectRelease(human->_name); // just release it
 				human->_name = NULL;
 			}
@@ -289,8 +302,10 @@ FXHuman *FXHumanGetFather(FXHuman *human) {
 void FXHumanSetChildren(FXHuman *human, FXArray *children) {
 	if (NULL != human) {
 		
+		FXArray *previousChildren = FXHumanGetChildren(human);
 		if (NULL != children) { // if we wanna to set a new array
-			if (NULL == human->_children) { // if our array is not set (creation case)
+			
+			if (NULL == previousChildren) { // if our array is not set (creation case)
 				FXObjectRetain(children);
 //				FXObjectRelease(human->_children); // this is not needed (don't need to release previous NULL value)
 				human->_children = children;
@@ -299,11 +314,14 @@ void FXHumanSetChildren(FXHuman *human, FXArray *children) {
 				FXObjectRelease(human->_children);
 				human->_children = children;
 			}
-		} else { // if our array is equal to NULL (deallocation case)
-			if (NULL != human->_children) { // if our array exist
+			
+		} else { // if our new array is equal to NULL (deallocation case)
+			
+			if (NULL != previousChildren) { // if our previous array exist
 				FXObjectRelease(human->_children);
 				human->_children = NULL;
 			}
+			
 		}
 		
 	}
@@ -333,7 +351,9 @@ FXArray *FXHumanGetChildren(FXHuman *human) {
 void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 	if (NULL != human && NULL != child && human != child) {
 		
-		FXArray *children = FXHumanGetChildren(human);
+		FXArrayRemoveObject(FXHumanGetChildren(human), child);
+		
+//		FXArray *children = FXHumanGetChildren(human);
 		
 		// take index, check index and remove at index.. this long
 //		uint64_t index = FXArrayGetIndexOfObject(children, child);
@@ -341,7 +361,7 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 //			FXArrayRemoveObjectAtIndex(children, index);
 //		}
 		// or just
-		FXArrayRemoveObject(children, child);
+//		FXArrayRemoveObject(children, child);
 		
 		
 //		uint64_t count;

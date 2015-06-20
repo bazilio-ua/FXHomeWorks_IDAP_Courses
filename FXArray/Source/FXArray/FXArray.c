@@ -250,16 +250,17 @@ void FXArraySetCapacity(FXArray *array, uint64_t capacity) {
 	if (NULL != array && array->_capacity != capacity) {
 		assert(kFXArrayMaxCapacity >= capacity); // sanity
 		
+		void **previousData = FXArrayGetData(array);
 		size_t size = capacity * sizeof(*array->_data);
 		if (0 != size) { // set new capacity or resize
-			if (NULL == array->_data) {
+			if (NULL == previousData) {
 				array->_data = malloc(size); // new alloc
 			} else {
 				array->_data = realloc(array->_data, size); // re-alloc
 			}
 			assert(NULL != array->_data); // make sure allocation is successfull
 			
-		} else if (0 == size && NULL != array->_data) { // remove all objects or dealloc
+		} else if (0 == size && NULL != previousData) { // remove all objects or dealloc
 			free(array->_data);
 			array->_data = NULL;
 		}

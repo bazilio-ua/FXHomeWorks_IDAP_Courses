@@ -46,6 +46,10 @@
 		42D78C6B1B08ADF90036BA48 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		42D78C6C1B08AE160036BA48 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
 		42D78C6E1B08AF900036BA48 /* FXHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D78C6D1B08AF900036BA48 /* FXHuman.c */; };
+		42D7BC641B358C6000617635 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC621B358C6000617635 /* main.c */; };
+		42D7BC651B358CEC00617635 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
+		42D7BC691B358D8600617635 /* FXLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC681B358D8600617635 /* FXLinkedList.c */; };
+		42D7BC6C1B358DAC00617635 /* FXLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC6B1B358DAC00617635 /* FXLinkedListTests.c */; };
 		42F9A50E1B2344E20070FF94 /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		42F9A5101B2344E80070FF94 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
 /* End PBXBuildFile section */
@@ -123,6 +127,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		42D7BC541B358C0E00617635 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +193,12 @@
 		42D78C671B08AD910036BA48 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		42D78C6D1B08AF900036BA48 /* FXHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHuman.c; sourceTree = "<group>"; };
 		42D78C6F1B08AFA00036BA48 /* FXHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHuman.h; sourceTree = "<group>"; };
+		42D7BC561B358C0E00617635 /* FXLinkedList */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXLinkedList; sourceTree = BUILT_PRODUCTS_DIR; };
+		42D7BC621B358C6000617635 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		42D7BC681B358D8600617635 /* FXLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXLinkedList.c; sourceTree = "<group>"; };
+		42D7BC6A1B358D9300617635 /* FXLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedList.h; sourceTree = "<group>"; };
+		42D7BC6B1B358DAC00617635 /* FXLinkedListTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXLinkedListTests.c; sourceTree = "<group>"; };
+		42D7BC6D1B358DC000617635 /* FXLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListTests.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +258,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42D7BC531B358C0E00617635 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -254,6 +280,7 @@
 				42D78C5C1B08AD290036BA48 /* FXHuman */,
 				42643CF11B2320EC00B90F83 /* FXString */,
 				428083641B2458A000334F99 /* FXArray */,
+				42D7BC581B358C0E00617635 /* FXLinkedList */,
 				4214E8F21AFA9BF100D0E018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -269,6 +296,7 @@
 				42D78C5A1B08AD290036BA48 /* FXHuman */,
 				42643CE61B2320AF00B90F83 /* FXString */,
 				428083621B2458A000334F99 /* FXArray */,
+				42D7BC561B358C0E00617635 /* FXLinkedList */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -671,6 +699,50 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		42D7BC581B358C0E00617635 /* FXLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				42D7BC611B358C6000617635 /* Source */,
+				42D7BC631B358C6000617635 /* Tests */,
+			);
+			path = FXLinkedList;
+			sourceTree = "<group>";
+		};
+		42D7BC611B358C6000617635 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				42D7BC661B358D4E00617635 /* FXLinkedList */,
+				42D7BC621B358C6000617635 /* main.c */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		42D7BC631B358C6000617635 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				42D7BC671B358D5F00617635 /* FXLinkedListTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		42D7BC661B358D4E00617635 /* FXLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				42D7BC681B358D8600617635 /* FXLinkedList.c */,
+				42D7BC6A1B358D9300617635 /* FXLinkedList.h */,
+			);
+			path = FXLinkedList;
+			sourceTree = "<group>";
+		};
+		42D7BC671B358D5F00617635 /* FXLinkedListTests */ = {
+			isa = PBXGroup;
+			children = (
+				42D7BC6B1B358DAC00617635 /* FXLinkedListTests.c */,
+				42D7BC6D1B358DC000617635 /* FXLinkedListTests.h */,
+			);
+			path = FXLinkedListTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -810,6 +882,23 @@
 			productReference = 42D78C5A1B08AD290036BA48 /* FXHuman */;
 			productType = "com.apple.product-type.tool";
 		};
+		42D7BC551B358C0E00617635 /* FXLinkedList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42D7BC5F1B358C0E00617635 /* Build configuration list for PBXNativeTarget "FXLinkedList" */;
+			buildPhases = (
+				42D7BC521B358C0E00617635 /* Sources */,
+				42D7BC531B358C0E00617635 /* Frameworks */,
+				42D7BC541B358C0E00617635 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXLinkedList;
+			productName = FXLinkedList;
+			productReference = 42D7BC561B358C0E00617635 /* FXLinkedList */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -838,6 +927,7 @@
 				42D78C591B08AD290036BA48 /* FXHuman */,
 				42643CE51B2320AF00B90F83 /* FXString */,
 				428083611B2458A000334F99 /* FXArray */,
+				42D7BC551B358C0E00617635 /* FXLinkedList */,
 			);
 		};
 /* End PBXProject section */
@@ -937,6 +1027,17 @@
 				420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */,
 				4290DD281B344B180029D187 /* FXString.c in Sources */,
 				4270C3771B3488DD000D5D1A /* FXArray.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42D7BC521B358C0E00617635 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42D7BC641B358C6000617635 /* main.c in Sources */,
+				42D7BC651B358CEC00617635 /* FXTestsMacro.c in Sources */,
+				42D7BC691B358D8600617635 /* FXLinkedList.c in Sources */,
+				42D7BC6C1B358DAC00617635 /* FXLinkedListTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1100,6 +1201,20 @@
 			};
 			name = Release;
 		};
+		42D7BC5D1B358C0E00617635 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		42D7BC5E1B358C0E00617635 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1183,6 +1298,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		42D7BC5F1B358C0E00617635 /* Build configuration list for PBXNativeTarget "FXLinkedList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42D7BC5D1B358C0E00617635 /* Debug */,
+				42D7BC5E1B358C0E00617635 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

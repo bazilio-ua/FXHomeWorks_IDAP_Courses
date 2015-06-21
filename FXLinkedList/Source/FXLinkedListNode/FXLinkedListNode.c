@@ -31,6 +31,13 @@ void __FXLinkedListNodeDeallocate(FXLinkedListNode *node) {
 	__FXObjectDeallocate(node);
 }
 
+// just create empty node without an object
+FXLinkedListNode *FXLinkedListNodeCreate(void) {
+	FXLinkedListNode *node = FXObjectCreateOfType(FXLinkedListNode);
+	
+	return node;
+}
+
 FXLinkedListNode *FXLinkedListNodeCreateWithObject(void *object) {
 	FXLinkedListNode *node = FXObjectCreateOfType(FXLinkedListNode);
 	FXLinkedListNodeSetObject(node, object);

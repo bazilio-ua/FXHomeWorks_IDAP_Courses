@@ -18,6 +18,9 @@ extern
 void __FXLinkedListNodeDeallocate(FXLinkedListNode *node);
 
 extern
+FXLinkedListNode *FXLinkedListNodeCreate(void);
+
+extern
 FXLinkedListNode *FXLinkedListNodeCreateWithObject(void *object);
 
 extern

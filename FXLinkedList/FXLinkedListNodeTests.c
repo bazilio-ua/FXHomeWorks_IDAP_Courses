@@ -51,7 +51,10 @@ void FXLinkedListNodeTests(void) {
 	
 	//	after set nextnode as nextnode of current node
 	FXLinkedListNodeSetNextNode(node, nextNode);
-
+	
+	//	nextNode of origin node must be equal to nextnode
+	assert(nextNode == FXLinkedListNodeGetNextNode(node));
+	
 	//		reference count of nextnode must be equal to 2
 	assert(2 == FXObjectGetReferenceCount(nextNode));
 	

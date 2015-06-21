@@ -7,3 +7,21 @@
 //
 
 #include <stdio.h>
+
+#include "FXLinkedList.h"
+
+#pragma mark -
+#pragma mark Private Declarations
+
+struct FXLinkedList {
+	FXObject _super; // inheritance from FXObject
+	
+	FXLinkedListNode *_head;
+	uint64_t _count;
+};
+
+#pragma mark -
+#pragma mark Public Methods Implementations
+
+#pragma mark -
+#pragma mark Private Accessors Implementation

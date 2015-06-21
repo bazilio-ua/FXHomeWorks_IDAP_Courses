@@ -9,6 +9,42 @@
 #ifndef FXHomeWorks_FXLinkedList_h
 #define FXHomeWorks_FXLinkedList_h
 
+#include <stdbool.h>
 
+#include "FXObject.h"
+
+typedef struct FXLinkedList FXLinkedList;
+typedef struct FXLinkedListNode FXLinkedListNode;
+
+// dealloc
+extern
+void __FXLinkedListDeallocate(void *object);
+
+extern
+void *FXLinkedListGetFirstObject(FXLinkedList *list);
+
+extern
+void FXLinkedListRemoveFirstObject(FXLinkedList *list);
+
+extern
+void *FXLinkedListGetObjectBeforeObject(FXLinkedList *list, void *object);
+
+extern
+bool FXLinkedListIsEmpty(FXLinkedList *list);
+
+extern
+void FXLinkedListAddObject(FXLinkedList *list, void *object);
+
+extern
+void FXLinkedListRemoveObject(FXLinkedList *list, void *object);
+
+extern
+void FXLinkedListRemoveAllObject(FXLinkedList *list);
+
+extern
+bool FXLinkedListContainsObject(FXLinkedList *list, void *object);
+
+extern
+uint64_t FXLinkedListGetCount(FXLinkedList *list);
 
 #endif

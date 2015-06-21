@@ -23,5 +23,56 @@ struct FXLinkedListNode {
 #pragma mark -
 #pragma mark Public Methods Implementations
 
+// dealloc
+void __FXLinkedListNodeDeallocate(FXLinkedListNode *node) {
+	FXLinkedListNodeSetObject(node, NULL);
+	FXLinkedListNodeSetNextNode(node, NULL);
+	
+	__FXObjectDeallocate(node);
+}
+
+FXLinkedListNode *FXLinkedListNodeCreateWithObject(void *object) {
+	FXLinkedListNode *node = FXObjectCreateOfType(FXLinkedListNode);
+	FXLinkedListNodeSetObject(node, object);
+	
+	return node;
+}
+
+FXLinkedListNode *FXLinkedListNodeGetNextNode(FXLinkedListNode *node) {
+	if (NULL != node) {
+		return node->_nextNode;
+	}
+	
+	return NULL;
+}
+
+void FXLinkedListNodeSetNextNode(FXLinkedListNode *node, FXLinkedListNode *nextNode) {
+	if (NULL != node && node->_nextNode != nextNode) {
+		// TODO: do this with retain setter
+		FXObjectRetain(nextNode);
+		FXObjectRelease(node->_nextNode);
+		
+		node->_nextNode = nextNode;
+	}
+}
+
+void *FXLinkedListNodeGetObject(FXLinkedListNode *node) {
+	if (NULL != node) {
+		return node->_object;
+	}
+	
+	return NULL;
+}
+
+void FXLinkedListNodeSetObject(FXLinkedListNode *node, void *object) {
+	if (NULL != node) {
+		// TODO: do this with retain setter
+		FXObjectRetain(object);
+		FXObjectRelease(node->_object);
+		
+		node->_object = object;
+	}
+}
+
 #pragma mark -
 #pragma mark Private Accessors Implementation

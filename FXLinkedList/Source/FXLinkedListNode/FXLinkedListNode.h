@@ -15,7 +15,7 @@ typedef struct FXLinkedListNode FXLinkedListNode;
 
 // dealloc
 extern
-void __FXLinkedListNodeDeallocate(void *object);
+void __FXLinkedListNodeDeallocate(FXLinkedListNode *node);
 
 extern
 FXLinkedListNode *FXLinkedListNodeCreateWithObject(void *object);

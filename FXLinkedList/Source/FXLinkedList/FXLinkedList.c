@@ -38,33 +38,33 @@ void __FXLinkedListDeallocate(FXLinkedList *list) {
 }
 
 void *FXLinkedListGetFirstObject(FXLinkedList *list) {
-	FXLinkedListNode *node = FXLinkedListGetHead(list); // get head node from list
-	void *object = FXLinkedListNodeGetObject(node); // get object from node
+	FXLinkedListNode *headNode = FXLinkedListGetHead(list); // get head node from list
+	void *object = FXLinkedListNodeGetObject(headNode); // get object from node
 	
 	return object;
 }
 
 void FXLinkedListRemoveFirstObject(FXLinkedList *list) {
-	FXLinkedListNode *node = FXLinkedListGetHead(list); // get head node from list
-	FXLinkedListNode *nextNode = FXLinkedListNodeGetNextNode(node); // get nextnode from head node
+	FXLinkedListNode *headNode = FXLinkedListGetHead(list); // get head node from list
+	FXLinkedListNode *nextNode = FXLinkedListNodeGetNextNode(headNode); // get next node from head node
 	
-	FXLinkedListSetHead(list, nextNode); // set nextNode as new head of list
+	FXLinkedListSetHead(list, nextNode); // set nextNode as new head node of list
 }
 
 void *FXLinkedListGetObjectBeforeObject(FXLinkedList *list, void *object) {
 	if (NULL != list && false  == FXLinkedListIsEmpty(list)) {
-		FXLinkedListNode *node = FXLinkedListGetHead(list);
+		FXLinkedListNode *currentNode = FXLinkedListGetHead(list);
 		void *previousObject = NULL;
 		
 		do { // do enumerate nodes and remember previous on each iteration until we find object
-			void *currentObject = FXLinkedListNodeGetObject(node); // get object from current node
+			void *currentObject = FXLinkedListNodeGetObject(currentNode); // get object from current node
 			if (object == currentObject) {
 				
 				return previousObject; // if match, return previous object, or NULL if current node is last node
 			}
 			
 			previousObject = currentObject;
-		} while (NULL != (node = FXLinkedListNodeGetNextNode(node))); // until nodes exist
+		} while (NULL != (currentNode = FXLinkedListNodeGetNextNode(currentNode))); // until nodes exist
 		
 	}
 	
@@ -84,8 +84,8 @@ bool FXLinkedListIsEmpty(FXLinkedList *list) {
 void FXLinkedListAddObject(FXLinkedList *list, void *object) {
 	if (NULL != list) {
 		FXLinkedListNode *node = FXLinkedListNodeCreateWithObject(object); // create an node with object
-		FXLinkedListNode *nextNode = FXLinkedListGetHead(list); // get current head node of list
-		FXLinkedListNodeSetNextNode(node, nextNode); // link current head node of list as nextNode to new node
+		FXLinkedListNode *headNode = FXLinkedListGetHead(list); // get current head node of list
+		FXLinkedListNodeSetNextNode(node, headNode); // link current head node of list as next node to new node
 		
 		FXLinkedListSetHead(list, node); // set new node as new head node of list
 		
@@ -96,23 +96,23 @@ void FXLinkedListAddObject(FXLinkedList *list, void *object) {
 }
 
 void FXLinkedListRemoveObject(FXLinkedList *list, void *object) {
-	FXLinkedListNode *node = FXLinkedListGetHead(list); // get head of list
+	FXLinkedListNode *currentNode = FXLinkedListGetHead(list); // get head node of list
 	FXLinkedListNode *previousNode = NULL;
 	
-	while (NULL != node) { // find node contain object, while nodes exist
-		void *currentObject = FXLinkedListNodeGetObject(node); // get current object from node
+	while (NULL != currentNode) { // find node contain object, while nodes exist
+		void *currentObject = FXLinkedListNodeGetObject(currentNode); // get current object from node
 		if (object == currentObject) { // if equal
-			FXLinkedListNode *nextNode = FXLinkedListNodeGetNextNode(node); // get next node from current node
+			FXLinkedListNode *nextNode = FXLinkedListNodeGetNextNode(currentNode); // get next node from current node
 			
 			FXLinkedListNodeSetNextNode(previousNode, nextNode); // and replace for previous node next node link from current to next node
 			
 			list->_count--;
 			
-			node = nextNode; // set nextnode as current
+			currentNode = nextNode; // set next node as current node
 		}
 		
-		previousNode = node;
-		node = FXLinkedListNodeGetNextNode(node); // get next node
+		previousNode = currentNode;
+		currentNode = FXLinkedListNodeGetNextNode(currentNode); // get next node
 	}
 }
 
@@ -126,15 +126,15 @@ void FXLinkedListRemoveAllObject(FXLinkedList *list) {
 
 bool FXLinkedListContainsObject(FXLinkedList *list, void *object) {
 	if (NULL != list) {
-		FXLinkedListNode *node = FXLinkedListGetHead(list); // get head node of list
-		while (NULL != node) { // go through all nodes to find which one who contain object, while nodes exist
-			void *currentObject = FXLinkedListNodeGetObject(node); // get current object from node
+		FXLinkedListNode *currentNode = FXLinkedListGetHead(list); // get head node of list
+		while (NULL != currentNode) { // go through all nodes to find which one who contain object, while nodes exist
+			void *currentObject = FXLinkedListNodeGetObject(currentNode); // get current object from node
 			if (object == currentObject) { // if equal
 				
 				return true; // found
 			}
 			
-			node = FXLinkedListNodeGetNextNode(node); // get next node
+			currentNode = FXLinkedListNodeGetNextNode(currentNode); // get next node
 		}
 	}
 	

@@ -14,11 +14,10 @@
 #include "FXObject.h"
 
 typedef struct FXLinkedList FXLinkedList;
-typedef struct FXLinkedListNode FXLinkedListNode;
 
 // dealloc
 extern
-void __FXLinkedListDeallocate(void *object);
+void __FXLinkedListDeallocate(FXLinkedList *list);
 
 extern
 void *FXLinkedListGetFirstObject(FXLinkedList *list);

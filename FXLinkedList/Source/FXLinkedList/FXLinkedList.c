@@ -103,7 +103,6 @@ void FXLinkedListAddObject(FXLinkedList *list, void *object) {
 		
 		uint64_t currentCount = FXLinkedListGetCount(list) + 1;
 		FXLinkedListSetCount(list, currentCount); // increase current node count
-//		list->_count++;
 		
 		FXObjectRelease(node);
 	}
@@ -121,39 +120,35 @@ void FXLinkedListRemoveObject(FXLinkedList *list, void *object) {
 			if (currentNode == FXLinkedListGetHead(list)) {
 				FXLinkedListSetHead(list, nextNode);
 			} else {
-				FXLinkedListNodeSetNextNode(previousNode, nextNode); // and replace for previous node next node link from current to next node
+				FXLinkedListNodeSetNextNode(previousNode, nextNode); // replace for previous node next node link from current to next node
 			}
 
 			uint64_t currentCount = FXLinkedListGetCount(list) - 1;
 			FXLinkedListSetCount(list, currentCount); // decrease current node count
-//			list->_count--;
 		}
 		
 		previousNode = currentNode; // set previous node as current
-		currentNode = nextNode; // set next node as current node
+		currentNode = nextNode; // set current node as next node 
 	}
 }
 
 void FXLinkedListRemoveAllObject(FXLinkedList *list) {
 	if (NULL != list) {
 		FXLinkedListSetCount(list, 0); // set node count to zero. other nodes in chains should be freed
-		
-//		FXLinkedListSetHead(list, NULL); 
-//		list->_count = 0;
 	}
 }
 
 bool FXLinkedListContainsObject(FXLinkedList *list, void *object) {
 	if (NULL != list) {
 		FXLinkedListNode *currentNode = FXLinkedListGetHead(list); // get head node of list as current node
-		while (NULL != currentNode) { // go through all nodes to find which one who contain object, while nodes exist
+		while (NULL != currentNode) { // go through all nodes to find which one who contain object
 			void *currentObject = FXLinkedListNodeGetObject(currentNode); // get current object from node
 			if (object == currentObject) { // if equal
 				
 				return true; // found
 			}
 			
-			currentNode = FXLinkedListNodeGetNextNode(currentNode); // get next node
+			currentNode = FXLinkedListNodeGetNextNode(currentNode); // get next node, while nodes exist
 		}
 	}
 	

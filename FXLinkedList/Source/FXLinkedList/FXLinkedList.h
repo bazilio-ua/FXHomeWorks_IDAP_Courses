@@ -20,6 +20,9 @@ extern
 void __FXLinkedListDeallocate(FXLinkedList *list);
 
 extern
+FXLinkedList *FXLinkedListCreate(void);
+
+extern
 void *FXLinkedListGetFirstObject(FXLinkedList *list);
 
 extern

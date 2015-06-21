@@ -40,6 +40,54 @@ void FXLinkedListNodeTests(void) {
 	//		reference count of node must stay unchanged and be equal to 1
 	assert(1 == FXObjectGetReferenceCount(node));
 	
+	//	after creation nextnode
+	FXLinkedListNode *nextNode = FXLinkedListNodeCreate();
+	
+	//		reference count of nextnode must be equal to 1
+	assert(1 == FXObjectGetReferenceCount(nextNode));
+	
+	//		reference count of node must be equal to 1
+	assert(1 == FXObjectGetReferenceCount(node));
+	
+	//	after set nextnode as nextnode of current node
+	FXLinkedListNodeSetNextNode(node, nextNode);
+
+	//		reference count of nextnode must be equal to 2
+	assert(2 == FXObjectGetReferenceCount(nextNode));
+	
+	//		reference count of node should be unchanged and equal to 1
+	assert(1 == FXObjectGetReferenceCount(node));
+	
+	//	after added an object to nextnode
+	FXLinkedListNodeSetObject(nextNode, object);
+	
+	//		reference count of object should increase and be equal to 2
+	assert(2 == FXObjectGetReferenceCount(object));
+	
+	//		object which added to nextnode must be equal to origin object
+	assert(object == FXLinkedListNodeGetObject(nextNode));
+	
+	//		reference count of nextnode should be unchanged and equal to 2
+	assert(2 == FXObjectGetReferenceCount(nextNode));
+	
+	//		reference count of node should be unchanged and equal to 1
+	assert(1 == FXObjectGetReferenceCount(node));
+	
+	//	after adding origin object to origin node
+	FXLinkedListNodeSetObject(node, object);
+	
+	//		reference count of origin object should increase and be equal to 3
+	assert(3 == FXObjectGetReferenceCount(object));
+	
+	//		objects in origin node and nextnode must be equal
+	assert(FXLinkedListNodeGetObject(node) == FXLinkedListNodeGetObject(nextNode));
+	
+	//		reference count of nextnode should be unchanged and equal to 2
+	assert(2 == FXObjectGetReferenceCount(nextNode));
+	
+	//		reference count of node should be unchanged and equal to 1
+	assert(1 == FXObjectGetReferenceCount(node));
+	
 	// release them
 	FXObjectRelease(object);
 	FXObjectRelease(node);

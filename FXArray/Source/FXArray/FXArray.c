@@ -13,6 +13,7 @@
 #include <assert.h>
 
 #include "FXArray.h"
+#include "FXObjectAccessors.h"
 
 #pragma mark -
 #pragma mark Private Declaration

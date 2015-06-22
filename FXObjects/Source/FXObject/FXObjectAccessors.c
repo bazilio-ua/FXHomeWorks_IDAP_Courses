@@ -8,14 +8,20 @@
 
 #include "FXObject.h"
 
-void _FXAssignSetter(void *object, void **iVar, void *newVar) {
+//extern
+void FXAssignSetter(void *object, void **iVar, void *newVar);
+
+//extern
+void FXRetainSetter(void *object, void **iVar, void *newVar);
+
+void FXAssignSetter(void *object, void **iVar, void *newVar) {
 	if (NULL != object) {
 		
 		*iVar = newVar;
 	}
 }
 
-void _FXRetainSetter(void *object, void **iVar, void *newVar) {
+void FXRetainSetter(void *object, void **iVar, void *newVar) {
 	if (NULL != object && *iVar != newVar) {
 		FXObjectRetain(newVar);
 		FXObjectRelease(*iVar);

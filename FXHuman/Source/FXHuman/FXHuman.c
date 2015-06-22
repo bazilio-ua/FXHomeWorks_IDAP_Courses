@@ -11,6 +11,7 @@
 #include <stdint.h>
 
 #include "FXHuman.h"
+#include "FXObjectAccessors.h"
 
 #pragma mark -
 #pragma mark Private Declaration

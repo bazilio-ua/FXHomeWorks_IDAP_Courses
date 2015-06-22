@@ -343,7 +343,7 @@ uint64_t FXArrayProposedCapacity(FXArray *array, bool doIncrease) {
                 newCapacity = kFXArrayMaxCapacity;
             }
 			
-		} else {
+		} else { // if equal
 			newCapacity = capacity;
 		}
 		

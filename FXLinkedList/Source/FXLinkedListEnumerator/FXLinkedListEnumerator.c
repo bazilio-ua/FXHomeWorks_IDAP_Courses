@@ -86,21 +86,43 @@ bool FXLinkedListEnumeratorIsValid(FXLinkedListEnumerator *enumerator) {
 #pragma mark Private Accessors Implementation
 
 void FXLinkedListEnumeratorSetList(FXLinkedListEnumerator *enumerator, FXLinkedList *list) {
-	
+	if (NULL != enumerator) {
+		// TODO: do this with retain setter
+		FXObjectRetain(list);
+		FXObjectRelease(enumerator->_list);
+		
+		enumerator->_list = list;
+	}
 }
 
 FXLinkedList *FXLinkedListEnumeratorGetList(FXLinkedListEnumerator *enumerator) {
+	if (NULL != enumerator) {
+		return enumerator->_list;
+	}
+	
 	return NULL;
 }
 
 void FXLinkedListEnumeratorSetNode(FXLinkedListEnumerator *enumerator, FXLinkedListNode *node) {
-	
+	if (NULL != enumerator) {
+		// TODO: do this with retain setter
+		FXObjectRetain(node);
+		FXObjectRelease(enumerator->_node);
+		
+		enumerator->_node = node;
+	}
 }
 
 void FXLinkedListEnumeratorSetMutationsCount(FXLinkedListEnumerator *enumerator, uint64_t mutationsCount) {
-	
+	if (NULL != enumerator) {
+		enumerator->_mutationsCount = mutationsCount;
+	}
 }
 
 uint64_t FXLinkedListEnumeratorGetMutationsCount(FXLinkedListEnumerator *enumerator) {
+	if (NULL != enumerator) {
+		return enumerator->_mutationsCount;
+	}
+	
 	return 0;
 }

@@ -11,6 +11,7 @@
 #include "FXTestsMacro.h"
 #include "FXLinkedListTests.h"
 #include "FXLinkedListNodeTests.h"
+#include "FXLinkedListEnumeratorTests.h"
 
 int main(int argc, const char *argv[]) {
 	// insert code here...
@@ -18,6 +19,7 @@ int main(int argc, const char *argv[]) {
 
 	performTest(FXLinkedListNodeTests);
 	performTest(FXLinkedListTests);
+	performTest(FXLinkedListEnumeratorTests);
 
 	return 0;
 }

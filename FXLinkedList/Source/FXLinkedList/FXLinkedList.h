@@ -52,6 +52,9 @@ uint64_t FXLinkedListGetCount(FXLinkedList *list);
 
 // Special Purposes accessors (TODO: move it to special 'private' header)
 extern
+void FXLinkedListSetHead(FXLinkedList *list, FXLinkedListNode *head);
+
+extern
 FXLinkedListNode *FXLinkedListGetHead(FXLinkedList *list);
 
 extern

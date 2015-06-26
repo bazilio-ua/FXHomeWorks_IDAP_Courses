@@ -25,7 +25,7 @@ static
 void FXLinkedListSetCount(FXLinkedList *list, uint64_t count);
 
 static
-void FXLinkedListSetHead(FXLinkedList *list, FXLinkedListNode *head);
+void FXLinkedListMutate(FXLinkedList *list);
 
 #pragma mark -
 #pragma mark Public Methods Implementations
@@ -170,8 +170,17 @@ void FXLinkedListSetCount(FXLinkedList *list, uint64_t count) {
 		}
 		
 		list->_count = count;
+		FXLinkedListMutate(list); // list is mutate
 	}
 }
+
+void FXLinkedListMutate(FXLinkedList *list) {
+	uint64_t mutationsCount = FXLinkedListGetMutationsCount(list) + 1;
+	FXLinkedListSetMutationsCount(list, mutationsCount);
+}
+
+#pragma mark -
+#pragma mark Private Special Purposes Accessors Implementation
 
 void FXLinkedListSetHead(FXLinkedList *list, FXLinkedListNode *head) {
 	if (NULL != list && list->_head != head) {
@@ -182,9 +191,6 @@ void FXLinkedListSetHead(FXLinkedList *list, FXLinkedListNode *head) {
 		list->_head = head;
 	}
 }
-
-#pragma mark -
-#pragma mark Private Special Purposes Accessors Implementation
 
 FXLinkedListNode *FXLinkedListGetHead(FXLinkedList *list) {
 	if (NULL != list) {

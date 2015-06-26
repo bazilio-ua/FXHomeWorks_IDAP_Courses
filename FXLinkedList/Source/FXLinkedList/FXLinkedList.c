@@ -120,15 +120,15 @@ void FXLinkedListRemoveObject(FXLinkedList *list, void *object) {
 			if (currentNode == FXLinkedListGetHead(list)) { // if current head node contains object that should remove 
 				FXLinkedListSetHead(list, nextNode); // set nextNode as new headNode
 			} else {
-				FXLinkedListNodeSetNextNode(previousNode, nextNode); // replace for previous node next node link from current to next node
+				FXLinkedListNodeSetNextNode(previousNode, nextNode); // link previous node to next node, current node with object will be freed
 			}
 
 			uint64_t currentCount = FXLinkedListGetCount(list) - 1;
 			FXLinkedListSetCount(list, currentCount); // decrease current node count
 		}
 		
-		previousNode = currentNode; // set previous node as current
-		currentNode = nextNode; // set current node as next node 
+		previousNode = currentNode; // set previous node as current (do shift)
+		currentNode = nextNode; // set current node as next node (until nodes exist)
 	}
 }
 

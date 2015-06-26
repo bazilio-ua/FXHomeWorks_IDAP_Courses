@@ -12,9 +12,10 @@
 #include <stdbool.h>
 
 #include "FXObject.h"
-#include "FXLinkedList.h"
 
 typedef struct FXLinkedListEnumerator FXLinkedListEnumerator;
+//typedef struct FXLinkedListNode FXLinkedListNode;
+typedef struct FXLinkedList FXLinkedList;
 
 // dealloc
 extern
@@ -22,6 +23,9 @@ void __FXLinkedListEnumeratorDeallocate(FXLinkedListEnumerator *enumerator);
 
 extern
 FXLinkedListEnumerator *FXLinkedListEnumeratorCreateWithList(FXLinkedList *list);
+
+extern
+FXLinkedListEnumerator *FXLinkedListEnumeratorFromList(FXLinkedList *list);
 
 extern
 void *FXLinkedListEnumeratorGetNextObject(FXLinkedListEnumerator *enumerator);

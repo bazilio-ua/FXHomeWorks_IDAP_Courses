@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-//#include <stdio.h>
 #include <assert.h>
 
-#include "FXLinkedListEnumerator.h"
+#include "FXLinkedListEnumeratorPrivate.h"
 #include "FXLinkedListNode.h"
+#include "FXLinkedListPrivate.h"
+//#include "FXLinkedList.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -65,7 +66,7 @@ FXLinkedListEnumerator *FXLinkedListEnumeratorCreateWithList(FXLinkedList *list)
 		FXLinkedListEnumeratorSetList(enumerator, list);
 		uint64_t mutationsCount = FXLinkedListGetMutationsCount(list);
 		FXLinkedListEnumeratorSetMutationsCount(enumerator, mutationsCount);
-		
+		FXLinkedListEnumeratorSetValid(enumerator, true);
 		
 		return enumerator;
 	}
@@ -73,10 +74,29 @@ FXLinkedListEnumerator *FXLinkedListEnumeratorCreateWithList(FXLinkedList *list)
 	return NULL;
 }
 
+FXLinkedListEnumerator *FXLinkedListEnumeratorFromList(FXLinkedList *list) {
+	return FXLinkedListEnumeratorCreateWithList(list);
+}
+
 void *FXLinkedListEnumeratorGetNextObject(FXLinkedListEnumerator *enumerator) {
 	if (NULL != enumerator) {
-		// get next object
-		return NULL;
+		if (true == FXLinkedListEnumeratorMutationsValidate(enumerator)) { // if enumerator is valid
+			FXLinkedListNode *node = FXLinkedListEnumeratorGetNode(enumerator);
+			FXLinkedList *list = FXLinkedListEnumeratorGetList(enumerator);
+			if (NULL != node) { // if node not NULL
+				node = FXLinkedListNodeGetNextNode(node); // find next node
+			} else { // or
+				node = FXLinkedListGetHead(list); // get head node from list while first enumeration
+			}
+			
+			FXLinkedListEnumeratorSetNode(enumerator, node); // set current node
+			
+			if (NULL == node) { // if NULL
+				FXLinkedListEnumeratorSetValid(enumerator, false); // set enumerator not valid
+			}
+			
+			return FXLinkedListNodeGetObject(node);
+		}
 	}
 	
 	return NULL;

@@ -12,15 +12,16 @@
 #include <stdbool.h>
 
 #include "FXObject.h"
+#include "FXLinkedList.h"
 
 typedef struct FXLinkedListEnumerator FXLinkedListEnumerator;
 
 // dealloc
 extern
-void __FXLinkedListEnumeratorDeallocate(void *object);
+void __FXLinkedListEnumeratorDeallocate(FXLinkedListEnumerator *enumerator);
 
 extern
-FXLinkedListEnumerator *FXLinkedListEnumeratorCreateWithList(void *list);
+FXLinkedListEnumerator *FXLinkedListEnumeratorCreateWithList(FXLinkedList *list);
 
 extern
 void *FXLinkedListEnumeratorGetNextObject(FXLinkedListEnumerator *enumerator);

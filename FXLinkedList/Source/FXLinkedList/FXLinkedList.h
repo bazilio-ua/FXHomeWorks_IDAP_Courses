@@ -12,6 +12,7 @@
 #include <stdbool.h>
 
 #include "FXObject.h"
+#include "FXLinkedListNode.h"
 
 typedef struct FXLinkedList FXLinkedList;
 
@@ -48,5 +49,15 @@ bool FXLinkedListContainsObject(FXLinkedList *list, void *object);
 
 extern
 uint64_t FXLinkedListGetCount(FXLinkedList *list);
+
+// Special Purposes accessors (TODO: move it to special 'private' header)
+extern
+FXLinkedListNode *FXLinkedListGetHead(FXLinkedList *list);
+
+extern
+void FXLinkedListSetMutationsCount(FXLinkedList *list, uint64_t mutationsCount);
+
+extern
+uint64_t FXLinkedListGetMutationsCount(FXLinkedList *list);
 
 #endif

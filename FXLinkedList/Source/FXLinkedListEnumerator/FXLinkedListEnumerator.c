@@ -7,10 +7,10 @@
 //
 
 //#include <stdio.h>
+#include <assert.h>
 
 #include "FXLinkedListEnumerator.h"
 #include "FXLinkedListNode.h"
-#include "FXLinkedList.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -34,28 +34,38 @@ static
 void FXLinkedListEnumeratorSetNode(FXLinkedListEnumerator *enumerator, FXLinkedListNode *node);
 
 static
+FXLinkedListNode *FXLinkedListEnumeratorGetNode(FXLinkedListEnumerator *enumerator);
+
+static
 void FXLinkedListEnumeratorSetMutationsCount(FXLinkedListEnumerator *enumerator, uint64_t mutationsCount);
 
 static
 uint64_t FXLinkedListEnumeratorGetMutationsCount(FXLinkedListEnumerator *enumerator);
 
+static
+bool FXLinkedListEnumeratorMutationsValidate(FXLinkedListEnumerator *enumerator);
+
+static
+void FXLinkedListEnumeratorSetValid(FXLinkedListEnumerator *enumerator, bool valid);
+
 #pragma mark -
 #pragma mark Public Methods Implementations
 
 // dealloc
-void __FXLinkedListEnumeratorDeallocate(void *enumerator) {
+void __FXLinkedListEnumeratorDeallocate(FXLinkedListEnumerator *enumerator) {
 	FXLinkedListEnumeratorSetNode(enumerator, NULL);
 	FXLinkedListEnumeratorSetList(enumerator, NULL);
 	
 	__FXObjectDeallocate(enumerator);
 }
 
-FXLinkedListEnumerator *FXLinkedListEnumeratorCreateWithList(void *list) {
-	if (NULL != list) {
+FXLinkedListEnumerator *FXLinkedListEnumeratorCreateWithList(FXLinkedList *list) {
+	if (NULL != list && NULL != FXLinkedListGetHead(list)) {
 		FXLinkedListEnumerator *enumerator = FXObjectCreateOfType(FXLinkedListEnumerator);
 		FXLinkedListEnumeratorSetList(enumerator, list);
-		uint64_t mutationsCount = FXLinkedListEnumeratorGetMutationsCount(list);
+		uint64_t mutationsCount = FXLinkedListGetMutationsCount(list);
 		FXLinkedListEnumeratorSetMutationsCount(enumerator, mutationsCount);
+		
 		
 		return enumerator;
 	}
@@ -113,6 +123,14 @@ void FXLinkedListEnumeratorSetNode(FXLinkedListEnumerator *enumerator, FXLinkedL
 	}
 }
 
+FXLinkedListNode *FXLinkedListEnumeratorGetNode(FXLinkedListEnumerator *enumerator) {
+	if (NULL != enumerator) {
+		return enumerator->_node;
+	}
+	
+	return NULL;
+}
+
 void FXLinkedListEnumeratorSetMutationsCount(FXLinkedListEnumerator *enumerator, uint64_t mutationsCount) {
 	if (NULL != enumerator) {
 		enumerator->_mutationsCount = mutationsCount;
@@ -125,4 +143,21 @@ uint64_t FXLinkedListEnumeratorGetMutationsCount(FXLinkedListEnumerator *enumera
 	}
 	
 	return 0;
+}
+
+bool FXLinkedListEnumeratorMutationsValidate(FXLinkedListEnumerator *enumerator) {
+	if (true == FXLinkedListEnumeratorIsValid(enumerator)) {
+		FXLinkedList *list = FXLinkedListEnumeratorGetList(enumerator); // get list to compare mutations count
+		assert(FXLinkedListGetMutationsCount(list) == FXLinkedListEnumeratorGetMutationsCount(enumerator)); // sanity
+		
+		return true;
+	}
+	
+	return false;
+}
+
+void FXLinkedListEnumeratorSetValid(FXLinkedListEnumerator *enumerator, bool valid) {
+	if (NULL != enumerator) {
+		enumerator->_valid = valid;
+	}
 }

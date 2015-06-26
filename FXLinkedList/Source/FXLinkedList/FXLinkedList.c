@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include "FXLinkedList.h"
-#include "FXLinkedListNode.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -19,6 +18,7 @@ struct FXLinkedList {
 	
 	FXLinkedListNode *_head;
 	uint64_t _count;
+	uint64_t _mutationsCount; // enumerator need this
 };
 
 static
@@ -26,9 +26,6 @@ void FXLinkedListSetCount(FXLinkedList *list, uint64_t count);
 
 static
 void FXLinkedListSetHead(FXLinkedList *list, FXLinkedListNode *head);
-
-static
-FXLinkedListNode *FXLinkedListGetHead(FXLinkedList *list);
 
 #pragma mark -
 #pragma mark Public Methods Implementations
@@ -186,10 +183,27 @@ void FXLinkedListSetHead(FXLinkedList *list, FXLinkedListNode *head) {
 	}
 }
 
+#pragma mark -
+#pragma mark Private Special Purposes Accessors Implementation
+
 FXLinkedListNode *FXLinkedListGetHead(FXLinkedList *list) {
 	if (NULL != list) {
 		return list->_head;
 	}
 	
 	return NULL;
+}
+
+void FXLinkedListSetMutationsCount(FXLinkedList *list, uint64_t mutationsCount) {
+	if (NULL != list) {
+		list->_mutationsCount = mutationsCount;
+	}
+}
+
+uint64_t FXLinkedListGetMutationsCount(FXLinkedList *list) {
+	if (NULL != list) {
+		return list->_mutationsCount;
+	}
+	
+	return 0;
 }

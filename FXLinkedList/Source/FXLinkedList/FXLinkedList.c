@@ -117,8 +117,8 @@ void FXLinkedListRemoveObject(FXLinkedList *list, void *object) {
 		FXLinkedListNode *nextNode = FXLinkedListNodeGetNextNode(currentNode); // get next node from current node
 		
 		if (object == currentObject) { // if equal
-			if (currentNode == FXLinkedListGetHead(list)) {
-				FXLinkedListSetHead(list, nextNode);
+			if (currentNode == FXLinkedListGetHead(list)) { // if current head node contains object that should remove 
+				FXLinkedListSetHead(list, nextNode); // set nextNode as new headNode
 			} else {
 				FXLinkedListNodeSetNextNode(previousNode, nextNode); // replace for previous node next node link from current to next node
 			}

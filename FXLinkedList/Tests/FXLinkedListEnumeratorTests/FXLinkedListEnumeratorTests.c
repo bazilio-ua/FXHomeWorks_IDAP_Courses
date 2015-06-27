@@ -52,6 +52,8 @@ void FXLinkedListEnumeratorTests(void) {
 		
 		iterationsCount++;
 		
+		//FXLinkedListAddObject(list, object); // !!! do crash for test purposes !!!
+		
 		object = FXLinkedListEnumeratorGetNextObject(enumerator);
 	}
 	assert(10 == iterationsCount);

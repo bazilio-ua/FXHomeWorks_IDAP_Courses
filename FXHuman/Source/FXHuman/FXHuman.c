@@ -11,6 +11,7 @@
 #include <stdint.h>
 
 #include "FXHuman.h"
+#include "FXObjectAccessors.h"
 
 #pragma mark -
 #pragma mark Private Declaration
@@ -48,8 +49,8 @@ FXArray *FXHumanGetChildren(FXHuman *human);
 static
 void FXHumanRemoveChild(FXHuman *human, FXHuman *child);
 
-//static
-//void FXHumanRemoveAllChildren(FXHuman *human); // with FXArray this useless
+static
+void FXHumanRemoveAllChildren(FXHuman *human);
 
 //static
 //void FXHumanSetChildAtIndex(FXHuman *human, FXHuman *child, uint64_t index); // with FXArray this useless
@@ -78,11 +79,12 @@ void __FXHumanDeallocate(FXHuman *human) {
 //	FXHumanSetMother(human, NULL); // this is not necessary
 //	FXHumanSetFather(human, NULL); // this is not necessary
 	FXHumanDivorce(human);
-//	FXHumanRemoveAllChildren(human); // this should be gone from here, replaced by FXArray
 	// do full zeroing allocated memory for our struct before free()
 	FXHumanSetName(human, NULL);
 //	FXHumanSetAge(human, 0); // this is not necessary
 //	FXHumanSetGender(human, 0); // this is not necessary
+	
+	FXHumanRemoveAllChildren(human);
 	FXHumanSetChildren(human, NULL);
 	
 	__FXObjectDeallocate(human);
@@ -384,23 +386,27 @@ void FXHumanRemoveChild(FXHuman *human, FXHuman *child) {
 	}
 }
 
-//void FXHumanRemoveAllChildren(FXHuman *human) { // useless now
-//	if (NULL != human) {
-//		
-//		FXArray *children = FXHumanGetChildren(human);
-//		
-//		FXArrayRemoveAllObjects(children);
-//		
-////		uint64_t count = kFXMaxChildrenCount;
-////		while (count--) {
-////			FXHuman *child = human->_children[count];
-////			if (NULL != child) {
-////				FXHumanRemoveChild(human, child);
-////			}
-////		}
-//		
-//	}
-//}
+void FXHumanRemoveAllChildren(FXHuman *human) {
+	if (NULL != human) {
+		
+		uint64_t count = FXHumanGetChildrenCount(human);
+		while (count--) {
+			FXHuman *child = FXHumanGetChildAtIndex(human, count);
+			if (NULL != child) {
+				FXHumanRemoveChild(human, child);
+			}
+		}
+		
+//		uint64_t count = kFXMaxChildrenCount;
+//		while (count--) {
+//			FXHuman *child = human->_children[count];
+//			if (NULL != child) {
+//				FXHumanRemoveChild(human, child);
+//			}
+//		}
+		
+	}
+}
 
 // gender
 void FXHumanSetGender(FXHuman *human, FXHumanGender gender) {

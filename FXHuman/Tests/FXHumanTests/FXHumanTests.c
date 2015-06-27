@@ -144,6 +144,7 @@ void FXHumanBehaviourTests(void) {
 	
 	// print debug info
 	FXHumanPrintInfo(shmi);
+//	FXObjectRelease(shmi);
 	FXHumanPrintInfo(anakin);
 	FXHumanPrintInfo(padme);
 	FXHumanPrintInfo(luke);

@@ -6,13 +6,14 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 #include <assert.h>
 
 #include "FXArray.h"
+#include "FXObjectAccessors.h"
 
 #pragma mark -
 #pragma mark Private Declaration
@@ -336,11 +337,15 @@ uint64_t FXArrayProposedCapacity(FXArray *array, bool doIncrease) {
 				}
 				
 			}
-		} else { // increase its size, if (count >= capacity)
+		} else if (count > capacity) { // increase its size
+			
 			newCapacity = count * 2; // optimal
             if (newCapacity > kFXArrayMaxCapacity) {
                 newCapacity = kFXArrayMaxCapacity;
             }
+			
+		} else { // if equal
+			newCapacity = capacity;
 		}
 		
 		return newCapacity;

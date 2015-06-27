@@ -26,6 +26,8 @@
 		426948291AFAA3B900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948271AFAA3B900974906 /* main.c */; };
 		4269482D1AFAA3CA00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4269482B1AFAA3CA00974906 /* main.c */; };
 		426BE5D01B36AE5E008A27E4 /* FXLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BE5CE1B36AE5E008A27E4 /* FXLinkedListNode.c */; };
+		426BE5D61B36C04C008A27E4 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
+		426BE5D71B36C052008A27E4 /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		426CDA8B1B012D120002B2EF /* FXBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA891B012D120002B2EF /* FXBitOutput.c */; };
 		426CDA8F1B012D3E0002B2EF /* FXBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 426CDA8D1B012D3E0002B2EF /* FXBitOutputTests.c */; };
 		4270C3771B3488DD000D5D1A /* FXArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 428083731B2459C300334F99 /* FXArray.c */; };
@@ -53,6 +55,9 @@
 		42D7BC6C1B358DAC00617635 /* FXLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC6B1B358DAC00617635 /* FXLinkedListTests.c */; };
 		42F9A50E1B2344E20070FF94 /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		42F9A5101B2344E80070FF94 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
+		42FF0DBB1B3DB63E00DA9483 /* FXLinkedListNodeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42FF0DB91B3DB63E00DA9483 /* FXLinkedListNodeTests.c */; };
+		42FF0DC01B3DB6B600DA9483 /* FXLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 42FF0DBF1B3DB6B600DA9483 /* FXLinkedListEnumerator.c */; };
+		42FF0DC31B3DB6EA00DA9483 /* FXLinkedListEnumeratorTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42FF0DC21B3DB6EA00DA9483 /* FXLinkedListEnumeratorTests.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,6 +183,8 @@
 		428083751B2459CF00334F99 /* FXArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArray.h; sourceTree = "<group>"; };
 		428083761B245A0400334F99 /* FXArrayTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXArrayTests.c; sourceTree = "<group>"; };
 		428083781B245A1200334F99 /* FXArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayTests.h; sourceTree = "<group>"; };
+		42808CFC1B3E006200C9C979 /* FXLinkedListPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListPrivate.h; sourceTree = "<group>"; };
+		42808CFE1B3E007700C9C979 /* FXLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
 		429172BA1B0E609100FB9860 /* FXHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHumanTests.c; sourceTree = "<group>"; };
 		429172BC1B0E609F00FB9860 /* FXHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHumanTests.h; sourceTree = "<group>"; };
 		42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStruct.c; sourceTree = "<group>"; };
@@ -202,6 +209,12 @@
 		42D7BC6A1B358D9300617635 /* FXLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedList.h; sourceTree = "<group>"; };
 		42D7BC6B1B358DAC00617635 /* FXLinkedListTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXLinkedListTests.c; sourceTree = "<group>"; };
 		42D7BC6D1B358DC000617635 /* FXLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListTests.h; sourceTree = "<group>"; };
+		42FF0DB91B3DB63E00DA9483 /* FXLinkedListNodeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = FXLinkedListNodeTests.c; path = FXLinkedList/Tests/FXLinkedListNodeTests/FXLinkedListNodeTests.c; sourceTree = SOURCE_ROOT; };
+		42FF0DBA1B3DB63E00DA9483 /* FXLinkedListNodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLinkedListNodeTests.h; path = FXLinkedList/Tests/FXLinkedListNodeTests/FXLinkedListNodeTests.h; sourceTree = SOURCE_ROOT; };
+		42FF0DBF1B3DB6B600DA9483 /* FXLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXLinkedListEnumerator.c; sourceTree = "<group>"; };
+		42FF0DC11B3DB6C500DA9483 /* FXLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListEnumerator.h; sourceTree = "<group>"; };
+		42FF0DC21B3DB6EA00DA9483 /* FXLinkedListEnumeratorTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXLinkedListEnumeratorTests.c; sourceTree = "<group>"; };
+		42FF0DC41B3DB6F700DA9483 /* FXLinkedListEnumeratorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListEnumeratorTests.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +556,16 @@
 			path = FXLinkedListNode;
 			sourceTree = "<group>";
 		};
+		426BE5D81B36C18F008A27E4 /* FXLinkedListNodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				42FF0DB91B3DB63E00DA9483 /* FXLinkedListNodeTests.c */,
+				42FF0DBA1B3DB63E00DA9483 /* FXLinkedListNodeTests.h */,
+			);
+			name = FXLinkedListNodeTests;
+			path = FXLinkedListTests/FXLinkedListNodeTests;
+			sourceTree = "<group>";
+		};
 		426CDA881B012D120002B2EF /* FXBitOutput */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,6 +746,7 @@
 		42D7BC611B358C6000617635 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				42FF0DBD1B3DB68C00DA9483 /* FXLinkedListEnumerator */,
 				426BE5CD1B36AE5E008A27E4 /* FXLinkedListNode */,
 				42D7BC661B358D4E00617635 /* FXLinkedList */,
 				42D7BC621B358C6000617635 /* main.c */,
@@ -733,6 +757,8 @@
 		42D7BC631B358C6000617635 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				42FF0DBE1B3DB69D00DA9483 /* FXLinkedListEnumeratorTests */,
+				426BE5D81B36C18F008A27E4 /* FXLinkedListNodeTests */,
 				42D7BC671B358D5F00617635 /* FXLinkedListTests */,
 			);
 			path = Tests;
@@ -743,6 +769,7 @@
 			children = (
 				42D7BC681B358D8600617635 /* FXLinkedList.c */,
 				42D7BC6A1B358D9300617635 /* FXLinkedList.h */,
+				42808CFC1B3E006200C9C979 /* FXLinkedListPrivate.h */,
 			);
 			path = FXLinkedList;
 			sourceTree = "<group>";
@@ -754,6 +781,25 @@
 				42D7BC6D1B358DC000617635 /* FXLinkedListTests.h */,
 			);
 			path = FXLinkedListTests;
+			sourceTree = "<group>";
+		};
+		42FF0DBD1B3DB68C00DA9483 /* FXLinkedListEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				42FF0DBF1B3DB6B600DA9483 /* FXLinkedListEnumerator.c */,
+				42FF0DC11B3DB6C500DA9483 /* FXLinkedListEnumerator.h */,
+				42808CFE1B3E007700C9C979 /* FXLinkedListEnumeratorPrivate.h */,
+			);
+			path = FXLinkedListEnumerator;
+			sourceTree = "<group>";
+		};
+		42FF0DBE1B3DB69D00DA9483 /* FXLinkedListEnumeratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				42FF0DC21B3DB6EA00DA9483 /* FXLinkedListEnumeratorTests.c */,
+				42FF0DC41B3DB6F700DA9483 /* FXLinkedListEnumeratorTests.h */,
+			);
+			path = FXLinkedListEnumeratorTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1052,6 +1098,11 @@
 				42D7BC691B358D8600617635 /* FXLinkedList.c in Sources */,
 				42D7BC6C1B358DAC00617635 /* FXLinkedListTests.c in Sources */,
 				426BE5D01B36AE5E008A27E4 /* FXLinkedListNode.c in Sources */,
+				426BE5D61B36C04C008A27E4 /* FXObject.c in Sources */,
+				426BE5D71B36C052008A27E4 /* FXObjectAccessors.c in Sources */,
+				42FF0DBB1B3DB63E00DA9483 /* FXLinkedListNodeTests.c in Sources */,
+				42FF0DC01B3DB6B600DA9483 /* FXLinkedListEnumerator.c in Sources */,
+				42FF0DC31B3DB6EA00DA9483 /* FXLinkedListEnumeratorTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

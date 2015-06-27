@@ -9,8 +9,6 @@
 #include <stdio.h>
 
 #include "FXLinkedListPrivate.h"
-#include "FXLinkedListEnumeratorPrivate.h"
-#include "FXLinkedListNode.h"
 
 #pragma mark -
 #pragma mark Private Declarations

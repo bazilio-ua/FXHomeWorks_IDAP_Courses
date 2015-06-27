@@ -10,6 +10,10 @@
 #define FXHomeWorks_FXLinkedListEnumeratorPrivate_h
 
 #include "FXLinkedListEnumerator.h"
+#include "FXLinkedListNode.h"
 
+// Special Purposes 'Private' accessors
+extern
+FXLinkedListNode *FXLinkedListEnumeratorGetNode(FXLinkedListEnumerator *enumerator);
 
 #endif

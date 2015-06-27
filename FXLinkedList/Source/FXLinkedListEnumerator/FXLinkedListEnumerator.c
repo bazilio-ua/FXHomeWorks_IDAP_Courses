@@ -9,9 +9,7 @@
 #include <assert.h>
 
 #include "FXLinkedListEnumeratorPrivate.h"
-#include "FXLinkedListNode.h"
 #include "FXLinkedListPrivate.h"
-//#include "FXLinkedList.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -33,9 +31,6 @@ FXLinkedList *FXLinkedListEnumeratorGetList(FXLinkedListEnumerator *enumerator);
 
 static
 void FXLinkedListEnumeratorSetNode(FXLinkedListEnumerator *enumerator, FXLinkedListNode *node);
-
-static
-FXLinkedListNode *FXLinkedListEnumeratorGetNode(FXLinkedListEnumerator *enumerator);
 
 static
 void FXLinkedListEnumeratorSetMutationsCount(FXLinkedListEnumerator *enumerator, uint64_t mutationsCount);

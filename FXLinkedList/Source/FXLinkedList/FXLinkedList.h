@@ -12,9 +12,7 @@
 #include <stdbool.h>
 
 #include "FXObject.h"
-//#include "FXLinkedListNode.h"
 
-//typedef struct FXLinkedListEnumerator FXLinkedListEnumerator;
 typedef struct FXLinkedList FXLinkedList;
 
 // dealloc

@@ -10,10 +10,9 @@
 #define FXHomeWorks_FXLinkedListPrivate_h
 
 #include "FXLinkedList.h"
+#include "FXLinkedListNode.h"
 
-typedef struct FXLinkedListNode FXLinkedListNode;
-
-// Special Purposes accessors (TODO: move it to special 'private' header)
+// Special Purposes 'Private' accessors
 extern
 void FXLinkedListSetHead(FXLinkedList *list, FXLinkedListNode *head);
 

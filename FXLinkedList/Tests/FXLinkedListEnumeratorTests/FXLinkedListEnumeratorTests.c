@@ -12,8 +12,6 @@
 
 #include "FXLinkedListEnumeratorTests.h"
 #include "FXLinkedListEnumerator.h"
-#include "FXLinkedListNode.h"
-#include "FXLinkedList.h"
 
 void FXLinkedListEnumeratorTests(void) {
 	FXObject *originObjects[10];

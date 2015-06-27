@@ -7,8 +7,10 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 
 #include "FXLinkedListPrivate.h"
+#include "FXLinkedListEnumeratorPrivate.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -19,6 +21,13 @@ struct FXLinkedList {
 	FXLinkedListNode *_head;
 	uint64_t _count;
 	uint64_t _mutationsCount; // enumerator need this
+};
+
+// context search
+struct FXLinkedListNodeContext {
+	FXLinkedListNode *previousNode;
+	FXLinkedListNode *node;
+	void *object;
 };
 
 static
@@ -137,16 +146,29 @@ void FXLinkedListRemoveAllObject(FXLinkedList *list) {
 
 bool FXLinkedListContainsObject(FXLinkedList *list, void *object) {
 	if (NULL != list) {
-		FXLinkedListNode *currentNode = FXLinkedListGetHead(list); // get head node of list as current node
+		FXLinkedListNodeContext context;
+		
+		// zeroing our context
+		memset(&context, 0, sizeof(context)); // context = {*previousNode = NULL, *node = NULL, *object = NULL}
+		
+		context.object = object;
+		
+		if (NULL != FXLinkedListGetNodeWithContext(list, FXLinkedListNodeContainsObject, &context)) {
+			
+			return true; // found (contain)
+		}
+		
+		// search without context
+	/*	FXLinkedListNode *currentNode = FXLinkedListGetHead(list); // get head node of list as current node
 		while (NULL != currentNode) { // go through all nodes to find which one who contain object
 			void *currentObject = FXLinkedListNodeGetObject(currentNode); // get current object from node
 			if (object == currentObject) { // if equal
 				
-				return true; // found
+				return true; // found (contain)
 			}
 			
 			currentNode = FXLinkedListNodeGetNextNode(currentNode); // get next node, while nodes exist
-		}
+		}	*/
 	}
 	
 	return false;
@@ -212,4 +234,46 @@ uint64_t FXLinkedListGetMutationsCount(FXLinkedList *list) {
 	}
 	
 	return 0;
+}
+
+#pragma mark -
+#pragma mark Private Special Purposes 'Search by Context' Implementation
+
+FXLinkedListNode *FXLinkedListGetNodeWithContext(FXLinkedList *list, 
+												 FXLinkedListNodeComparatorFunction comparator, 
+												 FXLinkedListNodeContext *context) 
+{
+	FXLinkedListNode *contextNode = NULL;
+	if (NULL != list) { // if list exist, create enumerator with it
+		FXLinkedListEnumerator *enumerator = FXLinkedListEnumeratorCreateWithList(list);
+		while (true == FXLinkedListEnumeratorIsValid(enumerator) // until enumerator is valid
+			   && NULL != FXLinkedListEnumeratorGetNextObject(enumerator)) // until we reached end of enumerating list
+		{
+			FXLinkedListNode *node = FXLinkedListEnumeratorGetNode(enumerator);
+			
+			context->node = node;
+			
+			if (true == FXLinkedListNodeContainsObject(node, *context)) {
+				contextNode = node;
+				break; // we don't return here, because, later, we need to release enumerator
+			}
+			
+			context->previousNode = node; // shift nodes
+		}
+		
+		FXObjectRelease(enumerator);
+	}
+	
+	return contextNode;
+}
+
+bool FXLinkedListNodeContainsObject(FXLinkedListNode *node, FXLinkedListNodeContext context) {
+	if (NULL != node) {
+		if (context.object == FXLinkedListNodeGetObject(node)) {
+			
+			return true;
+		}
+	}
+	
+	return false;
 }

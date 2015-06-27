@@ -70,7 +70,7 @@ void *FXLinkedListGetObjectBeforeObject(FXLinkedList *list, void *object) {
 			void *currentObject = FXLinkedListNodeGetObject(currentNode); // get object from current node
 			if (object == currentObject) {
 				
-				return previousObject; // if match, return previous object, or NULL if current node is last node
+				return previousObject; // if match, return previous object, or NULL if current node is first node
 			}
 			
 			previousObject = currentObject;

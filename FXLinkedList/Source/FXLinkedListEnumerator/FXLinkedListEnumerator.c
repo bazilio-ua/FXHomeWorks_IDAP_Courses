@@ -86,8 +86,8 @@ void *FXLinkedListEnumeratorGetNextObject(FXLinkedListEnumerator *enumerator) {
 			
 			FXLinkedListEnumeratorSetNode(enumerator, node); // set current node
 			
-			if (NULL == node) { // if NULL
-				FXLinkedListEnumeratorSetValid(enumerator, false); // set enumerator not valid
+			if (NULL == node) { // if NULL (end of enumeration)
+				FXLinkedListEnumeratorSetValid(enumerator, false); // invalidate enumerator
 			}
 			
 			return FXLinkedListNodeGetObject(node);

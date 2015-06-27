@@ -32,9 +32,9 @@ uint64_t FXLinkedListGetMutationsCount(FXLinkedList *list);
 
 // Special Purposes 'Search by Context'
 extern
-FXLinkedListNode *FXLinkedListGetNodeWithContext(FXLinkedList *list, 
-												 FXLinkedListNodeComparatorFunction comparator, 
-												 FXLinkedListNodeContext *context);
+FXLinkedListNode *FXLinkedListFindNodeWithContext(FXLinkedList *list, 
+												  FXLinkedListNodeComparatorFunction comparator, 
+												  FXLinkedListNodeContext *context);
 extern
 bool FXLinkedListNodeContainsObject(FXLinkedListNode *node, FXLinkedListNodeContext context);
 

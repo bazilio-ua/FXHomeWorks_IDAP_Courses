@@ -115,7 +115,23 @@ void FXLinkedListAddObject(FXLinkedList *list, void *object) {
 }
 
 void FXLinkedListRemoveObject(FXLinkedList *list, void *object) {
-	FXLinkedListNode *currentNode = FXLinkedListGetHead(list); // get head node of list as current node
+	if (NULL != list) {
+		FXLinkedListNodeContext context;
+		
+		memset(&context, 0, sizeof(context)); // zeroing our context
+		context.object = object;
+		
+		FXLinkedListNode *node;
+		while (NULL != (node = FXLinkedListFindNodeWithContext(list, FXLinkedListNodeContainsObject, &context))) {
+			if (NULL != node) {
+				FXLinkedListNodeSetNextNode(context.previousNode, FXLinkedListNodeGetNextNode(context.node));
+				FXLinkedListSetCount(list, FXLinkedListGetCount(list) - 1);
+			}
+		}
+	}
+	
+	// remove without context
+/*	FXLinkedListNode *currentNode = FXLinkedListGetHead(list); // get head node of list as current node
 	FXLinkedListNode *previousNode = NULL;
 	
 	while (NULL != currentNode) { // find node contain object, while nodes exist
@@ -135,7 +151,7 @@ void FXLinkedListRemoveObject(FXLinkedList *list, void *object) {
 		
 		previousNode = currentNode; // set previous node as current (do shift)
 		currentNode = nextNode; // set current node as next node (until nodes exist)
-	}
+	}	*/
 }
 
 void FXLinkedListRemoveAllObject(FXLinkedList *list) {
@@ -150,10 +166,9 @@ bool FXLinkedListContainsObject(FXLinkedList *list, void *object) {
 		
 		// zeroing our context
 		memset(&context, 0, sizeof(context)); // context = {*previousNode = NULL, *node = NULL, *object = NULL}
-		
 		context.object = object;
 		
-		if (NULL != FXLinkedListGetNodeWithContext(list, FXLinkedListNodeContainsObject, &context)) {
+		if (NULL != FXLinkedListFindNodeWithContext(list, FXLinkedListNodeContainsObject, &context)) {
 			
 			return true; // found (contain)
 		}
@@ -239,9 +254,9 @@ uint64_t FXLinkedListGetMutationsCount(FXLinkedList *list) {
 #pragma mark -
 #pragma mark Private Special Purposes 'Search by Context' Implementation
 
-FXLinkedListNode *FXLinkedListGetNodeWithContext(FXLinkedList *list, 
-												 FXLinkedListNodeComparatorFunction comparator, 
-												 FXLinkedListNodeContext *context) 
+FXLinkedListNode *FXLinkedListFindNodeWithContext(FXLinkedList *list, 
+												  FXLinkedListNodeComparatorFunction comparator, 
+												  FXLinkedListNodeContext *context) 
 {
 	FXLinkedListNode *contextNode = NULL;
 	if (NULL != list) { // if list exist, create enumerator with it

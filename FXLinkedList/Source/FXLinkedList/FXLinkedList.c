@@ -268,7 +268,7 @@ FXLinkedListNode *FXLinkedListFindNodeWithContext(FXLinkedList *list,
 			
 			context->node = node;
 			
-			if (true == FXLinkedListNodeContainsObject(node, *context)) {
+			if (true == comparator(node, *context)) {
 				contextNode = node;
 				break; // we don't return here, because, later, we need to release enumerator
 			}

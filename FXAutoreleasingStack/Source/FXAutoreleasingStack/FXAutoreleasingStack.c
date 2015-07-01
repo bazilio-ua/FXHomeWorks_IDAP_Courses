@@ -172,7 +172,8 @@ size_t FXAutoreleasingStackGetSize(FXAutoreleasingStack *stack) {
 	return 0;
 }
 
-// FIXME: used only in create/dealloc, so done it without resize (realloc)?
+// used only in create/dealloc
+// FIXME: we create our stack with fixed size at once, so re-done it without resize (realloc)?
 void FXAutoreleasingStackSetSize(FXAutoreleasingStack *stack, size_t size) {
 	if (NULL != stack) {
 		size_t previousSize = FXAutoreleasingStackGetSize(stack);

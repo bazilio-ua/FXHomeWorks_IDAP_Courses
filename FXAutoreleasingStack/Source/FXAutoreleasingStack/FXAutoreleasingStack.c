@@ -54,7 +54,7 @@ FXAutoreleasingStack *FXAutoreleasingStackCreateWithSize(size_t size) {
 	FXAutoreleasingStack *stack = FXObjectCreateOfType(FXAutoreleasingStack);
 	FXAutoreleasingStackSetSize(stack, size);
 	
-	void *head = FXAutoreleasingStackGetHead(stack);
+	void *head = FXAutoreleasingStackGetData(stack);
 	FXAutoreleasingStackSetHead(stack, head);
 	
 	return stack;
@@ -114,7 +114,7 @@ FXAutoreleasingStackPopType FXAutoreleasingStackPopObjectsUntilNULL(FXAutoreleas
 
 bool FXAutoreleasingStackIsEmpty(FXAutoreleasingStack *stack) {
 	if (NULL != stack) {
-		if (FXAutoreleasingStackGetHead(stack) == FXAutoreleasingStackGetHead(stack)) { // if pointer to head equals data
+		if (FXAutoreleasingStackGetHead(stack) == FXAutoreleasingStackGetData(stack)) { // if pointer to head equals data
 			
 			return true; // is empty
 		}
@@ -130,7 +130,7 @@ bool FXAutoreleasingStackIsFull(FXAutoreleasingStack *stack) {
 		
 		uint64_t count = FXAutoreleasingStackGetSize(stack) / sizeof(*data);
 		
-		if ((void *)(&(data[count - 1])) <= head) {
+		if ((void *)(&(data[count])) <= head) {
 			
 			return true; // dbg
 		}
@@ -172,12 +172,21 @@ size_t FXAutoreleasingStackGetSize(FXAutoreleasingStack *stack) {
 	return 0;
 }
 
+// FIXME: used only in create/dealloc, so done it without resize (realloc)?
 void FXAutoreleasingStackSetSize(FXAutoreleasingStack *stack, size_t size) {
 	if (NULL != stack) {
 		size_t previousSize = FXAutoreleasingStackGetSize(stack);
+		void **previousData = FXAutoreleasingStackGetData(stack);
 		if (previousSize != size) {
-			if (0 != size) { // create case
-				stack->_data = malloc(size * sizeof(*stack->_data)); // calloc?
+			
+			if (0 != size) {
+				size_t stackSize = size * sizeof(*stack->_data);
+				
+				if (NULL == previousData) { // create case
+					stack->_data = malloc(stackSize);
+				} else { // resize case
+					stack->_data = realloc(stack->_data, stackSize);
+				}
 				
 				assert(NULL != stack->_data); // make sure allocation is successfull
 				

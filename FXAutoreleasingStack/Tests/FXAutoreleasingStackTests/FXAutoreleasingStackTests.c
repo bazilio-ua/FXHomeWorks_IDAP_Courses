@@ -7,9 +7,11 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
 
 #include "FXTestsMacro.h"
 #include "FXAutoreleasingStackTests.h"
+#include "FXAutoreleasingStack.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -37,18 +39,50 @@ void FXAutoreleasingStackTests(void) {
 
 void FXAutoreleasingStackOneObjectPushTests(void) {
 	//	after stack was created with size 512 (64 *pointers on it)
+	FXAutoreleasingStack *stack = FXAutoreleasingStackCreateWithSize(64 * sizeof(FXObject *));
+	
 	//		stack must be empty
+	assert(true == FXAutoreleasingStackIsEmpty(stack));
+	
 	//		stack must be not full
-	//	after object was created
+	assert(false == FXAutoreleasingStackIsFull(stack));
+	
+	//	after object was created and additionally retained
+	FXObject *object = FXObjectRetain(FXObjectCreateOfType(FXObject));
+	
+	//		object reference count must be equal to 2
+	assert(2 == FXObjectGetReferenceCount(object));
+	
 	//		after object was pushed to the stack
+	FXAutoreleasingStackPushObject(stack, object);
+	
 	//			object reference count must not change
-	//			stack must be not empry
+	assert(2 == FXObjectGetReferenceCount(object));
+	
+	//			stack must be not empty
+	assert(false == FXAutoreleasingStackIsEmpty(stack));
+	
 	//			stack must be not full
+	assert(false == FXAutoreleasingStackIsFull(stack));
+	
 	//		after object was popped from the stack
+	FXAutoreleasingStackPopType type = FXAutoreleasingStackPopObject(stack);
+	
 	//			pop type must be 'poppedObject'
+	assert(kFXAutoreleasingStackPoppedObject == type);
+	
 	//			object reference count must decrement
+	assert(1 == FXObjectGetReferenceCount(object));
+	
 	//			stack must be empty
+	assert(true == FXAutoreleasingStackIsEmpty(stack));
+	
 	//			stack must be not full
+	assert(false == FXAutoreleasingStackIsFull(stack));
+	
+	// release it
+	FXObjectRelease(object);
+	FXObjectRelease(stack);
 }
 
 void FXAutoreleasingStackOneNULLPushTest(void) {

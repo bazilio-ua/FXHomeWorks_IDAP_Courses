@@ -37,6 +37,10 @@
 		428083791B245ADA00334F99 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4280837A1B245C4A00334F99 /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		4280837B1B245C4E00334F99 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
+		428980601B4442690057D669 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4289805D1B4442690057D669 /* main.c */; };
+		428980621B4443140057D669 /* FXAutoreleasingStackTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 428980611B4443140057D669 /* FXAutoreleasingStackTests.c */; };
+		428980651B4443420057D669 /* FXAutoreleasingStack.c in Sources */ = {isa = PBXBuildFile; fileRef = 428980641B4443420057D669 /* FXAutoreleasingStack.c */; };
+		428980671B4443F10057D669 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4290DD281B344B180029D187 /* FXString.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA8D1B23221B0013986B /* FXString.c */; };
 		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
@@ -115,6 +119,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		4289804E1B4442130057D669 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		42B474691AFAA1EB00AD71F0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +198,12 @@
 		428083781B245A1200334F99 /* FXArrayTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayTests.h; sourceTree = "<group>"; };
 		42808CFC1B3E006200C9C979 /* FXLinkedListPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListPrivate.h; sourceTree = "<group>"; };
 		42808CFE1B3E007700C9C979 /* FXLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
+		428980501B4442130057D669 /* FXAutoreleasingStack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAutoreleasingStack; sourceTree = BUILT_PRODUCTS_DIR; };
+		4289805D1B4442690057D669 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		428980611B4443140057D669 /* FXAutoreleasingStackTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXAutoreleasingStackTests.c; sourceTree = "<group>"; };
+		428980631B4443260057D669 /* FXAutoreleasingStackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasingStackTests.h; sourceTree = "<group>"; };
+		428980641B4443420057D669 /* FXAutoreleasingStack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXAutoreleasingStack.c; sourceTree = "<group>"; };
+		428980661B44434E0057D669 /* FXAutoreleasingStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasingStack.h; sourceTree = "<group>"; };
 		429172BA1B0E609100FB9860 /* FXHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHumanTests.c; sourceTree = "<group>"; };
 		429172BC1B0E609F00FB9860 /* FXHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHumanTests.h; sourceTree = "<group>"; };
 		42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStruct.c; sourceTree = "<group>"; };
@@ -260,6 +279,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4289804D1B4442130057D669 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42B474681AFAA1EB00AD71F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +323,7 @@
 				42643CF11B2320EC00B90F83 /* FXString */,
 				428083641B2458A000334F99 /* FXArray */,
 				42D7BC581B358C0E00617635 /* FXLinkedList */,
+				428980521B4442130057D669 /* FXAutoreleasingStack */,
 				4214E8F21AFA9BF100D0E018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -313,6 +340,7 @@
 				42643CE61B2320AF00B90F83 /* FXString */,
 				428083621B2458A000334F99 /* FXArray */,
 				42D7BC561B358C0E00617635 /* FXLinkedList */,
+				428980501B4442130057D669 /* FXAutoreleasingStack */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -628,6 +656,50 @@
 			path = FXArrayTests;
 			sourceTree = "<group>";
 		};
+		428980521B4442130057D669 /* FXAutoreleasingStack */ = {
+			isa = PBXGroup;
+			children = (
+				4289805B1B4442690057D669 /* Source */,
+				4289805E1B4442690057D669 /* Tests */,
+			);
+			path = FXAutoreleasingStack;
+			sourceTree = "<group>";
+		};
+		4289805B1B4442690057D669 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4289805C1B4442690057D669 /* FXAutoreleasingStack */,
+				4289805D1B4442690057D669 /* main.c */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		4289805C1B4442690057D669 /* FXAutoreleasingStack */ = {
+			isa = PBXGroup;
+			children = (
+				428980641B4443420057D669 /* FXAutoreleasingStack.c */,
+				428980661B44434E0057D669 /* FXAutoreleasingStack.h */,
+			);
+			path = FXAutoreleasingStack;
+			sourceTree = "<group>";
+		};
+		4289805E1B4442690057D669 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4289805F1B4442690057D669 /* FXAutoreleasingStackTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		4289805F1B4442690057D669 /* FXAutoreleasingStackTests */ = {
+			isa = PBXGroup;
+			children = (
+				428980611B4443140057D669 /* FXAutoreleasingStackTests.c */,
+				428980631B4443260057D669 /* FXAutoreleasingStackTests.h */,
+			);
+			path = FXAutoreleasingStackTests;
+			sourceTree = "<group>";
+		};
 		429172B81B0E606F00FB9860 /* FXHumanTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -907,6 +979,23 @@
 			productReference = 428083621B2458A000334F99 /* FXArray */;
 			productType = "com.apple.product-type.tool";
 		};
+		4289804F1B4442130057D669 /* FXAutoreleasingStack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 428980591B4442130057D669 /* Build configuration list for PBXNativeTarget "FXAutoreleasingStack" */;
+			buildPhases = (
+				4289804C1B4442130057D669 /* Sources */,
+				4289804D1B4442130057D669 /* Frameworks */,
+				4289804E1B4442130057D669 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXAutoreleasingStack;
+			productName = FXAutoreleasingStack;
+			productReference = 428980501B4442130057D669 /* FXAutoreleasingStack */;
+			productType = "com.apple.product-type.tool";
+		};
 		42B4746A1AFAA1EB00AD71F0 /* Lection_4 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B474721AFAA1EB00AD71F0 /* Build configuration list for PBXNativeTarget "Lection_4" */;
@@ -987,6 +1076,7 @@
 				42643CE51B2320AF00B90F83 /* FXString */,
 				428083611B2458A000334F99 /* FXArray */,
 				42D7BC551B358C0E00617635 /* FXLinkedList */,
+				4289804F1B4442130057D669 /* FXAutoreleasingStack */,
 			);
 		};
 /* End PBXProject section */
@@ -1062,6 +1152,17 @@
 				428083791B245ADA00334F99 /* FXTestsMacro.c in Sources */,
 				4280837A1B245C4A00334F99 /* FXObjectAccessors.c in Sources */,
 				4280837B1B245C4E00334F99 /* FXObject.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4289804C1B4442130057D669 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				428980601B4442690057D669 /* main.c in Sources */,
+				428980621B4443140057D669 /* FXAutoreleasingStackTests.c in Sources */,
+				428980651B4443420057D669 /* FXAutoreleasingStack.c in Sources */,
+				428980671B4443F10057D669 /* FXTestsMacro.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,6 +1339,20 @@
 			};
 			name = Release;
 		};
+		428980571B4442130057D669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		428980581B4442130057D669 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		42B474731AFAA1EB00AD71F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1345,6 +1460,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		428980591B4442130057D669 /* Build configuration list for PBXNativeTarget "FXAutoreleasingStack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				428980571B4442130057D669 /* Debug */,
+				428980581B4442130057D669 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		42B474721AFAA1EB00AD71F0 /* Build configuration list for PBXNativeTarget "Lection_4" */ = {
 			isa = XCConfigurationList;

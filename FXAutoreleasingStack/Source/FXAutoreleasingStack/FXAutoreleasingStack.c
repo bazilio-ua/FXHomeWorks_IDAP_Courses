@@ -130,9 +130,9 @@ bool FXAutoreleasingStackIsFull(FXAutoreleasingStack *stack) {
 		
 		uint64_t count = FXAutoreleasingStackGetSize(stack) / sizeof(*data);
 		
-		if ((void *)(&(data[count])) <= head) {
+		if ((void *)&(data[count]) == head) { // address data+count == head address
 			
-			return true; // dbg
+			return true; // is full
 		}
 	}
 	

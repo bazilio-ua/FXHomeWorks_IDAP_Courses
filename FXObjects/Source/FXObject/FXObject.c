@@ -13,7 +13,7 @@
 #include "FXObject.h"
 
 #pragma mark -
-#pragma mark Public Implementation
+#pragma mark Public Methods Implementation
 
 void __FXObjectDeallocate(void *object) {
 	free(object);
@@ -28,6 +28,12 @@ void *__FXObjectCreate(size_t objectSize, FXObjectDeallocatorCallback deallocate
 	
 	object->_referenceCount = 1;
 	object->_deallocator = deallocateCallback;
+	
+	return object;
+}
+
+void *FXObjectCreate(void) {
+	void *object = FXObjectCreateOfType(FXObject);
 	
 	return object;
 }

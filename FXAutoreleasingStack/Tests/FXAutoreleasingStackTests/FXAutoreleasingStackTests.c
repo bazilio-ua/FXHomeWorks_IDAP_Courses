@@ -48,7 +48,7 @@ void FXAutoreleasingStackOneObjectPushTests(void) {
 	assert(false == FXAutoreleasingStackIsFull(stack));
 	
 	//	after object was created and additionally retained
-	FXObject *object = FXObjectRetain(FXObjectCreateOfType(FXObject));
+	FXObject *object = FXObjectRetain(FXObjectCreate());
 	
 	//		object reference count must be equal to 2
 	assert(2 == FXObjectGetReferenceCount(object));
@@ -131,7 +131,7 @@ void FXAutoreleasingStackIsFullTest(void) {
 	assert(false == FXAutoreleasingStackIsFull(stack));
 	
 	//	after object was created
-	FXObject *object = FXObjectCreateOfType(FXObject);
+	FXObject *object = FXObjectCreate();
 	
 	//		object reference count must be equal to 1
 	assert(1 == FXObjectGetReferenceCount(object));

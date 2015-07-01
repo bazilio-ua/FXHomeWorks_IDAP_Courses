@@ -31,6 +31,9 @@ void *__FXObjectCreate(size_t objectSize, FXObjectDeallocatorCallback deallocate
 	__FXObjectCreate(sizeof(type), (FXObjectDeallocatorCallback)__##type##Deallocate)
 
 extern
+void *FXObjectCreate(void);
+
+extern
 void *FXObjectRetain(void *object);
 
 extern

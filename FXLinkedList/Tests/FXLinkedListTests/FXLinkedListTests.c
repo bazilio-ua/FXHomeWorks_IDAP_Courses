@@ -20,7 +20,7 @@ void FXLinkedListTests(void) {
 	assert(true == FXLinkedListIsEmpty(list));
 	
 	//	after object was created
-	FXObject *object = FXObjectCreateOfType(FXObject);
+	FXObject *object = FXObjectCreate();
 	
 	//		list must don't contain object
 	assert(false == FXLinkedListContainsObject(list, object));

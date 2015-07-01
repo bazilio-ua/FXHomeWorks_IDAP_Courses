@@ -31,7 +31,7 @@ void FXObjectTests(void) {
 
 void FXObjectAllocationsTests(void) {
 	// create an object
-	void *object = FXObjectCreateOfType(FXObject);
+	void *object = FXObjectCreate();
 	
 	// after creation pointer to object should not be NULL
 	assert(NULL != object);

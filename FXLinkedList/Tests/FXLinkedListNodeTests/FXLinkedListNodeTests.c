@@ -14,7 +14,7 @@
 
 void FXLinkedListNodeTests(void) {
 	//	after creation an object..
-	FXObject *object = FXObjectCreateOfType(FXObject);
+	FXObject *object = FXObjectCreate();
 	
 	//		reference count of object must be equal to 1
 	assert(1 == FXObjectGetReferenceCount(object));

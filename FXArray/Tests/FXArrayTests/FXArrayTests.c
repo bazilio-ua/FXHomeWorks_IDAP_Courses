@@ -55,7 +55,7 @@ void FXArrayOneObjectBehaviorTest(void) {
 	assert(0 == FXArrayGetCount(array));
 	
 	//	after object was created
-	FXObject *object = FXObjectCreateOfType(FXObject);
+	FXObject *object = FXObjectCreate();
 	
 	//		object must not be NULL
 	assert(NULL != object);
@@ -110,7 +110,7 @@ void FXArrayOneObjectBehaviorTest(void) {
 
 void FXArrayMultiplyObjectBehaviorTest(void) {
 	FXArray *array = FXArrayCreateWithCapacity(10); // create test array
-	FXObject *object = FXObjectCreateOfType(FXObject); // create test origin object
+	FXObject *object = FXObjectCreate(); // create test origin object
 	
 	//	after one origin object was added 5 times in array
 	for (uint64_t count = 0; count < 5; count++) {
@@ -125,7 +125,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 		assert(object == FXArrayGetObjectAtIndex(array, index));
 	}
 	
-	FXObject *object2 = FXObjectCreateOfType(FXObject); // create test object2
+	FXObject *object2 = FXObjectCreate(); // create test object2
 	
 	//	after added another object2 (not equal to origin object)
 	FXArrayAddObject(array, object2);
@@ -168,7 +168,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		array capacity should be equal 0
 	assert(0 == FXArrayGetCapacity(array));
 	
-	FXObject *object3 = FXObjectCreateOfType(FXObject); // create test object3
+	FXObject *object3 = FXObjectCreate(); // create test object3
 	
 	//	after one origin object was added 5 times in array
 	for (uint64_t count = 0; count < 5; count++) {
@@ -194,7 +194,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	// just print info
 	printf("array has capacity: %llu and count: %llu\n", FXArrayGetCapacity(array), FXArrayGetCount(array));
 	
-	FXObject *object4 = FXObjectCreateOfType(FXObject); // create test object4
+	FXObject *object4 = FXObjectCreate(); // create test object4
 	
 	//	after inserting object4 at index 2
 	FXArrayInsertObjectAtIndex(array, object4, 2);
@@ -237,7 +237,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	//		object3 should be in array at index[15]
 	assert(object3 == FXArrayGetObjectAtIndex(array, 15));
 	
-	FXObject *object5 = FXObjectCreateOfType(FXObject); // create test object5
+	FXObject *object5 = FXObjectCreate(); // create test object5
 	
 	//	after inserting object into array at last index 15
 	FXArrayInsertObjectAtIndex(array, object5, 15);
@@ -255,7 +255,7 @@ void FXArrayMultiplyObjectBehaviorTest(void) {
 	assert(object3 == FXArrayGetObjectAtIndex(array, 16));
 	
 	
-	FXObject *object6 = FXObjectCreateOfType(FXObject); // create test object6
+	FXObject *object6 = FXObjectCreate(); // create test object6
 	
 	//	after inserting object into array at last index 16
 	FXArrayInsertObjectAtIndex(array, object6, 16);
@@ -326,7 +326,7 @@ void FXArrayHighLoadOneObjectPerformanceTest(void) {
 	FXArray *array = FXArrayCreateWithCapacity(0);
 	
 	//	after object was created
-	FXObject *object = FXObjectCreateOfType(FXObject);
+	FXObject *object = FXObjectCreate();
 	
 	const uint64_t kFXCount = 1000000;
 	//	add one object 'kFXCount' times in array
@@ -364,7 +364,7 @@ void FXArrayHighLoadMultiplyObjectsPerformanceTest(void) {
 	//	add different 'kFXCount's objects in array
 	for (uint64_t index = 0; index < kFXCount; index++) {
 		//	after object was created
-		FXObject *object = FXObjectCreateOfType(FXObject);
+		FXObject *object = FXObjectCreate();
 		
 		//		add it to array 'kFXCount' times
 		FXArrayAddObject(array, object);

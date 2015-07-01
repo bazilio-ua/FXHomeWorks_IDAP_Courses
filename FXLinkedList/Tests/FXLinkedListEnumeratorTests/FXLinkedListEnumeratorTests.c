@@ -20,7 +20,7 @@ void FXLinkedListEnumeratorTests(void) {
 	//	after creating list with 10 objects
 	FXLinkedList *list = FXLinkedListCreate();
 	for (uint64_t index = 0; index < 10; index++) {
-		FXObject *object = FXObjectCreateOfType(FXObject);
+		FXObject *object = FXObjectCreate();
 		FXLinkedListAddObject(list, object);
 		
 		// place objects in reverse order

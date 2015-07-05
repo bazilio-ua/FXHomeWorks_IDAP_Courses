@@ -92,14 +92,14 @@ FXAutoreleasePool *FXAutoreleasePoolCreate(void) {
 
 void FXAutoreleasePoolAddObject(FXAutoreleasePool *pool, void *object) {
 	if (NULL != pool) {
-		FXLinkedList *list = FXAutoreleasePoolGetList(pool);
 		FXAutoreleasingStack *currentStack = FXAutoreleasePoolGetCurrentStack(pool);
 		
-		if (NULL == currentStack || FXAutoreleasingStackIsFull(currentStack)) {
+		if (NULL == currentStack || true == FXAutoreleasingStackIsFull(currentStack)) {
 			FXAutoreleasingStack *previousStack = FXAutoreleasePoolGetEmptyStack(pool);
 			if (NULL != previousStack) {
 				FXAutoreleasePoolSetCurrentStack(pool, previousStack);
 			} else {
+				FXLinkedList *list = FXAutoreleasePoolGetList(pool);
 				FXAutoreleasingStack *nextStack = FXAutoreleasingStackCreateWithSize(kFXAutoreleasePoolMaxCapacity);
 				FXLinkedListAddObject(list, nextStack);
 				FXAutoreleasePoolSetCurrentStack(pool, nextStack);
@@ -108,7 +108,9 @@ void FXAutoreleasePoolAddObject(FXAutoreleasePool *pool, void *object) {
 			}
 		}
 		
-		currentStack = FXAutoreleasePoolGetCurrentStack(pool); // get new current stack
+		currentStack = FXAutoreleasePoolGetCurrentStack(pool); // renew current stack
+		assert(NULL != currentStack); // sanity to avoiding pushing object into NULL stack
+		
 		FXAutoreleasingStackPushObject(currentStack, object);
 	}
 }
@@ -128,6 +130,8 @@ void FXAutoreleasePoolDrain(FXAutoreleasePool *pool) {
 			}
 			
 		} while (popType != kFXAutoreleasingStackPoppedNULL);
+		
+		FXAutoreleasePoolDeflateIfNeeded(pool);
 	}
 }
 

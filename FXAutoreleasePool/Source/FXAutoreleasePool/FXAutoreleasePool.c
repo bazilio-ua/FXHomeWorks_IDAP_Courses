@@ -121,10 +121,12 @@ void FXAutoreleasePoolDrain(FXAutoreleasePool *pool) {
 		do {
 			popType = FXAutoreleasingStackPopObjectsUntilNULL(currentStack);
 			if (kFXAutoreleasingStackPoppedObject == popType) {
-				currentStack = FXLinkedListGetObjectBeforeObject(<#FXLinkedList *list#>, <#void *object#>)
+				currentStack = FXLinkedListGetObjectAfterObject(list, currentStack);
+				FXAutoreleasePoolSetCurrentStack(pool, currentStack);
+				FXLinkedListRemoveFirstObject(list);
 			}
 			
-		} while (<#condition#>);
+		} while (popType != kFXAutoreleasingStackPoppedNULL);
 	}
 }
 

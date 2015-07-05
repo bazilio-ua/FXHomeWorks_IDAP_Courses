@@ -11,6 +11,8 @@
 
 #include "FXObject.h"
 
+extern const uint64_t kFXAutoreleasePoolMaxCapacity;
+
 typedef struct FXAutoreleasePool FXAutoreleasePool;
 
 // dealloc (just in case)

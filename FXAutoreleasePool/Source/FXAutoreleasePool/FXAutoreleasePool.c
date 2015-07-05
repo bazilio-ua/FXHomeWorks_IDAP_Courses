@@ -17,8 +17,8 @@
 #pragma mark -
 #pragma mark Private Declarations
 
-static const uint64_t kFXAutoreleasePoolMaxCapacity = 1024;
-static const uint64_t kFXAutoreleasePoolMinCount = 4; // count of minimal pools amount
+const uint64_t kFXAutoreleasePoolMaxCapacity = 1024;
+static const uint64_t kFXAutoreleasePoolMinCount = 2; // count of minimal pools amount
 
 struct FXAutoreleasePool {
 	FXObject _super; // inheritance from FXObject
@@ -108,6 +108,7 @@ void FXAutoreleasePoolAddObject(FXAutoreleasePool *pool, void *object) {
 			}
 		}
 		
+		currentStack = FXAutoreleasePoolGetCurrentStack(pool); // get new current stack
 		FXAutoreleasingStackPushObject(currentStack, object);
 	}
 }

@@ -7,22 +7,25 @@
 //
 
 #include <stdio.h>
+#include <assert.h>
 
 #include "FXAutoreleasePool.h"
 #include "FXLinkedList.h"
+#include "FXLinkedListEnumeratorPrivate.h"
 #include "FXAutoreleasingStack.h"
 
 #pragma mark -
 #pragma mark Private Declarations
 
 static const uint64_t kFXAutoreleasePoolMaxCapacity = 1024;
-static const uint64_t kFXAutoreleasePoolMinCount = 2; // count of minimal pools amount
+static const uint64_t kFXAutoreleasePoolMinCount = 4; // count of minimal pools amount
 
 struct FXAutoreleasePool {
 	FXObject _super; // inheritance from FXObject
 	
 	FXLinkedList *_list;
 	FXAutoreleasingStack *_currentStack;
+	uint64_t _emptyStacksCount;
 };
 
 static FXAutoreleasePool *__pool = NULL; // using singleton
@@ -45,6 +48,22 @@ FXAutoreleasingStack *FXAutoreleasePoolGetCurrentStack(FXAutoreleasePool *pool);
 static
 void FXAutoreleasePoolSetCurrentStack(FXAutoreleasePool *pool, FXAutoreleasingStack *stack); // set current stack
 
+// get empty stack
+static
+FXAutoreleasingStack *FXAutoreleasePoolGetEmptyStack(FXAutoreleasePool *pool);
+
+static
+void FXAutoreleasePoolSetEmptyStacksCount(FXAutoreleasePool *pool, uint64_t count);
+
+static
+uint64_t FXAutoreleasePoolGetEmptyStacksCount(FXAutoreleasePool *pool);
+
+static
+void FXAutoreleasePoolDeflateIfNeeded(FXAutoreleasePool *pool);
+
+static
+void FXAutoreleasePoolDeflate(FXAutoreleasePool *pool);
+
 #pragma mark -
 #pragma mark Public Implementations
 
@@ -58,10 +77,10 @@ FXAutoreleasePool *FXAutoreleasePoolCreate(void) {
 	FXAutoreleasePool *pool = FXAutoreleasePoolGetPool();
 	if (NULL == pool) { // first start (init)
 		pool = FXObjectCreateOfType(FXAutoreleasePool);
-		FXLinkedList *list = FXLinkedListCreate();
-		
-		FXAutoreleasePoolSetList(pool, list);
 		FXAutoreleasePoolSetPool(pool);
+		
+		FXLinkedList *list = FXLinkedListCreate();
+		FXAutoreleasePoolSetList(pool, list);
 		
 		FXObjectRelease(list);
 	}
@@ -72,11 +91,41 @@ FXAutoreleasePool *FXAutoreleasePoolCreate(void) {
 }
 
 void FXAutoreleasePoolAddObject(FXAutoreleasePool *pool, void *object) {
-	
+	if (NULL != pool) {
+		FXLinkedList *list = FXAutoreleasePoolGetList(pool);
+		FXAutoreleasingStack *currentStack = FXAutoreleasePoolGetCurrentStack(pool);
+		
+		if (NULL == currentStack || FXAutoreleasingStackIsFull(currentStack)) {
+			FXAutoreleasingStack *previousStack = FXAutoreleasePoolGetEmptyStack(pool);
+			if (NULL != previousStack) {
+				FXAutoreleasePoolSetCurrentStack(pool, previousStack);
+			} else {
+				FXAutoreleasingStack *nextStack = FXAutoreleasingStackCreateWithSize(kFXAutoreleasePoolMaxCapacity);
+				FXLinkedListAddObject(list, nextStack);
+				FXAutoreleasePoolSetCurrentStack(pool, nextStack);
+				
+				FXObjectRelease(nextStack);
+			}
+		}
+		
+		FXAutoreleasingStackPushObject(currentStack, object);
+	}
 }
 
 void FXAutoreleasePoolDrain(FXAutoreleasePool *pool) {
-	
+	if (NULL != pool) {
+		FXAutoreleasingStack *currentStack = FXAutoreleasePoolGetCurrentStack(pool);
+		FXAutoreleasingStackPopType popType = kFXAutoreleasingStackPoppedNULL;
+		FXLinkedList *list = FXAutoreleasePoolGetList(pool);
+		
+		do {
+			popType = FXAutoreleasingStackPopObjectsUntilNULL(currentStack);
+			if (kFXAutoreleasingStackPoppedObject == popType) {
+				currentStack = FXLinkedListGetObjectBeforeObject(<#FXLinkedList *list#>, <#void *object#>)
+			}
+			
+		} while (<#condition#>);
+	}
 }
 
 #pragma mark -
@@ -126,5 +175,58 @@ void FXAutoreleasePoolSetCurrentStack(FXAutoreleasePool *pool, FXAutoreleasingSt
 		FXObjectRelease(pool->_currentStack);
 		
 		pool->_currentStack = stack;
+	}
+}
+
+// get empty stack
+FXAutoreleasingStack *FXAutoreleasePoolGetEmptyStack(FXAutoreleasePool *pool) {
+	if (NULL != pool) {
+		FXLinkedList *list = FXAutoreleasePoolGetList(pool);
+		FXAutoreleasingStack *currentStack = FXAutoreleasePoolGetCurrentStack(pool);
+		uint64_t count = FXAutoreleasePoolGetEmptyStacksCount(pool);
+		if (0 < count) { // if we have empty stacks
+			FXAutoreleasingStack *previousStack = FXLinkedListGetObjectBeforeObject(list, currentStack);
+			assert(true == FXAutoreleasingStackIsEmpty(previousStack)); // sanity check if this is really empty
+			
+			FXAutoreleasePoolSetEmptyStacksCount(pool, count - 1);
+			
+			return previousStack;
+		}
+	}
+	
+	return NULL;
+}
+
+void FXAutoreleasePoolSetEmptyStacksCount(FXAutoreleasePool *pool, uint64_t count) {
+	if (NULL != pool) {
+		pool->_emptyStacksCount = count;
+	}
+}
+
+uint64_t FXAutoreleasePoolGetEmptyStacksCount(FXAutoreleasePool *pool) {
+	if (NULL != pool) {
+		return pool->_emptyStacksCount;
+	}
+	
+	return 0;
+}
+
+void FXAutoreleasePoolDeflateIfNeeded(FXAutoreleasePool *pool) {
+	if (NULL != pool) {
+		if (FXAutoreleasePoolGetEmptyStacksCount(pool) > kFXAutoreleasePoolMinCount) {
+			FXAutoreleasePoolDeflate(pool);
+		}
+	}
+}
+
+void FXAutoreleasePoolDeflate(FXAutoreleasePool *pool) {
+	if (NULL != pool) {
+		FXLinkedList *list = FXAutoreleasePoolGetList(pool);
+		uint64_t deflateStacksCount = FXAutoreleasePoolGetEmptyStacksCount(pool) - kFXAutoreleasePoolMinCount;
+		for (uint64_t count = 0; count <= deflateStacksCount; count++) {
+			FXLinkedListRemoveFirstObject(list);
+		}
+		
+		FXAutoreleasePoolSetEmptyStacksCount(pool, kFXAutoreleasePoolMinCount - 1);
 	}
 }

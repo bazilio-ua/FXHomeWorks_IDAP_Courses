@@ -90,6 +90,12 @@ void *FXLinkedListGetObjectBeforeObject(FXLinkedList *list, void *object) {
 	return NULL;
 }
 
+void *FXLinkedListGetObjectAfterObject(FXLinkedList *list, void *object) {
+	if (NULL != list) {
+		<#statements#>
+	}
+}
+
 bool FXLinkedListIsEmpty(FXLinkedList *list) {
 	if (NULL != list) {
 		if (0 == list->_count) {

@@ -47,6 +47,11 @@
 		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
 		42A6B7B21AFFCFD3004D43C6 /* FXDataStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */; };
+		42CDB5961B4982880055A42A /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
+		42CDB5981B49828B0055A42A /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
+		42CDB59A1B4983310055A42A /* FXLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC681B358D8600617635 /* FXLinkedList.c */; };
+		42CDB59B1B4983440055A42A /* FXLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BE5CE1B36AE5E008A27E4 /* FXLinkedListNode.c */; };
+		42CDB59C1B4983520055A42A /* FXLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 42FF0DBF1B3DB6B600DA9483 /* FXLinkedListEnumerator.c */; };
 		42CE1C221AFE45710092C406 /* FXParentOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 42CE1C1D1AFE45710092C406 /* FXParentOutput.c */; };
 		42CE1C441AFE90060092C406 /* FXParentOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42CE1C3F1AFE90060092C406 /* FXParentOutputTests.c */; };
 		42CE1C451AFE90060092C406 /* FXSizeOfTypeOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42CE1C421AFE90060092C406 /* FXSizeOfTypeOutputTests.c */; };
@@ -1301,6 +1306,11 @@
 				42DB74021B44ED8E0064BBAD /* FXAutoreleasePool.c in Sources */,
 				42DB74051B44EDAC0064BBAD /* FXAutoreleasePoolTests.c in Sources */,
 				42DB74071B44EE610064BBAD /* FXTestsMacro.c in Sources */,
+				42CDB5961B4982880055A42A /* FXObject.c in Sources */,
+				42CDB5981B49828B0055A42A /* FXObjectAccessors.c in Sources */,
+				42CDB59A1B4983310055A42A /* FXLinkedList.c in Sources */,
+				42CDB59B1B4983440055A42A /* FXLinkedListNode.c in Sources */,
+				42CDB59C1B4983520055A42A /* FXLinkedListEnumerator.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1615,6 +1625,7 @@
 				42DB73F91B44ECBD0064BBAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

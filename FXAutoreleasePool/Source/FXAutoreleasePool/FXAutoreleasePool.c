@@ -126,10 +126,12 @@ void FXAutoreleasePoolDrain(FXAutoreleasePool *pool) {
 			if (kFXAutoreleasingStackPoppedObject == popType) {
 				currentStack = FXLinkedListGetObjectAfterObject(list, currentStack);
 				FXAutoreleasePoolSetCurrentStack(pool, currentStack);
-				FXLinkedListRemoveFirstObject(list);
+				
+				uint64_t count = FXAutoreleasePoolGetEmptyStacksCount(pool) + 1;
+				FXAutoreleasePoolSetEmptyStacksCount(pool, count);
 			}
 			
-		} while (popType != kFXAutoreleasingStackPoppedNULL);
+		} while (kFXAutoreleasingStackPoppedNULL != popType);
 		
 		FXAutoreleasePoolDeflateIfNeeded(pool);
 	}
@@ -230,7 +232,7 @@ void FXAutoreleasePoolDeflate(FXAutoreleasePool *pool) {
 	if (NULL != pool) {
 		FXLinkedList *list = FXAutoreleasePoolGetList(pool);
 		uint64_t deflateStacksCount = FXAutoreleasePoolGetEmptyStacksCount(pool) - kFXAutoreleasePoolMinCount;
-		for (uint64_t count = 0; count <= deflateStacksCount; count++) {
+		for (uint64_t count = 0; count < deflateStacksCount + 1; count++) {
 			FXLinkedListRemoveFirstObject(list);
 		}
 		

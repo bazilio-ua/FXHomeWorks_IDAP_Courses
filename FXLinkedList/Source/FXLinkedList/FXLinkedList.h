@@ -32,6 +32,9 @@ extern
 void *FXLinkedListGetObjectBeforeObject(FXLinkedList *list, void *object);
 
 extern
+void *FXLinkedListGetObjectAfterObject(FXLinkedList *list, void *object);
+
+extern
 bool FXLinkedListIsEmpty(FXLinkedList *list);
 
 extern

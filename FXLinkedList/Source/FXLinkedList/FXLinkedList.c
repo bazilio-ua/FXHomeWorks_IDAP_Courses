@@ -90,6 +90,27 @@ void *FXLinkedListGetObjectBeforeObject(FXLinkedList *list, void *object) {
 	return NULL;
 }
 
+void *FXLinkedListGetObjectAfterObject(FXLinkedList *list, void *object) {
+	if (NULL != list && false  == FXLinkedListIsEmpty(list)) {
+		FXLinkedListNode *currentNode = FXLinkedListGetHead(list);
+		void *nextObject = NULL;
+		
+		do {
+			void *currentObject = FXLinkedListNodeGetObject(currentNode);
+			if (object == currentObject) {
+				FXLinkedListNode *nextNode = FXLinkedListNodeGetNextNode(currentNode);
+				nextObject = FXLinkedListNodeGetObject(nextNode);
+
+				return nextObject;
+			}
+			
+		} while (NULL != (currentNode = FXLinkedListNodeGetNextNode(currentNode)));
+		
+	}
+	
+	return NULL;
+}
+
 bool FXLinkedListIsEmpty(FXLinkedList *list) {
 	if (NULL != list) {
 		if (0 == list->_count) {

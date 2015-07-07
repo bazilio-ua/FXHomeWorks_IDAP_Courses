@@ -181,7 +181,8 @@ void FXAutoreleasePoolHighLoadTest(void) {
 	//	after pool was created
 	FXAutoreleasePool *pool = FXAutoreleasePoolCreate();
 	
-	uint32_t maxCount = UINT16_MAX << 6;
+//	uint32_t maxCount = UINT16_MAX << 6;
+	uint32_t maxCount = UINT16_MAX;
 	//	after objects was pushed into pool 'maxCount' times 
 	for (uint32_t counter = 0; counter < maxCount; counter++) {
 		FXAutoreleasePoolAddObject(pool, FXObjectCreate());

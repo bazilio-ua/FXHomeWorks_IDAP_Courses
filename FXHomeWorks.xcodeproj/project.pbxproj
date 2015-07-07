@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		420E32C31B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
+		4225FE641B4C193D005717B0 /* FXAutoreleasePoolTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4225FE621B4C193D005717B0 /* FXAutoreleasePoolTests.c */; };
+		4225FE671B4C199B005717B0 /* FXCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225FE661B4C199B005717B0 /* FXCreature.m */; };
+		4225FE6A1B4C19EC005717B0 /* FXCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225FE691B4C19EC005717B0 /* FXCreatureTests.m */; };
 		4237150B1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150C1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150D1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
@@ -69,7 +72,6 @@
 		42D7BC6C1B358DAC00617635 /* FXLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC6B1B358DAC00617635 /* FXLinkedListTests.c */; };
 		42DB74001B44ED630064BBAD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42DB73FE1B44ED630064BBAD /* main.c */; };
 		42DB74021B44ED8E0064BBAD /* FXAutoreleasePool.c in Sources */ = {isa = PBXBuildFile; fileRef = 42DB74011B44ED8E0064BBAD /* FXAutoreleasePool.c */; };
-		42DB74051B44EDAC0064BBAD /* FXAutoreleasePoolTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42DB74041B44EDAC0064BBAD /* FXAutoreleasePoolTests.c */; };
 		42DB74071B44EE610064BBAD /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		42F9A50E1B2344E20070FF94 /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		42F9A5101B2344E80070FF94 /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
@@ -195,6 +197,12 @@
 		4214E8F11AFA9BF100D0E018 /* Lection_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_1; sourceTree = BUILT_PRODUCTS_DIR; };
 		4214E9021AFA9C3C00D0E018 /* Lection_2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_2; sourceTree = BUILT_PRODUCTS_DIR; };
 		4214E91C1AFA9E1A00D0E018 /* Lection_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_3; sourceTree = BUILT_PRODUCTS_DIR; };
+		4225FE621B4C193D005717B0 /* FXAutoreleasePoolTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXAutoreleasePoolTests.c; sourceTree = "<group>"; };
+		4225FE631B4C193D005717B0 /* FXAutoreleasePoolTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasePoolTests.h; sourceTree = "<group>"; };
+		4225FE651B4C199B005717B0 /* FXCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreature.h; sourceTree = "<group>"; };
+		4225FE661B4C199B005717B0 /* FXCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreature.m; sourceTree = "<group>"; };
+		4225FE681B4C19EC005717B0 /* FXCreatureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureTests.h; sourceTree = "<group>"; };
+		4225FE691B4C19EC005717B0 /* FXCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureTests.m; sourceTree = "<group>"; };
 		423715091B070D3B000A4877 /* FXTestsMacro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXTestsMacro.c; sourceTree = "<group>"; };
 		4237150A1B070D3B000A4877 /* FXTestsMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTestsMacro.h; sourceTree = "<group>"; };
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,8 +275,6 @@
 		42DB73FE1B44ED630064BBAD /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		42DB74011B44ED8E0064BBAD /* FXAutoreleasePool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXAutoreleasePool.c; sourceTree = "<group>"; };
 		42DB74031B44ED9A0064BBAD /* FXAutoreleasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasePool.h; sourceTree = "<group>"; };
-		42DB74041B44EDAC0064BBAD /* FXAutoreleasePoolTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXAutoreleasePoolTests.c; sourceTree = "<group>"; };
-		42DB74061B44EDBD0064BBAD /* FXAutoreleasePoolTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasePoolTests.h; sourceTree = "<group>"; };
 		42FF0DB91B3DB63E00DA9483 /* FXLinkedListNodeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = FXLinkedListNodeTests.c; path = FXLinkedList/Tests/FXLinkedListNodeTests/FXLinkedListNodeTests.c; sourceTree = SOURCE_ROOT; };
 		42FF0DBA1B3DB63E00DA9483 /* FXLinkedListNodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXLinkedListNodeTests.h; path = FXLinkedList/Tests/FXLinkedListNodeTests/FXLinkedListNodeTests.h; sourceTree = SOURCE_ROOT; };
 		42FF0DBF1B3DB6B600DA9483 /* FXLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXLinkedListEnumerator.c; sourceTree = "<group>"; };
@@ -434,6 +440,41 @@
 			);
 			name = Lection_3;
 			path = "Lection-3";
+			sourceTree = "<group>";
+		};
+		4225FE5D1B4C18C5005717B0 /* FXCreature */ = {
+			isa = PBXGroup;
+			children = (
+				4225FE651B4C199B005717B0 /* FXCreature.h */,
+				4225FE661B4C199B005717B0 /* FXCreature.m */,
+			);
+			path = FXCreature;
+			sourceTree = "<group>";
+		};
+		4225FE5F1B4C18DB005717B0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4225FE601B4C18DB005717B0 /* FXCreatureTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		4225FE601B4C18DB005717B0 /* FXCreatureTests */ = {
+			isa = PBXGroup;
+			children = (
+				4225FE681B4C19EC005717B0 /* FXCreatureTests.h */,
+				4225FE691B4C19EC005717B0 /* FXCreatureTests.m */,
+			);
+			path = FXCreatureTests;
+			sourceTree = "<group>";
+		};
+		4225FE611B4C193D005717B0 /* FXAutoreleasePoolTests */ = {
+			isa = PBXGroup;
+			children = (
+				4225FE621B4C193D005717B0 /* FXAutoreleasePoolTests.c */,
+				4225FE631B4C193D005717B0 /* FXAutoreleasePoolTests.h */,
+			);
+			path = FXAutoreleasePoolTests;
 			sourceTree = "<group>";
 		};
 		423715011B070ACD000A4877 /* Shared */ = {
@@ -789,7 +830,9 @@
 		42A1DE721B4AFB8600C5B647 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4225FE5D1B4C18C5005717B0 /* FXCreature */,
 				42A1DE731B4AFB8600C5B647 /* main.m */,
+				4225FE5F1B4C18DB005717B0 /* Tests */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -970,8 +1013,7 @@
 		42DB73FF1B44ED630064BBAD /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				42DB74041B44EDAC0064BBAD /* FXAutoreleasePoolTests.c */,
-				42DB74061B44EDBD0064BBAD /* FXAutoreleasePoolTests.h */,
+				4225FE611B4C193D005717B0 /* FXAutoreleasePoolTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1330,6 +1372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				42A1DE741B4AFB8600C5B647 /* main.m in Sources */,
+				4225FE671B4C199B005717B0 /* FXCreature.m in Sources */,
+				4225FE6A1B4C19EC005717B0 /* FXCreatureTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1380,7 +1424,6 @@
 			files = (
 				42DB74001B44ED630064BBAD /* main.c in Sources */,
 				42DB74021B44ED8E0064BBAD /* FXAutoreleasePool.c in Sources */,
-				42DB74051B44EDAC0064BBAD /* FXAutoreleasePoolTests.c in Sources */,
 				42DB74071B44EE610064BBAD /* FXTestsMacro.c in Sources */,
 				42CDB5961B4982880055A42A /* FXObject.c in Sources */,
 				42CDB5981B49828B0055A42A /* FXObjectAccessors.c in Sources */,
@@ -1388,6 +1431,7 @@
 				42CDB59B1B4983440055A42A /* FXLinkedListNode.c in Sources */,
 				42CDB59C1B4983520055A42A /* FXLinkedListEnumerator.c in Sources */,
 				42CDB59D1B4992E20055A42A /* FXAutoreleasingStack.c in Sources */,
+				4225FE641B4C193D005717B0 /* FXAutoreleasePoolTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

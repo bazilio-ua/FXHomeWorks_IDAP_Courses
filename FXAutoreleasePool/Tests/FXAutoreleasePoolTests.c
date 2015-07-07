@@ -25,6 +25,9 @@ void FXAutoreleasePoolMultiplePoolsTests(void);
 static
 void FXAutoreleasePoolMultipleNestedPoolsTests(void);
 
+static
+void FXAutoreleasePoolHighLoadTest(void);
+
 #pragma mark -
 #pragma mark Public Implementations
 
@@ -33,6 +36,7 @@ void FXAutoreleasePoolTests(void) {
 	performTest(FXAutoreleasePoolOnePoolTests);
 	performTest(FXAutoreleasePoolMultiplePoolsTests);
 	performTest(FXAutoreleasePoolMultipleNestedPoolsTests);
+	performTest(FXAutoreleasePoolHighLoadTest);
 }
 
 #pragma mark -
@@ -171,4 +175,31 @@ void FXAutoreleasePoolMultipleNestedPoolsTests(void) {
 	
 	// release object
 	FXObjectRelease(object);
+}
+
+void FXAutoreleasePoolHighLoadTest(void) {
+	//	after pool was created
+	FXAutoreleasePool *pool = FXAutoreleasePoolCreate();
+	
+	uint32_t maxCount = UINT16_MAX << 6;
+	//	after objects was pushed into pool 'maxCount' times 
+	for (uint32_t counter = 0; counter < maxCount; counter++) {
+		FXAutoreleasePoolAddObject(pool, FXObjectCreate());
+	}
+	
+	//	after drain pool
+	FXAutoreleasePoolDrain(pool);
+	
+	// do this again
+	
+	//	create another pool
+	pool = FXAutoreleasePoolCreate();
+	
+	//	after objects was pushed into pool 'maxCount' times 
+	for (uint32_t counter = 0; counter < maxCount; counter++) {
+		FXAutoreleasePoolAddObject(pool, FXObjectCreate());
+	}
+	
+	//	after drain pool
+	FXAutoreleasePoolDrain(pool);
 }

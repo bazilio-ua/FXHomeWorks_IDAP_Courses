@@ -89,7 +89,7 @@
 	if (kFXCreatureGenderFemale == self.gender) {
 		NSLog(@"I gave Birth");
 		
-		return [[self init] autorelease];
+		return [[[FXCreature alloc] init] autorelease];
 	}
 	
 	return nil;

@@ -10,4 +10,6 @@
 
 @interface FXCreatureTests : NSObject
 
++ (void)doTest;
+
 @end

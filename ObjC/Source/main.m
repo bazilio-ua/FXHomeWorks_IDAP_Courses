@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FXCreatureTests.h"
+
 int main(int argc, const char *argv[]) {
 	@autoreleasepool {
 		// insert code here...
 		NSLog(@"ObjC homework: FXCreature part 1");
+		
+		[FXCreatureTests doTest];
 	}
 	
 	return 0;

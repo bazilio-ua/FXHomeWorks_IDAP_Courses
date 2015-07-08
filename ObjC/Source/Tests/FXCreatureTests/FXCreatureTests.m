@@ -7,7 +7,20 @@
 //
 
 #import "FXCreatureTests.h"
+#import "FXCreature.h"
 
 @implementation FXCreatureTests
+
++ (void)doTest {
+	NSLog(@"do FXCreature test");
+	
+	FXCreature *creature = [[FXCreature alloc] initWithName:@"NameOne" age:25 gender:kFXCreatureGenderMale];
+	
+	[creature sayHello];
+	
+	[creature goToBattle];
+	
+	[creature giveBirth];
+}
 
 @end

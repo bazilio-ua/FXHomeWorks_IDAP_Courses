@@ -24,9 +24,14 @@
 
 @implementation FXCreature
 
+@synthesize name 	= _name;
 @synthesize mutableChildren = _mutableChildren;
 
-@dynamic children;//	= _children; // 'dynamic' don't generate setter/getter
+@synthesize weight 	= _weight;
+@synthesize age 	= _age;
+@synthesize gender 	= _gender;
+
+@dynamic children; // 'dynamic' don't generate setter/getter
 
 #pragma mark -
 #pragma mark Class Methods

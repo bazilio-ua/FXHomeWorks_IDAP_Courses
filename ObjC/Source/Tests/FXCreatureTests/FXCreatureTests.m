@@ -14,7 +14,7 @@
 + (void)doTest {
 	NSLog(@"do FXCreature test");
 	
-	FXCreature *creature = [[FXCreature alloc] initWithName:@"NameOne" age:25 gender:kFXCreatureGenderMale];
+	FXCreature *creature = [[FXCreature alloc] initWithName:@"Charlie Root" age:25 gender:kFXCreatureGenderMale];
 	
 	[creature sayHello];
 	

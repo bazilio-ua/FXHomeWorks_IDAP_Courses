@@ -14,13 +14,36 @@
 + (void)doTest {
 	NSLog(@"do FXCreature test");
 	
-	FXCreature *creature = [[FXCreature alloc] initWithName:@"Charlie Root" age:25 gender:kFXCreatureGenderMale];
+	FXCreature *charlie = [[[FXCreature alloc] initWithName:@"Charlie Root" age:25 gender:kFXCreatureGenderMale] autorelease];
+	[charlie sayHello];
+	[charlie goToBattle];
+	[charlie giveBirth];
 	
-	[creature sayHello];
+	NSMutableArray *arrayOfCreatures = [NSMutableArray arrayWithCapacity:13];
 	
-	[creature goToBattle];
+	for (uint32_t iterator = 0; iterator < 13; iterator++) {
+		FXCreatureGender gender = ((iterator % 2) == 0) ? kFXCreatureGenderMale : kFXCreatureGenderFemale;
+		
+		NSString *name = [NSString stringWithFormat:@"%s Doe #%u", 
+						  gender == kFXCreatureGenderMale ? "John" : "Jane", 
+						  iterator + 1];
+		
+		FXCreature *creature = [[[FXCreature alloc] initWithName:name 
+															 age:((iterator + 1) * 10) 
+														  gender:gender] autorelease];
+		
+		[creature addChild:[[[FXCreature alloc] initWithName:[name stringByAppendingString:@"s child Doe"] 
+														 age:(iterator + 1) 
+													  gender:gender] autorelease]];
+		
+		[arrayOfCreatures addObject:creature];
+	}
 	
-	[creature giveBirth];
+	for (FXCreature *creature in arrayOfCreatures) {
+		[creature sayHello];
+		[creature goToBattle];
+		[creature giveBirth];
+	}
 }
 
 @end

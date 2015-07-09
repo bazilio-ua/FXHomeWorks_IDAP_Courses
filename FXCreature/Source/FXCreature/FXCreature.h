@@ -15,8 +15,12 @@ typedef enum {
 } FXCreatureGender;
 
 @interface FXCreature : NSObject
-
 @property (nonatomic, copy, readonly)	NSArray		*children;
+@property (nonatomic, copy, readonly)	NSString	*name;
+
+@property (nonatomic, assign, readonly)	float		weight;
+@property (nonatomic, assign, readonly)	uint32_t	age;
+@property (nonatomic, assign, readonly)	FXCreatureGender	gender;
 
 - (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender;
 
@@ -28,5 +32,6 @@ typedef enum {
 - (FXCreature *)giveBirth;
 
 - (void)sayHello;
+- (NSString *)genderString;
 
 @end

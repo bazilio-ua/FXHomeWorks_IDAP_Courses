@@ -12,7 +12,6 @@
 #pragma mark Private Interface
 
 @interface FXCreature ()
-
 @property (nonatomic, copy)		NSString	*name;
 @property (nonatomic, retain)	NSMutableArray		*mutableChildren;
 
@@ -23,7 +22,6 @@
 @end
 
 @implementation FXCreature
-
 @synthesize name 	= _name;
 @synthesize mutableChildren = _mutableChildren;
 
@@ -73,6 +71,7 @@
 		[self.mutableChildren addObject:child];
 	}
 }
+
 - (void)removeChild:(FXCreature *)child {
 	if (nil != child) {
 		[self.mutableChildren removeObject:child];
@@ -96,21 +95,26 @@
 }
 
 - (void)sayHello {
-	NSString *genderString;
-	FXCreatureGender gender = self.gender;
-	if (kFXCreatureGenderMale == gender) {
-		genderString = @"male";
-	} else if (kFXCreatureGenderFemale == gender) {
-		genderString = @"female";
-	} else {
-		genderString = @"undefined";
-	}
-	
-	NSLog(@"Hello, My name is: %@, I am %@", self.name, genderString);
+	NSLog(@"Hello, My name is: %@, I am %@", self.name, [self genderString]);
 	
 	for (FXCreature *children in self.mutableChildren) {
+		NSLog(@"my child");
 		[children sayHello];
 	}
+}
+
+- (NSString *)genderString {
+	NSString *string;
+	FXCreatureGender gender = self.gender;
+	if (kFXCreatureGenderMale == gender) {
+		string = @"male";
+	} else if (kFXCreatureGenderFemale == gender) {
+		string = @"female";
+	} else {
+		string = @"undefined";
+	}
+	
+	return string;
 }
 
 #pragma mark -

@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		420E32C31B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
+		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
+		42219C931B4EDD5900B9AC0C /* FXCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 42219C8D1B4EDD5900B9AC0C /* FXCreature.m */; };
+		42219C941B4EDD5900B9AC0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42219C8E1B4EDD5900B9AC0C /* main.m */; };
+		42219C951B4EDD5900B9AC0C /* FXCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42219C921B4EDD5900B9AC0C /* FXCreatureTests.m */; };
 		4225FE641B4C193D005717B0 /* FXAutoreleasePoolTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4225FE621B4C193D005717B0 /* FXAutoreleasePoolTests.c */; };
-		4225FE671B4C199B005717B0 /* FXCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225FE661B4C199B005717B0 /* FXCreature.m */; };
-		4225FE6A1B4C19EC005717B0 /* FXCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225FE691B4C19EC005717B0 /* FXCreatureTests.m */; };
 		4237150B1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150C1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150D1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
@@ -48,8 +50,6 @@
 		4289806E1B445D1A0057D669 /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		4290DD281B344B180029D187 /* FXString.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA8D1B23221B0013986B /* FXString.c */; };
 		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
-		42A1DE661B4AFB1200C5B647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A1DE651B4AFB1200C5B647 /* Foundation.framework */; };
-		42A1DE741B4AFB8600C5B647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A1DE731B4AFB8600C5B647 /* main.m */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
 		42A6B7B21AFFCFD3004D43C6 /* FXDataStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */; };
 		42CDB5961B4982880055A42A /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
@@ -108,6 +108,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		42219C781B4EDCCC00B9AC0C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		423715251B074733000A4877 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,15 +145,6 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		4289804E1B4442130057D669 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		42A1DE601B4AFB1200C5B647 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -197,12 +197,15 @@
 		4214E8F11AFA9BF100D0E018 /* Lection_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_1; sourceTree = BUILT_PRODUCTS_DIR; };
 		4214E9021AFA9C3C00D0E018 /* Lection_2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_2; sourceTree = BUILT_PRODUCTS_DIR; };
 		4214E91C1AFA9E1A00D0E018 /* Lection_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_3; sourceTree = BUILT_PRODUCTS_DIR; };
+		42219C7A1B4EDCCC00B9AC0C /* FXCreature */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCreature; sourceTree = BUILT_PRODUCTS_DIR; };
+		42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		42219C8C1B4EDD5900B9AC0C /* FXCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreature.h; sourceTree = "<group>"; };
+		42219C8D1B4EDD5900B9AC0C /* FXCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreature.m; sourceTree = "<group>"; };
+		42219C8E1B4EDD5900B9AC0C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		42219C911B4EDD5900B9AC0C /* FXCreatureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureTests.h; sourceTree = "<group>"; };
+		42219C921B4EDD5900B9AC0C /* FXCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureTests.m; sourceTree = "<group>"; };
 		4225FE621B4C193D005717B0 /* FXAutoreleasePoolTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXAutoreleasePoolTests.c; sourceTree = "<group>"; };
 		4225FE631B4C193D005717B0 /* FXAutoreleasePoolTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasePoolTests.h; sourceTree = "<group>"; };
-		4225FE651B4C199B005717B0 /* FXCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreature.h; sourceTree = "<group>"; };
-		4225FE661B4C199B005717B0 /* FXCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreature.m; sourceTree = "<group>"; };
-		4225FE681B4C19EC005717B0 /* FXCreatureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureTests.h; sourceTree = "<group>"; };
-		4225FE691B4C19EC005717B0 /* FXCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureTests.m; sourceTree = "<group>"; };
 		423715091B070D3B000A4877 /* FXTestsMacro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXTestsMacro.c; sourceTree = "<group>"; };
 		4237150A1B070D3B000A4877 /* FXTestsMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTestsMacro.h; sourceTree = "<group>"; };
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,9 +249,6 @@
 		428980661B44434E0057D669 /* FXAutoreleasingStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasingStack.h; sourceTree = "<group>"; };
 		429172BA1B0E609100FB9860 /* FXHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHumanTests.c; sourceTree = "<group>"; };
 		429172BC1B0E609F00FB9860 /* FXHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHumanTests.h; sourceTree = "<group>"; };
-		42A1DE621B4AFB1200C5B647 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
-		42A1DE651B4AFB1200C5B647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		42A1DE731B4AFB8600C5B647 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStruct.c; sourceTree = "<group>"; };
 		42A6B7AA1AFFC980004D43C6 /* FXDataStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataStruct.h; sourceTree = "<group>"; };
 		42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStructTests.c; sourceTree = "<group>"; };
@@ -305,6 +305,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42219C771B4EDCCC00B9AC0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		423715241B074733000A4877 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,14 +338,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42A1DE5F1B4AFB1200C5B647 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42A1DE661B4AFB1200C5B647 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +372,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4214E8E61AFA9BF000D0E018 = {
+		4208886F1B4ED39300A1ABBA /* C */ = {
 			isa = PBXGroup;
 			children = (
 				423715011B070ACD000A4877 /* Shared */,
@@ -387,8 +387,15 @@
 				42D7BC581B358C0E00617635 /* FXLinkedList */,
 				428980521B4442130057D669 /* FXAutoreleasingStack */,
 				42DB73F31B44ECBD0064BBAD /* FXAutoreleasePool */,
-				42A1DE671B4AFB1200C5B647 /* ObjC */,
-				42A1DE641B4AFB1200C5B647 /* Frameworks */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		4214E8E61AFA9BF000D0E018 = {
+			isa = PBXGroup;
+			children = (
+				4208886F1B4ED39300A1ABBA /* C */,
+				42219C961B4EDDFC00B9AC0C /* Objective-C */,
 				4214E8F21AFA9BF100D0E018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -407,7 +414,7 @@
 				42D7BC561B358C0E00617635 /* FXLinkedList */,
 				428980501B4442130057D669 /* FXAutoreleasingStack */,
 				42DB73F11B44ECBD0064BBAD /* FXAutoreleasePool */,
-				42A1DE621B4AFB1200C5B647 /* ObjC */,
+				42219C7A1B4EDCCC00B9AC0C /* FXCreature */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -442,30 +449,65 @@
 			path = "Lection-3";
 			sourceTree = "<group>";
 		};
-		4225FE5D1B4C18C5005717B0 /* FXCreature */ = {
+		42219C7C1B4EDCCC00B9AC0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4225FE651B4C199B005717B0 /* FXCreature.h */,
-				4225FE661B4C199B005717B0 /* FXCreature.m */,
+				42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42219C7F1B4EDCCC00B9AC0C /* FXCreature */ = {
+			isa = PBXGroup;
+			children = (
+				42219C8A1B4EDD5900B9AC0C /* Source */,
+				42219C8F1B4EDD5900B9AC0C /* Tests */,
 			);
 			path = FXCreature;
 			sourceTree = "<group>";
 		};
-		4225FE5F1B4C18DB005717B0 /* Tests */ = {
+		42219C8A1B4EDD5900B9AC0C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				4225FE601B4C18DB005717B0 /* FXCreatureTests */,
+				42219C8B1B4EDD5900B9AC0C /* FXCreature */,
+				42219C8E1B4EDD5900B9AC0C /* main.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		42219C8B1B4EDD5900B9AC0C /* FXCreature */ = {
+			isa = PBXGroup;
+			children = (
+				42219C8C1B4EDD5900B9AC0C /* FXCreature.h */,
+				42219C8D1B4EDD5900B9AC0C /* FXCreature.m */,
+			);
+			path = FXCreature;
+			sourceTree = "<group>";
+		};
+		42219C8F1B4EDD5900B9AC0C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				42219C901B4EDD5900B9AC0C /* FXCreatureTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		4225FE601B4C18DB005717B0 /* FXCreatureTests */ = {
+		42219C901B4EDD5900B9AC0C /* FXCreatureTests */ = {
 			isa = PBXGroup;
 			children = (
-				4225FE681B4C19EC005717B0 /* FXCreatureTests.h */,
-				4225FE691B4C19EC005717B0 /* FXCreatureTests.m */,
+				42219C911B4EDD5900B9AC0C /* FXCreatureTests.h */,
+				42219C921B4EDD5900B9AC0C /* FXCreatureTests.m */,
 			);
 			path = FXCreatureTests;
+			sourceTree = "<group>";
+		};
+		42219C961B4EDDFC00B9AC0C /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				42219C7F1B4EDCCC00B9AC0C /* FXCreature */,
+				42219C7C1B4EDCCC00B9AC0C /* Frameworks */,
+			);
+			name = "Objective-C";
 			sourceTree = "<group>";
 		};
 		4225FE611B4C193D005717B0 /* FXAutoreleasePoolTests */ = {
@@ -811,32 +853,6 @@
 			path = FXHumanTests;
 			sourceTree = "<group>";
 		};
-		42A1DE641B4AFB1200C5B647 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				42A1DE651B4AFB1200C5B647 /* Foundation.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		42A1DE671B4AFB1200C5B647 /* ObjC */ = {
-			isa = PBXGroup;
-			children = (
-				42A1DE721B4AFB8600C5B647 /* Source */,
-			);
-			path = ObjC;
-			sourceTree = "<group>";
-		};
-		42A1DE721B4AFB8600C5B647 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				4225FE5D1B4C18C5005717B0 /* FXCreature */,
-				42A1DE731B4AFB8600C5B647 /* main.m */,
-				4225FE5F1B4C18DB005717B0 /* Tests */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		42A6B7A81AFFC980004D43C6 /* FXDataStruct */ = {
 			isa = PBXGroup;
 			children = (
@@ -1091,6 +1107,23 @@
 			productReference = 4214E91C1AFA9E1A00D0E018 /* Lection_3 */;
 			productType = "com.apple.product-type.tool";
 		};
+		42219C791B4EDCCC00B9AC0C /* FXCreature */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42219C881B4EDCCC00B9AC0C /* Build configuration list for PBXNativeTarget "FXCreature" */;
+			buildPhases = (
+				42219C761B4EDCCC00B9AC0C /* Sources */,
+				42219C771B4EDCCC00B9AC0C /* Frameworks */,
+				42219C781B4EDCCC00B9AC0C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXCreature;
+			productName = FXCreature;
+			productReference = 42219C7A1B4EDCCC00B9AC0C /* FXCreature */;
+			productType = "com.apple.product-type.tool";
+		};
 		423715261B074733000A4877 /* FXObjects */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 423715301B074733000A4877 /* Build configuration list for PBXNativeTarget "FXObjects" */;
@@ -1157,23 +1190,6 @@
 			name = FXAutoreleasingStack;
 			productName = FXAutoreleasingStack;
 			productReference = 428980501B4442130057D669 /* FXAutoreleasingStack */;
-			productType = "com.apple.product-type.tool";
-		};
-		42A1DE611B4AFB1200C5B647 /* ObjC */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42A1DE701B4AFB1200C5B647 /* Build configuration list for PBXNativeTarget "ObjC" */;
-			buildPhases = (
-				42A1DE5E1B4AFB1200C5B647 /* Sources */,
-				42A1DE5F1B4AFB1200C5B647 /* Frameworks */,
-				42A1DE601B4AFB1200C5B647 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ObjC;
-			productName = ObjC;
-			productReference = 42A1DE621B4AFB1200C5B647 /* ObjC */;
 			productType = "com.apple.product-type.tool";
 		};
 		42B4746A1AFAA1EB00AD71F0 /* Lection_4 */ = {
@@ -1275,7 +1291,7 @@
 				42D7BC551B358C0E00617635 /* FXLinkedList */,
 				4289804F1B4442130057D669 /* FXAutoreleasingStack */,
 				42DB73F01B44ECBD0064BBAD /* FXAutoreleasePool */,
-				42A1DE611B4AFB1200C5B647 /* ObjC */,
+				42219C791B4EDCCC00B9AC0C /* FXCreature */,
 			);
 		};
 /* End PBXProject section */
@@ -1313,6 +1329,16 @@
 				426CDA8B1B012D120002B2EF /* FXBitOutput.c in Sources */,
 				426CDA8F1B012D3E0002B2EF /* FXBitOutputTests.c in Sources */,
 				4237150D1B070D3B000A4877 /* FXTestsMacro.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42219C761B4EDCCC00B9AC0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42219C931B4EDD5900B9AC0C /* FXCreature.m in Sources */,
+				42219C941B4EDD5900B9AC0C /* main.m in Sources */,
+				42219C951B4EDD5900B9AC0C /* FXCreatureTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,16 +1390,6 @@
 				428980671B4443F10057D669 /* FXTestsMacro.c in Sources */,
 				4289806D1B445D160057D669 /* FXObject.c in Sources */,
 				4289806E1B445D1A0057D669 /* FXObjectAccessors.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42A1DE5E1B4AFB1200C5B647 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42A1DE741B4AFB8600C5B647 /* main.m in Sources */,
-				4225FE671B4C199B005717B0 /* FXCreature.m in Sources */,
-				4225FE6A1B4C19EC005717B0 /* FXCreatureTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1532,6 +1548,26 @@
 			};
 			name = Release;
 		};
+		42219C861B4EDCCC00B9AC0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		42219C871B4EDCCC00B9AC0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		4237152E1B074733000A4877 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1584,28 +1620,6 @@
 		428980581B4442130057D669 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		42A1DE6E1B4AFB1200C5B647 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_VERSION = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		42A1DE6F1B4AFB1200C5B647 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_VERSION = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1705,6 +1719,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		42219C881B4EDCCC00B9AC0C /* Build configuration list for PBXNativeTarget "FXCreature" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42219C861B4EDCCC00B9AC0C /* Debug */,
+				42219C871B4EDCCC00B9AC0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		423715301B074733000A4877 /* Build configuration list for PBXNativeTarget "FXObjects" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1737,15 +1759,6 @@
 			buildConfigurations = (
 				428980571B4442130057D669 /* Debug */,
 				428980581B4442130057D669 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42A1DE701B4AFB1200C5B647 /* Build configuration list for PBXNativeTarget "ObjC" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42A1DE6E1B4AFB1200C5B647 /* Debug */,
-				42A1DE6F1B4AFB1200C5B647 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -97,9 +97,10 @@
 
 - (void)sayHello {
 	NSString *genderString;
-	if (kFXCreatureGenderMale == self.gender) {
+	FXCreatureGender gender = self.gender;
+	if (kFXCreatureGenderMale == gender) {
 		genderString = @"male";
-	} else if (kFXCreatureGenderFemale == self.gender) {
+	} else if (kFXCreatureGenderFemale == gender) {
 		genderString = @"female";
 	} else {
 		genderString = @"undefined";

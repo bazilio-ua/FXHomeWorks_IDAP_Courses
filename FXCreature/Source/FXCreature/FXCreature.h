@@ -16,7 +16,7 @@ typedef enum {
 
 @interface FXCreature : NSObject
 
-@property (nonatomic, retain)	NSArray		*children;
+@property (nonatomic, copy, readonly)	NSArray		*children;
 
 - (id)init;
 - (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender;

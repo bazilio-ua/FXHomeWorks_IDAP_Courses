@@ -16,8 +16,6 @@
 @property (nonatomic, copy)		NSString	*name;
 @property (nonatomic, retain)	NSMutableArray		*mutableChildren;
 
-@property (nonatomic, assign)	float		weight;
-@property (nonatomic, assign)	uint32_t	age;
 @property (nonatomic, assign)	FXCreatureGender	gender;
 
 @end
@@ -56,7 +54,6 @@
 	if (self) {
 		self.name = name;
 		self.mutableChildren = [[[NSMutableArray alloc] init] autorelease];
-		self.weight = 0.0f;
 		self.age = age;
 		self.gender = gender;
 	}

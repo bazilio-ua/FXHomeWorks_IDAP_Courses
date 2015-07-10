@@ -18,8 +18,8 @@ typedef enum {
 @property (nonatomic, copy, readonly)	NSArray		*children;
 @property (nonatomic, copy, readonly)	NSString	*name;
 
-@property (nonatomic, assign, readonly)	float		weight;
-@property (nonatomic, assign, readonly)	uint32_t	age;
+@property (nonatomic, assign)			float		weight;
+@property (nonatomic, assign)			uint32_t	age;
 @property (nonatomic, assign, readonly)	FXCreatureGender	gender;
 
 - (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender;

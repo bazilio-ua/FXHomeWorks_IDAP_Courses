@@ -9,7 +9,7 @@
 #import "FXCreature+FXExtensions.h"
 
 @implementation FXCreature (FXExtensions)
-@dynamic myClassName;
+@dynamic className;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -21,7 +21,7 @@
 #pragma mark -
 #pragma mark Class Accessors
 
-- (NSString *)myClassName {
+- (NSString *)className {
 	return NSStringFromClass([self class]);
 }
 

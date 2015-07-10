@@ -9,7 +9,7 @@
 #import "FXCreature.h"
 
 @interface FXCreature (FXExtensions)
-@property (nonatomic, retain, readonly)		NSString	*myClassName;
+@property (nonatomic, retain, readonly)		NSString	*className;
 
 + (id)object;
 

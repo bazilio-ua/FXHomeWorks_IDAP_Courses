@@ -7,6 +7,7 @@
 //
 
 #import "FXCreature.h"
+#import "FXCreature+FXExtensions.h"
 
 #pragma mark -
 #pragma mark Private Interface

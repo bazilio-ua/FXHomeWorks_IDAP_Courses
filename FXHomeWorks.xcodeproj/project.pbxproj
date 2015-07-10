@@ -26,6 +26,7 @@
 		4239DA9F1B2343D40013986B /* FXStringTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA9E1B2343D40013986B /* FXStringTests.c */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		42643CF61B2320EC00B90F83 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42643CF41B2320EC00B90F83 /* main.c */; };
+		42689A5E1B50010100AA44CE /* FXCreature+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42689A5D1B50010100AA44CE /* FXCreature+FXExtensions.m */; };
 		426948191AFAA34A00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948151AFAA33A00974906 /* main.c */; };
 		426948251AFAA3A900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948231AFAA3A900974906 /* main.c */; };
 		426948291AFAA3B900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948271AFAA3B900974906 /* main.c */; };
@@ -223,6 +224,8 @@
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
 		42643CE61B2320AF00B90F83 /* FXString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXString; sourceTree = BUILT_PRODUCTS_DIR; };
 		42643CF41B2320EC00B90F83 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		42689A5C1B50010100AA44CE /* FXCreature+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXCreature+FXExtensions.h"; sourceTree = "<group>"; };
+		42689A5D1B50010100AA44CE /* FXCreature+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FXCreature+FXExtensions.m"; sourceTree = "<group>"; };
 		426948151AFAA33A00974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		426948231AFAA3A900974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		426948271AFAA3B900974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -480,6 +483,8 @@
 			children = (
 				42219C8C1B4EDD5900B9AC0C /* FXCreature.h */,
 				42219C8D1B4EDD5900B9AC0C /* FXCreature.m */,
+				42689A5C1B50010100AA44CE /* FXCreature+FXExtensions.h */,
+				42689A5D1B50010100AA44CE /* FXCreature+FXExtensions.m */,
 			);
 			path = FXCreature;
 			sourceTree = "<group>";
@@ -1339,6 +1344,7 @@
 				42219C931B4EDD5900B9AC0C /* FXCreature.m in Sources */,
 				42219C941B4EDD5900B9AC0C /* main.m in Sources */,
 				42219C951B4EDD5900B9AC0C /* FXCreatureTests.m in Sources */,
+				42689A5E1B50010100AA44CE /* FXCreature+FXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1726,6 +1732,7 @@
 				42219C871B4EDCCC00B9AC0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		423715301B074733000A4877 /* Build configuration list for PBXNativeTarget "FXObjects" */ = {
 			isa = XCConfigurationList;

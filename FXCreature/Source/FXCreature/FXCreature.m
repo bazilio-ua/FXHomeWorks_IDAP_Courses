@@ -53,7 +53,7 @@
 	
 	if (self) {
 		self.name = name;
-		self.mutableChildren = [[[NSMutableArray alloc] init] autorelease];
+		self.mutableChildren = [NSMutableArray array];
 		self.age = age;
 		self.gender = gender;
 	}
@@ -79,12 +79,13 @@
 // merge this to one method 'doMainJob'?
 - (void)goToBattle {
 	if (kFXCreatureGenderMale == self.gender) {
-		NSLog(@"I go to Battle");
+		NSLog(@"I go to battle");
 	}
 }
+
 - (FXCreature *)giveBirth {
 	if (kFXCreatureGenderFemale == self.gender) {
-		NSLog(@"I gave Birth");
+		NSLog(@"I gave birth");
 		
 		return [[[FXCreature alloc] init] autorelease];
 	}
@@ -96,7 +97,7 @@
 	NSLog(@"Hello, My name is: %@, I am %@", self.name, [self genderString]);
 	
 	for (FXCreature *children in self.mutableChildren) {
-		NSLog(@"my child");
+		NSLog(@"I have child");
 		[children sayHello];
 	}
 }
@@ -113,6 +114,10 @@
 	}
 	
 	return string;
+}
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"%@", [super description]];
 }
 
 #pragma mark -

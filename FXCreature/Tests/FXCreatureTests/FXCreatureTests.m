@@ -14,35 +14,37 @@
 + (void)doTest {
 	NSLog(@"do FXCreature test");
 	
-	FXCreature *charlie = [[[FXCreature alloc] initWithName:@"Charlie Root" age:25 gender:kFXCreatureGenderMale] autorelease];
-	[charlie sayHello];
-	[charlie goToBattle];
-	[charlie giveBirth];
+	NSMutableArray *arrayOfCreatures = [[NSMutableArray array] autorelease];
 	
-	NSMutableArray *arrayOfCreatures = [NSMutableArray arrayWithCapacity:13];
+	FXCreature *charlieRoot = [[[FXCreature alloc] initWithName:@"Charlie Root" age:40 gender:kFXCreatureGenderMale] autorelease];
+	[arrayOfCreatures addObject:charlieRoot];
 	
-	for (uint32_t iterator = 0; iterator < 13; iterator++) {
-		FXCreatureGender gender = ((iterator % 2) == 0) ? kFXCreatureGenderMale : kFXCreatureGenderFemale;
-		
-		NSString *name = [NSString stringWithFormat:@"%s Doe #%u", 
-						  gender == kFXCreatureGenderMale ? "John" : "Jane", 
-						  iterator + 1];
-		
-		FXCreature *creature = [[[FXCreature alloc] initWithName:name 
-															 age:((iterator + 1) * 10) 
-														  gender:gender] autorelease];
-		
-		[creature addChild:[[[FXCreature alloc] initWithName:[name stringByAppendingString:@"s child Doe"] 
-														 age:(iterator + 1) 
-													  gender:gender] autorelease]];
-		
-		[arrayOfCreatures addObject:creature];
-	}
+	
+	FXCreature *johnDoe = [[[FXCreature alloc] initWithName:@"John Doe" age:25 gender:kFXCreatureGenderMale] autorelease];
+	FXCreature *janeDoe = [[[FXCreature alloc] initWithName:@"Jane Doe" age:24 gender:kFXCreatureGenderFemale] autorelease];
+	
+	[janeDoe addChild:[[[FXCreature alloc] initWithName:@"Johnnie Doe" age:5 gender:kFXCreatureGenderMale] autorelease]];
+	
+	[arrayOfCreatures addObject:johnDoe];
+	[arrayOfCreatures addObject:janeDoe];
+	
+	
+	FXCreature *johnRoe = [[[FXCreature alloc] initWithName:@"John Roe" age:28 gender:kFXCreatureGenderMale] autorelease];
+	FXCreature *janeRoe = [[[FXCreature alloc] initWithName:@"Jane Roe" age:27 gender:kFXCreatureGenderFemale] autorelease];
+	
+	[johnRoe addChild:[[[FXCreature alloc] initWithName:@"Janie Doe" age:7 gender:kFXCreatureGenderFemale] autorelease]];
+	
+	[arrayOfCreatures addObject:johnRoe];
+	[arrayOfCreatures addObject:janeRoe];
+	
 	
 	for (FXCreature *creature in arrayOfCreatures) {
-		[creature sayHello];
+		NSLog(@"%@", [creature description]);
+		
 		[creature goToBattle];
 		[creature giveBirth];
+		
+		[creature sayHello];
 	}
 }
 

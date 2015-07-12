@@ -24,6 +24,8 @@
 		4237153E1B07568E000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4239DA8E1B23221B0013986B /* FXString.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA8D1B23221B0013986B /* FXString.c */; };
 		4239DA9F1B2343D40013986B /* FXStringTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA9E1B2343D40013986B /* FXStringTests.c */; };
+		423A36331B52F72F00F4A557 /* FXCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 423A36321B52F72F00F4A557 /* FXCreatureMale.m */; };
+		423A36371B52FF5300F4A557 /* FXCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 423A36361B52FF5300F4A557 /* FXCreatureFemale.m */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		42643CF61B2320EC00B90F83 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42643CF41B2320EC00B90F83 /* main.c */; };
 		42689A5E1B50010100AA44CE /* FXCreature+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42689A5D1B50010100AA44CE /* FXCreature+FXExtensions.m */; };
@@ -219,6 +221,10 @@
 		4239DA8F1B2322290013986B /* FXString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXString.h; sourceTree = "<group>"; };
 		4239DA9E1B2343D40013986B /* FXStringTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXStringTests.c; sourceTree = "<group>"; };
 		4239DAA01B2343E80013986B /* FXStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXStringTests.h; sourceTree = "<group>"; };
+		423A36311B52F72F00F4A557 /* FXCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureMale.h; sourceTree = "<group>"; };
+		423A36321B52F72F00F4A557 /* FXCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureMale.m; sourceTree = "<group>"; };
+		423A36351B52FF5300F4A557 /* FXCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureFemale.h; sourceTree = "<group>"; };
+		423A36361B52FF5300F4A557 /* FXCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureFemale.m; sourceTree = "<group>"; };
 		42617EE21AFF49430019934C /* FXPrimitiveOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputType.h; sourceTree = "<group>"; };
 		42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXPrimitiveOutputTypeTests.c; sourceTree = "<group>"; };
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
@@ -481,6 +487,10 @@
 		42219C8B1B4EDD5900B9AC0C /* FXCreature */ = {
 			isa = PBXGroup;
 			children = (
+				423A36311B52F72F00F4A557 /* FXCreatureMale.h */,
+				423A36321B52F72F00F4A557 /* FXCreatureMale.m */,
+				423A36351B52FF5300F4A557 /* FXCreatureFemale.h */,
+				423A36361B52FF5300F4A557 /* FXCreatureFemale.m */,
 				42219C8C1B4EDD5900B9AC0C /* FXCreature.h */,
 				42219C8D1B4EDD5900B9AC0C /* FXCreature.m */,
 				42689A5C1B50010100AA44CE /* FXCreature+FXExtensions.h */,
@@ -1345,6 +1355,8 @@
 				42219C941B4EDD5900B9AC0C /* main.m in Sources */,
 				42219C951B4EDD5900B9AC0C /* FXCreatureTests.m in Sources */,
 				42689A5E1B50010100AA44CE /* FXCreature+FXExtensions.m in Sources */,
+				423A36331B52F72F00F4A557 /* FXCreatureMale.m in Sources */,
+				423A36371B52FF5300F4A557 /* FXCreatureFemale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

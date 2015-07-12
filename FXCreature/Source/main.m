@@ -14,6 +14,7 @@ int main(int argc, const char *argv[]) {
 	@autoreleasepool {
 		// insert code here...
 		NSLog(@"ObjC homework: FXCreature part 1");
+		NSLog(@"ObjC homework: FXCreature part 2");
 		
 		[FXCreatureTests doTest];
 	}

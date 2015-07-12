@@ -7,31 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-
+/*
 typedef enum {
 	kFXCreatureGenderUndefined,
 	kFXCreatureGenderMale,
 	kFXCreatureGenderFemale
 } FXCreatureGender;
-
+*/
 @interface FXCreature : NSObject
 @property (nonatomic, copy, readonly)	NSArray		*children;
 @property (nonatomic, copy, readonly)	NSString	*name;
 
 @property (nonatomic, assign)			float		weight;
 @property (nonatomic, assign)			uint32_t	age;
-@property (nonatomic, assign, readonly)	FXCreatureGender	gender;
+//@property (nonatomic, assign, readonly)	FXCreatureGender	gender;
 
-- (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender;
+//- (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender;
+- (id)initWithName:(NSString *)name age:(uint32_t)age;
 
 - (void)addChild:(FXCreature *)child;
 - (void)removeChild:(FXCreature *)child;
-
+/*
 // merge this to one method 'doMainJob'?
 - (void)goToBattle;
 - (FXCreature *)giveBirth;
+*/
+- (void)performGenderSpecificOperation;
 
 - (void)sayHello;
-- (NSString *)genderString;
+//- (NSString *)genderString;
 
 @end

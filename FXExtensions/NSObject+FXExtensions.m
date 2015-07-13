@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXCreature+FXExtensions.h"
+#import "NSObject+FXExtensions.h"
 
-@implementation FXCreature (FXExtensions)
-@dynamic className;
+@implementation NSObject (FXExtensions)
 
 #pragma mark -
 #pragma mark Class Methods
@@ -20,9 +19,5 @@
 
 #pragma mark -
 #pragma mark Class Accessors
-
-- (NSString *)className {
-	return NSStringFromClass([self class]);
-}
 
 @end

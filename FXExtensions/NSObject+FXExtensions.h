@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXCreature.h"
+#import <Foundation/Foundation.h>
 
-@interface FXCreature (FXExtensions)
-@property (nonatomic, retain, readonly)		NSString	*className;
+@interface NSObject (FXExtensions)
 
 + (id)object;
 

@@ -10,8 +10,10 @@
 
 @implementation FXCreatureMale
 
-- (void)performGenderSpecificOperation {
+- (id)performGenderSpecificOperation {
 	NSLog(@"I go to battle");
+	
+	return nil;
 }
 
 @end

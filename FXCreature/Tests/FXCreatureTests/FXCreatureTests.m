@@ -16,7 +16,7 @@
 + (void)doTest {
 	NSLog(@"do FXCreature test");
 	
-	NSMutableArray *arrayOfCreatures = [[NSMutableArray array] autorelease];
+	NSMutableArray *arrayOfCreatures = [NSMutableArray array];
 	
 //	FXCreature *charlieRoot = [[[FXCreature alloc] initWithName:@"Charlie Root" age:40 gender:kFXCreatureGenderMale] autorelease];
 //	[arrayOfCreatures addObject:charlieRoot];
@@ -59,7 +59,11 @@
 	for (FXCreature *creature in arrayOfCreatures) {
 		NSLog(@"%@", [creature description]);
 		
-		[creature performGenderSpecificOperation];
+		id child = [creature performGenderSpecificOperation];
+		if (nil != child) {
+			NSLog(@"%@", [child description]);
+			[child sayHello];
+		}
 //		[creature goToBattle];
 //		[creature giveBirth];
 		

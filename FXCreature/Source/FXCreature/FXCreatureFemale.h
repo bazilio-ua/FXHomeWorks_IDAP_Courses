@@ -10,6 +10,4 @@
 
 @interface FXCreatureFemale : FXCreature
 
-- (FXCreature *)performGenderSpecificOperation;
-
 @end

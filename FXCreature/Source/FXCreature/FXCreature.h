@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-/*
+
 typedef enum {
 	kFXCreatureGenderUndefined,
 	kFXCreatureGenderMale,
 	kFXCreatureGenderFemale
 } FXCreatureGender;
-*/
+
 @interface FXCreature : NSObject
 @property (nonatomic, copy, readonly)	NSArray		*children;
 @property (nonatomic, copy, readonly)	NSString	*name;
@@ -32,7 +32,7 @@ typedef enum {
 - (void)goToBattle;
 - (FXCreature *)giveBirth;
 */
-- (void)performGenderSpecificOperation;
+- (id)performGenderSpecificOperation;
 
 - (void)sayHello;
 //- (NSString *)genderString;

@@ -7,7 +7,7 @@
 //
 
 #import "FXCreature.h"
-#import "FXCreature+FXExtensions.h"
+#import "NSObject+FXExtensions.h"
 
 #pragma mark -
 #pragma mark Private Interface
@@ -96,8 +96,9 @@
 }
 */
 
-- (void)performGenderSpecificOperation {
+- (id)performGenderSpecificOperation {
 	// do nothing
+	return nil;
 }
 
 - (void)sayHello {
@@ -124,10 +125,11 @@
 	return string;
 }
 */
+/*
 - (NSString *)description {
 	return [NSString stringWithFormat:@"%@", [super description]];
 }
-
+*/
 #pragma mark -
 #pragma mark Public Accessors
 

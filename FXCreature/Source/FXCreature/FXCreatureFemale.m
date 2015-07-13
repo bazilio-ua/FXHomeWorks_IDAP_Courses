@@ -7,14 +7,23 @@
 //
 
 #import "FXCreatureFemale.h"
-#import "FXCreature+FXExtensions.h"
+#import "FXCreatureMale.h"
+#import "NSObject+FXExtensions.h"
 
 @implementation FXCreatureFemale
 
-- (FXCreature *)performGenderSpecificOperation {
+- (id)performGenderSpecificOperation {
 	NSLog(@"I gave birth");
 	
-	return [FXCreature object];
+	FXCreatureGender gender = (arc4random() % 2) + 1;
+/*	
+	if (kFXCreatureGenderMale == gender) {
+		return [FXCreatureMale object];
+	} else if (kFXCreatureGenderFemale == gender) {
+		return [FXCreatureFemale object];
+	}
+*/	
+	return (kFXCreatureGenderMale == gender) ? [FXCreatureMale object] : [FXCreatureFemale object];
 }
 
 @end

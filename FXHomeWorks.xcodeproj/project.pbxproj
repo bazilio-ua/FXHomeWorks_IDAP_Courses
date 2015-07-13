@@ -28,7 +28,6 @@
 		423A36371B52FF5300F4A557 /* FXCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 423A36361B52FF5300F4A557 /* FXCreatureFemale.m */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		42643CF61B2320EC00B90F83 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42643CF41B2320EC00B90F83 /* main.c */; };
-		42689A5E1B50010100AA44CE /* FXCreature+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42689A5D1B50010100AA44CE /* FXCreature+FXExtensions.m */; };
 		426948191AFAA34A00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948151AFAA33A00974906 /* main.c */; };
 		426948251AFAA3A900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948231AFAA3A900974906 /* main.c */; };
 		426948291AFAA3B900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948271AFAA3B900974906 /* main.c */; };
@@ -55,6 +54,7 @@
 		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
 		42A6B7B21AFFCFD3004D43C6 /* FXDataStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */; };
+		42BF825F1B543C6800129372 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */; };
 		42CDB5961B4982880055A42A /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
 		42CDB5981B49828B0055A42A /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		42CDB59A1B4983310055A42A /* FXLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC681B358D8600617635 /* FXLinkedList.c */; };
@@ -230,8 +230,6 @@
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
 		42643CE61B2320AF00B90F83 /* FXString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXString; sourceTree = BUILT_PRODUCTS_DIR; };
 		42643CF41B2320EC00B90F83 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		42689A5C1B50010100AA44CE /* FXCreature+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXCreature+FXExtensions.h"; sourceTree = "<group>"; };
-		42689A5D1B50010100AA44CE /* FXCreature+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FXCreature+FXExtensions.m"; sourceTree = "<group>"; };
 		426948151AFAA33A00974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		426948231AFAA3A900974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		426948271AFAA3B900974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -263,6 +261,8 @@
 		42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStructTests.c; sourceTree = "<group>"; };
 		42A6B7B11AFFCFD3004D43C6 /* FXDataStructTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataStructTests.h; sourceTree = "<group>"; };
 		42B4746B1AFAA1EB00AD71F0 /* Lection_4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_4; sourceTree = BUILT_PRODUCTS_DIR; };
+		42BF825D1B543C6800129372 /* NSObject+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FXExtensions.h"; sourceTree = "<group>"; };
+		42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXExtensions.m"; sourceTree = "<group>"; };
 		42CE1C1D1AFE45710092C406 /* FXParentOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXParentOutput.c; sourceTree = "<group>"; };
 		42CE1C1E1AFE45710092C406 /* FXParentOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXParentOutput.h; sourceTree = "<group>"; };
 		42CE1C211AFE45710092C406 /* FXSizeOfTypeOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSizeOfTypeOutput.h; sourceTree = "<group>"; };
@@ -493,8 +493,6 @@
 				423A36361B52FF5300F4A557 /* FXCreatureFemale.m */,
 				42219C8C1B4EDD5900B9AC0C /* FXCreature.h */,
 				42219C8D1B4EDD5900B9AC0C /* FXCreature.m */,
-				42689A5C1B50010100AA44CE /* FXCreature+FXExtensions.h */,
-				42689A5D1B50010100AA44CE /* FXCreature+FXExtensions.m */,
 			);
 			path = FXCreature;
 			sourceTree = "<group>";
@@ -519,6 +517,7 @@
 		42219C961B4EDDFC00B9AC0C /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				42BF825C1B543C6700129372 /* FXExtensions */,
 				42219C7F1B4EDCCC00B9AC0C /* FXCreature */,
 				42219C7C1B4EDCCC00B9AC0C /* Frameworks */,
 			);
@@ -893,6 +892,15 @@
 				426948161AFAA33A00974906 /* Tests */,
 			);
 			path = Lection_4;
+			sourceTree = "<group>";
+		};
+		42BF825C1B543C6700129372 /* FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42BF825D1B543C6800129372 /* NSObject+FXExtensions.h */,
+				42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */,
+			);
+			path = FXExtensions;
 			sourceTree = "<group>";
 		};
 		42CE1C1C1AFE45710092C406 /* FXParentOutput */ = {
@@ -1354,9 +1362,9 @@
 				42219C931B4EDD5900B9AC0C /* FXCreature.m in Sources */,
 				42219C941B4EDD5900B9AC0C /* main.m in Sources */,
 				42219C951B4EDD5900B9AC0C /* FXCreatureTests.m in Sources */,
-				42689A5E1B50010100AA44CE /* FXCreature+FXExtensions.m in Sources */,
 				423A36331B52F72F00F4A557 /* FXCreatureMale.m in Sources */,
 				423A36371B52FF5300F4A557 /* FXCreatureFemale.m in Sources */,
+				42BF825F1B543C6800129372 /* NSObject+FXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

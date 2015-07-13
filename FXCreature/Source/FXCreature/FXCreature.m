@@ -7,26 +7,28 @@
 //
 
 #import "FXCreature.h"
+#import "NSObject+FXExtensions.h"
 
 #pragma mark -
 #pragma mark Private Interface
 
 @interface FXCreature ()
-
 @property (nonatomic, copy)		NSString	*name;
 @property (nonatomic, retain)	NSMutableArray		*mutableChildren;
 
-@property (nonatomic, assign)	float		weight;
-@property (nonatomic, assign)	uint32_t	age;
-@property (nonatomic, assign)	FXCreatureGender	gender;
+//@property (nonatomic, assign)	FXCreatureGender	gender;
 
 @end
 
 @implementation FXCreature
-
+@synthesize name 	= _name;
 @synthesize mutableChildren = _mutableChildren;
 
-@dynamic children;//	= _children; // 'dynamic' don't generate setter/getter
+@synthesize weight 	= _weight;
+@synthesize age 	= _age;
+//@synthesize gender 	= _gender;
+
+@dynamic children; // 'dynamic' don't generate setter/getter
 
 #pragma mark -
 #pragma mark Class Methods
@@ -43,18 +45,19 @@
 }
 
 - (id)init {
-	return [self initWithName:@"Unnamed" age:0 gender:kFXCreatureGenderUndefined];
+//	return [self initWithName:@"Unnamed" age:0 gender:kFXCreatureGenderUndefined];
+	return [self initWithName:@"Unnamed" age:0];
 }
 
-- (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender {
+//- (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender {
+- (id)initWithName:(NSString *)name age:(uint32_t)age {
 	self = [super init]; // init superclass
 	
 	if (self) {
 		self.name = name;
-		self.mutableChildren = [[[NSMutableArray alloc] init] autorelease];
-		self.weight = 0.0f;
+		self.mutableChildren = [NSMutableArray array];
 		self.age = age;
-		self.gender = gender;
+//		self.gender = gender;
 	}
 	
 	return self;
@@ -68,45 +71,65 @@
 		[self.mutableChildren addObject:child];
 	}
 }
+
 - (void)removeChild:(FXCreature *)child {
 	if (nil != child) {
 		[self.mutableChildren removeObject:child];
 	}
 }
-
+/*
 // merge this to one method 'doMainJob'?
 - (void)goToBattle {
 	if (kFXCreatureGenderMale == self.gender) {
-		NSLog(@"I go to Battle");
+		NSLog(@"I go to battle");
 	}
 }
+
 - (FXCreature *)giveBirth {
 	if (kFXCreatureGenderFemale == self.gender) {
-		NSLog(@"I gave Birth");
+		NSLog(@"I gave birth");
 		
-		return [[self init] autorelease];
+		return [[[FXCreature alloc] init] autorelease];
 	}
 	
 	return nil;
 }
+*/
+
+- (id)performGenderSpecificOperation {
+	// do nothing
+	return nil;
+}
 
 - (void)sayHello {
-	NSString *genderString;
-	if (kFXCreatureGenderMale == self.gender) {
-		genderString = @"male";
-	} else if (kFXCreatureGenderFemale == self.gender) {
-		genderString = @"female";
-	} else {
-		genderString = @"undefined";
-	}
-	
-	NSLog(@"Hello, My name is: %@, I am %@", self.name, genderString);
+//	NSLog(@"Hello, My name is: %@, I am %@", self.name, [self genderString]);
+	NSLog(@"Hello, My name is: %@", self.name);
 	
 	for (FXCreature *children in self.mutableChildren) {
+		NSLog(@"I have child");
 		[children sayHello];
 	}
 }
-
+/*
+- (NSString *)genderString {
+	NSString *string;
+	FXCreatureGender gender = self.gender;
+	if (kFXCreatureGenderMale == gender) {
+		string = @"male";
+	} else if (kFXCreatureGenderFemale == gender) {
+		string = @"female";
+	} else {
+		string = @"undefined";
+	}
+	
+	return string;
+}
+*/
+/*
+- (NSString *)description {
+	return [NSString stringWithFormat:@"%@", [super description]];
+}
+*/
 #pragma mark -
 #pragma mark Public Accessors
 

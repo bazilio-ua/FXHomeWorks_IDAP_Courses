@@ -26,6 +26,8 @@
 		4239DA9F1B2343D40013986B /* FXStringTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA9E1B2343D40013986B /* FXStringTests.c */; };
 		423A36331B52F72F00F4A557 /* FXCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 423A36321B52F72F00F4A557 /* FXCreatureMale.m */; };
 		423A36371B52FF5300F4A557 /* FXCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 423A36361B52FF5300F4A557 /* FXCreatureFemale.m */; };
+		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
+		425448D01B559F830006EE8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425448CE1B559F830006EE8D /* main.m */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		42643CF61B2320EC00B90F83 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42643CF41B2320EC00B90F83 /* main.c */; };
 		426948191AFAA34A00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948151AFAA33A00974906 /* main.c */; };
@@ -121,6 +123,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		423715251B074733000A4877 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		425448BA1B559E8F0006EE8D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -225,6 +236,8 @@
 		423A36321B52F72F00F4A557 /* FXCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureMale.m; sourceTree = "<group>"; };
 		423A36351B52FF5300F4A557 /* FXCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureFemale.h; sourceTree = "<group>"; };
 		423A36361B52FF5300F4A557 /* FXCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureFemale.m; sourceTree = "<group>"; };
+		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
+		425448CE1B559F830006EE8D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42617EE21AFF49430019934C /* FXPrimitiveOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputType.h; sourceTree = "<group>"; };
 		42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXPrimitiveOutputTypeTests.c; sourceTree = "<group>"; };
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
@@ -329,6 +342,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		425448B91B559E8F0006EE8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42643CE31B2320AF00B90F83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,6 +445,7 @@
 				428980501B4442130057D669 /* FXAutoreleasingStack */,
 				42DB73F11B44ECBD0064BBAD /* FXAutoreleasePool */,
 				42219C7A1B4EDCCC00B9AC0C /* FXCreature */,
+				425448BC1B559E8F0006EE8D /* FXCarWash */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -517,9 +539,10 @@
 		42219C961B4EDDFC00B9AC0C /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				42219C7C1B4EDCCC00B9AC0C /* Frameworks */,
+				425448C11B559E8F0006EE8D /* FXCarWash */,
 				42BF825C1B543C6700129372 /* FXExtensions */,
 				42219C7F1B4EDCCC00B9AC0C /* FXCreature */,
-				42219C7C1B4EDCCC00B9AC0C /* Frameworks */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -603,6 +626,30 @@
 				4239DAA01B2343E80013986B /* FXStringTests.h */,
 			);
 			path = FXStringTests;
+			sourceTree = "<group>";
+		};
+		425448C11B559E8F0006EE8D /* FXCarWash */ = {
+			isa = PBXGroup;
+			children = (
+				425448CD1B559F830006EE8D /* Source */,
+				425448CF1B559F830006EE8D /* Tests */,
+			);
+			path = FXCarWash;
+			sourceTree = "<group>";
+		};
+		425448CD1B559F830006EE8D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				425448CE1B559F830006EE8D /* main.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		425448CF1B559F830006EE8D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		42617EE01AFF49430019934C /* FXPrimitiveOutputType */ = {
@@ -1164,6 +1211,23 @@
 			productReference = 423715271B074733000A4877 /* FXObjects */;
 			productType = "com.apple.product-type.tool";
 		};
+		425448BB1B559E8F0006EE8D /* FXCarWash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 425448CA1B559E8F0006EE8D /* Build configuration list for PBXNativeTarget "FXCarWash" */;
+			buildPhases = (
+				425448B81B559E8F0006EE8D /* Sources */,
+				425448B91B559E8F0006EE8D /* Frameworks */,
+				425448BA1B559E8F0006EE8D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXCarWash;
+			productName = FXCarWash;
+			productReference = 425448BC1B559E8F0006EE8D /* FXCarWash */;
+			productType = "com.apple.product-type.tool";
+		};
 		42643CE51B2320AF00B90F83 /* FXString */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42643CEF1B2320AF00B90F83 /* Build configuration list for PBXNativeTarget "FXString" */;
@@ -1315,6 +1379,7 @@
 				4289804F1B4442130057D669 /* FXAutoreleasingStack */,
 				42DB73F01B44ECBD0064BBAD /* FXAutoreleasePool */,
 				42219C791B4EDCCC00B9AC0C /* FXCreature */,
+				425448BB1B559E8F0006EE8D /* FXCarWash */,
 			);
 		};
 /* End PBXProject section */
@@ -1377,6 +1442,14 @@
 				4237153C1B0753AA000A4877 /* FXObjectTests.c in Sources */,
 				4237153E1B07568E000A4877 /* FXTestsMacro.c in Sources */,
 				420E32C31B2198060037B6CA /* FXObjectAccessors.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425448B81B559E8F0006EE8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425448D01B559F830006EE8D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1608,6 +1681,26 @@
 			};
 			name = Release;
 		};
+		425448C81B559E8F0006EE8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		425448C91B559E8F0006EE8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		42643CED1B2320AF00B90F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1762,6 +1855,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		425448CA1B559E8F0006EE8D /* Build configuration list for PBXNativeTarget "FXCarWash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				425448C81B559E8F0006EE8D /* Debug */,
+				425448C91B559E8F0006EE8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		42643CEF1B2320AF00B90F83 /* Build configuration list for PBXNativeTarget "FXString" */ = {
 			isa = XCConfigurationList;

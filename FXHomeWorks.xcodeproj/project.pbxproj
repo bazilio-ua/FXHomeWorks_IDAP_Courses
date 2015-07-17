@@ -30,6 +30,10 @@
 		425448D01B559F830006EE8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425448CE1B559F830006EE8D /* main.m */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		42643CF61B2320EC00B90F83 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42643CF41B2320EC00B90F83 /* main.c */; };
+		4266D04E1B5933A600693450 /* FXBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D04D1B5933A600693450 /* FXBuilding.m */; };
+		4266D0511B5933BB00693450 /* FXCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0501B5933BB00693450 /* FXCar.m */; };
+		4266D0541B5933DF00693450 /* FXHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0531B5933DF00693450 /* FXHuman.m */; };
+		4266D0571B5933F600693450 /* FXRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0561B5933F600693450 /* FXRoom.m */; };
 		426948191AFAA34A00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948151AFAA33A00974906 /* main.c */; };
 		426948251AFAA3A900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948231AFAA3A900974906 /* main.c */; };
 		426948291AFAA3B900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948271AFAA3B900974906 /* main.c */; };
@@ -243,6 +247,14 @@
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
 		42643CE61B2320AF00B90F83 /* FXString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXString; sourceTree = BUILT_PRODUCTS_DIR; };
 		42643CF41B2320EC00B90F83 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		4266D04C1B5933A600693450 /* FXBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBuilding.h; sourceTree = "<group>"; };
+		4266D04D1B5933A600693450 /* FXBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBuilding.m; sourceTree = "<group>"; };
+		4266D04F1B5933BB00693450 /* FXCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCar.h; sourceTree = "<group>"; };
+		4266D0501B5933BB00693450 /* FXCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCar.m; sourceTree = "<group>"; };
+		4266D0521B5933DF00693450 /* FXHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHuman.h; sourceTree = "<group>"; };
+		4266D0531B5933DF00693450 /* FXHuman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXHuman.m; sourceTree = "<group>"; };
+		4266D0551B5933F600693450 /* FXRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXRoom.h; sourceTree = "<group>"; };
+		4266D0561B5933F600693450 /* FXRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXRoom.m; sourceTree = "<group>"; };
 		426948151AFAA33A00974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		426948231AFAA3A900974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		426948271AFAA3B900974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -640,6 +652,10 @@
 		425448CD1B559F830006EE8D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4266D0481B59336400693450 /* FXBuilding */,
+				4266D0491B59336400693450 /* FXCar */,
+				4266D04A1B59336400693450 /* FXHuman */,
+				4266D04B1B59336400693450 /* FXRoom */,
 				425448CE1B559F830006EE8D /* main.m */,
 			);
 			path = Source;
@@ -702,6 +718,42 @@
 				4239DA9D1B2343BA0013986B /* FXStringTests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		4266D0481B59336400693450 /* FXBuilding */ = {
+			isa = PBXGroup;
+			children = (
+				4266D04C1B5933A600693450 /* FXBuilding.h */,
+				4266D04D1B5933A600693450 /* FXBuilding.m */,
+			);
+			path = FXBuilding;
+			sourceTree = "<group>";
+		};
+		4266D0491B59336400693450 /* FXCar */ = {
+			isa = PBXGroup;
+			children = (
+				4266D04F1B5933BB00693450 /* FXCar.h */,
+				4266D0501B5933BB00693450 /* FXCar.m */,
+			);
+			path = FXCar;
+			sourceTree = "<group>";
+		};
+		4266D04A1B59336400693450 /* FXHuman */ = {
+			isa = PBXGroup;
+			children = (
+				4266D0521B5933DF00693450 /* FXHuman.h */,
+				4266D0531B5933DF00693450 /* FXHuman.m */,
+			);
+			path = FXHuman;
+			sourceTree = "<group>";
+		};
+		4266D04B1B59336400693450 /* FXRoom */ = {
+			isa = PBXGroup;
+			children = (
+				4266D0551B5933F600693450 /* FXRoom.h */,
+				4266D0561B5933F600693450 /* FXRoom.m */,
+			);
+			path = FXRoom;
 			sourceTree = "<group>";
 		};
 		426948141AFAA33A00974906 /* Source */ = {
@@ -1450,6 +1502,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				425448D01B559F830006EE8D /* main.m in Sources */,
+				4266D04E1B5933A600693450 /* FXBuilding.m in Sources */,
+				4266D0511B5933BB00693450 /* FXCar.m in Sources */,
+				4266D0541B5933DF00693450 /* FXHuman.m in Sources */,
+				4266D0571B5933F600693450 /* FXRoom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1863,6 +1919,7 @@
 				425448C91B559E8F0006EE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42643CEF1B2320AF00B90F83 /* Build configuration list for PBXNativeTarget "FXString" */ = {
 			isa = XCConfigurationList;

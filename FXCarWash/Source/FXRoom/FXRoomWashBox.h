@@ -9,5 +9,9 @@
 #import "FXRoom.h"
 
 @interface FXRoomWashBox : FXRoom
+@property (nonatomic, retain) NSMutableArray *cars;
+
+- (void)addCar:(id)car;
+- (void)removeCar:(id)car;
 
 @end

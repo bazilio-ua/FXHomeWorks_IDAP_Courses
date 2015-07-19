@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface FXEmployee : NSObject
+@property (nonatomic, assign)	uint64_t	experience;
+@property (nonatomic, assign)	uint32_t	salary;
+
+- (id)initWithExperience:(uint64_t)experience salary:(uint32_t)salary;
+
+- (id)performEmployeeSpecificJob;
 
 @end

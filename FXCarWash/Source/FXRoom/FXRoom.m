@@ -35,6 +35,9 @@
 	return self;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 - (void)addEmployee:(id)employee {
 	if (nil != employee) {
 		[self.employees addObject:employee];

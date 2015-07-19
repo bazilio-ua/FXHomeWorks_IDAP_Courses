@@ -32,7 +32,6 @@
 		42643CF61B2320EC00B90F83 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42643CF41B2320EC00B90F83 /* main.c */; };
 		4266D04E1B5933A600693450 /* FXBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D04D1B5933A600693450 /* FXBuilding.m */; };
 		4266D0511B5933BB00693450 /* FXCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0501B5933BB00693450 /* FXCar.m */; };
-		4266D0541B5933DF00693450 /* FXHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0531B5933DF00693450 /* FXHuman.m */; };
 		4266D0571B5933F600693450 /* FXRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0561B5933F600693450 /* FXRoom.m */; };
 		426948191AFAA34A00974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948151AFAA33A00974906 /* main.c */; };
 		426948251AFAA3A900974906 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426948231AFAA3A900974906 /* main.c */; };
@@ -58,6 +57,7 @@
 		4289806E1B445D1A0057D669 /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		4290DD281B344B180029D187 /* FXString.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA8D1B23221B0013986B /* FXString.c */; };
 		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
+		429E5A041B5BBA0700A9B887 /* FXEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A031B5BBA0700A9B887 /* FXEmployee.m */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
 		42A6B7B21AFFCFD3004D43C6 /* FXDataStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */; };
 		42BF825F1B543C6800129372 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */; };
@@ -251,8 +251,6 @@
 		4266D04D1B5933A600693450 /* FXBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBuilding.m; sourceTree = "<group>"; };
 		4266D04F1B5933BB00693450 /* FXCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCar.h; sourceTree = "<group>"; };
 		4266D0501B5933BB00693450 /* FXCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCar.m; sourceTree = "<group>"; };
-		4266D0521B5933DF00693450 /* FXHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHuman.h; sourceTree = "<group>"; };
-		4266D0531B5933DF00693450 /* FXHuman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXHuman.m; sourceTree = "<group>"; };
 		4266D0551B5933F600693450 /* FXRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXRoom.h; sourceTree = "<group>"; };
 		4266D0561B5933F600693450 /* FXRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXRoom.m; sourceTree = "<group>"; };
 		426948151AFAA33A00974906 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -281,6 +279,8 @@
 		428980661B44434E0057D669 /* FXAutoreleasingStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasingStack.h; sourceTree = "<group>"; };
 		429172BA1B0E609100FB9860 /* FXHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHumanTests.c; sourceTree = "<group>"; };
 		429172BC1B0E609F00FB9860 /* FXHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXHumanTests.h; sourceTree = "<group>"; };
+		429E5A021B5BBA0700A9B887 /* FXEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployee.h; sourceTree = "<group>"; };
+		429E5A031B5BBA0700A9B887 /* FXEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployee.m; sourceTree = "<group>"; };
 		42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStruct.c; sourceTree = "<group>"; };
 		42A6B7AA1AFFC980004D43C6 /* FXDataStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataStruct.h; sourceTree = "<group>"; };
 		42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStructTests.c; sourceTree = "<group>"; };
@@ -653,9 +653,9 @@
 			isa = PBXGroup;
 			children = (
 				4266D0481B59336400693450 /* FXBuilding */,
-				4266D0491B59336400693450 /* FXCar */,
-				4266D04A1B59336400693450 /* FXHuman */,
 				4266D04B1B59336400693450 /* FXRoom */,
+				4266D0491B59336400693450 /* FXCar */,
+				429E5A011B5BBA0700A9B887 /* FXEmployee */,
 				425448CE1B559F830006EE8D /* main.m */,
 			);
 			path = Source;
@@ -736,15 +736,6 @@
 				4266D0501B5933BB00693450 /* FXCar.m */,
 			);
 			path = FXCar;
-			sourceTree = "<group>";
-		};
-		4266D04A1B59336400693450 /* FXHuman */ = {
-			isa = PBXGroup;
-			children = (
-				4266D0521B5933DF00693450 /* FXHuman.h */,
-				4266D0531B5933DF00693450 /* FXHuman.m */,
-			);
-			path = FXHuman;
 			sourceTree = "<group>";
 		};
 		4266D04B1B59336400693450 /* FXRoom */ = {
@@ -964,6 +955,16 @@
 				429172BC1B0E609F00FB9860 /* FXHumanTests.h */,
 			);
 			path = FXHumanTests;
+			sourceTree = "<group>";
+		};
+		429E5A011B5BBA0700A9B887 /* FXEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				429E5A021B5BBA0700A9B887 /* FXEmployee.h */,
+				429E5A031B5BBA0700A9B887 /* FXEmployee.m */,
+			);
+			name = FXEmployee;
+			path = FXCar/FXEmployee;
 			sourceTree = "<group>";
 		};
 		42A6B7A81AFFC980004D43C6 /* FXDataStruct */ = {
@@ -1504,8 +1505,8 @@
 				425448D01B559F830006EE8D /* main.m in Sources */,
 				4266D04E1B5933A600693450 /* FXBuilding.m in Sources */,
 				4266D0511B5933BB00693450 /* FXCar.m in Sources */,
-				4266D0541B5933DF00693450 /* FXHuman.m in Sources */,
 				4266D0571B5933F600693450 /* FXRoom.m in Sources */,
+				429E5A041B5BBA0700A9B887 /* FXEmployee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

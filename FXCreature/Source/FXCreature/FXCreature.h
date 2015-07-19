@@ -25,8 +25,11 @@ typedef enum {
 //- (id)initWithName:(NSString *)name age:(uint32_t)age gender:(FXCreatureGender)gender;
 - (id)initWithName:(NSString *)name age:(uint32_t)age;
 
-- (void)addChild:(FXCreature *)child;
-- (void)removeChild:(FXCreature *)child;
+//- (void)addChild:(FXCreature *)child;
+//- (void)removeChild:(FXCreature *)child;
+- (void)addChild:(id)child;
+- (void)removeChild:(id)child;
+
 /*
 // merge this to one method 'doMainJob'?
 - (void)goToBattle;

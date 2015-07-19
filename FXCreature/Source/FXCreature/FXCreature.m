@@ -66,13 +66,15 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)addChild:(FXCreature *)child {
+//- (void)addChild:(FXCreature *)child {
+- (void)addChild:(id)child {
 	if (nil != child) {
 		[self.mutableChildren addObject:child];
 	}
 }
 
-- (void)removeChild:(FXCreature *)child {
+//- (void)removeChild:(FXCreature *)child {
+- (void)removeChild:(id)child {
 	if (nil != child) {
 		[self.mutableChildren removeObject:child];
 	}

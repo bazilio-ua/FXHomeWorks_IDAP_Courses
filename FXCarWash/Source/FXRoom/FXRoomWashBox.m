@@ -9,7 +9,8 @@
 #import "FXRoomWashBox.h"
 
 @implementation FXRoomWashBox
-@synthesize cars = _cars;
+@synthesize cars 	= _cars;
+@synthesize freebox = _freebox;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -42,6 +43,14 @@
 
 - (void)removeCar:(id)car {
 	[self.cars removeObject:car];
+}
+
+- (BOOL)isFreeBox {
+	if (0 == [self.cars count]) {
+		return YES;
+	}
+	
+	return NO;
 }
 
 @end

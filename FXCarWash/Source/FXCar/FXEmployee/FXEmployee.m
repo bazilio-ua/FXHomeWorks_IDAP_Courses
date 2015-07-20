@@ -36,6 +36,9 @@
 	return self;
 }
 
+#pragma mark -
+#pragma mark Public
+
 - (id)performEmployeeSpecificJob {
 	return nil;
 }

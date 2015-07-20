@@ -12,4 +12,7 @@
 @property (nonatomic, assign)						float	money;
 @property (nonatomic, assign, getter = isClean)		BOOL	clean;
 
+- (id)initWithMoney:(float)money;
+- (BOOL)doPayOff:(float)pay;
+
 @end

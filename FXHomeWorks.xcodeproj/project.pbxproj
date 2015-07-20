@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420D08EC1B5CBBF4007698DA /* FXWorkFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D08EB1B5CBBF4007698DA /* FXWorkFlow.m */; };
 		420E32C31B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
@@ -214,6 +215,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		420D08EA1B5CBBF4007698DA /* FXWorkFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWorkFlow.h; sourceTree = "<group>"; };
+		420D08EB1B5CBBF4007698DA /* FXWorkFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWorkFlow.m; sourceTree = "<group>"; };
 		420E32C21B2198060037B6CA /* FXObjectAccessors.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXObjectAccessors.c; sourceTree = "<group>"; };
 		420E32C61B2198210037B6CA /* FXObjectAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObjectAccessors.h; sourceTree = "<group>"; };
 		4214E8F11AFA9BF100D0E018 /* Lection_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_1; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +248,7 @@
 		423A36351B52FF5300F4A557 /* FXCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureFemale.h; sourceTree = "<group>"; };
 		423A36361B52FF5300F4A557 /* FXCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureFemale.m; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
-		425448CE1B559F830006EE8D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		425448CE1B559F830006EE8D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = "<group>"; };
 		42617EE21AFF49430019934C /* FXPrimitiveOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputType.h; sourceTree = "<group>"; };
 		42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXPrimitiveOutputTypeTests.c; sourceTree = "<group>"; };
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
@@ -443,6 +446,16 @@
 				42DB73F31B44ECBD0064BBAD /* FXAutoreleasePool */,
 			);
 			name = C;
+			sourceTree = "<group>";
+		};
+		420D08E81B5CBB68007698DA /* FXWorkFlow */ = {
+			isa = PBXGroup;
+			children = (
+				420D08EA1B5CBBF4007698DA /* FXWorkFlow.h */,
+				420D08EB1B5CBBF4007698DA /* FXWorkFlow.m */,
+			);
+			name = FXWorkFlow;
+			path = FXCar/FXEmployee/FXWorkFlow;
 			sourceTree = "<group>";
 		};
 		4214E8E61AFA9BF000D0E018 = {
@@ -656,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				425448CD1B559F830006EE8D /* Source */,
+				425448CE1B559F830006EE8D /* main.m */,
 				425448CF1B559F830006EE8D /* Tests */,
 			);
 			path = FXCarWash;
@@ -668,7 +682,7 @@
 				4266D04B1B59336400693450 /* FXRoom */,
 				4266D0491B59336400693450 /* FXCar */,
 				429E5A011B5BBA0700A9B887 /* FXEmployee */,
-				425448CE1B559F830006EE8D /* main.m */,
+				420D08E81B5CBB68007698DA /* FXWorkFlow */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1531,6 +1545,7 @@
 				429E5A141B5BC58600A9B887 /* FXEmployeeDirector.m in Sources */,
 				429E5A171B5BC5B200A9B887 /* FXEmployeeAccountant.m in Sources */,
 				429E5A1A1B5BC5F500A9B887 /* FXEmployeeWasher.m in Sources */,
+				420D08EC1B5CBBF4007698DA /* FXWorkFlow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,8 @@
 
 @implementation FXEmployeeWasher
 
+- (id)performEmployeeSpecificJob {
+	return nil;
+}
+
 @end

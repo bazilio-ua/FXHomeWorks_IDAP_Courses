@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FXCar : NSObject
+@property (nonatomic, assign)						float	money;
+@property (nonatomic, assign, getter = isClean)		BOOL	clean;
 
 @end

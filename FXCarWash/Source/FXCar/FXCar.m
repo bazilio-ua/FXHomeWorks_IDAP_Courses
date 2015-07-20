@@ -9,5 +9,7 @@
 #import "FXCar.h"
 
 @implementation FXCar
+@synthesize money 	= _money;
+@synthesize clean 	= _clean;
 
 @end

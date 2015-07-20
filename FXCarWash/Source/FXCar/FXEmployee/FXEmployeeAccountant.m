@@ -10,4 +10,8 @@
 
 @implementation FXEmployeeAccountant
 
+- (id)performEmployeeSpecificJob {
+	return nil;
+}
+
 @end

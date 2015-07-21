@@ -11,7 +11,6 @@
 @interface FXBuilding : NSObject
 @property (nonatomic, retain) NSMutableArray *rooms;
 
-- (id)initWithRooms:(NSArray *)rooms;
 - (void)addRoom:(id)room;
 - (void)removeRoom:(id)room;
 

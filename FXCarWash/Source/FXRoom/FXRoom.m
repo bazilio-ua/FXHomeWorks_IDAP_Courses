@@ -9,7 +9,8 @@
 #import "FXRoom.h"
 
 @implementation FXRoom
-@synthesize employees = _employees;
+@synthesize employees			= _employees;
+@synthesize employeeCapacity	= _employeeCapacity;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -22,21 +23,17 @@
 }
 
 - (id)init {
-	return [self initWithEmployees:nil];
-}
-
-- (id)initWithEmployees:(NSArray *)employees {
 	self = [super init]; // init superclass
 	
 	if (self) {
-		self.employees = [[NSMutableArray alloc] initWithArray:employees]; // or use employees mutableCopy?
+		self.employees = [NSMutableArray array];
 	}
 	
 	return self;
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
 - (void)addEmployee:(id)employee {
 	if (nil != employee) {

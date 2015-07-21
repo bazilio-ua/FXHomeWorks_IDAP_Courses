@@ -25,7 +25,7 @@
 	return [self initWithMoney:0];
 }
 
-- (id)initWithMoney:(float)money {
+- (id)initWithMoney:(NSInteger)money {
 	self = [super init]; // init superclass
 	
 	if (self) {
@@ -37,10 +37,10 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
-- (BOOL)doPayOff:(float)pay {
-	float money = self.money;
+- (BOOL)doPayOff:(NSInteger)pay { // TODO: with protocol moneyFlow
+	NSInteger money = self.money;
 	if ((money - pay) < 0) {
 		NSLog(@"not enough cash to payoff");
 		

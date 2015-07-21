@@ -10,9 +10,10 @@
 
 @interface FXEmployee : NSObject
 @property (nonatomic, assign)	uint64_t	experience;
-@property (nonatomic, assign)	float		salary;
+@property (nonatomic, assign)	NSInteger	salary;
 
-- (id)initWithExperience:(uint64_t)experience salary:(float)salary;
+- (id)initWithExperience:(uint64_t)experience 
+				  salary:(NSInteger)salary;
 
 - (id)performEmployeeSpecificJob;
 

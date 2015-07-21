@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface FXCar : NSObject
-@property (nonatomic, assign)						float	money;
-@property (nonatomic, assign, getter = isClean)		BOOL	clean;
+@property (nonatomic, assign)					NSInteger	money;
+@property (nonatomic, assign, getter = isClean)	BOOL		clean;
 
-- (id)initWithMoney:(float)money;
-- (BOOL)doPayOff:(float)pay;
+- (id)initWithMoney:(NSInteger)money;
+- (BOOL)doPayOff:(NSInteger)pay;
 
 @end

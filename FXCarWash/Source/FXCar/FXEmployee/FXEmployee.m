@@ -25,7 +25,9 @@
 	return [self initWithExperience:0 salary:0];
 }
 
-- (id)initWithExperience:(uint64_t)experience salary:(float)salary {
+- (id)initWithExperience:(uint64_t)experience 
+				  salary:(NSInteger)salary 
+{
 	self = [super init]; // init superclass
 	
 	if (self) {

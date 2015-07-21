@@ -9,8 +9,9 @@
 #import "FXWashBox.h"
 
 @implementation FXWashBox
-@synthesize cars 	= _cars;
-@synthesize empty	= _empty;
+@synthesize cars			= _cars;
+@synthesize carsCapacity	= _carsCapacity;
+@synthesize empty			= _empty;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -33,7 +34,7 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
 - (void)addCar:(id)car {
 	if (nil != car) {
@@ -44,6 +45,9 @@
 - (void)removeCar:(id)car {
 	[self.cars removeObject:car];
 }
+
+#pragma mark -
+#pragma mark Public Accessors
 
 - (BOOL)isEmpty {
 	if (0 == [self.cars count]) {

@@ -15,7 +15,6 @@
 @interface FXCreature ()
 @property (nonatomic, copy)		NSString	*name;
 @property (nonatomic, retain)	NSMutableArray		*mutableChildren;
-
 //@property (nonatomic, assign)	FXCreatureGender	gender;
 
 @end
@@ -32,6 +31,8 @@
 
 #pragma mark -
 #pragma mark Class Methods
+
+// currently is no class methods
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -64,7 +65,7 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
 //- (void)addChild:(FXCreature *)child {
 - (void)addChild:(id)child {

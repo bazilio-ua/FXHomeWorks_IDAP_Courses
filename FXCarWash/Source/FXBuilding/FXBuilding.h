@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//@class FXRoom;
-
 @interface FXBuilding : NSObject
 @property (nonatomic, retain) NSMutableArray *rooms;
 

@@ -1,16 +1,16 @@
 //
-//  FXRoomWashBox.m
+//  FXWashBox.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/19/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXRoomWashBox.h"
+#import "FXWashBox.h"
 
-@implementation FXRoomWashBox
+@implementation FXWashBox
 @synthesize cars 	= _cars;
-@synthesize freebox = _freebox;
+@synthesize empty	= _empty;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -45,7 +45,7 @@
 	[self.cars removeObject:car];
 }
 
-- (BOOL)isFreeBox {
+- (BOOL)isEmpty {
 	if (0 == [self.cars count]) {
 		return YES;
 	}

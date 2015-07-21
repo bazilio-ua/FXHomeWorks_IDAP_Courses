@@ -1,5 +1,5 @@
 //
-//  FXRoomWashBox.h
+//  FXWashBox.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/19/15.
@@ -8,12 +8,12 @@
 
 #import "FXRoom.h"
 
-@interface FXRoomWashBox : FXRoom
-@property (nonatomic, retain) 						NSMutableArray	*cars;
-@property (nonatomic, assign, getter = isFreeBox)	BOOL			freebox;
+@interface FXWashBox : FXRoom
+@property (nonatomic, retain) 							NSMutableArray	*cars;
+@property (nonatomic, assign /*, getter = isEmpty*/)	BOOL			empty;
 
 - (void)addCar:(id)car;
 - (void)removeCar:(id)car;
-- (BOOL)isFreeBox;
+- (BOOL)isEmpty;
 
 @end

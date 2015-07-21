@@ -8,14 +8,14 @@
 
 #import "FXBuilding.h"
 
-//#pragma mark -
-//#pragma mark Private Interface
+#pragma mark -
+#pragma mark Private Interface
 
 @implementation FXBuilding
 @synthesize rooms = _rooms;
 
-//#pragma mark -
-//#pragma mark Class Methods
+#pragma mark -
+#pragma mark Class Methods
 
 #pragma mark -
 #pragma mark Initializations and Deallocations

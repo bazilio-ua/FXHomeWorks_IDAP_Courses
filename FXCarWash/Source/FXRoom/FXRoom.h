@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//@class FXEmployee;
-
 @interface FXRoom : NSObject
 @property (nonatomic, retain) NSMutableArray *employees;
 

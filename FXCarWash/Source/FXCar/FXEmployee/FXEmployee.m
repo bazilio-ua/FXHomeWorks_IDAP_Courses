@@ -11,6 +11,7 @@
 @implementation FXEmployee
 @synthesize experience	= _experience;
 @synthesize	salary 		= _salary;
+@synthesize wallet		= _wallet;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations

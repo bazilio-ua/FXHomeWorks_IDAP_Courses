@@ -10,6 +10,7 @@
 
 @implementation FXCar
 @synthesize money 	= _money;
+@synthesize wallet	= _wallet;
 @synthesize clean 	= _clean;
 
 #pragma mark -

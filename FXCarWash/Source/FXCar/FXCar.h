@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXCar : NSObject
+#import "FXMoneyFlow.h"
+
+@interface FXCar : NSObject <FXMoneyFlow>
 @property (nonatomic, assign)					NSInteger	money;
 @property (nonatomic, assign, getter = isClean)	BOOL		clean;
 

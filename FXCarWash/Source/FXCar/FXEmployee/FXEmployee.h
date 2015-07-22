@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXEmployee : NSObject
+#import "FXMoneyFlow.h"
+
+@interface FXEmployee : NSObject <FXMoneyFlow>
 @property (nonatomic, assign)	uint64_t	experience;
 @property (nonatomic, assign)	NSInteger	salary;
 

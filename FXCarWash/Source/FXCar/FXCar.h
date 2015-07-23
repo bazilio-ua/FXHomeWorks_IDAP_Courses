@@ -14,7 +14,6 @@
 @property (nonatomic, assign)					NSInteger	money;
 @property (nonatomic, assign, getter = isClean)	BOOL		clean;
 
-- (id)initWithMoney:(NSInteger)money;
-- (BOOL)doPayOff:(NSInteger)pay;
++ (id)car;
 
 @end

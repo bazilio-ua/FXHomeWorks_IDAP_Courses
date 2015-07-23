@@ -1,5 +1,5 @@
 //
-//  FXHuman.h
+//  FXEmployee.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/17/15.
@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXHuman : NSObject
+#import "FXMoneyFlow.h"
+
+@interface FXEmployee : NSObject <FXMoneyFlow>
+@property (nonatomic, assign)	NSInteger	wallet;
+
++ (id)employee;
+
+- (id)performEmployeeSpecificJob;
 
 @end

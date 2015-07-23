@@ -10,6 +10,9 @@
 
 @implementation FXAccountant
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (id)performEmployeeSpecificJob {
 	return nil;
 }

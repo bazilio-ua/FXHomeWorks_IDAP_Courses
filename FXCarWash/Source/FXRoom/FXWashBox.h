@@ -13,9 +13,6 @@
 @property (nonatomic, assign)					NSUInteger	carsCapacity;
 @property (nonatomic, assign, getter = isFull)	BOOL		full;
 
-+ (id)washBox;
-
-//- (BOOL)isFull; // not necessary
 - (void)addCar:(id)car;
 - (void)removeCar:(id)car;
 

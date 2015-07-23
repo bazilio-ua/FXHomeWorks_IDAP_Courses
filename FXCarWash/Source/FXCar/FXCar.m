@@ -10,8 +10,14 @@
 
 @implementation FXCar
 @synthesize money 	= _money;
-@synthesize wallet	= _wallet;
 @synthesize clean 	= _clean;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (id)car {
+	return [[[self alloc] init] autorelease];
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -23,14 +29,10 @@
 }
 
 - (id)init {
-	return [self initWithMoney:0];
-}
-
-- (id)initWithMoney:(NSInteger)money {
 	self = [super init]; // init superclass
 	
 	if (self) {
-		self.money = money;
+		self.money = 0;
 		self.clean = NO;
 	}
 	

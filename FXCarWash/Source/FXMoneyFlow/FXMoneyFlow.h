@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol FXMoneyFlow <NSObject>
-@property (nonatomic, assign) NSInteger wallet;
 
 @optional
 - (BOOL)ableToPayMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer;

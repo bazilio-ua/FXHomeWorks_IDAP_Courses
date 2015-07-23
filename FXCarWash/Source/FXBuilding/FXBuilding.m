@@ -59,7 +59,10 @@
 
 - (void)addRoom:(id)room {
 	if (nil != room) {
-		[self.mutableRooms addObject:room];
+		NSMutableArray *rooms = self.mutableRooms;
+		if (NO == [rooms containsObject:room]) {
+			[rooms addObject:room];
+		}
 	}
 }
 

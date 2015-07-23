@@ -8,15 +8,31 @@
 
 #import "FXBuilding.h"
 
+#pragma mark -
+#pragma mark Private Interface
+
+@interface FXBuilding ()
+@property (nonatomic, retain) NSMutableArray *mutableRooms;
+
+@end
+
 @implementation FXBuilding
-@synthesize rooms = _rooms;
+@synthesize mutableRooms = _mutableRooms;
+@dynamic rooms;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (id)building {
+	return [[[self alloc] init] autorelease];
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.rooms = nil;
+	self.mutableRooms = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -25,10 +41,17 @@
 	self = [super init]; // init superclass
 	
 	if (self) {
-		self.rooms = [NSMutableArray array];
+		self.mutableRooms = [NSMutableArray array];
 	}
 	
 	return self;
+}
+
+#pragma mark -
+#pragma mark Public Accessors
+
+- (NSArray *)rooms {
+	return [[self.mutableRooms copy] autorelease];
 }
 
 #pragma mark -
@@ -36,12 +59,12 @@
 
 - (void)addRoom:(id)room {
 	if (nil != room) {
-		[self.rooms addObject:room];
+		[self.mutableRooms addObject:room];
 	}
 }
 
 - (void)removeRoom:(id)room {
-	[self.rooms removeObject:room];
+	[self.mutableRooms removeObject:room];
 }
 
 @end

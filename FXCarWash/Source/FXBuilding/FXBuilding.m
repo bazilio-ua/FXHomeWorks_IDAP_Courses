@@ -18,6 +18,7 @@
 
 @implementation FXBuilding
 @synthesize mutableRooms = _mutableRooms;
+
 @dynamic rooms;
 
 #pragma mark -

@@ -44,4 +44,7 @@
 	return nil;
 }
 
+#pragma mark -
+#pragma mark FXMoneyFlow Protocol
+
 @end

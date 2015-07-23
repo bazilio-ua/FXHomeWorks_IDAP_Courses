@@ -11,6 +11,7 @@
 @implementation FXCar
 @synthesize money 	= _money;
 @synthesize clean 	= _clean;
+//@synthesize wallet		= _wallet; //temp
 
 #pragma mark -
 #pragma mark Class Methods
@@ -54,5 +55,8 @@
 	
 	return YES;
 }
+
+#pragma mark -
+#pragma mark FXMoneyFlow Protocol
 
 @end

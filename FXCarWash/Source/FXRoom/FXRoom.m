@@ -19,6 +19,7 @@
 @implementation FXRoom
 @synthesize mutableEmployees	= _mutableEmployees;
 @synthesize employeeCapacity	= _employeeCapacity;
+
 @dynamic employees;
 
 #pragma mark -

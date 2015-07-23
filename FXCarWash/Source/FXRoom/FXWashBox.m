@@ -20,6 +20,7 @@
 @synthesize mutableCars		= _mutableCars;
 @synthesize carsCapacity	= _carsCapacity;
 @synthesize full			= _full;
+
 @dynamic cars;
 
 #pragma mark -

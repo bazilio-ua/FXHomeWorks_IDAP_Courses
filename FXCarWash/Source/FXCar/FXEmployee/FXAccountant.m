@@ -1,14 +1,14 @@
 //
-//  FXEmployeeDirector.m
+//  FXAccountant.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/19/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXEmployeeDirector.h"
+#import "FXAccountant.h"
 
-@implementation FXEmployeeDirector
+@implementation FXAccountant
 
 - (id)performEmployeeSpecificJob {
 	return nil;

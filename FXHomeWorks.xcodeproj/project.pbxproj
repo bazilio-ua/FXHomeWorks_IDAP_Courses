@@ -60,9 +60,9 @@
 		429172BB1B0E609100FB9860 /* FXHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 429172BA1B0E609100FB9860 /* FXHumanTests.c */; };
 		429E5A041B5BBA0700A9B887 /* FXEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A031B5BBA0700A9B887 /* FXEmployee.m */; };
 		429E5A111B5BC53B00A9B887 /* FXWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A101B5BC53B00A9B887 /* FXWashBox.m */; };
-		429E5A141B5BC58600A9B887 /* FXEmployeeDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A131B5BC58500A9B887 /* FXEmployeeDirector.m */; };
-		429E5A171B5BC5B200A9B887 /* FXEmployeeAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A161B5BC5B100A9B887 /* FXEmployeeAccountant.m */; };
-		429E5A1A1B5BC5F500A9B887 /* FXEmployeeWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A191B5BC5F400A9B887 /* FXEmployeeWasher.m */; };
+		429E5A141B5BC58600A9B887 /* FXDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A131B5BC58500A9B887 /* FXDirector.m */; };
+		429E5A171B5BC5B200A9B887 /* FXAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A161B5BC5B100A9B887 /* FXAccountant.m */; };
+		429E5A1A1B5BC5F500A9B887 /* FXWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E5A191B5BC5F400A9B887 /* FXWasher.m */; };
 		42A6B7AB1AFFC980004D43C6 /* FXDataStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */; };
 		42A6B7B21AFFCFD3004D43C6 /* FXDataStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */; };
 		42BF825F1B543C6800129372 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */; };
@@ -291,12 +291,12 @@
 		429E5A031B5BBA0700A9B887 /* FXEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployee.m; sourceTree = "<group>"; };
 		429E5A0F1B5BC53B00A9B887 /* FXWashBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWashBox.h; sourceTree = "<group>"; };
 		429E5A101B5BC53B00A9B887 /* FXWashBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWashBox.m; sourceTree = "<group>"; };
-		429E5A121B5BC58500A9B887 /* FXEmployeeDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployeeDirector.h; sourceTree = "<group>"; };
-		429E5A131B5BC58500A9B887 /* FXEmployeeDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployeeDirector.m; sourceTree = "<group>"; };
-		429E5A151B5BC5B100A9B887 /* FXEmployeeAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployeeAccountant.h; sourceTree = "<group>"; };
-		429E5A161B5BC5B100A9B887 /* FXEmployeeAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployeeAccountant.m; sourceTree = "<group>"; };
-		429E5A181B5BC5F400A9B887 /* FXEmployeeWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployeeWasher.h; sourceTree = "<group>"; };
-		429E5A191B5BC5F400A9B887 /* FXEmployeeWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployeeWasher.m; sourceTree = "<group>"; };
+		429E5A121B5BC58500A9B887 /* FXDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDirector.h; sourceTree = "<group>"; };
+		429E5A131B5BC58500A9B887 /* FXDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDirector.m; sourceTree = "<group>"; };
+		429E5A151B5BC5B100A9B887 /* FXAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAccountant.h; sourceTree = "<group>"; };
+		429E5A161B5BC5B100A9B887 /* FXAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAccountant.m; sourceTree = "<group>"; };
+		429E5A181B5BC5F400A9B887 /* FXWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWasher.h; sourceTree = "<group>"; };
+		429E5A191B5BC5F400A9B887 /* FXWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWasher.m; sourceTree = "<group>"; };
 		42A6B7A91AFFC980004D43C6 /* FXDataStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStruct.c; sourceTree = "<group>"; };
 		42A6B7AA1AFFC980004D43C6 /* FXDataStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataStruct.h; sourceTree = "<group>"; };
 		42A6B7B01AFFCFD3004D43C6 /* FXDataStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXDataStructTests.c; sourceTree = "<group>"; };
@@ -1001,12 +1001,12 @@
 			children = (
 				429E5A021B5BBA0700A9B887 /* FXEmployee.h */,
 				429E5A031B5BBA0700A9B887 /* FXEmployee.m */,
-				429E5A121B5BC58500A9B887 /* FXEmployeeDirector.h */,
-				429E5A131B5BC58500A9B887 /* FXEmployeeDirector.m */,
-				429E5A151B5BC5B100A9B887 /* FXEmployeeAccountant.h */,
-				429E5A161B5BC5B100A9B887 /* FXEmployeeAccountant.m */,
-				429E5A181B5BC5F400A9B887 /* FXEmployeeWasher.h */,
-				429E5A191B5BC5F400A9B887 /* FXEmployeeWasher.m */,
+				429E5A121B5BC58500A9B887 /* FXDirector.h */,
+				429E5A131B5BC58500A9B887 /* FXDirector.m */,
+				429E5A151B5BC5B100A9B887 /* FXAccountant.h */,
+				429E5A161B5BC5B100A9B887 /* FXAccountant.m */,
+				429E5A181B5BC5F400A9B887 /* FXWasher.h */,
+				429E5A191B5BC5F400A9B887 /* FXWasher.m */,
 			);
 			name = FXEmployee;
 			path = FXCar/FXEmployee;
@@ -1553,9 +1553,9 @@
 				4266D0571B5933F600693450 /* FXRoom.m in Sources */,
 				429E5A041B5BBA0700A9B887 /* FXEmployee.m in Sources */,
 				429E5A111B5BC53B00A9B887 /* FXWashBox.m in Sources */,
-				429E5A141B5BC58600A9B887 /* FXEmployeeDirector.m in Sources */,
-				429E5A171B5BC5B200A9B887 /* FXEmployeeAccountant.m in Sources */,
-				429E5A1A1B5BC5F500A9B887 /* FXEmployeeWasher.m in Sources */,
+				429E5A141B5BC58600A9B887 /* FXDirector.m in Sources */,
+				429E5A171B5BC5B200A9B887 /* FXAccountant.m in Sources */,
+				429E5A1A1B5BC5F500A9B887 /* FXWasher.m in Sources */,
 				420D08EC1B5CBBF4007698DA /* FXWorkFlow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

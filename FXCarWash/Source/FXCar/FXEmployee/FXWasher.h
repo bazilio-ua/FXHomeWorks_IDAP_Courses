@@ -1,5 +1,5 @@
 //
-//  FXEmployeeWasher.h
+//  FXWasher.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/19/15.
@@ -8,6 +8,6 @@
 
 #import "FXEmployee.h"
 
-@interface FXEmployeeWasher : FXEmployee
+@interface FXWasher : FXEmployee
 
 @end

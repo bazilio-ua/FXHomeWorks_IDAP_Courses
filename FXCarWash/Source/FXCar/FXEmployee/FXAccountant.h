@@ -1,5 +1,5 @@
 //
-//  FXEmployeeDirector.h
+//  FXAccountant.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/19/15.
@@ -8,6 +8,6 @@
 
 #import "FXEmployee.h"
 
-@interface FXEmployeeDirector : FXEmployee
+@interface FXAccountant : FXEmployee
 
 @end

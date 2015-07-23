@@ -8,16 +8,32 @@
 
 #import "FXRoom.h"
 
+#pragma mark -
+#pragma mark Private Interface
+
+@interface FXRoom ()
+@property (nonatomic, retain)	NSMutableArray	*mutableEmployees;
+
+@end
+
 @implementation FXRoom
-@synthesize employees			= _employees;
+@synthesize mutableEmployees	= _mutableEmployees;
 @synthesize employeeCapacity	= _employeeCapacity;
+@dynamic employees;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (id)room {
+	return [[[self alloc] init] autorelease];
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.employees = nil;
+	self.mutableEmployees = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -26,10 +42,17 @@
 	self = [super init]; // init superclass
 	
 	if (self) {
-		self.employees = [NSMutableArray array];
+		self.mutableEmployees = [NSMutableArray array];
 	}
 	
 	return self;
+}
+
+#pragma mark -
+#pragma mark Public Accessors
+
+- (NSArray *)employees {
+	return [[self.mutableEmployees copy] autorelease];
 }
 
 #pragma mark -
@@ -37,12 +60,15 @@
 
 - (void)addEmployee:(id)employee {
 	if (nil != employee) {
-		[self.employees addObject:employee];
+		NSMutableArray *employees = self.mutableEmployees;
+		if ([employees count] < self.employeeCapacity && NO == [employees containsObject:employee]) {
+			[employees addObject:employee];
+		}
 	}
 }
 
 - (void)removeEmployee:(id)employee {
-	[self.employees removeObject:employee];
+	[self.mutableEmployees removeObject:employee];
 }
 
 @end

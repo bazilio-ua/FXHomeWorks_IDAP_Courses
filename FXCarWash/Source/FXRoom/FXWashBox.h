@@ -9,12 +9,14 @@
 #import "FXRoom.h"
 
 @interface FXWashBox : FXRoom
-@property (nonatomic, retain)					NSMutableArray	*cars;
-@property (nonatomic, assign)					NSUInteger		carsCapacity;
-@property (nonatomic, assign, getter = isEmpty)	BOOL			empty;
+@property (nonatomic, copy, readonly)			NSArray		*cars;
+@property (nonatomic, assign)					NSUInteger	carsCapacity;
+@property (nonatomic, assign, getter = isFull)	BOOL		full;
 
++ (id)washBox;
+
+//- (BOOL)isFull; // not necessary
 - (void)addCar:(id)car;
 - (void)removeCar:(id)car;
-- (BOOL)isEmpty;
 
 @end

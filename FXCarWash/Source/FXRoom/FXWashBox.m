@@ -8,17 +8,33 @@
 
 #import "FXWashBox.h"
 
+#pragma mark -
+#pragma mark Private Interface
+
+@interface FXWashBox ()
+@property (nonatomic, retain)	NSMutableArray	*mutableCars;
+
+@end
+
 @implementation FXWashBox
-@synthesize cars			= _cars;
+@synthesize mutableCars		= _mutableCars;
 @synthesize carsCapacity	= _carsCapacity;
-@synthesize empty			= _empty;
+@synthesize full			= _full;
+@dynamic cars;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (id)washBox {
+	return [[[self alloc] init] autorelease];
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.cars = nil;
+	self.mutableCars = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -27,10 +43,25 @@
 	self = [super init]; // init superclass
 	
 	if (self) {
-		self.cars = [NSMutableArray array];
+		self.mutableCars = [NSMutableArray array];
 	}
 	
 	return self;
+}
+
+#pragma mark -
+#pragma mark Public Accessors
+
+- (NSArray *)cars {
+	return [[self.mutableCars copy] autorelease];
+}
+
+- (BOOL)isFull { // TODO: merge this with addCar
+	if ([self.mutableCars count] == self.carsCapacity) {
+		return YES;
+	}
+	
+	return NO;
 }
 
 #pragma mark -
@@ -38,23 +69,15 @@
 
 - (void)addCar:(id)car {
 	if (nil != car) {
-		[self.cars addObject:car];
+		NSMutableArray *cars = self.mutableCars;
+		if (NO == [cars containsObject:car]) {
+			[cars addObject:car];
+		}
 	}
 }
 
 - (void)removeCar:(id)car {
-	[self.cars removeObject:car];
-}
-
-#pragma mark -
-#pragma mark Public Accessors
-
-- (BOOL)isEmpty {
-	if (0 == [self.cars count]) {
-		return YES;
-	}
-	
-	return NO;
+	[self.mutableCars removeObject:car];
 }
 
 @end

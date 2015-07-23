@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface FXRoom : NSObject
-@property (nonatomic, retain)	NSMutableArray	*employees;
-@property (nonatomic, assign)	NSUInteger		employeeCapacity;
+@property (nonatomic, copy, readonly)	NSArray		*employees;
+@property (nonatomic, assign)			NSUInteger	employeeCapacity;
+
++ (id)room;
 
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;

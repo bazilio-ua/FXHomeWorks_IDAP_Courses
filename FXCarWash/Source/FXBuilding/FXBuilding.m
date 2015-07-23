@@ -12,7 +12,7 @@
 #pragma mark Private Interface
 
 @interface FXBuilding ()
-@property (nonatomic, retain) NSMutableArray *mutableRooms;
+@property (nonatomic, retain)	NSMutableArray	*mutableRooms;
 
 @end
 

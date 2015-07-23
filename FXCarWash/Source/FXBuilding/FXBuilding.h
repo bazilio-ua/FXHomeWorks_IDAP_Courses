@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FXBuilding : NSObject
-@property (nonatomic, copy, readonly) NSArray *rooms;
+@property (nonatomic, copy, readonly)	NSArray	*rooms;
 
 + (id)building;
 

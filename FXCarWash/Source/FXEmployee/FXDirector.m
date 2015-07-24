@@ -13,8 +13,10 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (id)performEmployeeSpecificJob {
-	return nil;
+- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
+	[super performEmployeeSpecificJobForMoney:money fromObject:object];
+	
+	NSLog(@"Director: %@ make a profit %@ money from Accountant: %@", self, money, object);
 }
 
 @end

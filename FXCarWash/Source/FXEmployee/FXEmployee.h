@@ -15,6 +15,6 @@
 
 + (id)employee;
 
-- (id)performEmployeeSpecificJob;
+- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object;
 
 @end

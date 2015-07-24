@@ -11,7 +11,6 @@
 @implementation FXCar
 @synthesize money 	= _money;
 @synthesize clean 	= _clean;
-//@synthesize wallet		= _wallet; //temp
 
 #pragma mark -
 #pragma mark Class Methods
@@ -41,22 +40,23 @@
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark FXMoneyFlow Protocol required Methods
 
-- (BOOL)doPayOff:(NSInteger)pay { // TODO: with protocol moneyFlow
-	NSInteger money = self.money;
-	if ((money - pay) < 0) {
-		NSLog(@"not enough cash to payoff");
-		
-		return NO;
-	}
-	
-	self.money = money - pay;
-	
-	return YES;
+- (BOOL)ableToPayMoney:(NSInteger)money {
+	return self.money >= money ? YES : NO;
 }
 
-#pragma mark -
-#pragma mark FXMoneyFlow Protocol
+- (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
+	if ([payer respondsToSelector:@selector(sendMoney:toPayee:)] && [payer ableToPayMoney:money]) {
+		self.money += money;
+		[payer sendMoney:money toPayee:self];
+	}
+}
+
+- (void)sendMoney:(NSInteger)money toPayee:(id<FXMoneyFlow>)payee {
+	if ([payee respondsToSelector:@selector(receiveMoney:fromPayer:)] && [self ableToPayMoney:money]) {
+		self.money -= money;
+	}
+}
 
 @end

@@ -10,4 +10,11 @@
 
 @implementation FXWorkFlow
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)performWorkFlow {
+	// do all work
+}
+
 @end

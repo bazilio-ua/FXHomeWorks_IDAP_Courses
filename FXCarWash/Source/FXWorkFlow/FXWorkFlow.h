@@ -10,4 +10,6 @@
 
 @interface FXWorkFlow : NSObject
 
+- (void)performWorkFlow;
+
 @end

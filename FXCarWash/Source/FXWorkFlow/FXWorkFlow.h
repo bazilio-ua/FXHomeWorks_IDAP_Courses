@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXWorkFlow : NSObject
+@class FXBuilding;
 
-- (void)performWorkFlow;
+@interface FXWorkFlow : NSObject
+@property (nonatomic, copy, readonly)	FXBuilding	*workFlowBuilding;
+
++ (id)workFlow;
+
+- (void)performWorkFlowWithObject:(id)object;
 
 @end

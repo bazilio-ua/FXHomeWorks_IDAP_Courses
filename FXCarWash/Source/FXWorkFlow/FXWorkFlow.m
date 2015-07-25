@@ -15,22 +15,68 @@
 #import "FXAccountant.h"
 #import "FXWasher.h"
 
-static const NSUInteger kFXRoomEmployeesCapacity = 3;
+static const NSUInteger kFXRoomEmployeesCapacity = 2;
 static const NSUInteger kFXWashBoxEmployeesCapacity = 1;
 static const NSUInteger kFXWashBoxCarsCapacity = 1;
 
+
+@interface FXWorkFlow ()
+@property (nonatomic, retain)	FXBuilding	*mutableWorkFlowBuilding;
+
+- (void)setupWorkFlow;
+
+@end
+
 @implementation FXWorkFlow
+@synthesize mutableWorkFlowBuilding 	= _mutableWorkFlowBuilding;
+
+@dynamic workFlowBuilding;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (id)workFlow {
+	return [[[self alloc] init] autorelease];
+}
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+	// release all retained properties
+	self.mutableWorkFlowBuilding = nil;
+	
+	[super dealloc]; // dealloc superclass
+}
+
+- (id)init {
+	self = [super init]; // init superclass
+	
+	if (self) {
+		self.mutableWorkFlowBuilding = [FXBuilding building];
+		[self setupWorkFlow];
+	}
+	
+	return self;
+}
+
+#pragma mark -
+#pragma mark Public Accessors
+
+- (FXBuilding *)workFlowBuilding {
+	return [[self.mutableWorkFlowBuilding copy] autorelease];
+}
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)setupWorkFlow {
-	// setup building, rooms/boxes, employees and add car
+	// create/setup building, rooms/boxes, employees and add it to workFlow
 	
 	// create building
 	FXBuilding *building = [FXBuilding building];
 	
-	// create room and box
+	// create room and washbox
 	FXRoom *room = [FXRoom room];
 	FXWashBox *washbox = [FXWashBox room];
 	
@@ -52,13 +98,38 @@ static const NSUInteger kFXWashBoxCarsCapacity = 1;
 	// add rooms to the building
 	[building addRoom:room];
 	[building addRoom:washbox];
+	
+	self.mutableWorkFlowBuilding = building;
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performWorkFlow {
+- (void)performWorkFlowWithObject:(id)object {
 	// do all work with car
+	NSMutableArray *washers = [NSMutableArray array];
+	NSMutableArray *accountants = [NSMutableArray array];
+	NSMutableArray *directors = [NSMutableArray array];
+	
+	// expand all ours action objects
+	for (FXRoom *room in [self.mutableWorkFlowBuilding rooms]) {
+		if ([room isMemberOfClass:[FXWashBox class]]) {
+			for (FXWasher *washer in [room employees]) {
+				[washers addObject:washer];
+			}
+		} else {
+			for (FXEmployee *employee in [room employees]) {
+				if ([employee isMemberOfClass:[FXAccountant class]]) {
+					[accountants addObject:employee];
+				} else {
+					[directors addObject:employee];
+				}
+			}
+		}
+	}
+	
+	
+	
 }
 
 @end

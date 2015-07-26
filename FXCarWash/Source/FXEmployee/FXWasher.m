@@ -19,7 +19,7 @@
 		NSLog(@"Washer: %@ perform cleaning a Car: %@", self, car);
 		car.clean = YES;
 	} else {
-		NSLog(@"Car %@ is clean but we should wash it anyway", car);
+		NSLog(@"Washer: %@ this Car: %@ is clean, but we should wash it anyway", self, car);
 	}
 }
 
@@ -28,11 +28,15 @@
 
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
 	self.busy = YES;
-
-	[super performEmployeeSpecificJobForMoney:money fromObject:object];
 	
-	[self cleanCar:object];
-	NSLog(@"Washer: %@ earn %ld money from Car: %@", self, money, object);
+	if ([object ableToPayMoney:money]) {
+		[super performEmployeeSpecificJobForMoney:money fromObject:object];
+		
+		[self cleanCar:object];
+		NSLog(@"Washer: %@ earn %ld money from Car: %@", self, money, object);
+	} else {
+		NSLog(@"Washer: %@ didn't clean a Car: %@ because its doesn't have enough money", self, object);
+	}
 	
 	self.busy = NO;
 }

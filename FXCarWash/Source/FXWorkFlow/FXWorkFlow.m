@@ -36,7 +36,7 @@ static const NSUInteger kFXCarWashPrice = 100;
 #pragma mark -
 #pragma mark Class Methods
 
-+ (id)workFlow {
++ (id)workflow {
 	return [[[self alloc] init] autorelease];
 }
 

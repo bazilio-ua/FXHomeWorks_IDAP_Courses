@@ -43,7 +43,15 @@
 #pragma mark FXMoneyFlow Protocol required Methods
 
 - (BOOL)ableToPayMoney:(NSInteger)money {
-	return self.money >= money ? YES : NO;
+	if (self.money >= money) {
+		return YES;
+	}
+	
+	NSLog(@"Car %@ unable to pay, not enough money", self);
+	
+	return NO;
+	
+//	return self.money >= money ? YES : NO;
 }
 
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {

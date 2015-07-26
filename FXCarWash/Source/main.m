@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FXCarWashTests.h"
+
 int main(int argc, const char *argv[]) {
 	@autoreleasepool {
 		// insert code here...
 		NSLog(@"Car Wash");
+		
+		[FXCarWashTests performCarWashTest];
 	}
 	
 	return 0;

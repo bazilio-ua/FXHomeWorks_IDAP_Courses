@@ -13,7 +13,7 @@
 @interface FXWorkFlow : NSObject
 @property (nonatomic, copy, readonly)	FXBuilding	*workFlowBuilding;
 
-+ (id)workFlow;
++ (id)workflow;
 
 - (void)performWorkFlowWithObject:(id)object;
 

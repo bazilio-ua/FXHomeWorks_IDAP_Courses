@@ -18,7 +18,7 @@
 
 	[super performEmployeeSpecificJobForMoney:money fromObject:object];
 	
-	NSLog(@"Accountant: %@ got %@ money from Washer: %@ and calculate it", self, money, object);
+	NSLog(@"Accountant: %@ got %ld money from Washer: %@ and calculate it", self, money, object);
 	
 	self.busy = NO;
 }

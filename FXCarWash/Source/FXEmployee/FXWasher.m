@@ -18,6 +18,8 @@
 	if (NO == car.isClean) {
 		NSLog(@"Washer: %@ perform cleaning a Car: %@", self, car);
 		car.clean = YES;
+	} else {
+		NSLog(@"Car %@ is clean but we should wash it anyway", car);
 	}
 }
 
@@ -30,7 +32,7 @@
 	[super performEmployeeSpecificJobForMoney:money fromObject:object];
 	
 	[self cleanCar:object];
-	NSLog(@"Washer: %@ earn %@ money from Car: %@", self, money, object);
+	NSLog(@"Washer: %@ earn %ld money from Car: %@", self, money, object);
 	
 	self.busy = NO;
 }

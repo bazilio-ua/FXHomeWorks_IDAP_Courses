@@ -14,9 +14,13 @@
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
+	self.busy = YES;
+
 	[super performEmployeeSpecificJobForMoney:money fromObject:object];
 	
 	NSLog(@"Accountant: %@ got %@ money from Washer: %@ and calculate it", self, money, object);
+	
+	self.busy = NO;
 }
 
 @end

@@ -12,6 +12,7 @@
 
 @interface FXEmployee : NSObject <FXMoneyFlow>
 @property (nonatomic, assign)	NSInteger	wallet;
+@property (nonatomic, assign)	BOOL		busy;
 
 + (id)employee;
 

@@ -18,6 +18,7 @@
 static const NSUInteger kFXRoomEmployeesCapacity = 2;
 static const NSUInteger kFXWashBoxEmployeesCapacity = 1;
 static const NSUInteger kFXWashBoxCarsCapacity = 1;
+static const NSUInteger kFXCarWashPrice = 100;
 
 
 @interface FXWorkFlow ()
@@ -111,6 +112,9 @@ static const NSUInteger kFXWashBoxCarsCapacity = 1;
 	NSMutableArray *accountants = [NSMutableArray array];
 	NSMutableArray *directors = [NSMutableArray array];
 	
+	id currentObject = object;
+	id currentEmployee;
+	
 	// expand all ours action objects
 	for (FXRoom *room in [self.mutableWorkFlowBuilding rooms]) {
 		if ([room isMemberOfClass:[FXWashBox class]]) {
@@ -128,8 +132,32 @@ static const NSUInteger kFXWashBoxCarsCapacity = 1;
 		}
 	}
 	
+	for (FXWasher *washer in washers) {
+		if (NO == washer.busy) {
+			currentEmployee = washer;
+			[currentEmployee performEmployeeSpecificJobForMoney:kFXCarWashPrice fromObject:currentObject];
+			currentObject = currentEmployee;
+			break;
+		}
+	}
 	
+	for (FXAccountant *accountant in accountants) {
+		if (NO == accountant.busy) {
+			currentEmployee = accountant;
+			[currentEmployee performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
+			currentObject = currentEmployee;
+			break;
+		}
+	}
 	
+	for (FXDirector *director in directors) {
+		if (NO == director.busy) {
+			currentEmployee = director;
+			[currentEmployee performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
+			currentObject = currentEmployee;
+			break;
+		}
+	}
 }
 
 @end

@@ -10,6 +10,7 @@
 
 @implementation FXEmployee
 @synthesize wallet		= _wallet;
+@synthesize busy		= _busy;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -32,6 +33,7 @@
 	
 	if (self) {
 		self.wallet = 0;
+		self.busy = NO;
 	}
 	
 	return self;

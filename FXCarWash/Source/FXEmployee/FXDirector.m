@@ -16,9 +16,13 @@
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
 	self.busy = YES;
 	
-	[super performEmployeeSpecificJobForMoney:money fromObject:object];
-	
-	NSLog(@"Director: %@ make a profit %ld money from Accountant: %@", self, money, object);
+	if (0 < [object getEarningsAmount]) {
+		[super performEmployeeSpecificJobForMoney:money fromObject:object];
+		
+		NSLog(@"Director: %@ make a profit %ld money from Accountant: %@", self, money, object);
+	} else {
+		NSLog(@"Director: %@ there is no profit", self);
+	}
 	
 	self.busy = NO;
 }

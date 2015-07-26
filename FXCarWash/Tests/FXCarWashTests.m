@@ -14,7 +14,7 @@
 @implementation FXCarWashTests
 
 + (void)performCarWashTest {
-	NSLog(@"this is carwash test");
+	NSLog(@"this is carwash workflow test");
 	
 	FXWorkFlow *workflow = [FXWorkFlow workflow];
 	

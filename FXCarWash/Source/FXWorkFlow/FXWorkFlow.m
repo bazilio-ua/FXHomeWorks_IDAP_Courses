@@ -107,7 +107,6 @@ static const NSUInteger kFXCarWashPrice = 100;
 #pragma mark Public Methods
 
 - (void)performWorkFlowWithObject:(id)object {
-	// do all work with car
 	NSMutableArray *washers = [NSMutableArray array];
 	NSMutableArray *accountants = [NSMutableArray array];
 	NSMutableArray *directors = [NSMutableArray array];
@@ -132,6 +131,7 @@ static const NSUInteger kFXCarWashPrice = 100;
 		}
 	}
 	
+	// do all work with car
 	id currentObject = object;
 	id currentEmployee;
 	

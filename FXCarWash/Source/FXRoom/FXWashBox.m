@@ -66,12 +66,14 @@
 		NSMutableArray *cars = self.mutableCars;
 		if (NO == [cars containsObject:car]) {
 			[cars addObject:car];
+			NSLog(@"The car %@ stopped at a washbox %@", car, self);
 		}
 	}
 }
 
 - (void)removeCar:(id)car {
 	[self.mutableCars removeObject:car];
+	NSLog(@"The car %@ left the washbox %@", car, self);
 }
 
 @end

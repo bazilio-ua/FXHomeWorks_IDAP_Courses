@@ -112,12 +112,12 @@ static const NSUInteger kFXCarWashPrice = 100;
 	NSMutableArray *accountants = [NSMutableArray array];
 	NSMutableArray *directors = [NSMutableArray array];
 	
-	id currentObject = object;
-	id currentEmployee;
+	NSMutableArray *washboxes = [NSMutableArray array];
 	
 	// expand all ours action objects
 	for (FXRoom *room in [self.mutableWorkFlowBuilding rooms]) {
 		if ([room isMemberOfClass:[FXWashBox class]]) {
+			[washboxes addObject:room];
 			for (FXWasher *washer in [room employees]) {
 				[washers addObject:washer];
 			}
@@ -130,6 +130,27 @@ static const NSUInteger kFXCarWashPrice = 100;
 				}
 			}
 		}
+	}
+	
+	id currentObject = object;
+	id currentEmployee;
+	
+	id currentWashBox = nil;
+	NSUInteger fullBoxCount = 0;
+	for (FXWashBox *washbox in washboxes) {
+		if (NO == washbox.isFull) {
+			currentWashBox = washbox;
+			[currentWashBox addCar:object];
+			break;
+		} else {
+			fullBoxCount++;
+		}
+	}
+	
+	if (fullBoxCount == [washboxes count]) {
+		NSLog(@"WorkFlow: %@ there is no free washboxes, try again later", self);
+		
+		return;
 	}
 	
 	for (FXWasher *washer in washers) {
@@ -154,10 +175,12 @@ static const NSUInteger kFXCarWashPrice = 100;
 		if (NO == director.busy) {
 			currentEmployee = director;
 			[currentEmployee performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
-			currentObject = currentEmployee;
+//			currentObject = currentEmployee; // static analyze tell: this value is never read, so commented out
 			break;
 		}
 	}
+	
+	[currentWashBox removeCar:object];
 }
 
 @end

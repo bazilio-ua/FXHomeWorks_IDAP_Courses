@@ -27,8 +27,6 @@
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
-	self.busy = YES;
-	
 	if ([object ableToPayMoney:money]) {
 		[super performEmployeeSpecificJobForMoney:money fromObject:object];
 		
@@ -37,8 +35,6 @@
 	} else {
 		NSLog(@"Washer: %@ didn't clean a Car: %@ because its doesn't have enough money", self, object);
 	}
-	
-	self.busy = NO;
 }
 
 @end

@@ -14,8 +14,6 @@
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
-	self.busy = YES;
-
 	if (0 < [object getEarningsAmount]) {
 		[super performEmployeeSpecificJobForMoney:money fromObject:object];
 		
@@ -23,8 +21,6 @@
 	} else {
 		NSLog(@"Accountant: %@ there is nothing to calculate", self);
 	}
-	
-	self.busy = NO;
 }
 
 @end

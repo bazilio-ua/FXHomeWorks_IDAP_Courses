@@ -132,9 +132,6 @@ static const NSUInteger kFXCarWashPrice = 100;
 	}
 	
 	// do all work with car
-	id currentObject = object;
-	id currentEmployee;
-	
 	id currentWashBox = nil;
 	NSUInteger fullBoxCount = 0;
 	for (FXWashBox *washbox in washboxes) {
@@ -152,30 +149,33 @@ static const NSUInteger kFXCarWashPrice = 100;
 		
 		return;
 	}
-	
+
+	id currentObject = nil;
 	for (FXWasher *washer in washers) {
 		if (NO == washer.busy) {
-			currentEmployee = washer;
-			[currentEmployee performEmployeeSpecificJobForMoney:kFXCarWashPrice fromObject:currentObject];
-			currentObject = currentEmployee;
+			washer.busy = YES;
+			[washer performEmployeeSpecificJobForMoney:kFXCarWashPrice fromObject:object];
+			washer.busy = NO;
+			currentObject = washer;
 			break;
 		}
 	}
 	
 	for (FXAccountant *accountant in accountants) {
 		if (NO == accountant.busy) {
-			currentEmployee = accountant;
-			[currentEmployee performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
-			currentObject = currentEmployee;
+			accountant.busy = YES;
+			[accountant performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
+			accountant.busy = NO;
+			currentObject = accountant;
 			break;
 		}
 	}
 	
 	for (FXDirector *director in directors) {
 		if (NO == director.busy) {
-			currentEmployee = director;
-			[currentEmployee performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
-//			currentObject = currentEmployee; // static analyze tell: this value is never read, so commented out
+			director.busy = YES;
+			[director performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
+			director.busy = NO;
 			break;
 		}
 	}

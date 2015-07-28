@@ -12,8 +12,6 @@
 @property (nonatomic, copy, readonly)	NSArray		*employees;
 @property (nonatomic, assign)			NSUInteger	employeeCapacity;
 
-+ (id)room;
-
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
 

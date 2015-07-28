@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4207730F1B67EB90003B71E2 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */; };
 		420E32C31B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		4212EEC91B616856004E3F64 /* FXAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212EEC21B616856004E3F64 /* FXAccountant.m */; };
@@ -1560,6 +1561,7 @@
 				4212EECC1B616856004E3F64 /* FXWasher.m in Sources */,
 				4212EED01B616880004E3F64 /* FXWorkFlow.m in Sources */,
 				428CF51B1B653C5400F01BC2 /* FXCarWashTests.m in Sources */,
+				4207730F1B67EB90003B71E2 /* NSObject+FXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

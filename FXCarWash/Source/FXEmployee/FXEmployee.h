@@ -14,8 +14,6 @@
 @property (nonatomic, assign)	NSInteger	wallet;
 @property (nonatomic, assign)	BOOL		busy;
 
-+ (id)employee;
-
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object;
 
 @end

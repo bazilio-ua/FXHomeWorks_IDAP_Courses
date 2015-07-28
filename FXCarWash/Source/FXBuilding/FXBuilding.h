@@ -11,8 +11,6 @@
 @interface FXBuilding : NSObject
 @property (nonatomic, copy, readonly)	NSArray	*rooms;
 
-+ (id)building;
-
 - (void)addRoom:(id)room;
 - (void)removeRoom:(id)room;
 

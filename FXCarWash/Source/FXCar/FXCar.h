@@ -14,6 +14,4 @@
 @property (nonatomic, assign)					NSInteger	money;
 @property (nonatomic, assign, getter = isClean)	BOOL		clean;
 
-+ (id)car;
-
 @end

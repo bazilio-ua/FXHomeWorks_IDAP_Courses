@@ -15,6 +15,8 @@
 #import "FXAccountant.h"
 #import "FXWasher.h"
 
+#import "NSObject+FXExtensions.h"
+
 static const NSUInteger kFXRoomEmployeesCapacity = 2;
 static const NSUInteger kFXWashBoxEmployeesCapacity = 1;
 static const NSUInteger kFXWashBoxCarsCapacity = 1;
@@ -34,13 +36,6 @@ static const NSUInteger kFXCarWashPrice = 100;
 @dynamic workFlowBuilding;
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (id)workflow {
-	return [[[self alloc] init] autorelease];
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
@@ -54,7 +49,7 @@ static const NSUInteger kFXCarWashPrice = 100;
 	self = [super init]; // init superclass
 	
 	if (self) {
-		self.mutableWorkFlowBuilding = [FXBuilding building];
+		self.mutableWorkFlowBuilding = [FXBuilding object];
 		[self setupWorkFlow];
 	}
 	
@@ -75,16 +70,16 @@ static const NSUInteger kFXCarWashPrice = 100;
 	// create/setup building, rooms/boxes, employees and add it to workFlow
 	
 	// create building
-	FXBuilding *building = [FXBuilding building];
+	FXBuilding *building = [FXBuilding object];
 	
 	// create room and washbox
-	FXRoom *room = [FXRoom room];
-	FXWashBox *washbox = [FXWashBox room];
+	FXRoom *room = [FXRoom object];
+	FXWashBox *washbox = [FXWashBox object];
 	
 	// create employee
-	FXDirector *director = [FXDirector employee];
-	FXAccountant *accountant = [FXAccountant employee];
-	FXWasher *washer = [FXWasher employee];
+	FXDirector *director = [FXDirector object];
+	FXAccountant *accountant = [FXAccountant object];
+	FXWasher *washer = [FXWasher object];
 	
 	// set rooms capacity
 	room.employeeCapacity = kFXRoomEmployeesCapacity;

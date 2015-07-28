@@ -13,13 +13,6 @@
 @synthesize busy		= _busy;
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (id)employee {
-	return [[[self alloc] init] autorelease];
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {

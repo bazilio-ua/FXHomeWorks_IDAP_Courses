@@ -11,16 +11,18 @@
 #import "FXCar.h"
 #import "FXWorkFlow.h"
 
+#import "NSObject+FXExtensions.h"
+
 @implementation FXCarWashTests
 
 + (void)performCarWashTest {
 	NSLog(@"this is carwash workflow test");
 	
-	FXWorkFlow *workflow = [FXWorkFlow workflow];
+	FXWorkFlow *workflow = [FXWorkFlow object];
 	
-	FXCar *car1 = [FXCar car];
-	FXCar *car2 = [FXCar car];
-	FXCar *car3 = [FXCar car];
+	FXCar *car1 = [FXCar object];
+	FXCar *car2 = [FXCar object];
+	FXCar *car3 = [FXCar object];
 	
 	car1.money = 300;
 	car1.clean = NO;

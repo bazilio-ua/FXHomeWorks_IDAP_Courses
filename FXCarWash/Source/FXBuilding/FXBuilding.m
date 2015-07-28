@@ -22,13 +22,6 @@
 @dynamic rooms;
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (id)building {
-	return [[[self alloc] init] autorelease];
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {

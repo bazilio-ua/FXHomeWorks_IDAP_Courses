@@ -14,7 +14,6 @@
 + (id)numericAlphabet;
 + (id)lowercaseLetterAlphabet;
 + (id)uppercaseLetterAlphabet;
-+ (id)capitalizedLetterAlphabet;
 + (id)letterAlphabet;
 
 + (id)alphabetWithUnicodeRange:(NSRange)range;

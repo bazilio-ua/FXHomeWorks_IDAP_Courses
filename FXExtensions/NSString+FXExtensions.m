@@ -39,15 +39,6 @@ static const NSUInteger kFXDefaultRandomStringLength = 40;
 													  'Z' - 'A' + 1)];
 }
 
-// titlecase alphabet
-+ (id)capitalizedLetterAlphabet {
-//	capitalized letters is not the same as uppercase letters:
-//	http://stackoverflow.com/questions/1680082/how-to-check-if-my-string-starts-with-uppercase-character
-	
-//	NSCharacterSet
-	return nil;
-}
-
 + (id)letterAlphabet {
 	NSMutableString *string = [NSMutableString string];
 	[string appendString:[self lowercaseLetterAlphabet]];

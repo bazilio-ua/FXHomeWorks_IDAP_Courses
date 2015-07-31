@@ -10,4 +10,17 @@
 
 @interface NSString (FXExtensions)
 
++ (id)alphanumericAlphabet;
++ (id)numericAlphabet;
++ (id)lowercaseLetterAlphabet;
++ (id)uppercaseLetterAlphabet;
++ (id)capitalizedLetterAlphabet;
++ (id)letterAlphabet;
+
++ (id)alphabetWithUnicodeRange:(NSRange)range;
+
++ (id)randomString;
++ (id)randomStringWithLength:(NSUInteger)length;
++ (id)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet;
+
 @end

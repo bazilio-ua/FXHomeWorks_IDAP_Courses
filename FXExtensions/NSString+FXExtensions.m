@@ -15,12 +15,13 @@ static const NSUInteger kFXDefaultRandomStringLength = 40;
 #pragma mark -
 #pragma mark Class Methods
 
+// english alphabet with numbers
 + (id)alphanumericAlphabet {
-	NSMutableString *alphabet = [NSMutableString string];
-	[alphabet appendString:[self letterAlphabet]];
-	[alphabet appendString:[self numericAlphabet]];
+	NSMutableString *string = [NSMutableString string];
+	[string appendString:[self letterAlphabet]];
+	[string appendString:[self numericAlphabet]];
 	
-	return [self stringWithString:alphabet];
+	return [self stringWithString:string];
 }
 
 + (id)numericAlphabet {
@@ -48,33 +49,39 @@ static const NSUInteger kFXDefaultRandomStringLength = 40;
 }
 
 + (id)letterAlphabet {
-	NSMutableString *alphabet = [NSMutableString string];
-	[alphabet appendString:[self lowercaseLetterAlphabet]];
-	[alphabet appendString:[self uppercaseLetterAlphabet]];
-	[alphabet appendString:[self capitalizedLetterAlphabet]];
+	NSMutableString *string = [NSMutableString string];
+	[string appendString:[self lowercaseLetterAlphabet]];
+	[string appendString:[self uppercaseLetterAlphabet]];
 	
-	return [self stringWithString:alphabet];
+	return [self stringWithString:string];
 }
 
 + (id)alphabetWithUnicodeRange:(NSRange)range {
-	NSMutableString *alphabet = [NSMutableString string];
+	NSMutableString *string = [NSMutableString string];
 	for (unichar character = range.location; character < NSMaxRange(range); character++) {
-		[alphabet appendFormat:@"%C", character];
+		[string appendFormat:@"%C", character];
 	}
 	
-	return [self stringWithString:alphabet];
+	return [self stringWithString:string];
 }
 
 + (id)randomString {
-	return nil;
+	return [self randomStringWithLength:(arc4random() % (kFXDefaultRandomStringLength + 1))];
 }
 
 + (id)randomStringWithLength:(NSUInteger)length {
-	return nil;
+	return [self randomStringWithLength:length alphabet:[self alphanumericAlphabet]];
 }
 
 + (id)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
-	return nil;
+	NSMutableString *string = [NSMutableString stringWithCapacity:length];
+	NSUInteger alphabetLength = [alphabet length];
+	for (NSUInteger index = 0; index < length; index++) {
+		unichar character = [alphabet characterAtIndex:(arc4random() % (alphabetLength + 1))];
+		[string appendFormat:@"%C", character];
+	}
+	
+	return [self stringWithString:string];
 }
 
 @end

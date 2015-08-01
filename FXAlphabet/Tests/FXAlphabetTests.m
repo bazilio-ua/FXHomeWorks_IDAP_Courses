@@ -21,9 +21,9 @@
 	NSLog(@"%@", [NSString randomStringWithLength:5]);
 	NSLog(@"%@", [NSString randomStringWithLength:10 alphabet:[NSString numericAlphabet]]);
 	NSLog(@" ");
-
+	
 	NSLog(@"NSString extensions tests 2: alphabet generation");
-
+	
 	SEL selectors[] = {
 		@selector(alphanumericAlphabet),
 		@selector(numericAlphabet),

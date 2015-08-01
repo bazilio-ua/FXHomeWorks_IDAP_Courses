@@ -57,7 +57,8 @@ static const NSUInteger kFXDefaultRandomStringLength = 40;
 }
 
 + (id)randomString {
-	return [self randomStringWithLength:(arc4random() % (kFXDefaultRandomStringLength + 1))];
+	return [self randomStringWithLength:(arc4random() % (kFXDefaultRandomStringLength + 1))]; /* TODO: update xcode to 
+																							   use arc4random_uniform */
 }
 
 + (id)randomStringWithLength:(NSUInteger)length {

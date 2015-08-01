@@ -50,6 +50,12 @@
 	NSLog(@" ");
 	NSLog(@"NSString extensions tests 5: custom (devanagari) alphabet generation");
 	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(2309, 2361 - 2309 + 1)]);
+	
+	NSLog(@" ");
+	NSLog(@"%@", [NSCharacterSet alphanumericCharacterSet]);
+	
+	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(0x0400, 0x04FF - 0x0400 + 0x1)]);
+	
 }
 
 @end

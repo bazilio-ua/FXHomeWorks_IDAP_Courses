@@ -68,7 +68,7 @@ static const NSUInteger kFXDefaultRandomStringLength = 40;
 	NSMutableString *string = [NSMutableString stringWithCapacity:length];
 	NSUInteger alphabetLength = [alphabet length];
 	for (NSUInteger index = 0; index < length; index++) {
-		unichar character = [alphabet characterAtIndex:(arc4random() % (alphabetLength + 1))];
+		unichar character = [alphabet characterAtIndex:(arc4random() % alphabetLength)];
 		[string appendFormat:@"%C", character];
 	}
 	

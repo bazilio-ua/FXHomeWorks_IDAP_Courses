@@ -33,6 +33,7 @@
 		4239DA9F1B2343D40013986B /* FXStringTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4239DA9E1B2343D40013986B /* FXStringTests.c */; };
 		423A36331B52F72F00F4A557 /* FXCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 423A36321B52F72F00F4A557 /* FXCreatureMale.m */; };
 		423A36371B52FF5300F4A557 /* FXCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 423A36361B52FF5300F4A557 /* FXCreatureFemale.m */; };
+		423C4F3D1B6CE12900E45725 /* FXAlphabetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 423C4F3C1B6CE12900E45725 /* FXAlphabetTests.m */; };
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		425448D01B559F830006EE8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425448CE1B559F830006EE8D /* main.m */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
@@ -273,6 +274,8 @@
 		423A36321B52F72F00F4A557 /* FXCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureMale.m; sourceTree = "<group>"; };
 		423A36351B52FF5300F4A557 /* FXCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCreatureFemale.h; sourceTree = "<group>"; };
 		423A36361B52FF5300F4A557 /* FXCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureFemale.m; sourceTree = "<group>"; };
+		423C4F3B1B6CE12900E45725 /* FXAlphabetTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetTests.h; sourceTree = "<group>"; };
+		423C4F3C1B6CE12900E45725 /* FXAlphabetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetTests.m; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
 		425448CE1B559F830006EE8D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42617EE21AFF49430019934C /* FXPrimitiveOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputType.h; sourceTree = "<group>"; };
@@ -670,6 +673,8 @@
 		4236B35A1B6BB0C3003510F9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				423C4F3B1B6CE12900E45725 /* FXAlphabetTests.h */,
+				423C4F3C1B6CE12900E45725 /* FXAlphabetTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1624,6 +1629,7 @@
 				4236B35B1B6BB0C3003510F9 /* main.m in Sources */,
 				42C3A4931B6BB39200D2AF51 /* NSString+FXExtensions.m in Sources */,
 				42C3A49D1B6BB53400D2AF51 /* FXAlphabet.m in Sources */,
+				423C4F3D1B6CE12900E45725 /* FXAlphabetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

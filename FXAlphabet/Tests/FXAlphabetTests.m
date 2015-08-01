@@ -38,6 +38,18 @@
 	for (NSUInteger index = 0; index < count; index++) {
 		NSLog(@"%@", [class performSelector:selectors[index]]);
 	}
+	
+	NSLog(@" ");
+	NSLog(@"NSString extensions tests 3: custom (hebrew) alphabet generation");
+	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(1488, 1514 - 1488 + 1)]);
+	
+	NSLog(@" ");
+	NSLog(@"NSString extensions tests 4: custom (runic) alphabet generation");
+	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(5792, 5872 - 5792 + 1)]);
+	
+	NSLog(@" ");
+	NSLog(@"NSString extensions tests 5: custom (devanagari) alphabet generation");
+	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(2309, 2361 - 2309 + 1)]);
 }
 
 @end

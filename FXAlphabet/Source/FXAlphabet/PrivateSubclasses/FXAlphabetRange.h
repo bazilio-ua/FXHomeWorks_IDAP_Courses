@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXAlphabets.h"
+#import "FXAlphabet.h"
 
-@interface FXAlphabetRange : FXAlphabets
+@interface FXAlphabetRange : FXAlphabet
 
 - (id)initWithRange:(NSRange)range;
 

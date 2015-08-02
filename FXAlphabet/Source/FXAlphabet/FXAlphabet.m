@@ -1,14 +1,14 @@
 //
-//  FXAlphabets.m
+//  FXAlphabet.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/31/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXAlphabets.h"
+#import "FXAlphabet.h"
 
-@implementation FXAlphabets
+@implementation FXAlphabet
 
 #pragma mark -
 #pragma mark Class Methods

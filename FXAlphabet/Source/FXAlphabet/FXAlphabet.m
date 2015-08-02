@@ -8,25 +8,31 @@
 
 #import "FXAlphabet.h"
 
+#import "NSString+FXExtensions.h"
+
+#import "FXAlphabetCluster.h"
+#import "FXAlphabetRange.h"
+#import "FXAlphabetStrings.h"
+
 @implementation FXAlphabet
 
 #pragma mark -
 #pragma mark Class Methods
 
 + (id)alphabetWithSymbols:(NSString *)symbols {
-	return nil;
+	return [self alphabetWithStrings:[symbols symbols]];
 }
 
 + (id)alphabetWithStrings:(NSArray *)strings {
-	return nil;
+	return [[[FXAlphabetStrings alloc] initWithStrings:strings] autorelease];
 }
 
 + (id)alphabetWithRange:(NSRange)range {
-	return nil;
+	return [[[FXAlphabetRange alloc] initWithRange:range] autorelease];
 }
 
 + (id)alphabetWithAlphabets:(NSArray *)alphabets {
-	return nil;
+	return [[[FXAlphabetCluster alloc] initWithAlphabets:alphabets] autorelease];
 }
 
 #pragma mark -
@@ -39,33 +45,77 @@
 }
 
 - (id)initWithSymbols:(NSString *)symbols {
-	return nil;
+	return [self initWithStrings:[symbols symbols]];
 }
 
 - (id)initWithStrings:(NSArray *)strings {
-	return nil;
+	[self release];
+	
+	return [[FXAlphabetStrings alloc] initWithStrings:strings];
 }
 
 - (id)initWithRange:(NSRange)range {
-	return nil;
+	[self release];
+	
+	return [[FXAlphabetRange alloc] initWithRange:range];
 }
 
 - (id)initWithAlphabets:(NSArray *)alphabets {
-	return nil;
+	[self release];
+	
+	return [[FXAlphabetCluster alloc] initWithAlphabets:alphabets];
 }
 
 #pragma mark -
 #pragma mark Overriden Public Methods
 
+// these should be overriden and not be invoked from superclass
 - (NSUInteger)count {
+	[self doesNotRecognizeSelector:_cmd];
+	
 	return 0;
 }
 
 - (NSString *)stringAtIndex:(NSUInteger)index {
+	[self doesNotRecognizeSelector:_cmd];
+	
 	return nil;
 }
 
 #pragma mark -
-#pragma mark Private Methods
+#pragma mark Public Methods
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
+	return [self stringAtIndex:index];
+}
+
+- (NSString *)string {
+	NSMutableString *string = [NSMutableString string];
+	for (NSString *symbol in self) {
+		[string appendString:symbol];
+	}
+	
+	return [[string copy] autorelease];
+}
+
+#pragma mark -
+#pragma mark NSFastEnumeration for FXAlphabet
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state 
+								  objects:(id __unsafe_unretained [])buffer 
+									count:(NSUInteger)count 
+{
+	state->mutationsPtr = (unsigned long *)self;
+	NSUInteger length = MIN(state->state + count, [self count]);
+	count = length - state->state;
+	for (NSUInteger index = 0; index < count; index++) {
+		buffer[index] = self[index + state->state];
+	}
+	
+	state->itemsPtr = buffer;
+	state->state += count;
+	
+	return count;
+}
 
 @end

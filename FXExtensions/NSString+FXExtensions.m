@@ -76,4 +76,17 @@ static const NSUInteger kFXDefaultRandomStringLength = 40;
 	return [self stringWithString:string];
 }
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (NSArray *)symbols {
+	NSUInteger length = [self length];
+	NSMutableArray *symbolsArray = [NSMutableArray arrayWithCapacity:length];
+	for (NSUInteger index = 0; index < length; index++) {
+		[symbolsArray addObject:[NSString stringWithFormat:@"%C", [self characterAtIndex:index]]];
+	}
+	
+	return [[symbolsArray copy] autorelease];
+}
+
 @end

@@ -10,4 +10,6 @@
 
 @interface FXAlphabetCluster : FXAlphabet
 
+- (id)initWithAlphabets:(NSArray *)alphabets;
+
 @end

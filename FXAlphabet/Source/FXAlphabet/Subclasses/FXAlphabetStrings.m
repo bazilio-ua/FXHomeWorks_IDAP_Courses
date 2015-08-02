@@ -10,4 +10,8 @@
 
 @implementation FXAlphabetStrings
 
+- (id)initWithStrings:(NSArray *)strings {
+	return nil;
+}
+
 @end

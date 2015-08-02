@@ -10,4 +10,8 @@
 
 @implementation FXAlphabetCluster
 
+- (id)initWithAlphabets:(NSArray *)alphabets {
+	return nil;
+}
+
 @end

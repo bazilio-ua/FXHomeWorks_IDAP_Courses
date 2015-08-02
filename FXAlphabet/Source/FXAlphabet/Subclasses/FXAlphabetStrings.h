@@ -10,4 +10,6 @@
 
 @interface FXAlphabetStrings : FXAlphabet
 
+- (id)initWithStrings:(NSArray *)strings;
+
 @end

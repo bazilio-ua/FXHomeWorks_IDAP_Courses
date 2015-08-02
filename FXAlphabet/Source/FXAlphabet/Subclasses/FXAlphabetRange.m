@@ -10,4 +10,8 @@
 
 @implementation FXAlphabetRange
 
+- (id)initWithRange:(NSRange)range {
+	return nil;
+}
+
 @end

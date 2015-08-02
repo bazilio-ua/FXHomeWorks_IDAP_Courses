@@ -10,4 +10,6 @@
 
 @interface FXAlphabetRange : FXAlphabet
 
+- (id)initWithRange:(NSRange)range;
+
 @end

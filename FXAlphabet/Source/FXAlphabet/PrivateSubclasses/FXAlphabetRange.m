@@ -9,7 +9,7 @@
 #import "FXAlphabetRange.h"
 
 @interface FXAlphabetRange ()
-@property (nonatomic, assign)	NSRange		range;
+@property (nonatomic, assign) NSRange range;
 
 @end
 

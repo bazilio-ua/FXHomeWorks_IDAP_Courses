@@ -85,6 +85,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
+// It's a very important selector because self[5] will actually turn into [self objectAtIndexedSubscript:5]
 - (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
 	return [self stringAtIndex:index];
 }
@@ -99,23 +100,27 @@
 }
 
 #pragma mark -
-#pragma mark NSFastEnumeration for FXAlphabet
+#pragma mark NSFastEnumeration protocol for FXAlphabet
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state 
-								  objects:(id __unsafe_unretained [])buffer 
+								  objects:(id *)buffer 
 									count:(NSUInteger)count 
 {
 	state->mutationsPtr = (unsigned long *)self;
-	NSUInteger length = MIN(state->state + count, [self count]);
-	count = length - state->state;
-	for (NSUInteger index = 0; index < count; index++) {
-		buffer[index] = self[index + state->state];
+	
+	NSUInteger currentOffset = state->state;
+	NSUInteger length = MIN(currentOffset + count, [self count]);
+	length -= currentOffset;
+	
+	for (NSUInteger index = 0; index < length; index++) {
+//		buffer[index] = self[currentOffset + index]; // ugh
+		buffer[index] = [self objectAtIndexedSubscript:(currentOffset + index)];
 	}
 	
 	state->itemsPtr = buffer;
-	state->state += count;
+	state->state += length;
 	
-	return count;
+	return length;
 }
 
 @end

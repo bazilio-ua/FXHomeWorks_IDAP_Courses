@@ -9,7 +9,7 @@
 #import "FXAlphabetCluster.h"
 
 @interface FXAlphabetCluster ()
-@property (nonatomic, retain)	NSArray		*alphabets;
+@property (nonatomic, retain)	NSArray		*privateAlphabets;
 @property (nonatomic, assign)	NSUInteger	count;
 
 - (NSUInteger)countWithAlphabets:(NSArray *)alphabets;
@@ -17,15 +17,17 @@
 @end
 
 @implementation FXAlphabetCluster
-@synthesize alphabets	= _alphabets;
-@synthesize count		= _count;
+@synthesize privateAlphabets	= _privateAlphabets;
+@synthesize count				= _count;
+
+@dynamic alphabets;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.alphabets = nil;
+	self.privateAlphabets = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -34,11 +36,17 @@
 	self = [super init];
 	
 	if (self) {
-		self.alphabets = alphabets;
+		self.privateAlphabets = alphabets;
 		self.count = [self countWithAlphabets:alphabets];
 	}
 	
 	return self;
+}
+#pragma mark -
+#pragma mark Public Accessors
+
+- (NSArray *)alphabets {
+	return [[self.privateAlphabets copy] autorelease];
 }
 
 #pragma mark -
@@ -47,10 +55,11 @@
 - (NSString *)stringAtIndex:(NSUInteger)index {
 	NSAssert(self.count > index, NSRangeException); // sanity bounds of index range
 	
-	for (FXAlphabet *alphabet in self.alphabets) {
+	for (FXAlphabet *alphabet in self.privateAlphabets) {
 		NSUInteger count = [alphabet count];
 		if (count > index) {
-			return alphabet[index];
+//			return alphabet[index]; // ugh
+			return [alphabet objectAtIndexedSubscript:index];
 		}
 		
 		index -= count;
@@ -61,7 +70,7 @@
 
 - (NSString *)string {
 	NSMutableString *string = [NSMutableString stringWithCapacity:self.count];
-	for (FXAlphabet *alphabet in self.alphabets) {
+	for (FXAlphabet *alphabet in self.privateAlphabets) {
 		[string appendString:[alphabet string]];
 	}
 	

@@ -15,7 +15,8 @@ int main(int argc, const char *argv[]) {
 		// insert code here...
 		NSLog(@"FXAlphabet");
 		
-		[FXAlphabetTests performTest];
+		[FXAlphabetTests performRandomStringTest];
+		[FXAlphabetTests performAlphabetTest];
 	}
 	
     return 0;

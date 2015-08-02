@@ -10,6 +10,7 @@
 
 @interface FXAlphabetTests : NSObject
 
-+ (void)performTest;
++ (void)performRandomStringTest;
++ (void)performAlphabetTest;
 
 @end

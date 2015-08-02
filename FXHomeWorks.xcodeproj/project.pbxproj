@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4204E1D01B6E4307001D4FB9 /* FXAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 4204E1CF1B6E4307001D4FB9 /* FXAlphabetRange.m */; };
+		4204E1D31B6E4326001D4FB9 /* FXAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 4204E1D21B6E4326001D4FB9 /* FXAlphabetCluster.m */; };
+		4204E1D61B6E4342001D4FB9 /* FXAlphabetStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4204E1D51B6E4342001D4FB9 /* FXAlphabetStrings.m */; };
 		4207730F1B67EB90003B71E2 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */; };
 		420E32C31B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
@@ -231,6 +234,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4204E1CE1B6E4307001D4FB9 /* FXAlphabetRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetRange.h; sourceTree = "<group>"; };
+		4204E1CF1B6E4307001D4FB9 /* FXAlphabetRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetRange.m; sourceTree = "<group>"; };
+		4204E1D11B6E4326001D4FB9 /* FXAlphabetCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetCluster.h; sourceTree = "<group>"; };
+		4204E1D21B6E4326001D4FB9 /* FXAlphabetCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetCluster.m; sourceTree = "<group>"; };
+		4204E1D41B6E4342001D4FB9 /* FXAlphabetStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetStrings.h; sourceTree = "<group>"; };
+		4204E1D51B6E4342001D4FB9 /* FXAlphabetStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetStrings.m; sourceTree = "<group>"; };
 		420E32C21B2198060037B6CA /* FXObjectAccessors.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXObjectAccessors.c; sourceTree = "<group>"; };
 		420E32C61B2198210037B6CA /* FXObjectAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObjectAccessors.h; sourceTree = "<group>"; };
 		4212EEC11B616856004E3F64 /* FXAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAccountant.h; sourceTree = "<group>"; };
@@ -464,6 +473,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4204E1CC1B6E42DD001D4FB9 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				4204E1CE1B6E4307001D4FB9 /* FXAlphabetRange.h */,
+				4204E1CF1B6E4307001D4FB9 /* FXAlphabetRange.m */,
+				4204E1D11B6E4326001D4FB9 /* FXAlphabetCluster.h */,
+				4204E1D21B6E4326001D4FB9 /* FXAlphabetCluster.m */,
+				4204E1D41B6E4342001D4FB9 /* FXAlphabetStrings.h */,
+				4204E1D51B6E4342001D4FB9 /* FXAlphabetStrings.m */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		4208886F1B4ED39300A1ABBA /* C */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,6 +1137,7 @@
 		42C3A4951B6BB3C500D2AF51 /* FXAlphabet */ = {
 			isa = PBXGroup;
 			children = (
+				4204E1CC1B6E42DD001D4FB9 /* Subclasses */,
 				42C3A49B1B6BB53400D2AF51 /* FXAlphabet.h */,
 				42C3A49C1B6BB53400D2AF51 /* FXAlphabet.m */,
 			);
@@ -1630,6 +1653,9 @@
 				42C3A4931B6BB39200D2AF51 /* NSString+FXExtensions.m in Sources */,
 				42C3A49D1B6BB53400D2AF51 /* FXAlphabet.m in Sources */,
 				423C4F3D1B6CE12900E45725 /* FXAlphabetTests.m in Sources */,
+				4204E1D01B6E4307001D4FB9 /* FXAlphabetRange.m in Sources */,
+				4204E1D31B6E4326001D4FB9 /* FXAlphabetCluster.m in Sources */,
+				4204E1D61B6E4342001D4FB9 /* FXAlphabetStrings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

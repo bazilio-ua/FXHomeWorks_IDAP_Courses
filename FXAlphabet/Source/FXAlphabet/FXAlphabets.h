@@ -1,5 +1,5 @@
 //
-//  FXAlphabet.h
+//  FXAlphabets.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/31/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXAlphabet : NSObject
+@interface FXAlphabets : NSObject
 
 + (id)alphabetWithSymbols:(NSString *)symbols;
 + (id)alphabetWithStrings:(NSArray *)strings;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXAlphabet.h"
+#import "FXAlphabets.h"
 
-@interface FXAlphabetStrings : FXAlphabet
+@interface FXAlphabetStrings : FXAlphabets
 
 - (id)initWithStrings:(NSArray *)strings;
 

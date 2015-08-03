@@ -89,13 +89,17 @@
 	alphabet = [FXAlphabet alphabetWithRange:range];
 	NSLog(@"%@", alphabet); // show description (kind of class) 'FXAlphabetRange'
 	NSLog(@"%@", [alphabet string]); // show 'ABCDEF'
+	NSMutableString *string = [NSMutableString string];
 	for (id symbol in alphabet) {
-		NSLog(@"%@", symbol);
+//		NSLog(@"%@", symbol);
+		[string appendString:symbol];
 		count++;
 	}
+	NSLog(@"enumerated range alphabet: %@", string);
 	NSLog(@"count: %lu, range.length: %lu", count, range.length); // 6 == 6
 	count = 0;
 	alphabet = nil;
+	string = nil;
 	
 	NSLog(@" ");
 	NSLog(@"Alphabet test3: Cluster alphabet");
@@ -112,12 +116,15 @@
 	NSLog(@"%@", [alphabet stringAtIndex:26]); // show 'a'
 	NSLog(@"%@", [alphabet stringAtIndex:52]); // show '0'
 	for (NSString *symbol in alphabet) {
-		NSLog(@"%@", symbol);
+//		NSLog(@"%@", symbol);
+		[string appendString:symbol];
 		count++;
 	}
+	NSLog(@"enumerated cluster alphabet: %@", string);
 	NSLog(@"count: %lu, [alphabet count]: %lu", count, [alphabet count]); // 62 == 62
 	count = 0;
 	alphabet = nil;
+	string = nil;
 }
 
 @end

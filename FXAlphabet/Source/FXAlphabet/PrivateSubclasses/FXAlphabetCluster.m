@@ -12,7 +12,7 @@
 @property (nonatomic, retain)	NSArray		*privateAlphabets;
 @property (nonatomic, assign)	NSUInteger	count;
 
-- (NSUInteger)countWithAlphabets:(NSArray *)alphabets;
+//- (NSUInteger)countWithAlphabets:(NSArray *)alphabets;
 
 @end
 
@@ -20,7 +20,7 @@
 @synthesize privateAlphabets	= _privateAlphabets;
 @synthesize count				= _count;
 
-@dynamic alphabets;
+//@dynamic alphabets;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -37,20 +37,31 @@
 	
 	if (self) {
 		self.privateAlphabets = alphabets;
-		self.count = [self countWithAlphabets:alphabets];
+//		self.count = [self countWithAlphabets:alphabets];
 	}
 	
 	return self;
 }
+
 #pragma mark -
 #pragma mark Public Accessors
 
-- (NSArray *)alphabets {
-	return [[self.privateAlphabets copy] autorelease];
-}
+//- (NSArray *)alphabets {
+//	return [[self.privateAlphabets copy] autorelease];
+//}
 
 #pragma mark -
 #pragma mark Public Methods
+
+- (NSUInteger)count {
+	NSArray *alphabets = self.privateAlphabets;
+	NSUInteger count = 0;
+	for (FXAlphabet *alphabet in alphabets) {
+		count += [alphabet count];
+	}
+	
+	return count;
+}
 
 - (NSString *)stringAtIndex:(NSUInteger)index {
 	NSAssert(self.count > index, NSRangeException); // sanity bounds of index range
@@ -58,7 +69,7 @@
 	for (FXAlphabet *alphabet in self.privateAlphabets) {
 		NSUInteger count = [alphabet count];
 		if (count > index) {
-//			return alphabet[index]; // ugh
+//			return alphabet[index]; // CLANG v3.1 required
 			return [alphabet objectAtIndexedSubscript:index];
 		}
 		
@@ -79,7 +90,7 @@
 
 #pragma mark -
 #pragma mark Private Methods
-
+/*
 - (NSUInteger)countWithAlphabets:(NSArray *)alphabets {
 	NSUInteger count = 0;
 	for (FXAlphabet *alphabet in alphabets) {
@@ -88,5 +99,5 @@
 	
 	return count;
 }
-
+*/
 @end

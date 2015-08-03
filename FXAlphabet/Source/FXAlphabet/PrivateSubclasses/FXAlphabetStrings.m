@@ -16,7 +16,7 @@
 @implementation FXAlphabetStrings
 @synthesize privateStrings = _privateStrings;
 
-@dynamic strings;
+//@dynamic strings;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -41,9 +41,9 @@
 #pragma mark -
 #pragma mark Public Accessors
 
-- (NSArray *)strings {
-	return [[self.privateStrings copy] autorelease];
-}
+//- (NSArray *)strings {
+//	return [[self.privateStrings copy] autorelease];
+//}
 
 #pragma mark -
 #pragma mark Public Methods

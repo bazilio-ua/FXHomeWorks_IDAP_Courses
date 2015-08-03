@@ -85,7 +85,8 @@
 #pragma mark -
 #pragma mark Public Methods
 
-// It's a very important selector because self[5] will actually turn into [self objectAtIndexedSubscript:5]
+// it's a very important selector because self[5] will actually turn into [self objectAtIndexedSubscript:5] 
+// in most recent versions Xcode
 - (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
 	return [self stringAtIndex:index];
 }
@@ -113,7 +114,7 @@
 	length -= currentOffset;
 	
 	for (NSUInteger index = 0; index < length; index++) {
-//		buffer[index] = self[currentOffset + index]; // ugh
+//		buffer[index] = self[currentOffset + index]; // CLANG v3.1 required
 		buffer[index] = [self objectAtIndexedSubscript:(currentOffset + index)];
 	}
 	

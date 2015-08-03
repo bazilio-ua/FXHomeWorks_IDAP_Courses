@@ -75,6 +75,7 @@
 	NSLog(@"%@", [alphabet stringAtIndex:1]); // show 'string2'
 	NSLog(@"%@", [alphabet string]); // show 'string1string2'
 	NSUInteger count = 0;
+	NSLog(@"enumerated strings alphabet");
 	for (NSString *strings in alphabet) {
 		NSLog(@"%@", strings);
 		count++;
@@ -99,7 +100,6 @@
 	NSLog(@"count: %lu, range.length: %lu", count, range.length); // 6 == 6
 	count = 0;
 	alphabet = nil;
-	string = nil;
 	
 	NSLog(@" ");
 	NSLog(@"Alphabet test3: Cluster alphabet");
@@ -113,8 +113,11 @@
 	NSLog(@"%lu", [alphabet count]); // show '62'
 	NSLog(@"%@", [alphabet string]); // show all alphanumeric
 	NSLog(@"%@", [alphabet stringAtIndex:0]); // show 'A'
+	NSLog(@"%@", [alphabet stringAtIndex:25]); // show 'Z'
 	NSLog(@"%@", [alphabet stringAtIndex:26]); // show 'a'
+	NSLog(@"%@", [alphabet stringAtIndex:51]); // show 'z'
 	NSLog(@"%@", [alphabet stringAtIndex:52]); // show '0'
+	NSLog(@"%@", [alphabet stringAtIndex:61]); // show '9'
 	for (NSString *symbol in alphabet) {
 //		NSLog(@"%@", symbol);
 		[string appendString:symbol];
@@ -124,7 +127,6 @@
 	NSLog(@"count: %lu, [alphabet count]: %lu", count, [alphabet count]); // 62 == 62
 	count = 0;
 	alphabet = nil;
-	string = nil;
 }
 
 @end

@@ -86,7 +86,7 @@
 #pragma mark Public Methods
 
 // it's a very important selector because self[5] will actually turn into [self objectAtIndexedSubscript:5] 
-// in most recent versions Xcode
+// in most recent versions Xcode (CLANG v3.1 required)
 - (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
 	return [self stringAtIndex:index];
 }

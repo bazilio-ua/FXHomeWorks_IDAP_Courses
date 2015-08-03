@@ -9,7 +9,6 @@
 #import "FXAlphabet.h"
 
 @interface FXAlphabetStrings : FXAlphabet
-//@property (nonatomic, readonly) NSArray *strings;
 
 - (id)initWithStrings:(NSArray *)strings;
 

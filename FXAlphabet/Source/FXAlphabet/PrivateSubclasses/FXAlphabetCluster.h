@@ -9,7 +9,6 @@
 #import "FXAlphabet.h"
 
 @interface FXAlphabetCluster : FXAlphabet
-//@property (nonatomic, readonly)	NSArray		*alphabets;
 
 - (id)initWithAlphabets:(NSArray *)alphabets;
 

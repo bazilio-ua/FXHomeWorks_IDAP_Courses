@@ -9,7 +9,6 @@
 #import "FXAlphabet.h"
 
 @interface FXAlphabetRange : FXAlphabet
-//@property (nonatomic, readonly) NSRange range;
 
 - (id)initWithRange:(NSRange)range;
 

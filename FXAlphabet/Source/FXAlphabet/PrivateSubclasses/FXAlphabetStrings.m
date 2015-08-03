@@ -9,19 +9,19 @@
 #import "FXAlphabetStrings.h"
 
 @interface FXAlphabetStrings ()
-@property (nonatomic, retain) NSArray *privateStrings;
+@property (nonatomic, retain) NSArray *strings;
 
 @end
 
 @implementation FXAlphabetStrings
-@synthesize privateStrings = _privateStrings;
+@synthesize strings = _strings;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.privateStrings = nil;
+	self.strings = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -30,7 +30,7 @@
 	self = [super init];
 	
 	if (self) {
-		self.privateStrings = strings;
+		self.strings = strings;
 	}
 	
 	return self;
@@ -40,11 +40,11 @@
 #pragma mark Public Methods
 
 - (NSUInteger)count {
-	return [self.privateStrings count];
+	return [self.strings count];
 }
 
 - (NSString *)stringAtIndex:(NSUInteger)index {
-	NSArray *strings = self.privateStrings;
+	NSArray *strings = self.strings;
 	
 	NSAssert([strings count] > index, NSRangeException); // sanity bounds of index range
 	
@@ -55,7 +55,7 @@
 								  objects:(id *)buffer 
 									count:(NSUInteger)count
 {
-	return [self.privateStrings countByEnumeratingWithState:state objects:buffer count:count];
+	return [self.strings countByEnumeratingWithState:state objects:buffer count:count];
 }
 
 @end

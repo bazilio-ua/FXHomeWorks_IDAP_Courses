@@ -8,6 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXAlphabet : NSObject
+@interface FXAlphabet : NSObject <NSFastEnumeration>
+
++ (id)alphabetWithSymbols:(NSString *)symbols;
++ (id)alphabetWithStrings:(NSArray *)strings;
++ (id)alphabetWithRange:(NSRange)range;
++ (id)alphabetWithAlphabets:(NSArray *)alphabets;
+
+- (id)initWithSymbols:(NSString *)symbols;
+- (id)initWithStrings:(NSArray *)strings;
+- (id)initWithRange:(NSRange)range;
+- (id)initWithAlphabets:(NSArray *)alphabets;
+
+// these should be overriden and not be invoked from superclass
+- (NSUInteger)count;
+- (NSString *)stringAtIndex:(NSUInteger)index;
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index;
+- (NSString *)string;
 
 @end

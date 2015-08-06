@@ -17,7 +17,4 @@
 	return [[[self alloc] init] autorelease];
 }
 
-#pragma mark -
-#pragma mark Class Accessors
-
 @end

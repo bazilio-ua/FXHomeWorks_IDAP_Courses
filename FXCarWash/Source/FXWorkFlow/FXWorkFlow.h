@@ -11,7 +11,7 @@
 @class FXBuilding;
 
 @interface FXWorkFlow : NSObject
-@property (nonatomic, copy, readonly)	FXBuilding	*workFlowBuilding;
+@property (nonatomic, readonly)	FXBuilding	*workFlowBuilding;
 
 - (void)performWorkFlowWithObject:(id)object;
 

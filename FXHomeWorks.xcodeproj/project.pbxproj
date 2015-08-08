@@ -17,7 +17,6 @@
 		4212EECA1B616856004E3F64 /* FXDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212EEC41B616856004E3F64 /* FXDirector.m */; };
 		4212EECB1B616856004E3F64 /* FXEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212EEC61B616856004E3F64 /* FXEmployee.m */; };
 		4212EECC1B616856004E3F64 /* FXWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212EEC81B616856004E3F64 /* FXWasher.m */; };
-		4212EED01B616880004E3F64 /* FXWorkFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212EECF1B616880004E3F64 /* FXWorkFlow.m */; };
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		42219C931B4EDD5900B9AC0C /* FXCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 42219C8D1B4EDD5900B9AC0C /* FXCreature.m */; };
 		42219C941B4EDD5900B9AC0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42219C8E1B4EDD5900B9AC0C /* main.m */; };
@@ -41,6 +40,7 @@
 		425448D01B559F830006EE8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425448CE1B559F830006EE8D /* main.m */; };
 		42617EEA1AFF4B070019934C /* FXPrimitiveOutputTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42617EE81AFF4B070019934C /* FXPrimitiveOutputTypeTests.c */; };
 		42643CF61B2320EC00B90F83 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42643CF41B2320EC00B90F83 /* main.c */; };
+		426465951B7626E1008EC0CC /* FXEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 426465941B7626E1008EC0CC /* FXEnterprise.m */; };
 		4266D04E1B5933A600693450 /* FXBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D04D1B5933A600693450 /* FXBuilding.m */; };
 		4266D0511B5933BB00693450 /* FXCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0501B5933BB00693450 /* FXCar.m */; };
 		4266D0571B5933F600693450 /* FXRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4266D0561B5933F600693450 /* FXRoom.m */; };
@@ -250,8 +250,6 @@
 		4212EEC61B616856004E3F64 /* FXEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployee.m; sourceTree = "<group>"; };
 		4212EEC71B616856004E3F64 /* FXWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWasher.h; sourceTree = "<group>"; };
 		4212EEC81B616856004E3F64 /* FXWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWasher.m; sourceTree = "<group>"; };
-		4212EECE1B616880004E3F64 /* FXWorkFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWorkFlow.h; sourceTree = "<group>"; };
-		4212EECF1B616880004E3F64 /* FXWorkFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWorkFlow.m; sourceTree = "<group>"; };
 		4212EED21B616899004E3F64 /* FXMoneyFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMoneyFlow.h; sourceTree = "<group>"; };
 		4214E8F11AFA9BF100D0E018 /* Lection_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_1; sourceTree = BUILT_PRODUCTS_DIR; };
 		4214E9021AFA9C3C00D0E018 /* Lection_2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_2; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +290,8 @@
 		42617EE91AFF4B070019934C /* FXPrimitiveOutputTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPrimitiveOutputTypeTests.h; sourceTree = "<group>"; };
 		42643CE61B2320AF00B90F83 /* FXString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXString; sourceTree = BUILT_PRODUCTS_DIR; };
 		42643CF41B2320EC00B90F83 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		426465931B7626E1008EC0CC /* FXEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEnterprise.h; sourceTree = "<group>"; };
+		426465941B7626E1008EC0CC /* FXEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEnterprise.m; sourceTree = "<group>"; };
 		4266D04C1B5933A600693450 /* FXBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBuilding.h; sourceTree = "<group>"; };
 		4266D04D1B5933A600693450 /* FXBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBuilding.m; sourceTree = "<group>"; };
 		4266D04F1B5933BB00693450 /* FXCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCar.h; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 		42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXExtensions.m"; sourceTree = "<group>"; };
 		42C3A4911B6BB39200D2AF51 /* NSString+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FXExtensions.h"; sourceTree = "<group>"; };
 		42C3A4921B6BB39200D2AF51 /* NSString+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FXExtensions.m"; sourceTree = "<group>"; };
-		42C3A49B1B6BB53400D2AF51 /* FXAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FXAlphabet.h; sourceTree = "<group>"; };
+		42C3A49B1B6BB53400D2AF51 /* FXAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabet.h; sourceTree = "<group>"; };
 		42C3A49C1B6BB53400D2AF51 /* FXAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabet.m; sourceTree = "<group>"; };
 		42CE1C1D1AFE45710092C406 /* FXParentOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXParentOutput.c; sourceTree = "<group>"; };
 		42CE1C1E1AFE45710092C406 /* FXParentOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXParentOutput.h; sourceTree = "<group>"; };
@@ -518,15 +518,6 @@
 				4212EEC81B616856004E3F64 /* FXWasher.m */,
 			);
 			path = FXEmployee;
-			sourceTree = "<group>";
-		};
-		4212EECD1B61687E004E3F64 /* FXWorkFlow */ = {
-			isa = PBXGroup;
-			children = (
-				4212EECE1B616880004E3F64 /* FXWorkFlow.h */,
-				4212EECF1B616880004E3F64 /* FXWorkFlow.m */,
-			);
-			path = FXWorkFlow;
 			sourceTree = "<group>";
 		};
 		4212EED11B616897004E3F64 /* FXMoneyFlow */ = {
@@ -790,7 +781,7 @@
 				4266D04B1B59336400693450 /* FXRoom */,
 				4212EEC01B616855004E3F64 /* FXEmployee */,
 				4266D0491B59336400693450 /* FXCar */,
-				4212EECD1B61687E004E3F64 /* FXWorkFlow */,
+				426465921B7626E1008EC0CC /* FXEnterprise */,
 				4212EED11B616897004E3F64 /* FXMoneyFlow */,
 			);
 			path = Source;
@@ -855,6 +846,15 @@
 				4239DA9D1B2343BA0013986B /* FXStringTests */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		426465921B7626E1008EC0CC /* FXEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				426465931B7626E1008EC0CC /* FXEnterprise.h */,
+				426465941B7626E1008EC0CC /* FXEnterprise.m */,
+			);
+			path = FXEnterprise;
 			sourceTree = "<group>";
 		};
 		4266D0481B59336400693450 /* FXBuilding */ = {
@@ -1684,9 +1684,9 @@
 				4212EECA1B616856004E3F64 /* FXDirector.m in Sources */,
 				4212EECB1B616856004E3F64 /* FXEmployee.m in Sources */,
 				4212EECC1B616856004E3F64 /* FXWasher.m in Sources */,
-				4212EED01B616880004E3F64 /* FXWorkFlow.m in Sources */,
 				428CF51B1B653C5400F01BC2 /* FXCarWashTests.m in Sources */,
 				4207730F1B67EB90003B71E2 /* NSObject+FXExtensions.m in Sources */,
+				426465951B7626E1008EC0CC /* FXEnterprise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

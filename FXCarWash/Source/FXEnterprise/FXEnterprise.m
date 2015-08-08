@@ -1,12 +1,12 @@
 //
-//  FXWorkFlow.m
+//  FXEnterprise.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/20/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXWorkFlow.h"
+#import "FXEnterprise.h"
 
 #import "FXBuilding.h"
 #import "FXRoom.h"
@@ -23,24 +23,24 @@ static const NSUInteger kFXWashBoxCarsCapacity = 1;
 static const NSUInteger kFXCarWashPrice = 100;
 
 
-@interface FXWorkFlow ()
-@property (nonatomic, retain)	FXBuilding	*mutableWorkFlowBuilding;
+@interface FXEnterprise ()
+@property (nonatomic, retain)	NSMutableArray	*mutableBuildings;
 
-- (void)setupWorkFlow;
+- (void)setupEnterprise;
 
 @end
 
-@implementation FXWorkFlow
-@synthesize mutableWorkFlowBuilding 	= _mutableWorkFlowBuilding;
+@implementation FXEnterprise
+@synthesize mutableBuildings 	= _mutableBuildings;
 
-@dynamic workFlowBuilding;
+@dynamic buildings;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.mutableWorkFlowBuilding = nil;
+	self.mutableBuildings = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -49,8 +49,8 @@ static const NSUInteger kFXCarWashPrice = 100;
 	self = [super init]; // init superclass
 	
 	if (self) {
-		self.mutableWorkFlowBuilding = [FXBuilding object];
-		[self setupWorkFlow];
+		self.mutableBuildings = [NSMutableArray array];
+		[self setupEnterprise];
 	}
 	
 	return self;
@@ -59,18 +59,19 @@ static const NSUInteger kFXCarWashPrice = 100;
 #pragma mark -
 #pragma mark Public Accessors
 
-- (FXBuilding *)workFlowBuilding {
-	return [[self.mutableWorkFlowBuilding copy] autorelease];
+- (NSArray *)buildings {
+	return [[self.mutableBuildings copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)setupWorkFlow {
+- (void)setupEnterprise {
 	// create/setup building, rooms/boxes, employees and add it to workFlow
 	
-	// create building
-	FXBuilding *building = [FXBuilding object];
+	// create buildings
+	FXBuilding *adminBuilding = [FXBuilding object];
+	FXBuilding *washBoxBuilding = [FXBuilding object];
 	
 	// create room and washbox
 	FXRoom *room = [FXRoom object];
@@ -91,17 +92,17 @@ static const NSUInteger kFXCarWashPrice = 100;
 	[room addEmployee:accountant];
 	[washbox addEmployee:washer];
 	
-	// add rooms to the building
-	[building addRoom:room];
-	[building addRoom:washbox];
+	// add rooms into the appropriate buildings
+	[adminBuilding addRoom:room];
+	[washBoxBuilding addRoom:washbox];
 	
-	self.mutableWorkFlowBuilding = building;
+	self.mutableBuildings = [NSMutableArray arrayWithObjects:adminBuilding, washBoxBuilding, nil];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performWorkFlowWithObject:(id)object {
+- (void)performWorkWithObject:(id)object {
 	NSMutableArray *washers = [NSMutableArray array];
 	NSMutableArray *accountants = [NSMutableArray array];
 	NSMutableArray *directors = [NSMutableArray array];
@@ -109,18 +110,20 @@ static const NSUInteger kFXCarWashPrice = 100;
 	NSMutableArray *washboxes = [NSMutableArray array];
 	
 	// expand all ours action objects
-	for (FXRoom *room in [self.mutableWorkFlowBuilding rooms]) {
-		if ([room isMemberOfClass:[FXWashBox class]]) {
-			[washboxes addObject:room];
-			for (FXWasher *washer in [room employees]) {
-				[washers addObject:washer];
-			}
-		} else {
-			for (FXEmployee *employee in [room employees]) {
-				if ([employee isMemberOfClass:[FXAccountant class]]) {
-					[accountants addObject:employee];
-				} else {
-					[directors addObject:employee];
+	for (FXBuilding *building in self.mutableBuildings) {
+		for (FXRoom *room in [building rooms]) {
+			if ([room isMemberOfClass:[FXWashBox class]]) {
+				[washboxes addObject:room];
+				for (FXWasher *washer in [room employees]) {
+					[washers addObject:washer];
+				}
+			} else {
+				for (FXEmployee *employee in [room employees]) {
+					if ([employee isMemberOfClass:[FXAccountant class]]) {
+						[accountants addObject:employee];
+					} else {
+						[directors addObject:employee];
+					}
 				}
 			}
 		}
@@ -140,11 +143,11 @@ static const NSUInteger kFXCarWashPrice = 100;
 	}
 	
 	if (fullBoxCount == [washboxes count]) {
-		NSLog(@"WorkFlow: %@ there is no free washboxes, try again later", self);
+		NSLog(@"Enterprise: %@ there is no free washboxes, try again later", self);
 		
 		return;
 	}
-
+	
 	id currentObject = nil;
 	for (FXWasher *washer in washers) {
 		if (NO == washer.busy) {

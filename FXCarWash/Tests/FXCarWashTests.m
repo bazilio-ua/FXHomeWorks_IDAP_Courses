@@ -9,7 +9,7 @@
 #import "FXCarWashTests.h"
 
 #import "FXCar.h"
-#import "FXWorkFlow.h"
+#import "FXEnterprise.h"
 
 #import "NSObject+FXExtensions.h"
 
@@ -18,7 +18,7 @@
 + (void)performCarWashTest {
 	NSLog(@"this is carwash workflow test");
 	
-	FXWorkFlow *workflow = [FXWorkFlow object];
+	FXEnterprise *workflow = [FXEnterprise object];
 	
 	FXCar *car1 = [FXCar object];
 	FXCar *car2 = [FXCar object];
@@ -33,9 +33,9 @@
 	car3.money = 50;
 	car3.clean = NO;
 	
-	[workflow performWorkFlowWithObject:car1];
-	[workflow performWorkFlowWithObject:car2];
-	[workflow performWorkFlowWithObject:car3];
+	[workflow performWorkWithObject:car1];
+	[workflow performWorkWithObject:car2];
+	[workflow performWorkWithObject:car3];
 }
 
 @end

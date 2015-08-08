@@ -1,5 +1,5 @@
 //
-//  FXWorkFlow.h
+//  FXEnterprise.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 7/20/15.
@@ -10,9 +10,9 @@
 
 @class FXBuilding;
 
-@interface FXWorkFlow : NSObject
-@property (nonatomic, readonly)	FXBuilding	*workFlowBuilding;
+@interface FXEnterprise : NSObject
+@property (nonatomic, copy, readonly)	NSArray	*buildings;
 
-- (void)performWorkFlowWithObject:(id)object;
+- (void)performWorkWithObject:(id)object;
 
 @end

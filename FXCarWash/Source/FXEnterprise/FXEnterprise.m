@@ -67,7 +67,7 @@ static const NSUInteger kFXCarWashPrice = 100;
 #pragma mark Private Methods
 
 - (void)setupEnterprise {
-	// create/setup building, rooms/boxes, employees and add it to workFlow
+	// create/setup buildings, rooms/boxes, employees and add it to workflow
 	
 	// create buildings
 	FXBuilding *adminBuilding = [FXBuilding object];

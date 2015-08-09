@@ -11,7 +11,7 @@
 @implementation FXEmployee
 @synthesize wallet		= _wallet;
 @synthesize busy		= _busy;
-//@synthesize employeeState		= _employeeState;
+@synthesize employeeState		= _employeeState;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -28,10 +28,21 @@
 	if (self) {
 		self.wallet = 0;
 		self.busy = NO;
-//		self.employeeState = kFXEmployeeIsReady;
+		self.employeeState = kFXEmployeeIsReady;
 	}
 	
 	return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setEmployeeState:(FXEmployeeState)employeeState {
+	if (employeeState != _employeeState) {
+		_employeeState = employeeState;
+		
+		self.state = employeeState;
+	}
 }
 
 #pragma mark -
@@ -41,15 +52,15 @@
 	SEL selector;
 	switch (state) {
 		case kFXEmployeeIsReady:
-			selector =  @selector(employeeIsReady:);
+			selector = @selector(employeeIsReady:);
 			break;
 			
 		case kFXEmployeeStartedWork:
-			selector =  @selector(employeeDidStartedWork:);
+			selector = @selector(employeeDidStartedWork:);
 			break;
 
 		case kFXEmployeeFinishedWork:
-			selector =  @selector(employeeDidFinishedWork:);
+			selector = @selector(employeeDidFinishedWork:);
 			break;
 
 		default:

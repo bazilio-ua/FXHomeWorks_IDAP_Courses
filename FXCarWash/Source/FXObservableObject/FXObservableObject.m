@@ -49,11 +49,26 @@
 }
 
 - (void)setState:(NSUInteger)state {
-	if (_state != state) {
+	if (state != _state) {
 		_state = state;
 		
 		[self notifyOfStateChangeWithSelector:[self selectorForState:state]];
 	}
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)addObserver:(id)observer {
+	[self.mutableObservers addObject:observer];
+}
+
+- (void)removeObserver:(id)observer {
+	[self.mutableObservers removeObject:observer];
+}
+
+- (BOOL)containsObserver:(id)observer {
+	return [self.mutableObservers containsObject:observer];
 }
 
 #pragma mark -
@@ -72,19 +87,6 @@
 			[observer performSelector:selector withObject:self];
 		}
 	}
-}
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)addObserver:(id)observer {
-	
-}
-- (void)removeObserver:(id)observer {
-	
-}
-- (void)containsObserver:(id)observer {
-	
 }
 
 @end

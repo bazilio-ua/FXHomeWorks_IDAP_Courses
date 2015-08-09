@@ -11,6 +11,7 @@
 		4204E1DF1B6E50DB001D4FB9 /* FXAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 4204E1DB1B6E50DB001D4FB9 /* FXAlphabetRange.m */; };
 		4204E1E01B6E50DB001D4FB9 /* FXAlphabetStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4204E1DD1B6E50DB001D4FB9 /* FXAlphabetStrings.m */; };
 		4207730F1B67EB90003B71E2 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF825E1B543C6800129372 /* NSObject+FXExtensions.m */; };
+		420D57D01B7754C30068149F /* FXObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D57CF1B7754C30068149F /* FXObservableObject.m */; };
 		420E32C31B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		420E32C41B2198060037B6CA /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		4212EEC91B616856004E3F64 /* FXAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212EEC21B616856004E3F64 /* FXAccountant.m */; };
@@ -240,6 +241,8 @@
 		4204E1DB1B6E50DB001D4FB9 /* FXAlphabetRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetRange.m; sourceTree = "<group>"; };
 		4204E1DC1B6E50DB001D4FB9 /* FXAlphabetStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetStrings.h; sourceTree = "<group>"; };
 		4204E1DD1B6E50DB001D4FB9 /* FXAlphabetStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetStrings.m; sourceTree = "<group>"; };
+		420D57CE1B7754C30068149F /* FXObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObservableObject.h; sourceTree = "<group>"; };
+		420D57CF1B7754C30068149F /* FXObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXObservableObject.m; sourceTree = "<group>"; };
 		420E32C21B2198060037B6CA /* FXObjectAccessors.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXObjectAccessors.c; sourceTree = "<group>"; };
 		420E32C61B2198210037B6CA /* FXObjectAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObjectAccessors.h; sourceTree = "<group>"; };
 		4212EEC11B616856004E3F64 /* FXAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAccountant.h; sourceTree = "<group>"; };
@@ -503,6 +506,15 @@
 				42DB73F31B44ECBD0064BBAD /* FXAutoreleasePool */,
 			);
 			name = C;
+			sourceTree = "<group>";
+		};
+		420D57CC1B7754A40068149F /* FXObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				420D57CE1B7754C30068149F /* FXObservableObject.h */,
+				420D57CF1B7754C30068149F /* FXObservableObject.m */,
+			);
+			path = FXObservableObject;
 			sourceTree = "<group>";
 		};
 		4212EEC01B616855004E3F64 /* FXEmployee */ = {
@@ -776,6 +788,7 @@
 		425448CD1B559F830006EE8D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				420D57CC1B7754A40068149F /* FXObservableObject */,
 				425448CE1B559F830006EE8D /* main.m */,
 				4266D0481B59336400693450 /* FXBuilding */,
 				4266D04B1B59336400693450 /* FXRoom */,
@@ -1687,6 +1700,7 @@
 				428CF51B1B653C5400F01BC2 /* FXCarWashTests.m in Sources */,
 				4207730F1B67EB90003B71E2 /* NSObject+FXExtensions.m in Sources */,
 				426465951B7626E1008EC0CC /* FXEnterprise.m in Sources */,
+				420D57D01B7754C30068149F /* FXObservableObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

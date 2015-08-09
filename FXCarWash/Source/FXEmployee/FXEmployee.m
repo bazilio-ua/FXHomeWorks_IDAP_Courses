@@ -11,6 +11,7 @@
 @implementation FXEmployee
 @synthesize wallet		= _wallet;
 @synthesize busy		= _busy;
+//@synthesize employeeState		= _employeeState;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -27,9 +28,36 @@
 	if (self) {
 		self.wallet = 0;
 		self.busy = NO;
+//		self.employeeState = kFXEmployeeIsReady;
 	}
 	
 	return self;
+}
+
+#pragma mark -
+#pragma mark Overloaded Methods
+
+- (SEL)selectorForState:(NSUInteger)state {
+	SEL selector;
+	switch (state) {
+		case kFXEmployeeIsReady:
+			selector =  @selector(employeeIsReady:);
+			break;
+			
+		case kFXEmployeeStartedWork:
+			selector =  @selector(employeeDidStartedWork:);
+			break;
+
+		case kFXEmployeeFinishedWork:
+			selector =  @selector(employeeDidFinishedWork:);
+			break;
+
+		default:
+			selector = [super selectorForState:state]; // raise exception on super, its OK.
+			break;
+	}
+	
+	return selector;
 }
 
 #pragma mark -

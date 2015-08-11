@@ -27,7 +27,7 @@ typedef enum {
 
 @end
 
-@interface FXEmployee : FXObservableObject <FXMoneyFlow>
+@interface FXEmployee : FXObservableObject <FXMoneyFlow, FXEmployeeObserver>
 @property (nonatomic, assign)	NSInteger	wallet;
 @property (nonatomic, assign)	BOOL		busy;
 @property (nonatomic, assign)	FXEmployeeState		employeeState;

@@ -8,6 +8,8 @@
 
 #import "FXObservableObject.h"
 
+#import "FXAssignReference.h"
+
 @interface FXObservableObject ()
 @property (nonatomic, retain)	NSMutableSet		*mutableObservers;
 
@@ -45,7 +47,15 @@
 #pragma mark Public Accessors
 
 - (NSSet *)observers {
-	return [[self.mutableObservers copy] autorelease];
+	NSMutableSet *observers = [NSMutableSet set];
+	for (FXReference *reference in self.mutableObservers) {
+		id target = reference.target;
+		if (nil != target) {
+			[observers addObject:target];
+		}
+	}
+	
+	return [[observers copy] autorelease];
 }
 
 - (void)setState:(NSUInteger)state {
@@ -60,15 +70,30 @@
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-	[self.mutableObservers addObject:observer];
+	[self.mutableObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 }
 
 - (void)removeObserver:(id)observer {
-	[self.mutableObservers removeObject:observer];
+	NSArray *observers = [self.mutableObservers allObjects];
+	for (FXAssignReference *reference in observers) {
+		if (observer == reference.target) {
+			[self.mutableObservers removeObject:reference];
+			
+			break;
+		}
+	}
 }
 
 - (BOOL)containsObserver:(id)observer {
-	return [self.mutableObservers containsObject:observer];
+	NSArray *observers = [self.mutableObservers allObjects];
+	for (FXAssignReference *reference in observers) {
+		if (observer == reference.target) {
+			
+			return [self.mutableObservers containsObject:reference]; // or just 'YES' ?
+		}
+	}
+	
+	return NO;
 }
 
 #pragma mark -

@@ -77,6 +77,8 @@
 		42C3A4931B6BB39200D2AF51 /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C3A4921B6BB39200D2AF51 /* NSString+FXExtensions.m */; };
 		42C3A49D1B6BB53400D2AF51 /* FXAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C3A49C1B6BB53400D2AF51 /* FXAlphabet.m */; };
 		42C3A4B51B6BC23000D2AF51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
+		42C884EF1B799E9B0094CB6D /* FXReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C884EE1B799E9B0094CB6D /* FXReference.m */; };
+		42C884F21B79A37A0094CB6D /* FXAssignReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C884F11B79A37A0094CB6D /* FXAssignReference.m */; };
 		42CDB5961B4982880055A42A /* FXObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715371B07481E000A4877 /* FXObject.c */; };
 		42CDB5981B49828B0055A42A /* FXObjectAccessors.c in Sources */ = {isa = PBXBuildFile; fileRef = 420E32C21B2198060037B6CA /* FXObjectAccessors.c */; };
 		42CDB59A1B4983310055A42A /* FXLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D7BC681B358D8600617635 /* FXLinkedList.c */; };
@@ -342,6 +344,10 @@
 		42C3A4921B6BB39200D2AF51 /* NSString+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FXExtensions.m"; sourceTree = "<group>"; };
 		42C3A49B1B6BB53400D2AF51 /* FXAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabet.h; sourceTree = "<group>"; };
 		42C3A49C1B6BB53400D2AF51 /* FXAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabet.m; sourceTree = "<group>"; };
+		42C884ED1B799E9B0094CB6D /* FXReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXReference.h; sourceTree = "<group>"; };
+		42C884EE1B799E9B0094CB6D /* FXReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXReference.m; sourceTree = "<group>"; };
+		42C884F01B79A37A0094CB6D /* FXAssignReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAssignReference.h; sourceTree = "<group>"; };
+		42C884F11B79A37A0094CB6D /* FXAssignReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAssignReference.m; sourceTree = "<group>"; };
 		42CE1C1D1AFE45710092C406 /* FXParentOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXParentOutput.c; sourceTree = "<group>"; };
 		42CE1C1E1AFE45710092C406 /* FXParentOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXParentOutput.h; sourceTree = "<group>"; };
 		42CE1C211AFE45710092C406 /* FXSizeOfTypeOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSizeOfTypeOutput.h; sourceTree = "<group>"; };
@@ -788,6 +794,7 @@
 		425448CD1B559F830006EE8D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				42C884EB1B799E7A0094CB6D /* FXReference */,
 				420D57CC1B7754A40068149F /* FXObservableObject */,
 				425448CE1B559F830006EE8D /* main.m */,
 				4266D0481B59336400693450 /* FXBuilding */,
@@ -1155,6 +1162,17 @@
 				4204E1D71B6E50DA001D4FB9 /* PrivateSubclasses */,
 			);
 			path = FXAlphabet;
+			sourceTree = "<group>";
+		};
+		42C884EB1B799E7A0094CB6D /* FXReference */ = {
+			isa = PBXGroup;
+			children = (
+				42C884ED1B799E9B0094CB6D /* FXReference.h */,
+				42C884EE1B799E9B0094CB6D /* FXReference.m */,
+				42C884F01B79A37A0094CB6D /* FXAssignReference.h */,
+				42C884F11B79A37A0094CB6D /* FXAssignReference.m */,
+			);
+			path = FXReference;
 			sourceTree = "<group>";
 		};
 		42CE1C1C1AFE45710092C406 /* FXParentOutput */ = {
@@ -1701,6 +1719,8 @@
 				4207730F1B67EB90003B71E2 /* NSObject+FXExtensions.m in Sources */,
 				426465951B7626E1008EC0CC /* FXEnterprise.m in Sources */,
 				420D57D01B7754C30068149F /* FXObservableObject.m in Sources */,
+				42C884EF1B799E9B0094CB6D /* FXReference.m in Sources */,
+				42C884F21B79A37A0094CB6D /* FXAssignReference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,14 +58,15 @@
 		case kFXEmployeeStartedWork:
 			selector = @selector(employeeDidStartedWork:);
 			break;
-
+			
 		case kFXEmployeeFinishedWork:
 			selector = @selector(employeeDidFinishedWork:);
 			break;
-
-//		default:
+			
+		default:
 //			selector = [super selectorForState:state]; // raise exception on super, its OK.
-//			break;
+			[self doesNotRecognizeSelector:_cmd]; // raise exception
+			break;
 	}
 	
 	return selector;

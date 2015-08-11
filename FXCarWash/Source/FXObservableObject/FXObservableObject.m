@@ -72,26 +72,32 @@
 }
 
 - (void)removeObserver:(id)observer {
-	NSArray *observers = [self.mutableObservers allObjects];
+	[self.mutableObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	
+/*	NSArray *observers = [self.mutableObservers allObjects];
 	for (FXAssignReference *reference in observers) {
-		if (observer == reference.target) {
+		if (reference.target == observer) {
 			[self.mutableObservers removeObject:reference];
 			
 			break;
 		}
-	}
+	}*/
+
 }
 
 - (BOOL)containsObserver:(id)observer {
-	NSArray *observers = [self.mutableObservers allObjects];
+	return [self.mutableObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	
+/*	NSArray *observers = [self.mutableObservers allObjects];
 	for (FXAssignReference *reference in observers) {
-		if (observer == reference.target) {
+		if (reference.target == observer) {
 			
 			return [self.mutableObservers containsObject:reference]; // or just 'YES' ?
 		}
 	}
 	
-	return NO;
+	return NO;*/
+
 }
 
 #pragma mark -
@@ -112,10 +118,10 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
-	NSMutableSet *observers = self.mutableObservers;
-	for (id observer in observers) {
-		if ([observer respondsToSelector:selector]) {
-			[observer performSelector:selector withObject:object withObject:object2];
+	NSSet *observers = self.mutableObservers;
+	for (FXReference *reference in observers) {
+		if ([reference.target respondsToSelector:selector]) {
+			[reference.target performSelector:selector withObject:object withObject:object2];
 		}
 	}
 }

@@ -8,6 +8,11 @@
 
 #import "FXReference.h"
 
+@interface FXReference ()
+@property (nonatomic, assign)	id	target;
+
+@end
+
 @implementation FXReference
 
 @dynamic target;

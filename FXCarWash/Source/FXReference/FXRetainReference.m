@@ -1,19 +1,19 @@
 //
-//  FXAssignReference.m
+//  FXRetainReference.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 8/11/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXAssignReference.h"
+#import "FXRetainReference.h"
 
-@interface FXAssignReference ()
-@property (nonatomic, assign)	id	target;
+@interface FXRetainReference ()
+@property (nonatomic, retain)	id	target;
 
 @end
 
-@implementation FXAssignReference
+@implementation FXRetainReference
 
 @synthesize target = _target;
 

@@ -23,6 +23,8 @@
 		42219C941B4EDD5900B9AC0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42219C8E1B4EDD5900B9AC0C /* main.m */; };
 		42219C951B4EDD5900B9AC0C /* FXCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42219C921B4EDD5900B9AC0C /* FXCreatureTests.m */; };
 		4225FE641B4C193D005717B0 /* FXAutoreleasePoolTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 4225FE621B4C193D005717B0 /* FXAutoreleasePoolTests.c */; };
+		422D99E51B7A66C10041FF93 /* FXRetainReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D99E41B7A66C00041FF93 /* FXRetainReference.m */; };
+		422D99E91B7A66F00041FF93 /* FXCopyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 422D99E81B7A66EF0041FF93 /* FXCopyReference.m */; };
 		4236B35B1B6BB0C3003510F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4236B3591B6BB0C3003510F9 /* main.m */; };
 		4237150B1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		4237150C1B070D3B000A4877 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
@@ -268,6 +270,10 @@
 		42219C921B4EDD5900B9AC0C /* FXCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCreatureTests.m; sourceTree = "<group>"; };
 		4225FE621B4C193D005717B0 /* FXAutoreleasePoolTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXAutoreleasePoolTests.c; sourceTree = "<group>"; };
 		4225FE631B4C193D005717B0 /* FXAutoreleasePoolTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAutoreleasePoolTests.h; sourceTree = "<group>"; };
+		422D99E31B7A66C00041FF93 /* FXRetainReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXRetainReference.h; sourceTree = "<group>"; };
+		422D99E41B7A66C00041FF93 /* FXRetainReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXRetainReference.m; sourceTree = "<group>"; };
+		422D99E71B7A66EF0041FF93 /* FXCopyReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCopyReference.h; sourceTree = "<group>"; };
+		422D99E81B7A66EF0041FF93 /* FXCopyReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCopyReference.m; sourceTree = "<group>"; };
 		4236B3481B6BB041003510F9 /* FXAlphabet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAlphabet; sourceTree = BUILT_PRODUCTS_DIR; };
 		4236B3591B6BB0C3003510F9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		423715091B070D3B000A4877 /* FXTestsMacro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXTestsMacro.c; sourceTree = "<group>"; };
@@ -1171,6 +1177,10 @@
 				42C884EE1B799E9B0094CB6D /* FXReference.m */,
 				42C884F01B79A37A0094CB6D /* FXAssignReference.h */,
 				42C884F11B79A37A0094CB6D /* FXAssignReference.m */,
+				422D99E31B7A66C00041FF93 /* FXRetainReference.h */,
+				422D99E41B7A66C00041FF93 /* FXRetainReference.m */,
+				422D99E71B7A66EF0041FF93 /* FXCopyReference.h */,
+				422D99E81B7A66EF0041FF93 /* FXCopyReference.m */,
 			);
 			path = FXReference;
 			sourceTree = "<group>";
@@ -1721,6 +1731,8 @@
 				420D57D01B7754C30068149F /* FXObservableObject.m in Sources */,
 				42C884EF1B799E9B0094CB6D /* FXReference.m in Sources */,
 				42C884F21B79A37A0094CB6D /* FXAssignReference.m in Sources */,
+				422D99E51B7A66C10041FF93 /* FXRetainReference.m in Sources */,
+				422D99E91B7A66F00041FF93 /* FXCopyReference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

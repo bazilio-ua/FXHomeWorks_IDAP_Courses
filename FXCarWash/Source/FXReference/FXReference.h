@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FXReference : NSObject <NSCopying>
-@property (nonatomic, retain)	id	target;
+@property (nonatomic, readonly)	id	target;
 
 // overriding in subclasses
 - (id)initWithTarget:(id)object;

@@ -11,7 +11,7 @@
 @implementation FXEmployee
 @synthesize wallet		= _wallet;
 @synthesize busy		= _busy;
-@synthesize employeeState		= _employeeState;
+@synthesize state		= _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -28,7 +28,7 @@
 	if (self) {
 		self.wallet = 0;
 		self.busy = NO;
-		self.employeeState = kFXEmployeeIsReady;
+		self.state = kFXEmployeeIsReady;
 	}
 	
 	return self;
@@ -37,18 +37,18 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setEmployeeState:(FXEmployeeState)employeeState {
-	if (employeeState != _employeeState) {
-		_employeeState = employeeState;
+- (void)setState:(FXEmployeeState)state {
+	if (state != _state) {
+		_state = state;
 		
-		self.state = employeeState;
+		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
 	}
 }
 
 #pragma mark -
 #pragma mark Overloaded Methods
 
-- (SEL)selectorForState:(NSUInteger)state {
+- (SEL)selectorForState:(FXEmployeeState)state {
 	SEL selector;
 	switch (state) {
 		case kFXEmployeeIsReady:
@@ -63,9 +63,9 @@
 			selector = @selector(employeeDidFinishedWork:);
 			break;
 
-		default:
-			selector = [super selectorForState:state]; // raise exception on super, its OK.
-			break;
+//		default:
+//			selector = [super selectorForState:state]; // raise exception on super, its OK.
+//			break;
 	}
 	
 	return selector;
@@ -79,15 +79,14 @@
 }
 
 #pragma mark -
-#pragma mark FXMoneyFlow Protocol optional Methods
+#pragma mark FXMoneyFlow Protocol Methods
 
+// optional
 - (NSInteger)getEarningsAmount {
 	return self.wallet;
 }
 
-#pragma mark -
-#pragma mark FXMoneyFlow Protocol required Methods
-
+// required
 - (BOOL)ableToPayMoney:(NSInteger)money {
 	return self.wallet >= money ? YES : NO;
 }

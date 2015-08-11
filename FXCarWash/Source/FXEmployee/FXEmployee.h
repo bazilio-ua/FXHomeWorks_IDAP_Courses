@@ -30,7 +30,9 @@ typedef enum {
 @interface FXEmployee : FXObservableObject <FXMoneyFlow, FXEmployeeObserver>
 @property (nonatomic, assign)	NSInteger	wallet;
 @property (nonatomic, assign)	BOOL		busy;
-@property (nonatomic, assign)	FXEmployeeState		employeeState;
+@property (nonatomic, assign)	FXEmployeeState		state;
+
+- (SEL)selectorForState:(FXEmployeeState)state;
 
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object;
 

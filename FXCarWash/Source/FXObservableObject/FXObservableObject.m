@@ -13,12 +13,10 @@
 @interface FXObservableObject ()
 @property (nonatomic, retain)	NSMutableSet		*mutableObservers;
 
-- (void)notifyOfStateChangeWithSelector:(SEL)selector;
-
 @end
 
 @implementation FXObservableObject
-@synthesize state 				= _state;
+//@synthesize state 				= _state;
 @synthesize mutableObservers	= _mutableObservers;
 
 @dynamic	observers;
@@ -58,13 +56,13 @@
 	return [[observers copy] autorelease];
 }
 
-- (void)setState:(NSUInteger)state {
-	if (state != _state) {
-		_state = state;
-		
-		[self notifyOfStateChangeWithSelector:[self selectorForState:state]];
-	}
-}
+//- (void)setState:(NSUInteger)state {
+//	if (state != _state) {
+//		_state = state;
+//		
+//		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+//	}
+//}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -99,17 +97,25 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (SEL)selectorForState:(NSUInteger)state {
-	[self doesNotRecognizeSelector:_cmd];
-	
-	return NULL;
+//- (SEL)selectorForState:(NSUInteger)state {
+//	[self doesNotRecognizeSelector:_cmd];
+//	
+//	return NULL;
+//}
+
+- (void)notifyObserversWithSelector:(SEL)selector {
+	[self notifyObserversWithSelector:selector withObject:nil];
 }
 
-- (void)notifyOfStateChangeWithSelector:(SEL)selector {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
+	[self notifyObserversWithSelector:selector withObject:object withObject:nil];
+}
+
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
 	NSMutableSet *observers = self.mutableObservers;
 	for (id observer in observers) {
 		if ([observer respondsToSelector:selector]) {
-			[observer performSelector:selector withObject:self];
+			[observer performSelector:selector withObject:object withObject:object2];
 		}
 	}
 }

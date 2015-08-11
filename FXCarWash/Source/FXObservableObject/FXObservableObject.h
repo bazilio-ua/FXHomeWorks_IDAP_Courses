@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FXObservableObject : NSObject
-@property (nonatomic, assign)	NSUInteger	state;
+//@property (nonatomic, assign)	NSUInteger	state;
 @property (nonatomic, readonly)	NSSet		*observers;
 
 - (void)addObserver:(id)observer;
@@ -17,6 +17,10 @@
 - (BOOL)containsObserver:(id)observer;
 
 // this method is intended for subclassing. never call it directly.
-- (SEL)selectorForState:(NSUInteger)state;
+//- (SEL)selectorForState:(NSUInteger)state;
+
+- (void)notifyObserversWithSelector:(SEL)selector;
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2;
 
 @end

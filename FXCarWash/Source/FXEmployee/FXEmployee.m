@@ -71,7 +71,6 @@
 			break;
 			
 		default:
-//			selector = [super selectorForState:state]; // raise exception on super, its OK.
 			[self doesNotRecognizeSelector:_cmd]; // raise exception
 			break;
 	}
@@ -83,9 +82,7 @@
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
-//- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
 	[self doesNotRecognizeSelector:_cmd];
-//	[self receiveMoney:money fromPayer:object];
 }
 
 #pragma mark -

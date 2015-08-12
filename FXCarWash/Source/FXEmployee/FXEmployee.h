@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FXObservableObject.h"
+#import "FXObservable.h"
 #import "FXMoneyFlow.h"
 
 typedef enum {
@@ -27,14 +27,13 @@ typedef enum {
 
 @end
 
-@interface FXEmployee : FXObservableObject <FXMoneyFlow, FXEmployeeObserver>
+@interface FXEmployee : FXObservable <FXMoneyFlow, FXEmployeeObserver>
 @property (nonatomic, assign)	NSInteger	wallet;
 @property (nonatomic, assign)	BOOL		busy;
 @property (nonatomic, assign)	FXEmployeeState		state;
 
 - (SEL)selectorForState:(FXEmployeeState)state;
 
-//- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object;
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object;
 
 @end

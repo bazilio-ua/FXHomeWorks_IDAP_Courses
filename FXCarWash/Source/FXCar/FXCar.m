@@ -44,8 +44,6 @@
 	NSLog(@"Car %@ unable to pay, not enough money", self);
 	
 	return NO;
-	
-//	return self.money >= money ? YES : NO;
 }
 
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {

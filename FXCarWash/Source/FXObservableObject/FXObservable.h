@@ -1,5 +1,5 @@
 //
-//  FXObservableObject.h
+//  FXObservable.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 8/9/15.
@@ -8,16 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXObservableObject : NSObject
-//@property (nonatomic, assign)	NSUInteger	state;
+@interface FXObservable : NSObject
 @property (nonatomic, readonly)	NSSet		*observers;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 - (BOOL)containsObserver:(id)observer;
-
-// this method is intended for subclassing. never call it directly.
-//- (SEL)selectorForState:(NSUInteger)state;
 
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;

@@ -1,22 +1,22 @@
 //
-//  FXObservableObject.m
+//  FXObservable.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 8/9/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXObservableObject.h"
+#import "FXObservable.h"
 
 #import "FXAssignReference.h"
 
-@interface FXObservableObject ()
+@interface FXObservable ()
 @property (nonatomic, retain)	NSMutableSet		*mutableObservers;
 
 @end
 
-@implementation FXObservableObject
-//@synthesize state 				= _state;
+@implementation FXObservable
+
 @synthesize mutableObservers	= _mutableObservers;
 
 @dynamic	observers;
@@ -56,14 +56,6 @@
 	return [[observers copy] autorelease];
 }
 
-//- (void)setState:(NSUInteger)state {
-//	if (state != _state) {
-//		_state = state;
-//		
-//		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
-//	}
-//}
-
 #pragma mark -
 #pragma mark Public Methods
 
@@ -73,41 +65,14 @@
 
 - (void)removeObserver:(id)observer {
 	[self.mutableObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
-	
-/*	NSArray *observers = [self.mutableObservers allObjects];
-	for (FXAssignReference *reference in observers) {
-		if (reference.target == observer) {
-			[self.mutableObservers removeObject:reference];
-			
-			break;
-		}
-	}*/
-
 }
 
 - (BOOL)containsObserver:(id)observer {
 	return [self.mutableObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
-	
-/*	NSArray *observers = [self.mutableObservers allObjects];
-	for (FXAssignReference *reference in observers) {
-		if (reference.target == observer) {
-			
-			return [self.mutableObservers containsObject:reference]; // or just 'YES' ?
-		}
-	}
-	
-	return NO;*/
-
 }
 
 #pragma mark -
 #pragma mark Private Methods
-
-//- (SEL)selectorForState:(NSUInteger)state {
-//	[self doesNotRecognizeSelector:_cmd];
-//	
-//	return NULL;
-//}
 
 - (void)notifyObserversWithSelector:(SEL)selector {
 	[self notifyObserversWithSelector:selector withObject:nil];

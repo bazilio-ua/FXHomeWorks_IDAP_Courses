@@ -33,8 +33,9 @@
 }
 
 #pragma mark -
-#pragma mark FXMoneyFlow Protocol required Methods
+#pragma mark FXMoneyFlow Protocol Methods
 
+// required
 - (BOOL)ableToPayMoney:(NSInteger)money {
 	if (self.money >= money) {
 		return YES;

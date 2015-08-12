@@ -29,7 +29,7 @@
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
 	if ([object ableToPayMoney:money]) {
 		[self cleanCar:object];
-
+		
 		[super performEmployeeSpecificJobForMoney:money fromObject:object];
 		NSLog(@"Washer: %@ earn %ld money from Car: %@", self, money, object);
 	} else {

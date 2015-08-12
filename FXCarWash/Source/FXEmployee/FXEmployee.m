@@ -8,16 +8,23 @@
 
 #import "FXEmployee.h"
 
+@interface FXEmployee ()
+@property (nonatomic, retain)	id	processedObject;
+
+@end
+
 @implementation FXEmployee
-@synthesize wallet		= _wallet;
-@synthesize busy		= _busy;
-@synthesize state		= _state;
+@synthesize wallet			= _wallet;
+@synthesize busy			= _busy;
+@synthesize state			= _state;
+@synthesize processedObject	= _processedObject;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
+	self.processedObject = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -83,7 +90,7 @@
 #pragma mark FXMoneyFlow Protocol Methods
 
 // optional
-- (NSInteger)getEarningsAmount {
+- (NSInteger)earningsAmount {
 	return self.wallet;
 }
 

@@ -162,7 +162,7 @@ static const NSUInteger kFXCarWashPrice = 100;
 	for (FXAccountant *accountant in accountants) {
 		if (NO == accountant.busy) {
 			accountant.busy = YES;
-			[accountant performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
+			[accountant performEmployeeSpecificJobForMoney:[currentObject earningsAmount] fromObject:currentObject];
 			accountant.busy = NO;
 			currentObject = accountant;
 			break;
@@ -172,7 +172,7 @@ static const NSUInteger kFXCarWashPrice = 100;
 	for (FXDirector *director in directors) {
 		if (NO == director.busy) {
 			director.busy = YES;
-			[director performEmployeeSpecificJobForMoney:[currentObject getEarningsAmount] fromObject:currentObject];
+			[director performEmployeeSpecificJobForMoney:[currentObject earningsAmount] fromObject:currentObject];
 			director.busy = NO;
 			break;
 		}

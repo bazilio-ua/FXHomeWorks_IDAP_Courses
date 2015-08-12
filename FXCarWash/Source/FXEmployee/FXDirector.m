@@ -13,11 +13,13 @@
 #pragma mark -
 #pragma mark Public Methods
 
+//- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
 	if (0 < [object earningsAmount]) {
-		[super performEmployeeSpecificJobForMoney:money fromObject:object];
 		
-		NSLog(@"Director: %@ make a profit %ld money from Accountant: %@", self, money, object);
+//		[super performEmployeeSpecificJobForMoney:money fromObject:object];
+		[self receiveMoney:money fromPayer:object];
+		NSLog(@"Director: %@ make a profit %ld money (%ld total) from Accountant: %@", self, money, self.wallet, object);
 	} else {
 		NSLog(@"Director: %@ there is no profit", self);
 	}

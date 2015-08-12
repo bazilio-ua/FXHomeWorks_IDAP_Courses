@@ -82,8 +82,10 @@
 #pragma mark -
 #pragma mark Public Methods
 
+//- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
 - (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
-	[self receiveMoney:money fromPayer:object];
+	[self doesNotRecognizeSelector:_cmd];
+//	[self receiveMoney:money fromPayer:object];
 }
 
 #pragma mark -

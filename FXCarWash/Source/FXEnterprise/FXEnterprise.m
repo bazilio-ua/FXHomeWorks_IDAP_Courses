@@ -20,7 +20,8 @@
 static const NSUInteger kFXRoomEmployeesCapacity = 2;
 static const NSUInteger kFXWashBoxEmployeesCapacity = 1;
 static const NSUInteger kFXWashBoxCarsCapacity = 1;
-static const NSUInteger kFXCarWashPrice = 100;
+//static const NSUInteger kFXCarWashPrice = 100;
+const NSUInteger kFXCarWashPrice = 100;
 
 
 @interface FXEnterprise ()

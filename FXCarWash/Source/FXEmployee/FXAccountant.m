@@ -13,9 +13,10 @@
 #pragma mark -
 #pragma mark Public Methods
 
-//- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
-- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
-	if (0 < [object earningsAmount]) {
+- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
+//- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
+	NSInteger money = [object earningsAmount];
+	if (0 < money) {
 		
 //		[super performEmployeeSpecificJobForMoney:money fromObject:object];
 		[self receiveMoney:money fromPayer:object];

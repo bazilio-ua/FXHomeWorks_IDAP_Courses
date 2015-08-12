@@ -28,11 +28,12 @@ FOUNDATION_EXPORT const NSUInteger kFXCarWashPrice;
 #pragma mark -
 #pragma mark Public Methods
 
-//- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
-- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
+- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
+//- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
+	NSInteger money = kFXCarWashPrice;
 	if ([object ableToPayMoney:money]) {
 		[self cleanCar:object];
-				
+		
 //		[super performEmployeeSpecificJobForMoney:money fromObject:object];
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Washer: %@ earn %ld money from Car: %@", self, money, object);

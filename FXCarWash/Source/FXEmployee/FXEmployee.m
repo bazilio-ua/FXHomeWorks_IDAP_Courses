@@ -115,15 +115,15 @@
 #pragma mark FXEmployeeObserver Protocol Methods
 
 - (void)employeeIsReady:(FXEmployee *)employee {
-	NSLog(@"employee: %@, selector: %@", employee ,NSStringFromSelector(_cmd));
+	NSLog(@"employee: %@, with selector: %@", employee ,NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidStartedWork:(FXEmployee *)employee {
-	NSLog(@"employee: %@, selector: %@", employee ,NSStringFromSelector(_cmd));
+	NSLog(@"employee: %@, with selector: %@", employee ,NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidFinishedWork:(FXEmployee *)employee {
-	NSLog(@"employee: %@, selector: %@", employee ,NSStringFromSelector(_cmd));
+	NSLog(@"employee: %@, with selector: %@", employee ,NSStringFromSelector(_cmd));
 	
 //	employee.state = kFXEmployeeIsReady;
 }

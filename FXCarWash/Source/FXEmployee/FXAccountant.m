@@ -16,9 +16,13 @@
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
 	NSInteger money = [object earningsAmount];
 	if (0 < money) {
-		
+		self.state = kFXEmployeeStartedWork; // start work ->
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Accountant: %@ got %ld money from Washer: %@ and calculate it", self, money, object);
+		self.state = kFXEmployeeFinishedWork; // finish work. (ready to transfer money)
+		
+		FXEmployee *employee = (FXEmployee *)object;
+		employee.state = kFXEmployeeIsReady; // release washer
 	} else {
 		NSLog(@"Accountant: %@ there is nothing to calculate", self);
 	}

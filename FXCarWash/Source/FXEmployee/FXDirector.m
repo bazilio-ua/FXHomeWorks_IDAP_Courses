@@ -16,9 +16,13 @@
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
 	NSInteger money = [object earningsAmount];
 	if (0 < money) {
-		
+		self.state = kFXEmployeeStartedWork; // start work ->
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Director: %@ make a profit %ld money (%ld total) from Accountant: %@", self, money, self.wallet, object);
+		self.state = kFXEmployeeFinishedWork; // finish work.
+		
+		FXEmployee *employee = (FXEmployee *)object;
+		employee.state = kFXEmployeeIsReady; // release accountant
 	} else {
 		NSLog(@"Director: %@ there is no profit", self);
 	}

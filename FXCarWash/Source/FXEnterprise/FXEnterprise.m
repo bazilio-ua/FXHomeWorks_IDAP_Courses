@@ -82,6 +82,10 @@ const NSUInteger kFXCarWashPrice = 100;
 	FXAccountant *accountant = [FXAccountant object];
 	FXWasher *washer = [FXWasher object];
 	
+	// add observers
+	[accountant addObserver:director];
+	[washer addObserver:accountant];
+	
 	// set rooms capacity
 	room.employeeCapacity = kFXRoomEmployeesCapacity;
 	washbox.employeeCapacity = kFXWashBoxEmployeesCapacity;
@@ -150,30 +154,33 @@ const NSUInteger kFXCarWashPrice = 100;
 	
 	id currentObject = nil;
 	for (FXWasher *washer in washers) {
-		if (NO == washer.busy) {
-			washer.busy = YES;
+//		if (NO == washer.busy) {
+		if (kFXEmployeeIsReady == washer.state) {
+//			washer.busy = YES;
 			[washer performEmployeeSpecificJobWithObject:object];
-			washer.busy = NO;
+//			washer.busy = NO;
 			currentObject = washer;
 			break;
 		}
 	}
 	
 	for (FXAccountant *accountant in accountants) {
-		if (NO == accountant.busy) {
-			accountant.busy = YES;
+//		if (NO == accountant.busy) {
+		if (kFXEmployeeIsReady == accountant.state) {
+//			accountant.busy = YES;
 			[accountant performEmployeeSpecificJobWithObject:currentObject];
-			accountant.busy = NO;
+//			accountant.busy = NO;
 			currentObject = accountant;
 			break;
 		}
 	}
 	
 	for (FXDirector *director in directors) {
-		if (NO == director.busy) {
-			director.busy = YES;
+//		if (NO == director.busy) {
+		if (kFXEmployeeIsReady == director.state) {
+//			director.busy = YES;
 			[director performEmployeeSpecificJobWithObject:currentObject];
-			director.busy = NO;
+//			director.busy = NO;
 			break;
 		}
 	}

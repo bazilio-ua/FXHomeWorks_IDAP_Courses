@@ -29,7 +29,7 @@ typedef enum {
 
 @interface FXEmployee : FXObservable <FXMoneyFlow, FXEmployeeObserver>
 @property (nonatomic, assign)	NSInteger	wallet;
-@property (nonatomic, assign)	BOOL		busy;
+//@property (nonatomic, assign)	BOOL		busy;
 @property (nonatomic, assign)	FXEmployeeState		state;
 
 - (SEL)selectorForState:(FXEmployeeState)state;

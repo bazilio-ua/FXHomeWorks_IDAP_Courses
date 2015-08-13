@@ -15,7 +15,7 @@
 
 @implementation FXEmployee
 @synthesize wallet			= _wallet;
-@synthesize busy			= _busy;
+//@synthesize busy			= _busy;
 @synthesize state			= _state;
 @synthesize processedObject	= _processedObject;
 
@@ -34,7 +34,7 @@
 	
 	if (self) {
 		self.wallet = 0;
-		self.busy = NO;
+//		self.busy = NO;
 		self.state = kFXEmployeeIsReady;
 	}
 	
@@ -109,6 +109,23 @@
 	if ([payee respondsToSelector:@selector(receiveMoney:fromPayer:)] && [self ableToPayMoney:money]) {
 		self.wallet -= money;
 	}
+}
+
+#pragma mark -
+#pragma mark FXEmployeeObserver Protocol Methods
+
+- (void)employeeIsReady:(FXEmployee *)employee {
+	NSLog(@"employee: %@, selector: %@", employee ,NSStringFromSelector(_cmd));
+}
+
+- (void)employeeDidStartedWork:(FXEmployee *)employee {
+	NSLog(@"employee: %@, selector: %@", employee ,NSStringFromSelector(_cmd));
+}
+
+- (void)employeeDidFinishedWork:(FXEmployee *)employee {
+	NSLog(@"employee: %@, selector: %@", employee ,NSStringFromSelector(_cmd));
+	
+//	employee.state = kFXEmployeeIsReady;
 }
 
 @end

@@ -23,6 +23,8 @@
 		
 		FXEmployee *employee = (FXEmployee *)object;
 		employee.state = kFXEmployeeIsReady; // release accountant
+		
+		self.state = kFXEmployeeIsReady; // release self
 	} else {
 		NSLog(@"Director: %@ there is no profit", self);
 	}

@@ -26,10 +26,12 @@
 }
 
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	self.state = kFXEmployeeStartedWork;
-	[self processObject:object];
-	self.state = kFXEmployeeFinishedWork;
-	self.state = kFXEmployeeIsReady; // release self
+	if (nil != object) {
+		self.state = kFXEmployeeStartedWork;
+		[self processObject:object];
+		self.state = kFXEmployeeFinishedWork;
+		self.state = kFXEmployeeIsReady; // release self
+	}
 }
 
 @end

@@ -113,35 +113,21 @@
 		self.wallet -= money;
 	}
 }
-// employeeStatObserver
+
 #pragma mark -
 #pragma mark FXEmployeeObserver Protocol Methods
 
+// optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-//	NSLog(@"*DEBUG* self: %@, selector: %@, employee %@, state: %u", self, NSStringFromSelector(_cmd), employee, employee.state);
 	
-//	NSLog(@"DEBUG: employee: %@ changed his state to %s", employee, employee.state == kFXEmployeeIsReady ? "kFXEmployeeIsReady" : employee.state == kFXEmployeeStartedWork ? "kFXEmployeeStartedWork" : "kFXEmployeeFinishedWork");
-//	NSLog(@"DEBUG: employee: %@ notified his observers: %@ with selector: %@", employee, employee.observers, NSStringFromSelector(_cmd));
-//	NSLog(@"DEBUG: self: %@ performed this method %s", self, __PRETTY_FUNCTION__);
 }
 
 - (void)employeeDidStartedWork:(FXEmployee *)employee {
-//	NSLog(@"*DEBUG* self: %@, selector: %@, employee %@, state: %u", self, NSStringFromSelector(_cmd), employee, employee.state);
-
-//	NSLog(@"DEBUG: employee: %@ changed his state to %s", employee, employee.state == kFXEmployeeIsReady ? "kFXEmployeeIsReady" : employee.state == kFXEmployeeStartedWork ? "kFXEmployeeStartedWork" : "kFXEmployeeFinishedWork");
-//	NSLog(@"DEBUG: employee: %@ notified his observers: %@ with selector: %@", employee, employee.observers, NSStringFromSelector(_cmd));
-//	NSLog(@"DEBUG: self: %@ performed this method %s", self, __PRETTY_FUNCTION__);
+	
 }
 
 - (void)employeeDidFinishedWork:(FXEmployee *)employee {
-//	NSLog(@"*DEBUG* self: %@, selector: %@, employee %@, state: %u", self, NSStringFromSelector(_cmd), employee, employee.state);
-
-//	NSLog(@"DEBUG: employee: %@ changed his state to %s", employee, employee.state == kFXEmployeeIsReady ? "kFXEmployeeIsReady" : employee.state == kFXEmployeeStartedWork ? "kFXEmployeeStartedWork" : "kFXEmployeeFinishedWork");
-//	NSLog(@"DEBUG: employee: %@ notified his observers: %@ with selector: %@", employee, employee.observers, NSStringFromSelector(_cmd));
-//	NSLog(@"DEBUG: self: %@ performed this method %s", self, __PRETTY_FUNCTION__);
-	
 	[self performEmployeeSpecificJobWithObject:employee];
-//	employee.state = kFXEmployeeIsReady; // free employee
 }
 
 @end

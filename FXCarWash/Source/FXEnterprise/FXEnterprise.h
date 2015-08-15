@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class FXBuilding;
+#import "FXEmployee.h"
 
 @interface FXEnterprise : NSObject
-@property (nonatomic, copy, readonly)	NSArray	*buildings;
 
 - (void)performWorkWithObject:(id)object;
 

@@ -33,6 +33,7 @@ typedef enum {
 
 - (SEL)selectorForState:(FXEmployeeState)state;
 
+- (void)processObject:(id<FXMoneyFlow>)object;
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object;
 
 @end

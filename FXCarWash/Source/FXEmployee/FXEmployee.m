@@ -13,8 +13,8 @@
 @end
 
 @implementation FXEmployee
-@synthesize wallet			= _wallet;
 @synthesize state			= _state;
+@synthesize wallet			= _wallet;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -73,14 +73,14 @@
 	return selector;
 }
 
-- (void)processObject:(id<FXMoneyFlow>)object {
+- (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	[self doesNotRecognizeSelector:_cmd];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow>)object {
+- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
 		self.state = kFXEmployeeStartedWork;
 		[self processObject:object];
@@ -141,7 +141,7 @@
 //	NSLog(@"DEBUG: self: %@ performed this method %s", self, __PRETTY_FUNCTION__);
 	
 	[self performEmployeeSpecificJobWithObject:employee];
-	employee.state = kFXEmployeeIsReady; // free employee
+//	employee.state = kFXEmployeeIsReady; // free employee
 }
 
 @end

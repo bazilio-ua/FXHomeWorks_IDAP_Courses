@@ -13,7 +13,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)processObject:(id<FXMoneyFlow>)object {
+- (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	NSInteger money = [object earningsAmount];
 	if (0 < money) {
 		[self receiveMoney:money fromPayer:object];
@@ -21,6 +21,8 @@
 	} else {
 		NSLog(@"Accountant: %@ there is nothing to calculate", self);
 	}
+	
+	object.state = kFXEmployeeIsReady; // release washer
 }
 
 @end

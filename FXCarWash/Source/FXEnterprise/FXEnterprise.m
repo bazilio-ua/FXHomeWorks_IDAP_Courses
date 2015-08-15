@@ -26,7 +26,7 @@ const NSUInteger kFXCarWashPrice = 100;
 @interface FXEnterprise ()
 @property (nonatomic, retain)	NSMutableArray	*mutableBuildings;
 
-- (void)setupEnterprise;
+- (void)generateEnterprise;
 
 @end
 
@@ -50,7 +50,7 @@ const NSUInteger kFXCarWashPrice = 100;
 	
 	if (self) {
 		self.mutableBuildings = [NSMutableArray array];
-		[self setupEnterprise];
+		[self generateEnterprise];
 	}
 	
 	return self;
@@ -66,7 +66,7 @@ const NSUInteger kFXCarWashPrice = 100;
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)setupEnterprise {
+- (void)generateEnterprise {
 	// create/setup buildings, rooms/boxes, employees and add it to workflow
 	
 	// create buildings
@@ -154,33 +154,24 @@ const NSUInteger kFXCarWashPrice = 100;
 	
 	id currentObject = nil;
 	for (FXWasher *washer in washers) {
-//		if (NO == washer.busy) {
 		if (kFXEmployeeIsReady == washer.state) {
-//			washer.busy = YES;
 			[washer performEmployeeSpecificJobWithObject:object];
-//			washer.busy = NO;
 			currentObject = washer;
 			break;
 		}
 	}
 	
 	for (FXAccountant *accountant in accountants) {
-//		if (NO == accountant.busy) {
 		if (kFXEmployeeIsReady == accountant.state) {
-//			accountant.busy = YES;
 			[accountant performEmployeeSpecificJobWithObject:currentObject];
-//			accountant.busy = NO;
 			currentObject = accountant;
 			break;
 		}
 	}
 	
 	for (FXDirector *director in directors) {
-//		if (NO == director.busy) {
 		if (kFXEmployeeIsReady == director.state) {
-//			director.busy = YES;
 			[director performEmployeeSpecificJobWithObject:currentObject];
-//			director.busy = NO;
 			break;
 		}
 	}

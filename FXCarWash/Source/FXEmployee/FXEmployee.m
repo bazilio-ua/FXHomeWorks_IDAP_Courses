@@ -15,7 +15,6 @@
 
 @implementation FXEmployee
 @synthesize wallet			= _wallet;
-//@synthesize busy			= _busy;
 @synthesize state			= _state;
 @synthesize processedObject	= _processedObject;
 
@@ -34,7 +33,6 @@
 	
 	if (self) {
 		self.wallet = 0;
-//		self.busy = NO;
 		self.state = kFXEmployeeIsReady;
 	}
 	
@@ -110,20 +108,26 @@
 		self.wallet -= money;
 	}
 }
-
+// employeeStatObserver
 #pragma mark -
 #pragma mark FXEmployeeObserver Protocol Methods
 
 - (void)employeeIsReady:(FXEmployee *)employee {
-	NSLog(@"employee: %@, with selector: %@", employee ,NSStringFromSelector(_cmd));
+	NSLog(@"DEBUG: employee: %@ changed his state to %s", employee, employee.state == kFXEmployeeIsReady ? "kFXEmployeeIsReady" : employee.state == kFXEmployeeStartedWork ? "kFXEmployeeStartedWork" : "kFXEmployeeFinishedWork");
+	NSLog(@"DEBUG: employee: %@ notified his observers: %@ with selector: %@", employee, employee.observers, NSStringFromSelector(_cmd));
+	NSLog(@"DEBUG: self: %@ performed this method %s", self, __PRETTY_FUNCTION__);
 }
 
 - (void)employeeDidStartedWork:(FXEmployee *)employee {
-	NSLog(@"employee: %@, with selector: %@", employee ,NSStringFromSelector(_cmd));
+	NSLog(@"DEBUG: employee: %@ changed his state to %s", employee, employee.state == kFXEmployeeIsReady ? "kFXEmployeeIsReady" : employee.state == kFXEmployeeStartedWork ? "kFXEmployeeStartedWork" : "kFXEmployeeFinishedWork");
+	NSLog(@"DEBUG: employee: %@ notified his observers: %@ with selector: %@", employee, employee.observers, NSStringFromSelector(_cmd));
+	NSLog(@"DEBUG: self: %@ performed this method %s", self, __PRETTY_FUNCTION__);
 }
 
 - (void)employeeDidFinishedWork:(FXEmployee *)employee {
-	NSLog(@"employee: %@, with selector: %@", employee ,NSStringFromSelector(_cmd));
+	NSLog(@"DEBUG: employee: %@ changed his state to %s", employee, employee.state == kFXEmployeeIsReady ? "kFXEmployeeIsReady" : employee.state == kFXEmployeeStartedWork ? "kFXEmployeeStartedWork" : "kFXEmployeeFinishedWork");
+	NSLog(@"DEBUG: employee: %@ notified his observers: %@ with selector: %@", employee, employee.observers, NSStringFromSelector(_cmd));
+	NSLog(@"DEBUG: self: %@ performed this method %s", self, __PRETTY_FUNCTION__);
 	
 //	employee.state = kFXEmployeeIsReady;
 }

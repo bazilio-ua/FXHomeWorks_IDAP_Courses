@@ -15,6 +15,7 @@
 #import "NSObject+FXExtensions.h"
 
 const NSUInteger kFXCarWashPrice = 100;
+static const NSUInteger kFXWashersNumber = 50;
 
 
 @interface FXEnterprise ()
@@ -23,9 +24,8 @@ const NSUInteger kFXCarWashPrice = 100;
 
 - (void)processWorkFlow;
 
-- (void)addCar:(id)car;
-- (void)removeCar:(id)car;
-- (id)carFromQueue;
+- (void)enqueueCar:(id)car;
+- (id)dequeueCar;
 
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
@@ -71,7 +71,7 @@ const NSUInteger kFXCarWashPrice = 100;
 
 - (void)performWorkWithObject:(id)object {
 	if (nil != object) {
-		[self addCar:object];
+		[self enqueueCar:object];
 		[self processWorkFlow];
 	}
 }
@@ -82,29 +82,32 @@ const NSUInteger kFXCarWashPrice = 100;
 - (void)processWorkFlow {
 	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
 	if (nil != washer) {
-		[washer performEmployeeSpecificJobWithObject:[self carFromQueue]];
+		[washer performEmployeeSpecificJobWithObject:[self dequeueCar]];
 	} else {
-		NSLog(@"Error: all washers are busy");
+		NSLog(@"All washers are busy right now");
 	}
 }
 
 // *cars*
 
-- (void)addCar:(id)car {
+- (void)enqueueCar:(id)car {
 	[self.mutableCars addObject:car];
 	NSLog(@"The car %@ added to queue %@", car, self);
 }
 
-- (void)removeCar:(id)car {
-	[self.mutableCars removeObject:car];
-	NSLog(@"The car %@ removed from queue %@", car, self);
-}
-
-- (id)carFromQueue {
-	id car = [[[self.mutableCars objectAtIndex:0] retain] autorelease]; // get first
-	[self removeCar:car];
+- (id)dequeueCar {
+	NSMutableArray *queue = self.mutableCars;
+	if (0 < [queue count]) {
+		id car = [[[queue objectAtIndex:0] retain] autorelease]; // get first
+		if (nil != car) {
+			[queue removeObject:car];
+			NSLog(@"The car %@ removed from queue %@", car, self);
+		}
+		
+		return car;
+	}
 	
-	return car;
+	return nil;
 }
 
 // *employees*
@@ -134,13 +137,37 @@ const NSUInteger kFXCarWashPrice = 100;
 	// create employee
 	FXDirector *director = [FXDirector object];
 	FXAccountant *accountant = [FXAccountant object];
-	FXWasher *washer = [FXWasher object];
+	
+	for (NSUInteger count = 0; count < kFXWashersNumber; count++) {
+		FXWasher *washer = [FXWasher object];
+		[washer addObserver:accountant];
+		[washer addObserver:self]; // enterprise is washer observer
+		[self addEmployee:washer];
+	}
 	
 	// add observers
 	[accountant addObserver:director];
-	[washer addObserver:accountant];
 	
-	self.mutableEmployees = [NSMutableArray arrayWithObjects:director, accountant, washer, nil];
+	[self addEmployee:director];
+	[self addEmployee:accountant];
+}
+
+#pragma mark -
+#pragma mark FXEmployeeObserver Protocol Methods
+
+// optional
+- (void)employeeIsReady:(FXEmployee *)employee {
+	
+}
+
+- (void)employeeDidStartedWork:(FXEmployee *)employee {
+	
+}
+
+- (void)employeeDidFinishedWork:(FXEmployee *)employee {
+	@synchronized (self) {
+		[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
+	}
 }
 
 @end

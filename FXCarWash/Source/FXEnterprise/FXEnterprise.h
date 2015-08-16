@@ -10,7 +10,7 @@
 
 #import "FXEmployee.h"
 
-@interface FXEnterprise : NSObject
+@interface FXEnterprise : NSObject <FXEmployeeObserver>
 
 - (void)performWorkWithObject:(id)object;
 

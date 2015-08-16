@@ -9,18 +9,24 @@
 #import "FXEmployee.h"
 
 @interface FXEmployee ()
+@property (nonatomic, retain)	NSMutableArray	*mutableObjects;
+
+- (void)enqueueObject:(id)object;
+- (id)dequeueObject;
 
 @end
 
 @implementation FXEmployee
 @synthesize state			= _state;
 @synthesize wallet			= _wallet;
+@synthesize mutableObjects	= _mutableObjects;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
+	self.mutableObjects = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -31,6 +37,7 @@
 	if (self) {
 		self.wallet = 0;
 		self.state = kFXEmployeeIsReady;
+		self.mutableObjects = [NSMutableArray array];
 	}
 	
 	return self;
@@ -82,10 +89,50 @@
 
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
+//		self.state = kFXEmployeeStartedWork;
+//		[self processObject:object];
+//		self.state = kFXEmployeeFinishedWork;
+		
 		self.state = kFXEmployeeStartedWork;
-		[self processObject:object];
-		self.state = kFXEmployeeFinishedWork;
+		[self performEmployeeSpecificJobWithObjectInBackground:object];
 	}
+}
+
+- (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	[self processObject:object];
+
+	if (YES == [NSThread isMainThread]) {
+		[self finishEmployeeSpecificJobWithObjectOnMainThread:object];
+	} else {
+		[self performSelectorOnMainThread:@selector(finishEmployeeSpecificJobWithObjectOnMainThread:) 
+							   withObject:nil 
+							waitUntilDone:NO];
+	}
+}
+
+- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	self.state = kFXEmployeeFinishedWork;
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)enqueueObject:(id)object {
+	[self.mutableObjects addObject:object];
+}
+
+- (id)dequeueObject {
+	NSMutableArray *queue = self.mutableObjects;
+	if (0 < [queue count]) {
+		id object = [[[queue objectAtIndex:0] retain] autorelease];
+		if (nil != object) {
+			[queue removeObject:object];
+		}
+		
+		return object;
+	}
+	
+	return nil;
 }
 
 #pragma mark -
@@ -127,7 +174,9 @@
 }
 
 - (void)employeeDidFinishedWork:(FXEmployee *)employee {
-	[self performEmployeeSpecificJobWithObject:employee];
+	@synchronized (self) {
+		[self performEmployeeSpecificJobWithObject:employee];
+	}
 }
 
 @end

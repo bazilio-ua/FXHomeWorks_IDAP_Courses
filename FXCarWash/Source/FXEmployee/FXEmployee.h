@@ -20,8 +20,8 @@ typedef enum {
 @class FXEmployee;
 
 @protocol FXEmployeeObserver <NSObject>
-@property (nonatomic, assign)	FXEmployeeState		state;
 @optional
+@property (nonatomic, assign)	FXEmployeeState		state;
 - (void)employeeIsReady:(FXEmployee *)employee;
 - (void)employeeDidStartedWork:(FXEmployee *)employee;
 - (void)employeeDidFinishedWork:(FXEmployee *)employee;
@@ -35,5 +35,7 @@ typedef enum {
 
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 
 @end

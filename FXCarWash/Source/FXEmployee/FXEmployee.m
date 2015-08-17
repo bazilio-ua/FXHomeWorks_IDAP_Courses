@@ -175,6 +175,7 @@
 
 - (void)employeeDidFinishedWork:(FXEmployee *)employee {
 	@synchronized (self) {
+//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 		[self performEmployeeSpecificJobWithObject:employee];
 	}
 }

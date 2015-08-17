@@ -166,6 +166,7 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (void)employeeDidFinishedWork:(FXEmployee *)employee {
 	@synchronized (self) {
+//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 		[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
 	}
 }

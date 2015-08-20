@@ -13,7 +13,7 @@
 
 #import "NSObject+FXExtensions.h"
 
-static const NSUInteger kFXCarsAmount = 1;
+static const NSUInteger kFXCarsAmount = 1000;
 
 @implementation FXCarWashTests
 
@@ -46,8 +46,7 @@ static const NSUInteger kFXCarsAmount = 1;
 		[workflow performWorkWithObject:car];
 	}
 	
-	NSRunLoop *runLoop = [NSRunLoop mainRunLoop];
-	[runLoop run];
+	[[NSRunLoop mainRunLoop] run];
 }
 
 @end

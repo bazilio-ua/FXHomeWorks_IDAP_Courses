@@ -167,7 +167,9 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-	NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+	@synchronized (self) {
+		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+	}
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {

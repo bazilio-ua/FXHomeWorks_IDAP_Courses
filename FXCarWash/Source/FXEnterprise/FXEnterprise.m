@@ -16,7 +16,7 @@
 #import "NSArray+FXExtensions.h"
 
 const NSUInteger kFXCarWashPrice = 100;
-static const NSUInteger kFXWashersNumber = 1;
+static const NSUInteger kFXWashersNumber = 50;
 
 
 @interface FXEnterprise ()
@@ -82,7 +82,7 @@ static const NSUInteger kFXWashersNumber = 1;
 
 - (void)processWorkFlow {
 	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
-	if (nil != washer) {
+	if (nil != washer && kFXEmployeeIsReady == washer.state) {
 		[washer performEmployeeSpecificJobWithObject:[self dequeueCar]];
 	} else {
 		NSLog(@"All washers are busy right now");
@@ -144,6 +144,7 @@ static const NSUInteger kFXWashersNumber = 1;
 	
 	// add observers
 	[accountant addObserver:director];
+//	[director addObserver:self]; // enterprise is director's observer (set it ready)
 	
 	[self addEmployee:director];
 	[self addEmployee:accountant];
@@ -165,7 +166,12 @@ static const NSUInteger kFXWashersNumber = 1;
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-	
+	@synchronized (self) {
+		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+//		if (YES == [employee isMemberOfClass:[FXDirector class]]) {
+//			employee.state = kFXEmployeeIsReady;
+//		}
+	}
 }
 
 @end

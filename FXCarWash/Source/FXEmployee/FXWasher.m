@@ -39,13 +39,13 @@ FOUNDATION_EXPORT const NSUInteger kFXCarWashPrice;
 	}
 }
 
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	if (nil != object) {
-		self.state = kFXEmployeeStartedWork;
-		
-		[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
-							   withObject:object];
-	}
-}
+//- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+//	if (nil != object) {
+//		self.state = kFXEmployeeStartedWork;
+//		
+//		[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
+//							   withObject:object];
+//	}
+//}
 
 @end

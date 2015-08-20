@@ -21,15 +21,15 @@ typedef enum {
 
 @protocol FXEmployeeObserver <NSObject>
 @optional
-@property (nonatomic, assign)	FXEmployeeState		state;
 - (void)employeeIsReady:(FXEmployee *)employee;
-- (void)employeeDidStartedWork:(FXEmployee *)employee;
-- (void)employeeDidFinishedWork:(FXEmployee *)employee;
+- (void)employeeDidStartWork:(FXEmployee *)employee;
+- (void)employeeDidFinishWork:(FXEmployee *)employee;
 
 @end
 
 @interface FXEmployee : FXObservable <FXMoneyFlow, FXEmployeeObserver>
-@property (nonatomic, assign)	NSInteger	wallet;
+@property (nonatomic, assign)	NSInteger			wallet;
+@property (nonatomic, assign)	FXEmployeeState		state;
 
 - (SEL)selectorForState:(FXEmployeeState)state;
 

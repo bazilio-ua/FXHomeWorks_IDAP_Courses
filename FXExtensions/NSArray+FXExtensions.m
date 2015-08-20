@@ -10,7 +10,7 @@
 
 @implementation NSArray (FXExtensions)
 
-- (id)firstObj {
+- (id)firstObject {
 	return [self count] ? [self objectAtIndex:0] : nil;
 }
 

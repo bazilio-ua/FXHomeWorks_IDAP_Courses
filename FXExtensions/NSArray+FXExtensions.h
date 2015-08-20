@@ -10,6 +10,6 @@
 
 @interface NSArray (FXExtensions)
 
-- (id)firstObj;
+- (id)firstObject;
 
 @end

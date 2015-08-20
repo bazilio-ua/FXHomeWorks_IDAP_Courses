@@ -13,9 +13,10 @@
 #import "FXWasher.h"
 
 #import "NSObject+FXExtensions.h"
+#import "NSArray+FXExtensions.h"
 
 const NSUInteger kFXCarWashPrice = 100;
-static const NSUInteger kFXWashersNumber = 50;
+static const NSUInteger kFXWashersNumber = 1;
 
 
 @interface FXEnterprise ()
@@ -97,17 +98,13 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (id)dequeueCar {
 	NSMutableArray *queue = self.mutableCars;
-	if (0 < [queue count]) {
-		id car = [[[queue objectAtIndex:0] retain] autorelease]; // get first
-		if (nil != car) {
-			[queue removeObject:car];
-			NSLog(@"The car %@ removed from queue %@", car, self);
-		}
-		
-		return car;
+	id car = [[[queue firstObject] retain] autorelease]; // get first
+	if (nil != car) {
+		[queue removeObject:car];
+		NSLog(@"The car %@ removed from queue %@", car, self);
 	}
 	
-	return nil;
+	return car;
 }
 
 // *employees*
@@ -141,7 +138,7 @@ static const NSUInteger kFXWashersNumber = 50;
 	for (NSUInteger count = 0; count < kFXWashersNumber; count++) {
 		FXWasher *washer = [FXWasher object];
 		[washer addObserver:accountant];
-		[washer addObserver:self]; // enterprise is washer observer
+		[washer addObserver:self]; // enterprise is washer's observer
 		[self addEmployee:washer];
 	}
 	
@@ -157,18 +154,18 @@ static const NSUInteger kFXWashersNumber = 50;
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-	
-}
-
-- (void)employeeDidStartedWork:(FXEmployee *)employee {
-	
-}
-
-- (void)employeeDidFinishedWork:(FXEmployee *)employee {
 	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 		[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
 	}
+}
+
+- (void)employeeDidStartWork:(FXEmployee *)employee {
+	
+}
+
+- (void)employeeDidFinishWork:(FXEmployee *)employee {
+	
 }
 
 @end

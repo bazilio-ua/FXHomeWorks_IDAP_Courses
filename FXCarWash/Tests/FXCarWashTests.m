@@ -13,7 +13,7 @@
 
 #import "NSObject+FXExtensions.h"
 
-static const NSUInteger kFXCarsAmount = 1000;
+static const NSUInteger kFXCarsAmount = 1;
 
 @implementation FXCarWashTests
 

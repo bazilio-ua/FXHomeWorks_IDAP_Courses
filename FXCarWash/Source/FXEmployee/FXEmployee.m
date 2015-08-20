@@ -8,6 +8,8 @@
 
 #import "FXEmployee.h"
 
+#import "NSArray+FXExtensions.h"
+
 @interface FXEmployee ()
 @property (nonatomic, retain)	NSMutableArray	*mutableObjects;
 
@@ -65,11 +67,11 @@
 			break;
 			
 		case kFXEmployeeStartedWork:
-			selector = @selector(employeeDidStartedWork:);
+			selector = @selector(employeeDidStartWork:);
 			break;
 			
 		case kFXEmployeeFinishedWork:
-			selector = @selector(employeeDidFinishedWork:);
+			selector = @selector(employeeDidFinishWork:);
 			break;
 			
 		default:
@@ -94,20 +96,23 @@
 //		self.state = kFXEmployeeFinishedWork;
 		
 		self.state = kFXEmployeeStartedWork;
-		[self performEmployeeSpecificJobWithObjectInBackground:object];
+//		[self performEmployeeSpecificJobWithObjectInBackground:object];
+		[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
+							   withObject:object];
+
 	}
 }
 
 - (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	[self processObject:object];
 
-	if (YES == [NSThread isMainThread]) {
-		[self finishEmployeeSpecificJobWithObjectOnMainThread:object];
-	} else {
+//	if (YES == [NSThread isMainThread]) {
+//		[self finishEmployeeSpecificJobWithObjectOnMainThread:object];
+//	} else {
 		[self performSelectorOnMainThread:@selector(finishEmployeeSpecificJobWithObjectOnMainThread:) 
-							   withObject:nil 
+							   withObject:object 
 							waitUntilDone:NO];
-	}
+//	}
 }
 
 - (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
@@ -123,16 +128,12 @@
 
 - (id)dequeueObject {
 	NSMutableArray *queue = self.mutableObjects;
-	if (0 < [queue count]) {
-		id object = [[[queue objectAtIndex:0] retain] autorelease];
-		if (nil != object) {
-			[queue removeObject:object];
-		}
-		
-		return object;
+	id object = [[[queue firstObject] retain] autorelease];
+	if (nil != object) {
+		[queue removeObject:object];
 	}
 	
-	return nil;
+	return object;
 }
 
 #pragma mark -
@@ -166,17 +167,19 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
+	NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+}
+
+- (void)employeeDidStartWork:(FXEmployee *)employee {
 	
 }
 
-- (void)employeeDidStartedWork:(FXEmployee *)employee {
-	
-}
-
-- (void)employeeDidFinishedWork:(FXEmployee *)employee {
+- (void)employeeDidFinishWork:(FXEmployee *)employee {
 	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 		[self performEmployeeSpecificJobWithObject:employee];
+		
+		employee.state = kFXEmployeeIsReady;
 	}
 }
 

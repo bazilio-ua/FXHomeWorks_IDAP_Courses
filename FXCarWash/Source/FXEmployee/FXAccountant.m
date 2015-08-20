@@ -22,7 +22,7 @@
 		NSLog(@"Accountant: %@ there is nothing to calculate", self);
 	}
 	
-	object.state = kFXEmployeeIsReady; // release washer
+//	object.state = kFXEmployeeIsReady; // release washer
 }
 
 @end

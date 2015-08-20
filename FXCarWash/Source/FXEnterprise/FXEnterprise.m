@@ -144,7 +144,7 @@ static const NSUInteger kFXWashersNumber = 50;
 	
 	// add observers
 	[accountant addObserver:director];
-//	[director addObserver:self]; // enterprise is director's observer (set it ready)
+	[director addObserver:self]; // enterprise is director's observer (set it ready)
 	
 	[self addEmployee:director];
 	[self addEmployee:accountant];
@@ -157,7 +157,9 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)employeeIsReady:(FXEmployee *)employee {
 	@synchronized (self) {
 		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-		[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
+		if (YES == [employee isMemberOfClass:[FXWasher class]]) {
+			[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
+		}
 	}
 }
 
@@ -168,9 +170,9 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
 	@synchronized (self) {
 		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-//		if (YES == [employee isMemberOfClass:[FXDirector class]]) {
-//			employee.state = kFXEmployeeIsReady;
-//		}
+		if (YES == [employee isMemberOfClass:[FXDirector class]]) {
+			employee.state = kFXEmployeeIsReady;
+		}
 	}
 }
 

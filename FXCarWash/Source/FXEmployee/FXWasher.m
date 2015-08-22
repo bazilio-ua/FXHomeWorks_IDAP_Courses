@@ -9,6 +9,8 @@
 #import "FXWasher.h"
 #import "FXCar.h"
 
+FOUNDATION_EXPORT const NSUInteger kFXCarWashPrice;
+
 @implementation FXWasher
 
 #pragma mark -
@@ -26,11 +28,11 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object {
+- (void)processObject:(id<FXMoneyFlow>)object {
+	NSInteger money = kFXCarWashPrice;
 	if ([object ableToPayMoney:money]) {
-		[super performEmployeeSpecificJobForMoney:money fromObject:object];
-		
 		[self cleanCar:object];
+		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Washer: %@ earn %ld money from Car: %@", self, money, object);
 	} else {
 		NSLog(@"Washer: %@ didn't clean a Car: %@ because its doesn't have enough money", self, object);

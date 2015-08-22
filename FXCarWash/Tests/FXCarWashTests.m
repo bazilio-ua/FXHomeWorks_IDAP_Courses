@@ -9,33 +9,29 @@
 #import "FXCarWashTests.h"
 
 #import "FXCar.h"
-#import "FXWorkFlow.h"
+#import "FXEnterprise.h"
 
 #import "NSObject+FXExtensions.h"
+
+static const NSUInteger kFXCarsAmount = 1000;
 
 @implementation FXCarWashTests
 
 + (void)performCarWashTest {
-	NSLog(@"this is carwash workflow test");
+	NSLog(@"this is carwash workflow test...");
 	
-	FXWorkFlow *workflow = [FXWorkFlow object];
+	FXEnterprise *workflow = [FXEnterprise object];
 	
-	FXCar *car1 = [FXCar object];
-	FXCar *car2 = [FXCar object];
-	FXCar *car3 = [FXCar object];
+	for (NSUInteger count = 0; count < kFXCarsAmount; count++) {
+		FXCar *car = [FXCar object];
+		car.money = 100;
+		car.clean = NO;
+		[workflow performWorkWithObject:car];
+	}
 	
-	car1.money = 300;
-	car1.clean = NO;
+	NSLog(@"end of carwash workflow test");
 	
-	car2.money = 250;
-	car2.clean = YES;
-	
-	car3.money = 50;
-	car3.clean = NO;
-	
-	[workflow performWorkFlowWithObject:car1];
-	[workflow performWorkFlowWithObject:car2];
-	[workflow performWorkFlowWithObject:car3];
+	[[NSRunLoop mainRunLoop] run];
 }
 
 @end

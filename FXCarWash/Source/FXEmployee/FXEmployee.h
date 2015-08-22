@@ -8,12 +8,34 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FXObservable.h"
 #import "FXMoneyFlow.h"
 
-@interface FXEmployee : NSObject <FXMoneyFlow>
-@property (nonatomic, assign)	NSInteger	wallet;
-@property (nonatomic, assign)	BOOL		busy;
+typedef enum {
+	kFXEmployeeIsReady,
+	kFXEmployeeStartedWork,
+	kFXEmployeeFinishedWork
+} FXEmployeeState;
 
-- (void)performEmployeeSpecificJobForMoney:(NSInteger)money fromObject:(id<FXMoneyFlow>)object;
+@class FXEmployee;
+
+@protocol FXEmployeeObserver <NSObject>
+@optional
+- (void)employeeIsReady:(FXEmployee *)employee;
+- (void)employeeDidStartWork:(FXEmployee *)employee;
+- (void)employeeDidFinishWork:(FXEmployee *)employee;
+
+@end
+
+@interface FXEmployee : FXObservable <FXMoneyFlow, FXEmployeeObserver>
+@property (nonatomic, assign)	NSInteger			wallet;
+@property (nonatomic, assign)	FXEmployeeState		state;
+
+- (SEL)selectorForState:(FXEmployeeState)state;
+
+- (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 
 @end

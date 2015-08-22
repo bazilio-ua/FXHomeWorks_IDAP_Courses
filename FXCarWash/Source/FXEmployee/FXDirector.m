@@ -21,17 +21,6 @@
 	} else {
 		NSLog(@"Director: %@ there is no profit", self);
 	}
-	
-//	object.state = kFXEmployeeIsReady; // release accountant
 }
-
-//- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-//	if (nil != object) {
-//		self.state = kFXEmployeeStartedWork;
-//		[self processObject:object];
-//		self.state = kFXEmployeeFinishedWork;
-//		self.state = kFXEmployeeIsReady; // release self
-//	}
-//}
 
 @end

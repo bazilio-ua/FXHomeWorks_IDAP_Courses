@@ -17,12 +17,10 @@
 	NSInteger money = [object earningsAmount];
 	if (0 < money) {
 		[self receiveMoney:money fromPayer:object];
-		NSLog(@"Accountant: %@ got %ld money from Washer: %@ and calculate it", self, money, object);
+		NSLog(@"Accountant: %@ got %ld money from Washer: %@ and calculate it (current earning %ld)", self, money, object, self.wallet);
 	} else {
 		NSLog(@"Accountant: %@ there is nothing to calculate", self);
 	}
-	
-//	object.state = kFXEmployeeIsReady; // release washer
 }
 
 @end

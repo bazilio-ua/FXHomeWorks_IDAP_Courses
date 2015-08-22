@@ -74,16 +74,16 @@
 			selector = @selector(employeeDidFinishWork:);
 			break;
 			
-		default:
-			[self doesNotRecognizeSelector:_cmd]; // raise exception
-			break;
+//		default:
+//			[self doesNotRecognizeSelector:_cmd]; // raise exception
+//			break;
 	}
 	
 	return selector;
 }
 
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	[self doesNotRecognizeSelector:_cmd];
+//	[self doesNotRecognizeSelector:_cmd];
 }
 
 #pragma mark -
@@ -91,31 +91,27 @@
 
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
-//		self.state = kFXEmployeeStartedWork;
-//		[self processObject:object];
-//		self.state = kFXEmployeeFinishedWork;
-		
 		self.state = kFXEmployeeStartedWork;
-//		[self performEmployeeSpecificJobWithObjectInBackground:object];
+		
 		[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
 							   withObject:object];
-
 	}
 }
 
 - (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	[self processObject:object];
-
-//	if (YES == [NSThread isMainThread]) {
-//		[self finishEmployeeSpecificJobWithObjectOnMainThread:object];
-//	} else {
-		[self performSelectorOnMainThread:@selector(finishEmployeeSpecificJobWithObjectOnMainThread:) 
+	
+	[self performSelectorOnMainThread:@selector(finishEmployeeSpecificJobWithObjectOnMainThread:) 
 							   withObject:object 
 							waitUntilDone:NO];
-//	}
 }
 
 - (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	FXEmployee *employee = object;
+	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
+		employee.state = kFXEmployeeIsReady;
+	}
+	
 	self.state = kFXEmployeeFinishedWork;
 }
 
@@ -141,12 +137,16 @@
 
 // optional
 - (NSInteger)earningsAmount {
-	return self.wallet;
+	@synchronized(self) {
+		return self.wallet;
+	}
 }
 
 // required
 - (BOOL)ableToPayMoney:(NSInteger)money {
-	return self.wallet >= money ? YES : NO;
+	@synchronized(self) {
+		return self.wallet >= money;// ? YES : NO;
+	}
 }
 
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
@@ -168,7 +168,7 @@
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
 	@synchronized (self) {
-		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 	}
 }
 
@@ -178,10 +178,8 @@
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
 	@synchronized (self) {
-		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
+//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 		[self performEmployeeSpecificJobWithObject:employee];
-		
-		employee.state = kFXEmployeeIsReady;
 	}
 }
 

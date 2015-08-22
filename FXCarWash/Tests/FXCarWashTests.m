@@ -18,26 +18,9 @@ static const NSUInteger kFXCarsAmount = 1000;
 @implementation FXCarWashTests
 
 + (void)performCarWashTest {
-	NSLog(@"this is carwash workflow test");
+	NSLog(@"this is carwash workflow test...");
 	
 	FXEnterprise *workflow = [FXEnterprise object];
-	
-//	FXCar *car1 = [FXCar object];
-//	FXCar *car2 = [FXCar object];
-//	FXCar *car3 = [FXCar object];
-//	
-//	car1.money = 300;
-//	car1.clean = NO;
-//	
-//	car2.money = 250;
-//	car2.clean = YES;
-//	
-//	car3.money = 50;
-//	car3.clean = NO;
-//	
-//	[workflow performWorkWithObject:car1];
-//	[workflow performWorkWithObject:car2];
-//	[workflow performWorkWithObject:car3];
 	
 	for (NSUInteger count = 0; count < kFXCarsAmount; count++) {
 		FXCar *car = [FXCar object];
@@ -45,6 +28,8 @@ static const NSUInteger kFXCarsAmount = 1000;
 		car.clean = NO;
 		[workflow performWorkWithObject:car];
 	}
+	
+	NSLog(@"end of carwash workflow test");
 	
 	[[NSRunLoop mainRunLoop] run];
 }

@@ -14,7 +14,7 @@
 #pragma mark Public Methods
 
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	NSInteger money = [object earningsAmount];
+	NSInteger money = [object earningAmount];
 	if (0 < money) {
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Director: %@ make a profit %ld money (%ld total) from Accountant: %@", self, money, self.wallet, object);

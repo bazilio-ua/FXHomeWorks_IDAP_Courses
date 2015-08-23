@@ -10,7 +10,7 @@
 
 @protocol FXMoneyFlow <NSObject>
 @optional
-- (NSInteger)earningsAmount;
+- (NSInteger)earningAmount;
 @required
 - (BOOL)ableToPayMoney:(NSInteger)money;
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer;

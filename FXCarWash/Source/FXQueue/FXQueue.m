@@ -8,7 +8,6 @@
 
 #import "FXQueue.h"
 
-#import "NSObject+FXExtensions.h"
 #import "NSArray+FXExtensions.h"
 
 @interface FXQueue ()

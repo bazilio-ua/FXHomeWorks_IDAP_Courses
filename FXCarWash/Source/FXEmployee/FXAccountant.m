@@ -14,7 +14,7 @@
 #pragma mark Public Methods
 
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	NSInteger money = [object earningsAmount];
+	NSInteger money = [object earningAmount];
 	if (0 < money) {
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Accountant: %@ got %ld money from Washer: %@ and calculate it (current earning %ld)", self, money, object, self.wallet);

@@ -115,7 +115,7 @@
 #pragma mark FXMoneyFlow Protocol Methods
 
 // optional
-- (NSInteger)earningsAmount {
+- (NSInteger)earningAmount {
 	@synchronized(self) {
 		return self.wallet;
 	}

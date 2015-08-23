@@ -73,17 +73,13 @@
 		case kFXEmployeeFinishedWork:
 			selector = @selector(employeeDidFinishWork:);
 			break;
-			
-//		default:
-//			[self doesNotRecognizeSelector:_cmd]; // raise exception
-//			break;
 	}
 	
 	return selector;
 }
 
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-//	[self doesNotRecognizeSelector:_cmd];
+	
 }
 
 #pragma mark -
@@ -145,7 +141,7 @@
 // required
 - (BOOL)ableToPayMoney:(NSInteger)money {
 	@synchronized(self) {
-		return self.wallet >= money;// ? YES : NO;
+		return self.wallet >= money;
 	}
 }
 

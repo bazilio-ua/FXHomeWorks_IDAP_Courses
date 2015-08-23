@@ -23,4 +23,13 @@
 	}
 }
 
+#pragma mark -
+#pragma mark Overloaded Methods
+
+- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	[super finishEmployeeSpecificJobWithObjectOnMainThread:object];
+	
+	self.state = kFXEmployeeIsReady;
+}
+
 @end

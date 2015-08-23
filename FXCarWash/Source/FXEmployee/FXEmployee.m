@@ -78,12 +78,12 @@
 	return selector;
 }
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	
 }
-
-#pragma mark -
-#pragma mark Public Methods
 
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
@@ -146,6 +146,7 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
+	
 	@synchronized (self) {
 //		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 	}
@@ -156,6 +157,7 @@
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
+	
 	@synchronized (self) {
 //		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 		[self performEmployeeSpecificJobWithObject:employee];

@@ -8,25 +8,27 @@
 
 #import "FXEmployee.h"
 
+#import "FXQueue.h"
+
 #import "NSArray+FXExtensions.h"
+#import "NSObject+FXExtensions.h"
 
 @interface FXEmployee ()
-//@property (nonatomic, retain)	NSMutableArray	*mutableObjects;
-
+@property (nonatomic, retain)	FXQueue			*mutableQueue;
 
 @end
 
 @implementation FXEmployee
 @synthesize state			= _state;
 @synthesize wallet			= _wallet;
-//@synthesize mutableObjects	= _mutableObjects;
+@synthesize mutableQueue		= _mutableQueue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-//	self.mutableObjects = nil;
+	self.mutableQueue = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -37,7 +39,7 @@
 	if (self) {
 		self.wallet = 0;
 		self.state = kFXEmployeeIsReady;
-//		self.mutableObjects = [NSMutableArray array];
+		self.mutableQueue = [FXQueue object];
 	}
 	
 	return self;

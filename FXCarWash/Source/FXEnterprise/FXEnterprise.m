@@ -12,6 +12,8 @@
 #import "FXAccountant.h"
 #import "FXWasher.h"
 
+#import "FXQueue.h"
+
 #import "NSObject+FXExtensions.h"
 #import "NSArray+FXExtensions.h"
 
@@ -21,12 +23,13 @@ static const NSUInteger kFXWashersNumber = 50;
 
 @interface FXEnterprise ()
 @property (nonatomic, retain)	NSMutableArray	*mutableEmployees;
-@property (nonatomic, retain)	NSMutableArray	*mutableCars;
+//@property (nonatomic, retain)	NSMutableArray	*mutableCars;
+@property (nonatomic, retain)	FXQueue			*mutableQueue;
 
 - (void)processWorkFlow;
 
-- (void)enqueueCar:(id)car;
-- (id)dequeueCar;
+//- (void)enqueueCar:(id)car;
+//- (id)dequeueCar;
 
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
@@ -37,7 +40,8 @@ static const NSUInteger kFXWashersNumber = 50;
 
 @implementation FXEnterprise
 @synthesize mutableEmployees	= _mutableEmployees;
-@synthesize mutableCars			= _mutableCars;
+//@synthesize mutableCars			= _mutableCars;
+@synthesize mutableQueue		= _mutableQueue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -45,7 +49,8 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)dealloc {
 	// release all retained properties
 	self.mutableEmployees = nil;
-	self.mutableCars = nil;
+//	self.mutableCars = nil;
+	self.mutableQueue = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -55,7 +60,8 @@ static const NSUInteger kFXWashersNumber = 50;
 	
 	if (self) {
 		self.mutableEmployees = [NSMutableArray array];
-		self.mutableCars = [NSMutableArray array];
+//		self.mutableCars = [NSMutableArray array];
+		self.mutableQueue = [FXQueue object];
 		
 		[self hireEmployees];
 	}
@@ -72,7 +78,8 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (void)performWorkWithObject:(id)object {
 	if (nil != object) {
-		[self enqueueCar:object];
+//		[self enqueueCar:object];
+		[self.mutableQueue enqueueObject:object];
 		[self processWorkFlow];
 	}
 }
@@ -83,7 +90,8 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)processWorkFlow {
 	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
 	if (nil != washer && kFXEmployeeIsReady == washer.state) {
-		[washer performEmployeeSpecificJobWithObject:[self dequeueCar]];
+//		[washer performEmployeeSpecificJobWithObject:[self dequeueCar]];
+		[washer performEmployeeSpecificJobWithObject:[self.mutableQueue dequeueObject]];
 	} else {
 		NSLog(@"All washers are busy right now");
 	}
@@ -91,21 +99,21 @@ static const NSUInteger kFXWashersNumber = 50;
 
 // *cars*
 
-- (void)enqueueCar:(id)car {
-	[self.mutableCars addObject:car];
-	NSLog(@"The car %@ added to queue %@", car, self);
-}
-
-- (id)dequeueCar {
-	NSMutableArray *queue = self.mutableCars;
-	id car = [[[queue firstObject] retain] autorelease]; // get first
-	if (nil != car) {
-		[queue removeObject:car];
-		NSLog(@"The car %@ removed from queue %@", car, self);
-	}
-	
-	return car;
-}
+//- (void)enqueueCar:(id)car {
+//	[self.mutableCars addObject:car];
+//	NSLog(@"The car %@ added to queue %@", car, self);
+//}
+//
+//- (id)dequeueCar {
+//	NSMutableArray *queue = self.mutableCars;
+//	id car = [[[queue firstObject] retain] autorelease]; // get first
+//	if (nil != car) {
+//		[queue removeObject:car];
+//		NSLog(@"The car %@ removed from queue %@", car, self);
+//	}
+//	
+//	return car;
+//}
 
 // *employees*
 
@@ -158,7 +166,8 @@ static const NSUInteger kFXWashersNumber = 50;
 	@synchronized (self) {
 //		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
 		if (YES == [employee isMemberOfClass:[FXWasher class]]) {
-			[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
+//			[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
+			[employee performEmployeeSpecificJobWithObject:[self.mutableQueue dequeueObject]];
 		}
 	}
 }

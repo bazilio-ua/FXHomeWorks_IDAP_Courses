@@ -11,24 +11,22 @@
 #import "NSArray+FXExtensions.h"
 
 @interface FXEmployee ()
-@property (nonatomic, retain)	NSMutableArray	*mutableObjects;
+//@property (nonatomic, retain)	NSMutableArray	*mutableObjects;
 
-- (void)enqueueObject:(id)object;
-- (id)dequeueObject;
 
 @end
 
 @implementation FXEmployee
 @synthesize state			= _state;
 @synthesize wallet			= _wallet;
-@synthesize mutableObjects	= _mutableObjects;
+//@synthesize mutableObjects	= _mutableObjects;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.mutableObjects = nil;
+//	self.mutableObjects = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -39,7 +37,7 @@
 	if (self) {
 		self.wallet = 0;
 		self.state = kFXEmployeeIsReady;
-		self.mutableObjects = [NSMutableArray array];
+//		self.mutableObjects = [NSMutableArray array];
 	}
 	
 	return self;
@@ -109,23 +107,6 @@
 	}
 	
 	self.state = kFXEmployeeFinishedWork;
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)enqueueObject:(id)object {
-	[self.mutableObjects addObject:object];
-}
-
-- (id)dequeueObject {
-	NSMutableArray *queue = self.mutableObjects;
-	id object = [[[queue firstObject] retain] autorelease];
-	if (nil != object) {
-		[queue removeObject:object];
-	}
-	
-	return object;
 }
 
 #pragma mark -

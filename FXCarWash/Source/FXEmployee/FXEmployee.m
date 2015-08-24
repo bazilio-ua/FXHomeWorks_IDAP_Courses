@@ -116,16 +116,12 @@
 
 // optional
 - (NSInteger)earningAmount {
-	@synchronized(self) {
-		return self.wallet;
-	}
+	return self.wallet;
 }
 
 // required
 - (BOOL)ableToPayMoney:(NSInteger)money {
-	@synchronized(self) {
-		return self.wallet >= money;
-	}
+	return self.wallet >= money;
 }
 
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
@@ -146,22 +142,17 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-	
-	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-	}
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {
-	
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	
-	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-		[self performEmployeeSpecificJobWithObject:employee];
-	}
+	[self performEmployeeSpecificJobWithObject:employee];
 }
 
 @end

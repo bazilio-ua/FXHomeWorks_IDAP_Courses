@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface FXQueue : NSObject
+@property (nonatomic, readonly) NSArray *queue;
+
+- (void)enqueueObject:(id)object;
+- (id)dequeueObject;
 
 @end

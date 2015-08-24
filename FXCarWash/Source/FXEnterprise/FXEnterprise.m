@@ -12,6 +12,8 @@
 #import "FXAccountant.h"
 #import "FXWasher.h"
 
+#import "FXQueue.h"
+
 #import "NSObject+FXExtensions.h"
 #import "NSArray+FXExtensions.h"
 
@@ -21,12 +23,9 @@ static const NSUInteger kFXWashersNumber = 50;
 
 @interface FXEnterprise ()
 @property (nonatomic, retain)	NSMutableArray	*mutableEmployees;
-@property (nonatomic, retain)	NSMutableArray	*mutableCars;
+@property (nonatomic, retain)	FXQueue			*mutableQueue;
 
-- (void)processWorkFlow;
-
-- (void)enqueueCar:(id)car;
-- (id)dequeueCar;
+- (void)processWorkFlowWithObject:(id)object;
 
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
@@ -37,7 +36,7 @@ static const NSUInteger kFXWashersNumber = 50;
 
 @implementation FXEnterprise
 @synthesize mutableEmployees	= _mutableEmployees;
-@synthesize mutableCars			= _mutableCars;
+@synthesize mutableQueue		= _mutableQueue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -45,7 +44,7 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)dealloc {
 	// release all retained properties
 	self.mutableEmployees = nil;
-	self.mutableCars = nil;
+	self.mutableQueue = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -55,7 +54,7 @@ static const NSUInteger kFXWashersNumber = 50;
 	
 	if (self) {
 		self.mutableEmployees = [NSMutableArray array];
-		self.mutableCars = [NSMutableArray array];
+		self.mutableQueue = [FXQueue object];
 		
 		[self hireEmployees];
 	}
@@ -72,39 +71,21 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (void)performWorkWithObject:(id)object {
 	if (nil != object) {
-		[self enqueueCar:object];
-		[self processWorkFlow];
+		[self processWorkFlowWithObject:object];
 	}
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)processWorkFlow {
+- (void)processWorkFlowWithObject:(id)object {
 	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
 	if (nil != washer && kFXEmployeeIsReady == washer.state) {
-		[washer performEmployeeSpecificJobWithObject:[self dequeueCar]];
+		[washer performEmployeeSpecificJobWithObject:object];
 	} else {
 		NSLog(@"All washers are busy right now");
+		[self.mutableQueue enqueueObject:object];
 	}
-}
-
-// *cars*
-
-- (void)enqueueCar:(id)car {
-	[self.mutableCars addObject:car];
-	NSLog(@"The car %@ added to queue %@", car, self);
-}
-
-- (id)dequeueCar {
-	NSMutableArray *queue = self.mutableCars;
-	id car = [[[queue firstObject] retain] autorelease]; // get first
-	if (nil != car) {
-		[queue removeObject:car];
-		NSLog(@"The car %@ removed from queue %@", car, self);
-	}
-	
-	return car;
 }
 
 // *employees*
@@ -144,7 +125,7 @@ static const NSUInteger kFXWashersNumber = 50;
 	
 	// add observers
 	[accountant addObserver:director];
-	[director addObserver:self]; // enterprise is director's observer (set it ready)
+//	[director addObserver:self]; // enterprise is director's observer (set it ready)
 	
 	[self addEmployee:director];
 	[self addEmployee:accountant];
@@ -155,25 +136,23 @@ static const NSUInteger kFXWashersNumber = 50;
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-		if (YES == [employee isMemberOfClass:[FXWasher class]]) {
-			[employee performEmployeeSpecificJobWithObject:[self dequeueCar]];
-		}
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
+	if (YES == [employee isMemberOfClass:[FXWasher class]]) {
+		[employee performEmployeeSpecificJobWithObject:[self.mutableQueue dequeueObject]];
 	}
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {
-	
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-		if (YES == [employee isMemberOfClass:[FXDirector class]]) {
-			employee.state = kFXEmployeeIsReady;
-		}
-	}
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
+//	if (YES == [employee isMemberOfClass:[FXDirector class]]) {
+//		employee.state = kFXEmployeeIsReady;
+//	}
 }
 
 @end

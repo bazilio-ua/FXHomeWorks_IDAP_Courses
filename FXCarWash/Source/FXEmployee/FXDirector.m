@@ -14,7 +14,7 @@
 #pragma mark Public Methods
 
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	NSInteger money = [object earningsAmount];
+	NSInteger money = [object earningAmount];
 	if (0 < money) {
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Director: %@ make a profit %ld money (%ld total) from Accountant: %@", self, money, self.wallet, object);
@@ -22,5 +22,29 @@
 		NSLog(@"Director: %@ there is no profit", self);
 	}
 }
+
+#pragma mark -
+#pragma mark Overloaded Methods
+
+- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	if (nil != object) {
+		self.state = kFXEmployeeStartedWork;
+		
+		[self processObject:object];
+		
+		FXEmployee *employee = object;
+		employee.state = kFXEmployeeIsReady;
+		
+		self.state = kFXEmployeeFinishedWork;
+		
+		self.state = kFXEmployeeIsReady; // director is set self state to ready (finish workflow chain)
+	}
+}
+
+//- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+//	[super finishEmployeeSpecificJobWithObjectOnMainThread:object];
+//	
+//	self.state = kFXEmployeeIsReady;
+//}
 
 @end

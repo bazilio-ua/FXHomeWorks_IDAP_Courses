@@ -8,27 +8,27 @@
 
 #import "FXEmployee.h"
 
+#import "FXQueue.h"
+
 #import "NSArray+FXExtensions.h"
+#import "NSObject+FXExtensions.h"
 
 @interface FXEmployee ()
-@property (nonatomic, retain)	NSMutableArray	*mutableObjects;
-
-- (void)enqueueObject:(id)object;
-- (id)dequeueObject;
+@property (nonatomic, retain)	FXQueue			*mutableQueue;
 
 @end
 
 @implementation FXEmployee
 @synthesize state			= _state;
 @synthesize wallet			= _wallet;
-@synthesize mutableObjects	= _mutableObjects;
+@synthesize mutableQueue		= _mutableQueue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.mutableObjects = nil;
+	self.mutableQueue = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -39,7 +39,7 @@
 	if (self) {
 		self.wallet = 0;
 		self.state = kFXEmployeeIsReady;
-		self.mutableObjects = [NSMutableArray array];
+		self.mutableQueue = [FXQueue object];
 	}
 	
 	return self;
@@ -73,21 +73,17 @@
 		case kFXEmployeeFinishedWork:
 			selector = @selector(employeeDidFinishWork:);
 			break;
-			
-//		default:
-//			[self doesNotRecognizeSelector:_cmd]; // raise exception
-//			break;
 	}
 	
 	return selector;
 }
 
-- (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-//	[self doesNotRecognizeSelector:_cmd];
-}
-
 #pragma mark -
 #pragma mark Public Methods
+
+- (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	
+}
 
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
@@ -107,46 +103,25 @@
 }
 
 - (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	FXEmployee *employee = object;
-	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
-		employee.state = kFXEmployeeIsReady;
-	}
+//	FXEmployee *employee = object;
+//	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
+//		employee.state = kFXEmployeeIsReady;
+//	}
 	
 	self.state = kFXEmployeeFinishedWork;
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)enqueueObject:(id)object {
-	[self.mutableObjects addObject:object];
-}
-
-- (id)dequeueObject {
-	NSMutableArray *queue = self.mutableObjects;
-	id object = [[[queue firstObject] retain] autorelease];
-	if (nil != object) {
-		[queue removeObject:object];
-	}
-	
-	return object;
 }
 
 #pragma mark -
 #pragma mark FXMoneyFlow Protocol Methods
 
 // optional
-- (NSInteger)earningsAmount {
-	@synchronized(self) {
-		return self.wallet;
-	}
+- (NSInteger)earningAmount {
+	return self.wallet;
 }
 
 // required
 - (BOOL)ableToPayMoney:(NSInteger)money {
-	@synchronized(self) {
-		return self.wallet >= money;// ? YES : NO;
-	}
+	return self.wallet >= money;
 }
 
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
@@ -167,20 +142,17 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-	}
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {
-	
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-	@synchronized (self) {
-//		NSLog(@"%@ sel -> %@, notify: %@", employee, NSStringFromSelector(_cmd), self);
-		[self performEmployeeSpecificJobWithObject:employee];
-	}
+//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
+	[self performEmployeeSpecificJobWithObject:employee];
 }
 
 @end

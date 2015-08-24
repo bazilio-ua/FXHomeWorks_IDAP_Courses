@@ -10,22 +10,13 @@
 
 #import "FXObservable.h"
 #import "FXMoneyFlow.h"
+#import "FXEmployeeObserver.h"
 
 typedef enum {
 	kFXEmployeeIsReady,
 	kFXEmployeeStartedWork,
 	kFXEmployeeFinishedWork
 } FXEmployeeState;
-
-@class FXEmployee;
-
-@protocol FXEmployeeObserver <NSObject>
-@optional
-- (void)employeeIsReady:(FXEmployee *)employee;
-- (void)employeeDidStartWork:(FXEmployee *)employee;
-- (void)employeeDidFinishWork:(FXEmployee *)employee;
-
-@end
 
 @interface FXEmployee : FXObservable <FXMoneyFlow, FXEmployeeObserver>
 @property (nonatomic, assign)	NSInteger			wallet;

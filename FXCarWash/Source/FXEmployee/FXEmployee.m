@@ -60,7 +60,7 @@
 #pragma mark Overloaded Methods
 
 - (SEL)selectorForState:(FXEmployeeState)state {
-	SEL selector;
+	SEL selector = NULL;
 	switch (state) {
 		case kFXEmployeeIsReady:
 			selector = @selector(employeeIsReady:);

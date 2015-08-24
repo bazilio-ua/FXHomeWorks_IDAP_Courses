@@ -25,7 +25,7 @@ static const NSUInteger kFXWashersNumber = 50;
 @property (nonatomic, retain)	NSMutableArray	*mutableEmployees;
 @property (nonatomic, retain)	FXQueue			*mutableQueue;
 
-- (void)processWorkFlow;
+- (void)processWorkFlowWithObject:(id)object;
 
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
@@ -71,20 +71,20 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (void)performWorkWithObject:(id)object {
 	if (nil != object) {
-		[self.mutableQueue enqueueObject:object];
-		[self processWorkFlow];
+		[self processWorkFlowWithObject:object];
 	}
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)processWorkFlow {
+- (void)processWorkFlowWithObject:(id)object {
 	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
 	if (nil != washer && kFXEmployeeIsReady == washer.state) {
-		[washer performEmployeeSpecificJobWithObject:[self.mutableQueue dequeueObject]];
+		[washer performEmployeeSpecificJobWithObject:object];
 	} else {
 		NSLog(@"All washers are busy right now");
+		[self.mutableQueue enqueueObject:object];
 	}
 }
 

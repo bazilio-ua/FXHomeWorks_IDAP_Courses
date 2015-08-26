@@ -26,20 +26,20 @@
 #pragma mark -
 #pragma mark Overloaded Methods
 
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	if (nil != object) {
-		self.state = kFXEmployeeStartedWork;
-		
-		[self processObject:object];
-		
-		FXEmployee *employee = object;
-		employee.state = kFXEmployeeIsReady;
-		
-		self.state = kFXEmployeeFinishedWork;
-		
-		self.state = kFXEmployeeIsReady; // director is set self state to ready (finish workflow chain)
-	}
-}
+//- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+//	if (nil != object) {
+//		self.state = kFXEmployeeStartedWork;
+//		
+//		[self processObject:object];
+//		
+//		FXEmployee *employee = object;
+//		employee.state = kFXEmployeeIsReady;
+//		
+//		self.state = kFXEmployeeFinishedWork;
+//		
+//		self.state = kFXEmployeeIsReady; // director is set self state to ready (finish workflow chain)
+//	}
+//}
 
 //- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 //	[super finishEmployeeSpecificJobWithObjectOnMainThread:object];

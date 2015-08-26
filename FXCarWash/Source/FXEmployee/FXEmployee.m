@@ -14,14 +14,14 @@
 #import "NSObject+FXExtensions.h"
 
 @interface FXEmployee ()
-@property (nonatomic, retain)	FXQueue			*mutableQueue;
+@property (nonatomic, retain)	FXQueue		*mutableQueue;
 
 @end
 
 @implementation FXEmployee
 @synthesize state			= _state;
 @synthesize wallet			= _wallet;
-@synthesize mutableQueue		= _mutableQueue;
+@synthesize mutableQueue	= _mutableQueue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -60,7 +60,7 @@
 #pragma mark Overloaded Methods
 
 - (SEL)selectorForState:(FXEmployeeState)state {
-	SEL selector;
+	SEL selector = NULL;
 	switch (state) {
 		case kFXEmployeeIsReady:
 			selector = @selector(employeeIsReady:);
@@ -87,10 +87,15 @@
 
 - (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
-		self.state = kFXEmployeeStartedWork;
-		
-		[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
-							   withObject:object];
+		if (kFXEmployeeIsReady == self.state) {
+			self.state = kFXEmployeeStartedWork;
+			
+			[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
+								   withObject:object];
+		} else {
+			NSLog(@"Employee %@ is busy right now", self);
+			[self.mutableQueue enqueueObject:object];
+		}
 	}
 }
 
@@ -103,10 +108,10 @@
 }
 
 - (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-//	FXEmployee *employee = object;
-//	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
-//		employee.state = kFXEmployeeIsReady;
-//	}
+	FXEmployee *employee = object;
+	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
+		employee.state = kFXEmployeeIsReady;
+	}
 	
 	self.state = kFXEmployeeFinishedWork;
 }
@@ -143,6 +148,11 @@
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
+	id queueObject = [employee.mutableQueue dequeueObject];
+	if (nil != queueObject) {
+		[employee performEmployeeSpecificJobWithObject:queueObject];
+	}
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {

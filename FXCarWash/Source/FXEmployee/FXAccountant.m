@@ -23,20 +23,4 @@
 	}
 }
 
-#pragma mark -
-#pragma mark Overloaded Methods
-
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	if (nil != object) {
-		self.state = kFXEmployeeStartedWork;
-		
-		[self processObject:object];
-		
-		FXEmployee *employee = object;
-		employee.state = kFXEmployeeIsReady;
-		
-		self.state = kFXEmployeeFinishedWork;
-	}
-}
-
 @end

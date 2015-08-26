@@ -125,7 +125,7 @@ static const NSUInteger kFXWashersNumber = 50;
 	
 	// add observers
 	[accountant addObserver:director];
-//	[director addObserver:self]; // enterprise is director's observer (set it ready)
+	[director addObserver:self]; // enterprise is director's observer (set it ready)
 	
 	[self addEmployee:director];
 	[self addEmployee:accountant];
@@ -150,9 +150,9 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	
-//	if (YES == [employee isMemberOfClass:[FXDirector class]]) {
-//		employee.state = kFXEmployeeIsReady;
-//	}
+	if (YES == [employee isMemberOfClass:[FXDirector class]]) {
+		employee.state = kFXEmployeeIsReady;
+	}
 }
 
 @end

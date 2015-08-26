@@ -45,30 +45,39 @@
 #pragma mark Public Accessors
 
 - (NSSet *)observers {
-	NSMutableSet *observers = [NSMutableSet set];
-	for (FXReference *reference in self.mutableObservers) {
-		id target = reference.target;
-		if (nil != target) {
-			[observers addObject:target];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		NSMutableSet *observers = [NSMutableSet set];
+		for (FXReference *reference in syncObservers) {
+			[observers addObject:reference.target];
 		}
+		
+		return [[observers copy] autorelease];
 	}
-	
-	return [[observers copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-	[self.mutableObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		[syncObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	}
 }
 
 - (void)removeObserver:(id)observer {
-	[self.mutableObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		[syncObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	}
 }
 
 - (BOOL)containsObserver:(id)observer {
-	return [self.mutableObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		return [syncObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	}
 }
 
 #pragma mark -
@@ -83,10 +92,12 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
-	NSSet *observers = self.mutableObservers;
-	for (FXReference *reference in observers) {
-		if ([reference.target respondsToSelector:selector]) {
-			[reference.target performSelector:selector withObject:object withObject:object2];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		for (FXReference *reference in syncObservers) {
+			if ([reference.target respondsToSelector:selector]) {
+				[reference.target performSelector:selector withObject:object withObject:object2];
+			}
 		}
 	}
 }

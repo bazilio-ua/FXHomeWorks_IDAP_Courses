@@ -16,6 +16,7 @@
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	NSInteger money = [object earningAmount];
 	if (0 < money) {
+		usleep(1000 * (arc4random() % 10));
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Accountant: %@ got %ld money from Washer: %@ and calculate it (current earning %ld)", self, money, object, self.wallet);
 	} else {

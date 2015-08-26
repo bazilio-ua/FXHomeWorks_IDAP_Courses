@@ -29,6 +29,16 @@ static const NSUInteger kFXCarsAmount = 1000;
 		[workflow performWorkWithObject:car];
 	}
 	
+//	FXCar *car2 = [FXCar object];
+//	car2.money = 100;
+//	car2.clean = YES;
+//	[workflow performWorkWithObject:car2];
+//	
+//	FXCar *car3 = [FXCar object];
+//	car3.money = 50;
+//	car3.clean = NO;
+//	[workflow performWorkWithObject:car3];
+	
 	NSLog(@"end of carwash workflow test");
 	
 	[[NSRunLoop mainRunLoop] run];

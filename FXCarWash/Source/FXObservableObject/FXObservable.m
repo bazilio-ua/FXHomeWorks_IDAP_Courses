@@ -60,23 +60,20 @@
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
-		[syncObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	@synchronized(_mutableObservers) {
+		[_mutableObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 
 - (void)removeObserver:(id)observer {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
-		[syncObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	@synchronized(_mutableObservers) {
+		[_mutableObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 
 - (BOOL)containsObserver:(id)observer {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
-		return [syncObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	@synchronized(_mutableObservers) {
+		return [_mutableObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 
@@ -92,9 +89,8 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
-		for (FXReference *reference in syncObservers) {
+	@synchronized(_mutableObservers) {
+		for (FXReference *reference in _mutableObservers) {
 			if ([reference.target respondsToSelector:selector]) {
 				[reference.target performSelector:selector withObject:object withObject:object2];
 			}

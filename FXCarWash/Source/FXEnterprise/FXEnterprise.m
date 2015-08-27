@@ -23,7 +23,7 @@ static const NSUInteger kFXWashersNumber = 50;
 
 @interface FXEnterprise ()
 @property (nonatomic, retain)	NSMutableArray	*mutableEmployees;
-@property (nonatomic, retain)	FXQueue			*mutableQueue;
+@property (nonatomic, retain)	FXQueue			*queue;
 
 - (void)processWorkFlowWithObject:(id)object;
 
@@ -36,7 +36,7 @@ static const NSUInteger kFXWashersNumber = 50;
 
 @implementation FXEnterprise
 @synthesize mutableEmployees	= _mutableEmployees;
-@synthesize mutableQueue		= _mutableQueue;
+@synthesize queue				= _queue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -44,7 +44,7 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)dealloc {
 	// release all retained properties
 	self.mutableEmployees = nil;
-	self.mutableQueue = nil;
+	self.queue = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -54,7 +54,7 @@ static const NSUInteger kFXWashersNumber = 50;
 	
 	if (self) {
 		self.mutableEmployees = [NSMutableArray array];
-		self.mutableQueue = [FXQueue object];
+		self.queue = [FXQueue object];
 		
 		[self hireEmployees];
 	}
@@ -84,7 +84,7 @@ static const NSUInteger kFXWashersNumber = 50;
 		[washer performEmployeeSpecificJobWithObject:object];
 	} else {
 		NSLog(@"All washers are busy right now");
-		[self.mutableQueue enqueueObject:object];
+		[self.queue enqueueObject:object];
 	}
 }
 
@@ -139,7 +139,7 @@ static const NSUInteger kFXWashersNumber = 50;
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	
 	if (YES == [employee isMemberOfClass:[FXWasher class]]) {
-		[employee performEmployeeSpecificJobWithObject:[self.mutableQueue dequeueObject]];
+		[employee performEmployeeSpecificJobWithObject:[self.queue dequeueObject]];
 	}
 }
 

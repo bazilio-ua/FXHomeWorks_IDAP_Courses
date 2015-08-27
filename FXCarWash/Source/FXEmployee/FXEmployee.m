@@ -14,21 +14,21 @@
 #import "NSObject+FXExtensions.h"
 
 @interface FXEmployee ()
-@property (nonatomic, retain)	FXQueue		*mutableQueue;
+@property (nonatomic, retain)	FXQueue		*queue;
 
 @end
 
 @implementation FXEmployee
 @synthesize state			= _state;
 @synthesize wallet			= _wallet;
-@synthesize mutableQueue	= _mutableQueue;
+@synthesize queue			= _queue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
 	// release all retained properties
-	self.mutableQueue = nil;
+	self.queue = nil;
 	
 	[super dealloc]; // dealloc superclass
 }
@@ -39,7 +39,7 @@
 	if (self) {
 		self.wallet = 0;
 		self.state = kFXEmployeeIsReady;
-		self.mutableQueue = [FXQueue object];
+		self.queue = [FXQueue object];
 	}
 	
 	return self;
@@ -94,17 +94,19 @@
 								   withObject:object];
 		} else {
 			NSLog(@"Employee %@ is busy right now", self);
-			[self.mutableQueue enqueueObject:object];
+			[self.queue enqueueObject:object];
 		}
 	}
 }
 
 - (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	[self processObject:object];
+	@autoreleasepool {
+		[self processObject:object];
+	}
 	
 	[self performSelectorOnMainThread:@selector(finishEmployeeSpecificJobWithObjectOnMainThread:) 
-							   withObject:object 
-							waitUntilDone:NO];
+						   withObject:object 
+						waitUntilDone:NO];
 }
 
 - (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
@@ -149,7 +151,7 @@
 - (void)employeeIsReady:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	
-	id queueObject = [employee.mutableQueue dequeueObject];
+	id queueObject = [employee.queue dequeueObject];
 	if (nil != queueObject) {
 		[employee performEmployeeSpecificJobWithObject:queueObject];
 	}

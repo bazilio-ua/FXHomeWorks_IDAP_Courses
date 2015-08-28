@@ -115,7 +115,13 @@
 		employee.state = kFXEmployeeIsReady;
 	}
 	
-	self.state = kFXEmployeeFinishedWork;
+	id queueObject = [self.queue dequeueObject];
+	if (nil != queueObject) {
+		[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
+							   withObject:queueObject];
+	} else {
+		self.state = kFXEmployeeFinishedWork;
+	}
 }
 
 #pragma mark -
@@ -151,10 +157,10 @@
 - (void)employeeIsReady:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	
-	id queueObject = [employee.queue dequeueObject];
-	if (nil != queueObject) {
-		[employee performEmployeeSpecificJobWithObject:queueObject];
-	}
+//	id queueObject = [employee.queue dequeueObject];
+//	if (nil != queueObject) {
+//		[employee performEmployeeSpecificJobWithObject:queueObject];
+//	}
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {

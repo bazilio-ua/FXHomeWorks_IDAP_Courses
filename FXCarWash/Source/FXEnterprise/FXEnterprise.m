@@ -31,6 +31,7 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)removeEmployee:(id)employee;
 - (id)readyEmployeeOfClass:(Class)class;
 - (void)hireEmployees;
+- (void)fireEmployees;
 
 @end
 
@@ -129,6 +130,10 @@ static const NSUInteger kFXWashersNumber = 50;
 	
 	[self addEmployee:director];
 	[self addEmployee:accountant];
+}
+
+- (void)fireEmployees {
+	
 }
 
 #pragma mark -

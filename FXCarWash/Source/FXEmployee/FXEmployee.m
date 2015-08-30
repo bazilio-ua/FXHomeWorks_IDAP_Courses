@@ -156,11 +156,6 @@
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
-	
-//	id queueObject = [employee.queue dequeueObject];
-//	if (nil != queueObject) {
-//		[employee performEmployeeSpecificJobWithObject:queueObject];
-//	}
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {

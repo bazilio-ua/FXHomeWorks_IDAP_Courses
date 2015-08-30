@@ -29,6 +29,7 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
+- (NSArray *)allEmployeesOfClass:(Class)class;
 - (id)readyEmployeeOfClass:(Class)class;
 - (void)hireEmployees;
 - (void)fireEmployees;
@@ -72,7 +73,9 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (void)performWorkWithObject:(id)object {
 	if (nil != object) {
-		[self processWorkFlowWithObject:object];
+		@autoreleasepool {
+			[self processWorkFlowWithObject:object];
+		}
 	}
 }
 
@@ -81,31 +84,49 @@ static const NSUInteger kFXWashersNumber = 50;
 
 - (void)processWorkFlowWithObject:(id)object {
 	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
-	if (nil != washer && kFXEmployeeIsReady == washer.state) {
-		[washer performEmployeeSpecificJobWithObject:object];
-	} else {
-		NSLog(@"All washers are busy right now");
-		[self.queue enqueueObject:object];
+	@synchronized(washer) {
+		if (nil != washer && kFXEmployeeIsReady == washer.state) {
+			[washer performEmployeeSpecificJobWithObject:object];
+		} else {
+			NSLog(@"All washers are busy right now");
+			[self.queue enqueueObject:object];
+		}
 	}
 }
 
 // *employees*
 
 - (void)addEmployee:(id)employee {
-	[self.mutableEmployees addObject:employee];
+	@synchronized(_mutableEmployees) {
+		[_mutableEmployees addObject:employee];
+	}
 }
 
 - (void)removeEmployee:(id)employee {
-	[self.mutableEmployees removeObject:employee];
+	@synchronized(_mutableEmployees) {
+		[_mutableEmployees removeObject:employee];
+	}
+}
+
+- (NSArray *)allEmployeesOfClass:(Class)class {
+	@synchronized(_mutableEmployees) {
+		NSMutableArray *employees = [NSMutableArray array];
+		for (FXEmployee *employee in _mutableEmployees) {
+			if (YES == [employee isMemberOfClass:class]) {
+				[employees addObject:employee];
+			}
+		}
+		
+		return employees;
+	}
 }
 
 - (id)readyEmployeeOfClass:(Class)class {
-	NSArray *employees = self.mutableEmployees;
+	NSArray *employees = [self allEmployeesOfClass:class];
 	for (FXEmployee *employee in employees) {
-		if (YES == [employee isMemberOfClass:class]) {
-			if (kFXEmployeeIsReady == employee.state) {
-				return employee;
-			}
+		if (kFXEmployeeIsReady == employee.state) {
+			
+			return employee;
 		}
 	}
 	

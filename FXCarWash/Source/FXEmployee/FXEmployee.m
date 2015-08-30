@@ -156,14 +156,28 @@
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
+	if (kFXEmployeeIsReady != employee.state) {
+		NSLog(@" ");
+	}
+	
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
+	if (kFXEmployeeStartedWork != employee.state) {
+		NSLog(@" ");
+	}
+	
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
 //	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
+	if (kFXEmployeeFinishedWork != employee.state) {
+		NSLog(@" ");
+	}
 	
 	[self performEmployeeSpecificJobWithObject:employee];
 }

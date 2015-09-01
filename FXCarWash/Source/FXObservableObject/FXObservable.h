@@ -17,6 +17,5 @@
 
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2;
 
 @end

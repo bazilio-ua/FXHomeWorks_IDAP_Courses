@@ -31,7 +31,7 @@ FOUNDATION_EXPORT const NSUInteger kFXCarWashPrice;
 - (void)processObject:(id<FXMoneyFlow>)object {
 	NSInteger money = kFXCarWashPrice;
 	if ([object ableToPayMoney:money]) {
-		usleep(5000 * (arc4random() % 10));
+		usleep(5000 * (arc4random() % 10 + 1));
 		[self cleanCar:object];
 		[self receiveMoney:money fromPayer:object];
 		NSLog(@"Washer: %@ earn %ld money from Car: %@", self, money, object);

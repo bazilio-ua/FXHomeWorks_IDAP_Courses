@@ -55,8 +55,10 @@
 
 - (void)enqueueObject:(id)object {
 	@synchronized(_mutableQueue) {
-		[_mutableQueue addObject:object];
-		NSLog(@"object %@ added to queue %@", object, self);
+		if (NO == [_mutableQueue containsObject:object]) {
+			[_mutableQueue addObject:object];
+			NSLog(@"object %@ added to queue %@", object, self);
+		}
 	}
 }
 

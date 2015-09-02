@@ -85,11 +85,11 @@
 	@synchronized(syncObservers) {
 		for (FXReference *reference in syncObservers) {
 			if ([reference.target respondsToSelector:selector]) {
-                if (YES == onMainThread) {
-                    [reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
-                } else {
-                    [reference.target performSelector:selector withObject:object];
-                }
+				if (YES == onMainThread) {
+					[reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+				} else {
+					[reference.target performSelector:selector withObject:object];
+				}
 			}
 		}
 	}

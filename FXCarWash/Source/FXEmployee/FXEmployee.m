@@ -83,16 +83,17 @@
 #pragma mark -
 #pragma mark Public Methods
 
+// reloaded in subclasses
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	
 }
 
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+- (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
 		if (kFXEmployeeIsReady == self.state) {
 			self.state = kFXEmployeeStartedWork;
 			
-			[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
+			[self performSelectorInBackground:@selector(processJobWithObjectInBackground:) 
 								   withObject:object];
 		} else {
 			NSLog(@"Employee %@ is busy right now", self);
@@ -101,17 +102,17 @@
 	}
 }
 
-- (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+- (void)processJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	@autoreleasepool {
 		[self processObject:object];
 	}
 	
-	[self performSelectorOnMainThread:@selector(finishEmployeeSpecificJobWithObjectOnMainThread:) 
+	[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 
 						   withObject:object 
 						waitUntilDone:NO];
 }
 
-- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+- (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	FXEmployee *employee = object;
 	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
 		employee.state = kFXEmployeeIsReady;
@@ -119,7 +120,7 @@
 	
 	id queueObject = [self.queue dequeueObject];
 	if (nil != queueObject) {
-		[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
+		[self performSelectorInBackground:@selector(processJobWithObjectInBackground:) 
 							   withObject:queueObject];
 	} else {
 		self.state = kFXEmployeeFinishedWork;
@@ -166,7 +167,7 @@
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
 //	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
-	[self performEmployeeSpecificJobWithObject:employee];
+	[self processJobWithObject:employee];
 }
 
 @end

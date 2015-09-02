@@ -86,7 +86,7 @@ static const NSUInteger kFXWashersNumber = 50;
 	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
 	@synchronized(washer) {
 		if (nil != washer && kFXEmployeeIsReady == washer.state) {
-			[washer performEmployeeSpecificJobWithObject:object];
+			[washer processJobWithObject:object];
 		} else {
 			NSLog(@"All washers are busy right now");
 			[self.queue enqueueObject:object];
@@ -166,7 +166,7 @@ static const NSUInteger kFXWashersNumber = 50;
 - (void)employeeIsReady:(FXEmployee *)employee {
 //	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	if (YES == [employee isMemberOfClass:[FXWasher class]]) {
-		[employee performEmployeeSpecificJobWithObject:[self.queue dequeueObject]];
+		[employee processJobWithObject:[self.queue dequeueObject]];
 	}
 }
 

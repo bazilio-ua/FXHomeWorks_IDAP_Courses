@@ -24,9 +24,11 @@ typedef enum {
 
 - (SEL)selectorForState:(FXEmployeeState)state;
 
+// reloaded in subclasses
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
-- (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
-- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+
+- (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)processJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 
 @end

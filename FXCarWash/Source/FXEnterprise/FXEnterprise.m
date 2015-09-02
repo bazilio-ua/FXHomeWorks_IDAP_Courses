@@ -120,7 +120,7 @@ static const NSUInteger kFXWashersNumber = 50;
 			}
 		}
 		
-		return employees;
+		return [[employees copy] autorelease];
 	}
 }
 

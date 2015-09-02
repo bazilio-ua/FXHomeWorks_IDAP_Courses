@@ -80,16 +80,19 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)notifyObserversWithSelector:(SEL)selector {
-	[self notifyObserversWithSelector:selector withObject:self];
-}
+//- (void)notifyObserversWithSelector:(SEL)selector {
+//	[self notifyObserversWithSelector:selector withObject:self];
+//}
 
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object onMainThread:(BOOL)mainThread {
 	@synchronized(_mutableObservers) {
 		for (FXReference *reference in _mutableObservers) {
 			if ([reference.target respondsToSelector:selector]) {
-//				[reference.target performSelector:selector withObject:object];
-				[reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+                if (YES == mainThread) {
+                    [reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+                } else {
+                    [reference.target performSelector:selector withObject:object];
+                }
 			}
 		}
 	}

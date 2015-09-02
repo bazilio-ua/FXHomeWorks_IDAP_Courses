@@ -49,11 +49,13 @@
 #pragma mark Accessors
 
 - (void)setState:(FXEmployeeState)state {
-	if (state != _state) {
-		_state = state;
-		
-		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
-	}
+    @synchronized(self) {
+        if (state != _state) {
+            _state = state;
+            
+            [self notifyObserversWithSelector:[self selectorForState:state] withObject:self onMainThread:YES];
+        }
+    }
 }
 
 #pragma mark -

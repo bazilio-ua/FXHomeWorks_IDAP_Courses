@@ -80,10 +80,6 @@
 	}
 }
 
-//- (void)notifyObserversWithSelector:(SEL)selector {
-//	[self notifyObserversWithSelector:selector withObject:self];
-//}
-
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object onMainThread:(BOOL)onMainThread {
 	id syncObservers = self.mutableObservers;
 	@synchronized(syncObservers) {
@@ -98,8 +94,5 @@
 		}
 	}
 }
-
-#pragma mark -
-#pragma mark Private Methods
 
 @end

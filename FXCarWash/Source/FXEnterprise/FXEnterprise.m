@@ -164,33 +164,18 @@ static const NSUInteger kFXWashersNumber = 50;
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
-	
-//	if (kFXEmployeeIsReady != employee.state) {
-//		NSLog(@" ");
-//	}
-	
+//	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	if (YES == [employee isMemberOfClass:[FXWasher class]]) {
 		[employee performEmployeeSpecificJobWithObject:[self.queue dequeueObject]];
 	}
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {
-//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
-	
-//	if (kFXEmployeeStartedWork != employee.state) {
-//		NSLog(@" ");
-//	}
-	
+//	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
-
-//	if (kFXEmployeeFinishedWork != employee.state) {
-//		NSLog(@" ");
-//	}
-	
+//	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	if (YES == [employee isMemberOfClass:[FXDirector class]]) {
 		employee.state = kFXEmployeeIsReady;
 	}

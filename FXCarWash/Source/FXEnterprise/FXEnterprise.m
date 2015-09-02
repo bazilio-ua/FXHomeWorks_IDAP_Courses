@@ -97,21 +97,24 @@ static const NSUInteger kFXWashersNumber = 50;
 // *employees*
 
 - (void)addEmployee:(id)employee {
-	@synchronized(_mutableEmployees) {
-		[_mutableEmployees addObject:employee];
+	id syncEmployees = self.mutableEmployees;
+	@synchronized(syncEmployees) {
+		[syncEmployees addObject:employee];
 	}
 }
 
 - (void)removeEmployee:(id)employee {
-	@synchronized(_mutableEmployees) {
-		[_mutableEmployees removeObject:employee];
+	id syncEmployees = self.mutableEmployees;
+	@synchronized(syncEmployees) {
+		[syncEmployees removeObject:employee];
 	}
 }
 
 - (NSArray *)allEmployeesOfClass:(Class)class {
-	@synchronized(_mutableEmployees) {
+	id syncEmployees = self.mutableEmployees;
+	@synchronized(syncEmployees) {
 		NSMutableArray *employees = [NSMutableArray array];
-		for (FXEmployee *employee in _mutableEmployees) {
+		for (FXEmployee *employee in syncEmployees) {
 			if (YES == [employee isMemberOfClass:class]) {
 				[employees addObject:employee];
 			}
@@ -125,7 +128,6 @@ static const NSUInteger kFXWashersNumber = 50;
 	NSArray *employees = [self allEmployeesOfClass:class];
 	for (FXEmployee *employee in employees) {
 		if (kFXEmployeeIsReady == employee.state) {
-			
 			return employee;
 		}
 	}

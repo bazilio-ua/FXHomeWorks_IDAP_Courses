@@ -60,35 +60,36 @@
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-	@synchronized(_mutableObservers) {
-		[_mutableObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		[syncObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 
 - (void)removeObserver:(id)observer {
-	@synchronized(_mutableObservers) {
-		[_mutableObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		[syncObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 
 - (BOOL)containsObserver:(id)observer {
-	@synchronized(_mutableObservers) {
-		return [_mutableObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		return [syncObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
-
-#pragma mark -
-#pragma mark Private Methods
 
 //- (void)notifyObserversWithSelector:(SEL)selector {
 //	[self notifyObserversWithSelector:selector withObject:self];
 //}
 
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object onMainThread:(BOOL)mainThread {
-	@synchronized(_mutableObservers) {
-		for (FXReference *reference in _mutableObservers) {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object onMainThread:(BOOL)onMainThread {
+	id syncObservers = self.mutableObservers;
+	@synchronized(syncObservers) {
+		for (FXReference *reference in syncObservers) {
 			if ([reference.target respondsToSelector:selector]) {
-                if (YES == mainThread) {
+                if (YES == onMainThread) {
                     [reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
                 } else {
                     [reference.target performSelector:selector withObject:object];
@@ -97,5 +98,8 @@
 		}
 	}
 }
+
+#pragma mark -
+#pragma mark Private Methods
 
 @end

@@ -45,8 +45,9 @@
 #pragma mark Accessors
 
 - (NSArray *)queue {
-	@synchronized(_mutableQueue) {
-		return [[_mutableQueue copy] autorelease];
+	id syncQueue = self.mutableQueue;
+	@synchronized(syncQueue) {
+		return [[syncQueue copy] autorelease];
 	}
 }
 
@@ -54,19 +55,21 @@
 #pragma mark Public Methods
 
 - (void)enqueueObject:(id)object {
-	@synchronized(_mutableQueue) {
-		if (NO == [_mutableQueue containsObject:object]) {
-			[_mutableQueue addObject:object];
+	id syncQueue = self.mutableQueue;
+	@synchronized(syncQueue) {
+		if (NO == [syncQueue containsObject:object]) {
+			[syncQueue addObject:object];
 			NSLog(@"object %@ added to queue %@", object, self);
 		}
 	}
 }
 
 - (id)dequeueObject {
-	@synchronized(_mutableQueue) {
-		id object = [[[_mutableQueue firstObject] retain] autorelease]; // get first
+	id syncQueue = self.mutableQueue;
+	@synchronized(syncQueue) {
+		id object = [[[syncQueue firstObject] retain] autorelease]; // get first
 		if (nil != object) {
-			[_mutableQueue removeObject:object];
+			[syncQueue removeObject:object];
 			NSLog(@"object %@ removed from queue %@", object, self);
 		}
 		

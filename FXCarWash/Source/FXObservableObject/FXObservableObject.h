@@ -1,5 +1,5 @@
 //
-//  FXObservable.h
+//  FXObservableObject.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 8/9/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXObservable : NSObject
+@interface FXObservableObject : NSObject
 @property (nonatomic, readonly)	NSSet		*observers;
 
 - (void)addObserver:(id)observer;

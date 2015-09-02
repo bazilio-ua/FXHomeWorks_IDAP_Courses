@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FXObservable.h"
+#import "FXObservableObject.h"
 #import "FXMoneyFlow.h"
 #import "FXEmployeeObserver.h"
 
@@ -18,7 +18,7 @@ typedef enum {
 	kFXEmployeeFinishedWork
 } FXEmployeeState;
 
-@interface FXEmployee : FXObservable <FXMoneyFlow, FXEmployeeObserver>
+@interface FXEmployee : FXObservableObject <FXMoneyFlow, FXEmployeeObserver>
 @property (nonatomic, assign)	NSInteger			wallet;
 @property (nonatomic, assign)	FXEmployeeState		state;
 

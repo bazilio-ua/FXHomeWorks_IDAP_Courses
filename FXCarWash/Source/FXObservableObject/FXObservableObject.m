@@ -1,21 +1,21 @@
 //
-//  FXObservable.m
+//  FXObservableObject.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 8/9/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXObservable.h"
+#import "FXObservableObject.h"
 
 #import "FXAssignReference.h"
 
-@interface FXObservable ()
+@interface FXObservableObject ()
 @property (nonatomic, retain)	NSMutableSet		*mutableObservers;
 
 @end
 
-@implementation FXObservable
+@implementation FXObservableObject
 
 @synthesize mutableObservers	= _mutableObservers;
 

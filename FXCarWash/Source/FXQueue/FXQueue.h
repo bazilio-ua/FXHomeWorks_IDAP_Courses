@@ -14,4 +14,6 @@
 - (void)enqueueObject:(id)object;
 - (id)dequeueObject;
 
+- (BOOL)isEmpty;
+
 @end

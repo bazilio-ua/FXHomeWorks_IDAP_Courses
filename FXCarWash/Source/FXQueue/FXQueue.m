@@ -75,4 +75,11 @@
 	}
 }
 
+- (BOOL)isEmpty {
+	id syncQueue = self.mutableQueue;
+	@synchronized(syncQueue) {
+		return 0 == [syncQueue count];
+	}
+}
+
 @end

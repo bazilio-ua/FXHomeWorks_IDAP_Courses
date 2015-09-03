@@ -93,6 +93,7 @@
 		42CE1C221AFE45710092C406 /* FXParentOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 42CE1C1D1AFE45710092C406 /* FXParentOutput.c */; };
 		42CE1C441AFE90060092C406 /* FXParentOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42CE1C3F1AFE90060092C406 /* FXParentOutputTests.c */; };
 		42CE1C451AFE90060092C406 /* FXSizeOfTypeOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 42CE1C421AFE90060092C406 /* FXSizeOfTypeOutputTests.c */; };
+		42CEA9971B98C4B900E12CBB /* FXEmployeesPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CEA9961B98C4B800E12CBB /* FXEmployeesPool.m */; };
 		42D709BE1B23461A0053B63E /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
 		42D78C6A1B08ADD20036BA48 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 42D78C671B08AD910036BA48 /* main.c */; };
 		42D78C6B1B08ADF90036BA48 /* FXTestsMacro.c in Sources */ = {isa = PBXBuildFile; fileRef = 423715091B070D3B000A4877 /* FXTestsMacro.c */; };
@@ -371,6 +372,8 @@
 		42CE1C401AFE90060092C406 /* FXParentOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXParentOutputTests.h; sourceTree = "<group>"; };
 		42CE1C421AFE90060092C406 /* FXSizeOfTypeOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXSizeOfTypeOutputTests.c; sourceTree = "<group>"; };
 		42CE1C431AFE90060092C406 /* FXSizeOfTypeOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSizeOfTypeOutputTests.h; sourceTree = "<group>"; };
+		42CEA9951B98C4B800E12CBB /* FXEmployeesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployeesPool.h; sourceTree = "<group>"; };
+		42CEA9961B98C4B800E12CBB /* FXEmployeesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployeesPool.m; sourceTree = "<group>"; };
 		42D78C5A1B08AD290036BA48 /* FXHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXHuman; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D78C671B08AD910036BA48 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		42D78C6D1B08AF900036BA48 /* FXHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXHuman.c; sourceTree = "<group>"; };
@@ -550,6 +553,8 @@
 				4212EEC21B616856004E3F64 /* FXAccountant.m */,
 				4212EEC71B616856004E3F64 /* FXWasher.h */,
 				4212EEC81B616856004E3F64 /* FXWasher.m */,
+				42CEA9951B98C4B800E12CBB /* FXEmployeesPool.h */,
+				42CEA9961B98C4B800E12CBB /* FXEmployeesPool.m */,
 			);
 			path = FXEmployee;
 			sourceTree = "<group>";
@@ -1777,6 +1782,7 @@
 				426C6C2A1B84F28900A53DFC /* NSArray+FXExtensions.m in Sources */,
 				42BB8DB01B886FD000FC0BAB /* FXQueue.m in Sources */,
 				4283E65C1B93523A004ACB9F /* FXDispatcher.m in Sources */,
+				42CEA9971B98C4B900E12CBB /* FXEmployeesPool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

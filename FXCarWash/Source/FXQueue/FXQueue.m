@@ -75,9 +75,17 @@
 	}
 }
 
+- (BOOL)containsObject:(id)object {
+	id syncQueue = self.mutableQueue;
+	@synchronized(syncQueue) {
+		return [syncQueue containsObject:object];
+	}	
+}
+
 - (BOOL)isEmpty {
 	id syncQueue = self.mutableQueue;
 	@synchronized(syncQueue) {
+		NSLog(@"queue %@ is empty", self);
 		return 0 == [syncQueue count];
 	}
 }

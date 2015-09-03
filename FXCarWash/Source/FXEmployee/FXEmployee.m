@@ -10,7 +10,6 @@
 
 #import "FXQueue.h"
 
-#import "NSArray+FXExtensions.h"
 #import "NSObject+FXExtensions.h"
 
 @interface FXEmployee ()

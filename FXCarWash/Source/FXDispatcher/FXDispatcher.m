@@ -8,6 +8,54 @@
 
 #import "FXDispatcher.h"
 
+#import "FXEmployeesPool.h"
+#import "FXQueue.h"
+
+#import "NSObject+FXExtensions.h"
+
+@interface FXDispatcher ()
+@property (nonatomic, retain)	FXEmployeesPool	*handlers;
+@property (nonatomic, retain)	FXQueue			*queue;
+
+@end
+
 @implementation FXDispatcher
+
+@synthesize handlers 	= _handlers;
+@synthesize queue 		= _queue;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+	self.handlers = nil;
+	self.queue = nil;
+	
+	[super dealloc];
+}
+
+- (id)init {
+	self = [super init];
+	if (self) {
+		self.handlers = [FXEmployeesPool object];
+		self.queue = [FXQueue object];
+	}
+	
+	return self;
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)addHandler:(id)handler {
+	
+}
+- (void)removeHandler:(id)handler {
+	
+}
+
+- (void)processObject:(id)object {
+	
+}
 
 @end

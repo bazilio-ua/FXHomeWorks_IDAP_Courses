@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FXEmployee.h"
+#import "FXEmployeeObserver.h"
 
 @interface FXEnterprise : NSObject <FXEmployeeObserver>
 

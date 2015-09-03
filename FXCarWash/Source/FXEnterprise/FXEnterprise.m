@@ -16,7 +16,6 @@
 #import "FXQueue.h"
 
 #import "NSObject+FXExtensions.h"
-#import "NSArray+FXExtensions.h"
 
 const NSUInteger kFXCarWashPrice = 100;
 static const NSUInteger kFXWashersNumber = 50;
@@ -89,7 +88,6 @@ static const NSUInteger kFXWashersNumber = 50;
 		}
 	}
 }
-
 
 - (void)hireEmployees {
 	// create employee

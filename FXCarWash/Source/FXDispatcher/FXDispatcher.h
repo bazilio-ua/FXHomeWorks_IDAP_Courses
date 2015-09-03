@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXDispatcher : NSObject
+#import "FXEmployeeObserver.h"
+
+@interface FXDispatcher : NSObject <FXEmployeeObserver>
 
 - (void)addHandler:(id)handler;
 - (void)removeHandler:(id)handler;

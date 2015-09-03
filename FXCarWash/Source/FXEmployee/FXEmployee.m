@@ -19,6 +19,7 @@
 @end
 
 @implementation FXEmployee
+
 @synthesize state			= _state;
 @synthesize wallet			= _wallet;
 @synthesize queue			= _queue;
@@ -27,15 +28,13 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// release all retained properties
 	self.queue = nil;
 	
-	[super dealloc]; // dealloc superclass
+	[super dealloc];
 }
 
 - (id)init {
-	self = [super init]; // init superclass
-	
+	self = [super init];
 	if (self) {
 		self.wallet = 0;
 		self.state = kFXEmployeeIsReady;

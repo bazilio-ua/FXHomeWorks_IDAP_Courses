@@ -37,6 +37,7 @@ static const NSUInteger kFXWashersNumber = 50;
 @end
 
 @implementation FXEnterprise
+
 @synthesize mutableEmployees	= _mutableEmployees;
 @synthesize queue				= _queue;
 
@@ -44,16 +45,14 @@ static const NSUInteger kFXWashersNumber = 50;
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// release all retained properties
 	self.mutableEmployees = nil;
 	self.queue = nil;
 	
-	[super dealloc]; // dealloc superclass
+	[super dealloc];
 }
 
 - (id)init {
-	self = [super init]; // init superclass
-	
+	self = [super init];
 	if (self) {
 		self.mutableEmployees = [NSMutableArray array];
 		self.queue = [FXQueue object];

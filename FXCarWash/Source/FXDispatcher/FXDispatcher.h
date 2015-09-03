@@ -10,4 +10,9 @@
 
 @interface FXDispatcher : NSObject
 
+- (void)addHandler:(id)handler;
+- (void)removeHandler:(id)handler;
+
+- (void)processObject:(id)object;
+
 @end

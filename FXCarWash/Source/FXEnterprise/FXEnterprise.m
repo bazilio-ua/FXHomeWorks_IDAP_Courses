@@ -11,6 +11,7 @@
 #import "FXDirector.h"
 #import "FXAccountant.h"
 #import "FXWasher.h"
+#import "FXEmployeesPool.h"
 
 #import "FXQueue.h"
 
@@ -22,15 +23,11 @@ static const NSUInteger kFXWashersNumber = 50;
 
 
 @interface FXEnterprise ()
-@property (nonatomic, retain)	NSMutableArray	*mutableEmployees;
+@property (nonatomic, retain)	FXEmployeesPool	*employees;
 @property (nonatomic, retain)	FXQueue			*queue;
 
 - (void)processWorkFlowWithObject:(id)object;
 
-- (void)addEmployee:(id)employee;
-- (void)removeEmployee:(id)employee;
-- (NSArray *)allEmployeesOfClass:(Class)class;
-- (id)readyEmployeeOfClass:(Class)class;
 - (void)hireEmployees;
 - (void)fireEmployees;
 
@@ -38,14 +35,14 @@ static const NSUInteger kFXWashersNumber = 50;
 
 @implementation FXEnterprise
 
-@synthesize mutableEmployees	= _mutableEmployees;
+@synthesize employees			= _employees;
 @synthesize queue				= _queue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	self.mutableEmployees = nil;
+	self.employees = nil;
 	self.queue = nil;
 	
 	[super dealloc];
@@ -54,7 +51,7 @@ static const NSUInteger kFXWashersNumber = 50;
 - (id)init {
 	self = [super init];
 	if (self) {
-		self.mutableEmployees = [NSMutableArray array];
+		self.employees = [FXEmployeesPool object];
 		self.queue = [FXQueue object];
 		
 		[self hireEmployees];
@@ -82,7 +79,7 @@ static const NSUInteger kFXWashersNumber = 50;
 #pragma mark Private Methods
 
 - (void)processWorkFlowWithObject:(id)object {
-	FXWasher *washer = [self readyEmployeeOfClass:[FXWasher class]];
+	FXWasher *washer = [self.employees readyEmployeeOfClass:[FXWasher class]];
 	@synchronized(washer) {
 		if (nil != washer && kFXEmployeeIsReady == washer.state) {
 			[washer processJobWithObject:object];
@@ -93,46 +90,6 @@ static const NSUInteger kFXWashersNumber = 50;
 	}
 }
 
-// *employees*
-
-- (void)addEmployee:(id)employee {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		[syncEmployees addObject:employee];
-	}
-}
-
-- (void)removeEmployee:(id)employee {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		[syncEmployees removeObject:employee];
-	}
-}
-
-- (NSArray *)allEmployeesOfClass:(Class)class {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		NSMutableArray *employees = [NSMutableArray array];
-		for (FXEmployee *employee in syncEmployees) {
-			if (YES == [employee isMemberOfClass:class]) {
-				[employees addObject:employee];
-			}
-		}
-		
-		return [[employees copy] autorelease];
-	}
-}
-
-- (id)readyEmployeeOfClass:(Class)class {
-	NSArray *employees = [self allEmployeesOfClass:class];
-	for (FXEmployee *employee in employees) {
-		if (kFXEmployeeIsReady == employee.state) {
-			return employee;
-		}
-	}
-	
-	return nil;
-}
 
 - (void)hireEmployees {
 	// create employee
@@ -143,15 +100,15 @@ static const NSUInteger kFXWashersNumber = 50;
 		FXWasher *washer = [FXWasher object];
 		[washer addObserver:accountant];
 		[washer addObserver:self]; // enterprise is washer's observer
-		[self addEmployee:washer];
+		[self.employees addEmployee:washer];
 	}
 	
 	// add observers
 	[accountant addObserver:director];
 	[director addObserver:self]; // enterprise is director's observer (set it ready)
 	
-	[self addEmployee:director];
-	[self addEmployee:accountant];
+	[self.employees addEmployee:director];
+	[self.employees addEmployee:accountant];
 }
 
 - (void)fireEmployees {

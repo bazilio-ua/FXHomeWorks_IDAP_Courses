@@ -20,7 +20,7 @@
 @implementation FXEmployee
 
 @synthesize state			= _state;
-@synthesize wallet			= _wallet;
+@synthesize money			= _money;
 @synthesize queue			= _queue;
 
 #pragma mark -
@@ -35,7 +35,7 @@
 - (id)init {
 	self = [super init];
 	if (self) {
-		self.wallet = 0;
+		self.money = 0;
 		self.state = kFXEmployeeIsReady;
 		self.queue = [FXQueue object];
 	}
@@ -128,27 +128,28 @@
 #pragma mark -
 #pragma mark FXMoneyFlow Protocol Methods
 
-// optional
-- (NSInteger)earningAmount {
-	return self.wallet;
-}
-
 // required
 - (BOOL)ableToPayMoney:(NSInteger)money {
-	return self.wallet >= money;
+	return self.money >= money;
 }
 
+// optional
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
-	if ([payer respondsToSelector:@selector(sendMoney:toPayee:)] && [payer ableToPayMoney:money]) {
-		self.wallet += money;
-		[payer sendMoney:money toPayee:self];
+	if ([payer ableToPayMoney:money]) {
+		payer.money -= money;
+		self.money += money;
 	}
 }
 
 - (void)sendMoney:(NSInteger)money toPayee:(id<FXMoneyFlow>)payee {
-	if ([payee respondsToSelector:@selector(receiveMoney:fromPayer:)] && [self ableToPayMoney:money]) {
-		self.wallet -= money;
+	if ([self ableToPayMoney:money]) {
+		self.money -= money;
+		payee.money += money;
 	}
+}
+
+- (NSInteger)earningAmount {
+	return self.money;
 }
 
 #pragma mark -
@@ -156,15 +157,14 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-//	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {
-//	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-//	NSLog(@"notification from: %@ to: %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	[self processJobWithObject:employee];
 }
 

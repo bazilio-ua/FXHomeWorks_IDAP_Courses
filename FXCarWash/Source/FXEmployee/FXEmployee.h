@@ -19,7 +19,6 @@ typedef enum {
 } FXEmployeeState;
 
 @interface FXEmployee : FXObservableObject <FXMoneyFlow, FXEmployeeObserver>
-@property (nonatomic, assign)	NSInteger			wallet;
 @property (nonatomic, assign)	FXEmployeeState		state;
 
 - (SEL)selectorForState:(FXEmployeeState)state;

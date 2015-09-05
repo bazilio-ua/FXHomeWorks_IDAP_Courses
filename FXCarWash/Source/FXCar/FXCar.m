@@ -45,17 +45,4 @@
 	return NO;
 }
 
-- (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
-	if ([payer respondsToSelector:@selector(sendMoney:toPayee:)] && [payer ableToPayMoney:money]) {
-		self.money += money;
-		[payer sendMoney:money toPayee:self];
-	}
-}
-
-- (void)sendMoney:(NSInteger)money toPayee:(id<FXMoneyFlow>)payee {
-	if ([payee respondsToSelector:@selector(receiveMoney:fromPayer:)] && [self ableToPayMoney:money]) {
-		self.money -= money;
-	}
-}
-
 @end

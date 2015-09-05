@@ -10,10 +10,12 @@
 
 #import "FXEmployeeObserver.h"
 
+@class FXEmployee;
+
 @interface FXDispatcher : NSObject <FXEmployeeObserver>
 
-- (void)addHandler:(id)handler;
-- (void)removeHandler:(id)handler;
+- (void)addHandler:(FXEmployee *)handler;
+- (void)removeHandler:(FXEmployee *)handler;
 
 - (void)processObject:(id)object;
 

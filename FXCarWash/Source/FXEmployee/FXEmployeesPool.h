@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FXEmployee.h"
+
 @interface FXEmployeesPool : NSObject
 @property (nonatomic, copy, readonly)	NSArray		*employees;
 

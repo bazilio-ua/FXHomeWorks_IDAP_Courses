@@ -47,11 +47,18 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addHandler:(id)handler {
-	
+- (void)addHandler:(FXEmployee *)handler {
+	@synchronized(handler) {
+		[handler addObserver:self];
+		[self.handlers addEmployee:handler];
+	}
 }
-- (void)removeHandler:(id)handler {
-	
+
+- (void)removeHandler:(FXEmployee *)handler {
+	@synchronized(handler) {
+		[handler removeObserver:self];
+		[self.handlers removeEmployee:handler];
+	}
 }
 
 - (void)processObject:(id)object {

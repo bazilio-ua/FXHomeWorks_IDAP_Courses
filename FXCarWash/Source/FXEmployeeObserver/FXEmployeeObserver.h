@@ -11,6 +11,7 @@
 @class FXEmployee;
 
 @protocol FXEmployeeObserver <NSObject>
+
 @optional
 - (void)employeeIsReady:(FXEmployee *)employee;
 - (void)employeeDidStartWork:(FXEmployee *)employee;

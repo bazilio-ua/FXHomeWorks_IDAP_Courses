@@ -1,21 +1,21 @@
 //
-//  FXObservable.m
+//  FXObservableObject.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 8/9/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXObservable.h"
+#import "FXObservableObject.h"
 
 #import "FXAssignReference.h"
 
-@interface FXObservable ()
+@interface FXObservableObject ()
 @property (nonatomic, retain)	NSMutableSet		*mutableObservers;
 
 @end
 
-@implementation FXObservable
+@implementation FXObservableObject
 
 @synthesize mutableObservers	= _mutableObservers;
 
@@ -25,15 +25,13 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// release all retained properties
 	self.mutableObservers = nil;
 	
-	[super dealloc]; // dealloc superclass
+	[super dealloc];
 }
 
 - (id)init {
-	self = [super init]; // init superclass
-	
+	self = [super init];
 	if (self) {
 		self.mutableObservers = [NSMutableSet set];
 	}
@@ -80,23 +78,16 @@
 	}
 }
 
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)notifyObserversWithSelector:(SEL)selector {
-	[self notifyObserversWithSelector:selector withObject:nil];
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-	[self notifyObserversWithSelector:selector withObject:object withObject:nil];
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object onMainThread:(BOOL)onMainThread {
 	id syncObservers = self.mutableObservers;
 	@synchronized(syncObservers) {
 		for (FXReference *reference in syncObservers) {
 			if ([reference.target respondsToSelector:selector]) {
-				[reference.target performSelector:selector withObject:object withObject:object2];
+				if (onMainThread) {
+					[reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+				} else {
+					[reference.target performSelector:selector withObject:object];
+				}
 			}
 		}
 	}

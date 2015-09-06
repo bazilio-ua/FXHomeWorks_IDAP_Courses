@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FXObservable.h"
+#import "FXObservableObject.h"
 #import "FXMoneyFlow.h"
 #import "FXEmployeeObserver.h"
 
@@ -18,15 +18,16 @@ typedef enum {
 	kFXEmployeeFinishedWork
 } FXEmployeeState;
 
-@interface FXEmployee : FXObservable <FXMoneyFlow, FXEmployeeObserver>
-@property (nonatomic, assign)	NSInteger			wallet;
+@interface FXEmployee : FXObservableObject <FXMoneyFlow, FXEmployeeObserver>
 @property (nonatomic, assign)	FXEmployeeState		state;
 
 - (SEL)selectorForState:(FXEmployeeState)state;
 
+// reloaded in subclasses
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
-- (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
-- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+
+- (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)startJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 
 @end

@@ -13,5 +13,8 @@
 
 - (void)enqueueObject:(id)object;
 - (id)dequeueObject;
+- (BOOL)containsObject:(id)object;
+
+- (BOOL)isEmpty;
 
 @end

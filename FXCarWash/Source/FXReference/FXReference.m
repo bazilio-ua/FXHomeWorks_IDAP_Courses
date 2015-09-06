@@ -21,10 +21,9 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// release all retained properties
 	self.target = nil;
 	
-	[super dealloc]; // dealloc superclass
+	[super dealloc];
 }
 
 // overriding in subclasses
@@ -33,8 +32,7 @@
 		return nil;
 	}
 	
-	self = [super init]; // init superclass
-	
+	self = [super init];
 	if (self) {
 		self.target = object;
 	}

@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @protocol FXMoneyFlow <NSObject>
-@optional
-- (NSInteger)earningAmount;
+@property (nonatomic, assign)	NSInteger	money;
+
 @required
 - (BOOL)ableToPayMoney:(NSInteger)money;
-- (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer;
 @optional
+- (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer;
 - (void)sendMoney:(NSInteger)money toPayee:(id<FXMoneyFlow>)payee;
+- (NSInteger)earningAmount;
 
 @end

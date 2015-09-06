@@ -8,38 +8,30 @@
 
 #import "FXEmployee.h"
 
-#import "FXQueue.h"
-
-#import "NSArray+FXExtensions.h"
 #import "NSObject+FXExtensions.h"
 
 @interface FXEmployee ()
-@property (nonatomic, retain)	FXQueue		*mutableQueue;
 
 @end
 
 @implementation FXEmployee
+
 @synthesize state			= _state;
-@synthesize wallet			= _wallet;
-@synthesize mutableQueue	= _mutableQueue;
+@synthesize money			= _money;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// release all retained properties
-	self.mutableQueue = nil;
 	
-	[super dealloc]; // dealloc superclass
+	[super dealloc];
 }
 
 - (id)init {
-	self = [super init]; // init superclass
-	
+	self = [super init];
 	if (self) {
-		self.wallet = 0;
+		self.money = 0;
 		self.state = kFXEmployeeIsReady;
-		self.mutableQueue = [FXQueue object];
 	}
 	
 	return self;
@@ -49,10 +41,12 @@
 #pragma mark Accessors
 
 - (void)setState:(FXEmployeeState)state {
-	if (state != _state) {
-		_state = state;
-		
-		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+	@synchronized(self) {
+		if (state != _state) {
+			_state = state;
+			
+			[self notifyObserversWithSelector:[self selectorForState:state] withObject:self onMainThread:YES];
+		}
 	}
 }
 
@@ -81,35 +75,37 @@
 #pragma mark -
 #pragma mark Public Methods
 
+// reloaded in subclasses
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	
 }
 
-- (void)performEmployeeSpecificJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+- (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
-		if (kFXEmployeeIsReady == self.state) {
-			self.state = kFXEmployeeStartedWork;
-			
-			[self performSelectorInBackground:@selector(performEmployeeSpecificJobWithObjectInBackground:) 
-								   withObject:object];
-		} else {
-			NSLog(@"Employee %@ is busy right now", self);
-			[self.mutableQueue enqueueObject:object];
-		}
+		self.state = kFXEmployeeStartedWork;
+		
+		[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
+							   withObject:object];
 	}
 }
 
-- (void)performEmployeeSpecificJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	[self processObject:object];
+- (void)startJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	@synchronized(self) {
+		@autoreleasepool {
+			@synchronized(object) {
+				[self processObject:object];
+			}
+		}
+	}
 	
-	[self performSelectorOnMainThread:@selector(finishEmployeeSpecificJobWithObjectOnMainThread:) 
-							   withObject:object 
-							waitUntilDone:NO];
+	[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 
+						   withObject:object 
+						waitUntilDone:NO];
 }
 
-- (void)finishEmployeeSpecificJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+- (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	FXEmployee *employee = object;
-	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
+	if ([employee isKindOfClass:[FXEmployee class]]) {
 		employee.state = kFXEmployeeIsReady;
 	}
 	
@@ -119,27 +115,28 @@
 #pragma mark -
 #pragma mark FXMoneyFlow Protocol Methods
 
-// optional
-- (NSInteger)earningAmount {
-	return self.wallet;
-}
-
 // required
 - (BOOL)ableToPayMoney:(NSInteger)money {
-	return self.wallet >= money;
+	return self.money >= money;
 }
 
+// optional
 - (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
-	if ([payer respondsToSelector:@selector(sendMoney:toPayee:)] && [payer ableToPayMoney:money]) {
-		self.wallet += money;
-		[payer sendMoney:money toPayee:self];
+	if ([payer ableToPayMoney:money]) {
+		payer.money -= money;
+		self.money += money;
 	}
 }
 
 - (void)sendMoney:(NSInteger)money toPayee:(id<FXMoneyFlow>)payee {
-	if ([payee respondsToSelector:@selector(receiveMoney:fromPayer:)] && [self ableToPayMoney:money]) {
-		self.wallet -= money;
+	if ([self ableToPayMoney:money]) {
+		self.money -= money;
+		payee.money += money;
 	}
+}
+
+- (NSInteger)earningAmount {
+	return self.money;
 }
 
 #pragma mark -
@@ -147,22 +144,15 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	
-	id queueObject = [employee.mutableQueue dequeueObject];
-	if (nil != queueObject) {
-		[employee performEmployeeSpecificJobWithObject:queueObject];
-	}
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {
-//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
+	
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-//	NSLog(@"notified: %@ -> %@ with selector: %@", employee, self, NSStringFromSelector(_cmd));
 	
-	[self performEmployeeSpecificJobWithObject:employee];
 }
 
 @end

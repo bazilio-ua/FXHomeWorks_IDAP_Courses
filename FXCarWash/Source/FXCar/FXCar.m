@@ -9,6 +9,7 @@
 #import "FXCar.h"
 
 @implementation FXCar
+
 @synthesize money 	= _money;
 @synthesize clean 	= _clean;
 
@@ -16,14 +17,12 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// release all retained properties
 	
-	[super dealloc]; // dealloc superclass
+	[super dealloc];
 }
 
 - (id)init {
-	self = [super init]; // init superclass
-	
+	self = [super init];
 	if (self) {
 		self.money = 0;
 		self.clean = NO;
@@ -44,19 +43,6 @@
 	NSLog(@"Car %@ unable to pay, not enough money", self);
 	
 	return NO;
-}
-
-- (void)receiveMoney:(NSInteger)money fromPayer:(id<FXMoneyFlow>)payer {
-	if ([payer respondsToSelector:@selector(sendMoney:toPayee:)] && [payer ableToPayMoney:money]) {
-		self.money += money;
-		[payer sendMoney:money toPayee:self];
-	}
-}
-
-- (void)sendMoney:(NSInteger)money toPayee:(id<FXMoneyFlow>)payee {
-	if ([payee respondsToSelector:@selector(receiveMoney:fromPayer:)] && [self ableToPayMoney:money]) {
-		self.money -= money;
-	}
 }
 
 @end

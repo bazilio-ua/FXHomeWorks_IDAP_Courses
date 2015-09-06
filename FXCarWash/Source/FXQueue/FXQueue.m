@@ -25,15 +25,13 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// release all retained properties
 	self.mutableQueue = nil;
 	
-	[super dealloc]; // dealloc superclass
+	[super dealloc];
 }
 
 - (id)init {
-	self = [super init]; // init superclass
-	
+	self = [super init];
 	if (self) {
 		self.mutableQueue = [NSMutableArray array];
 	}
@@ -57,8 +55,10 @@
 - (void)enqueueObject:(id)object {
 	id syncQueue = self.mutableQueue;
 	@synchronized(syncQueue) {
-		[syncQueue addObject:object];
-		NSLog(@"object %@ added to queue %@", object, self);
+		if (NO == [syncQueue containsObject:object]) {
+			[syncQueue addObject:object];
+			NSLog(@"object %@ added to queue %@", object, self);
+		}
 	}
 }
 
@@ -72,6 +72,21 @@
 		}
 		
 		return object;
+	}
+}
+
+- (BOOL)containsObject:(id)object {
+	id syncQueue = self.mutableQueue;
+	@synchronized(syncQueue) {
+		return [syncQueue containsObject:object];
+	}	
+}
+
+- (BOOL)isEmpty {
+	id syncQueue = self.mutableQueue;
+	@synchronized(syncQueue) {
+//		NSLog(@"queue %@ is empty", self);
+		return 0 == [syncQueue count];
 	}
 }
 

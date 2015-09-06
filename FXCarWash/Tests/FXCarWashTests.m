@@ -30,8 +30,9 @@ static const NSUInteger kFXCarsAmount = 1000;
 //		[workflow performSelectorInBackground:@selector(performWorkWithObject:) 
 //								   withObject:car];
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			[workflow performSelectorInBackground:@selector(performWorkWithObject:) 
-									   withObject:car];
+//			[workflow performSelectorInBackground:@selector(performWorkWithObject:) 
+//									   withObject:car];
+			[workflow performWorkWithObject:car];
 		});
 	}
 	

@@ -87,8 +87,9 @@
 //		[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
 //							   withObject:object];
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
-								   withObject:object];
+//			[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
+//								   withObject:object];
+			[self startJobWithObjectInBackground:object];
 		});
 	}
 }
@@ -104,9 +105,10 @@
 //						   withObject:object 
 //						waitUntilDone:NO];
 	dispatch_async(dispatch_get_main_queue(), ^{
-		[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 
-							   withObject:object 
-							waitUntilDone:NO];
+//		[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 
+//							   withObject:object 
+//							waitUntilDone:NO];
+		[self finishJobWithObjectOnMainThread:object];
 	});
 }
 

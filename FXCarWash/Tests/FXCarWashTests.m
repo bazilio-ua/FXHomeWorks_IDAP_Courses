@@ -31,6 +31,11 @@ static const NSUInteger kFXCarsAmount = 1000;
 //								   withObject:car];
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 			[workflow performWorkWithObject:car];
+//			[NSTimer scheduledTimerWithTimeInterval:1.0f 
+//											 target:workflow 
+//										   selector:@selector(performWorkWithObject:) 
+//										   userInfo:car 
+//											repeats:YES];
 		});
 	}
 	

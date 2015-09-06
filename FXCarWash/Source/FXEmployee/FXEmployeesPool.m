@@ -77,8 +77,8 @@
 	@synchronized(syncEmployees) {
 		NSMutableArray *employees = [NSMutableArray array];
 		for (FXEmployee *employee in syncEmployees) {
-//			if (YES == [employee isMemberOfClass:class]) {
-			if (YES == [employee isKindOfClass:class]) {
+//			if ([employee isMemberOfClass:class]) {
+			if ([employee isKindOfClass:class]) {
 				[employees addObject:employee];
 			}
 		}

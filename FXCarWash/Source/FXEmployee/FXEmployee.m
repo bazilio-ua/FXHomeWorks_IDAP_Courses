@@ -101,7 +101,7 @@
 
 - (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	FXEmployee *employee = object;
-	if (YES == [employee isKindOfClass:[FXEmployee class]]) {
+	if ([employee isKindOfClass:[FXEmployee class]]) {
 		employee.state = kFXEmployeeIsReady;
 	}
 	

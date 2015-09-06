@@ -119,11 +119,11 @@ static const NSUInteger kFXDirectorsNumber = 1;
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
 	@synchronized(employee) {
 		if (kFXEmployeeFinishedWork == employee.state) {
-			if (YES == [employee isMemberOfClass:[FXDirector class]]) {
+			if ([employee isMemberOfClass:[FXDirector class]]) {
 				employee.state = kFXEmployeeIsReady;
-			} else if (YES == [employee isMemberOfClass:[FXAccountant class]]) {
+			} else if ([employee isMemberOfClass:[FXAccountant class]]) {
 				[self.directorDispatcher processWorkFlowWithObject:employee];
-			} else if (YES == [employee isMemberOfClass:[FXWasher class]]) {
+			} else if ([employee isMemberOfClass:[FXWasher class]]) {
 				[self.accountantDispatcher processWorkFlowWithObject:employee];
 			}
 		}

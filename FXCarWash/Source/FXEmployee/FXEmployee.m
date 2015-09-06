@@ -8,12 +8,9 @@
 
 #import "FXEmployee.h"
 
-//#import "FXQueue.h"
-
 #import "NSObject+FXExtensions.h"
 
 @interface FXEmployee ()
-//@property (nonatomic, retain)	FXQueue		*queue;
 
 @end
 
@@ -21,13 +18,11 @@
 
 @synthesize state			= _state;
 @synthesize money			= _money;
-//@synthesize queue			= _queue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-//	self.queue = nil;
 	
 	[super dealloc];
 }
@@ -37,7 +32,6 @@
 	if (self) {
 		self.money = 0;
 		self.state = kFXEmployeeIsReady;
-//		self.queue = [FXQueue object];
 	}
 	
 	return self;
@@ -88,15 +82,10 @@
 
 - (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
-//		if (kFXEmployeeIsReady == self.state) {
-			self.state = kFXEmployeeStartedWork;
-			
-			[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
-								   withObject:object];
-//		} else {
-//			NSLog(@"Employee %@ is busy right now", self);
-//			[self.queue enqueueObject:object];
-//		}
+		self.state = kFXEmployeeStartedWork;
+		
+		[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
+							   withObject:object];
 	}
 }
 
@@ -116,13 +105,7 @@
 		employee.state = kFXEmployeeIsReady;
 	}
 	
-//	id queueObject = [self.queue dequeueObject];
-//	if (nil != queueObject) {
-//		[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
-//							   withObject:queueObject];
-//	} else {
-		self.state = kFXEmployeeFinishedWork;
-//	}
+	self.state = kFXEmployeeFinishedWork;
 }
 
 #pragma mark -
@@ -165,7 +148,7 @@
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-//	[self processJobWithObject:employee];
+	
 }
 
 @end

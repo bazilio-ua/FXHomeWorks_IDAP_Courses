@@ -85,7 +85,7 @@
 - (BOOL)isEmpty {
 	id syncQueue = self.mutableQueue;
 	@synchronized(syncQueue) {
-		NSLog(@"queue %@ is empty", self);
+//		NSLog(@"queue %@ is empty", self);
 		return 0 == [syncQueue count];
 	}
 }

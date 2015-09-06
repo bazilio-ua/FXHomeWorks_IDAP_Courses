@@ -45,7 +45,17 @@
 		if (state != _state) {
 			_state = state;
 			
-			[self notifyObserversWithSelector:[self selectorForState:state] withObject:self onMainThread:YES];
+//			if ([NSThread isMainThread]) {
+//				NSLog(@"seting state %d on MAIN thread", state);
+//				[self notifyObserversWithSelector:[self selectorForState:state] withObject:self onMainThread:NO];
+//			} else {
+//				NSLog(@"seting state %d on Default thread, need switch to Main thread", state);
+//				[self notifyObserversWithSelector:[self selectorForState:state] withObject:self onMainThread:YES];
+//			}
+			
+//			[self notifyObserversWithSelector:[self selectorForState:state] withObject:self onMainThread:YES];
+			
+			[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
 		}
 	}
 }

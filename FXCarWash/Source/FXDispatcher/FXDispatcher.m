@@ -64,7 +64,6 @@
 - (void)processWorkFlowWithObject:(id)object {
 	id queue = self.queue;
 	@synchronized(queue) {
-//		FXEmployee *handler = [self.handlers readyEmployeeOfClass:[FXEmployee class]];
 		FXEmployee *handler = [self.handlers readyEmployee];
 		@synchronized(handler) {
 			if (nil != handler && kFXEmployeeIsReady == handler.state) {

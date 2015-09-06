@@ -27,8 +27,11 @@ static const NSUInteger kFXCarsAmount = 1000;
 		car.money = 100;
 		car.clean = NO;
 //		[workflow performWorkWithObject:car];
-		[workflow performSelectorInBackground:@selector(performWorkWithObject:) 
-								   withObject:car];
+//		[workflow performSelectorInBackground:@selector(performWorkWithObject:) 
+//								   withObject:car];
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			[workflow performWorkWithObject:car];
+		});
 	}
 	
 //	FXCar *car2 = [FXCar object];

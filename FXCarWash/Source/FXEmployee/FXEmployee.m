@@ -45,7 +45,7 @@
 		if (state != _state) {
 			_state = state;
 			
-			[self notifyObserversWithSelector:[self selectorForState:state] withObject:self onMainThread:YES];
+			[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
 		}
 	}
 }
@@ -84,8 +84,11 @@
 	if (nil != object) {
 		self.state = kFXEmployeeStartedWork;
 		
-		[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
-							   withObject:object];
+//		[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
+//							   withObject:object];
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			[self startJobWithObjectInBackground:object];
+		});
 	}
 }
 
@@ -96,9 +99,12 @@
 		}
 	}
 	
-	[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 
-						   withObject:object 
-						waitUntilDone:NO];
+//	[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 
+//						   withObject:object 
+//						waitUntilDone:NO];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self finishJobWithObjectOnMainThread:object];
+	});
 }
 
 - (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {

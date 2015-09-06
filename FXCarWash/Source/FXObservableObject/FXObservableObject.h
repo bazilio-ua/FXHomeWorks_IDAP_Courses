@@ -15,6 +15,6 @@
 - (void)removeObserver:(id)observer;
 - (BOOL)containsObserver:(id)observer;
 
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object onMainThread:(BOOL)onMainThread;
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
 
 @end

@@ -72,26 +72,13 @@
 	}	
 }
 
-- (NSArray *)allEmployeesOfClass:(Class)class {
+- (id)readyEmployee {
 	id syncEmployees = self.mutableEmployees;
 	@synchronized(syncEmployees) {
-		NSMutableArray *employees = [NSMutableArray array];
 		for (FXEmployee *employee in syncEmployees) {
-//			if ([employee isMemberOfClass:class]) {
-			if ([employee isKindOfClass:class]) {
-				[employees addObject:employee];
+			if (kFXEmployeeIsReady == employee.state) {
+				return employee;
 			}
-		}
-		
-		return [[employees copy] autorelease];
-	}
-}
-
-- (id)readyEmployeeOfClass:(Class)class {
-	NSArray *employees = [self allEmployeesOfClass:class];
-	for (FXEmployee *employee in employees) {
-		if (kFXEmployeeIsReady == employee.state) {
-			return employee;
 		}
 	}
 	

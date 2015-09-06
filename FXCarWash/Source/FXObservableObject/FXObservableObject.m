@@ -86,7 +86,11 @@
 				if ([NSThread isMainThread]) {
 					[reference.target performSelector:selector withObject:object]; // if default thread is main notify on it
 				} else {
-					[reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+//					[reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+					dispatch_sync(dispatch_get_main_queue(), ^{
+//						[reference.target performSelector:selector withObject:object];
+						[reference.target performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+					});
 				}
 			}
 		}

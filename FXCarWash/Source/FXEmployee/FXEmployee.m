@@ -90,8 +90,12 @@
 }
 
 - (void)startJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	@autoreleasepool {
-		[self processObject:object];
+	@synchronized(self) {
+		@autoreleasepool {
+			@synchronized(object) {
+				[self processObject:object];
+			}
+		}
 	}
 	
 	[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 

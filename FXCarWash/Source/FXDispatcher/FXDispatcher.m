@@ -61,7 +61,43 @@
 	}
 }
 
-- (void)processObject:(id)object {
+- (void)processWorkFlowWithObject:(id)object {
+	id queue = self.queue;
+	@synchronized(queue) {
+		FXEmployee *handler = [self.handlers readyEmployeeOfClass:[FXEmployee class]];
+		@synchronized(handler) {
+			if (nil != handler && kFXEmployeeIsReady == handler.state) {
+				if ([queue isEmpty]) {
+					[handler processJobWithObject:object];
+				} else {
+					[handler processJobWithObject:[queue dequeueObject]];
+					[queue enqueueObject:object];
+				}
+			} else {
+				NSLog(@"All handlers are busy right now");
+				[queue enqueueObject:object];
+			}
+		}
+	}
+}
+
+#pragma mark -
+#pragma mark FXEmployeeObserver Protocol Methods
+
+// optional
+- (void)employeeIsReady:(FXEmployee *)employee {
+	@synchronized(employee) {
+		if (kFXEmployeeIsReady == employee.state) {
+			[employee processJobWithObject:[self.queue dequeueObject]];
+		}
+	}
+}
+
+- (void)employeeDidStartWork:(FXEmployee *)employee {
+	
+}
+
+- (void)employeeDidFinishWork:(FXEmployee *)employee {
 	
 }
 

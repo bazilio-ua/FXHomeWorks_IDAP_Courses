@@ -17,6 +17,6 @@
 - (void)addHandler:(FXEmployee *)handler;
 - (void)removeHandler:(FXEmployee *)handler;
 
-- (void)processObject:(id)object;
+- (void)processWorkFlowWithObject:(id)object;
 
 @end

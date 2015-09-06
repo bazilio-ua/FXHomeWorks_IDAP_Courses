@@ -27,7 +27,7 @@ typedef enum {
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 
 - (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
-- (void)processJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)startJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 - (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 
 @end

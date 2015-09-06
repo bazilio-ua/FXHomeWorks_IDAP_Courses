@@ -16,7 +16,8 @@
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
 - (BOOL)containsEmployee:(id)employee;
-- (NSArray *)allEmployeesOfClass:(Class)class;
-- (id)readyEmployeeOfClass:(Class)class;
+//- (NSArray *)allEmployeesOfClass:(Class)class;
+//- (id)readyEmployeeOfClass:(Class)class;
+- (id)readyEmployee;
 
 @end

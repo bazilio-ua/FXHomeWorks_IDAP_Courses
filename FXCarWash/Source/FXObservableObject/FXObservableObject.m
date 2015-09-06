@@ -78,13 +78,11 @@
 	}
 }
 
-//- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object onMainThread:(BOOL)onMainThread {
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
 	id syncObservers = self.mutableObservers;
 	@synchronized(syncObservers) {
 		for (FXReference *reference in syncObservers) {
 			if ([reference.target respondsToSelector:selector]) {
-//				if (onMainThread) {
 				if ([NSThread isMainThread]) {
 					[reference.target performSelector:selector withObject:object]; // if default thread is main notify on it
 				} else {

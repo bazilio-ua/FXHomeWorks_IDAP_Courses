@@ -11,9 +11,7 @@
 @class FXViewController;
 
 @interface FXAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) FXViewController *viewController;
+@property (nonatomic, strong)	UIWindow			*window;
+@property (nonatomic, strong)	FXViewController	*viewController;
 
 @end

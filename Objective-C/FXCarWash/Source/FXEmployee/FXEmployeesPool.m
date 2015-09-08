@@ -72,11 +72,12 @@
 	}	
 }
 
-- (id)readyEmployee {
+- (id)reservedEmployee {
 	id syncEmployees = self.mutableEmployees;
 	@synchronized(syncEmployees) {
 		for (FXEmployee *employee in syncEmployees) {
 			if (kFXEmployeeIsReady == employee.state) {
+				employee.state = kFXEmployeeStartedWork;
 				return employee;
 			}
 		}

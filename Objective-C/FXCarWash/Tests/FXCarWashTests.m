@@ -26,29 +26,12 @@ static const NSUInteger kFXCarsAmount = 1000;
 		FXCar *car = [FXCar object];
 		car.money = 100;
 		car.clean = NO;
-//		[workflow performWorkWithObject:car];
-//		[workflow performSelectorInBackground:@selector(performWorkWithObject:) 
-//								   withObject:car];
+		
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 			[workflow performWorkWithObject:car];
-//			[NSTimer scheduledTimerWithTimeInterval:1.0f 
-//											 target:workflow 
-//										   selector:@selector(performWorkWithObject:) 
-//										   userInfo:car 
-//											repeats:YES];
 		});
 	}
-	
-//	FXCar *car2 = [FXCar object];
-//	car2.money = 100;
-//	car2.clean = YES;
-//	[workflow performWorkWithObject:car2];
-//	
-//	FXCar *car3 = [FXCar object];
-//	car3.money = 50;
-//	car3.clean = NO;
-//	[workflow performWorkWithObject:car3];
-	
+		
 	NSLog(@"end of carwash workflow test");
 	
 	[[NSRunLoop mainRunLoop] run];

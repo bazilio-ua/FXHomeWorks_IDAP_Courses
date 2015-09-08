@@ -16,6 +16,6 @@
 - (void)addEmployee:(id)employee;
 - (void)removeEmployee:(id)employee;
 - (BOOL)containsEmployee:(id)employee;
-- (id)readyEmployee;
+- (id)reservedEmployee;
 
 @end

@@ -10,6 +10,8 @@
 
 #import "NSObject+FXExtensions.h"
 
+//@class FXDirector;
+
 @interface FXEmployee ()
 
 @end
@@ -41,12 +43,10 @@
 #pragma mark Accessors
 
 - (void)setState:(FXEmployeeState)state {
-	@synchronized(self) {
-		if (state != _state) {
-			_state = state;
-			
-			[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
-		}
+	if (state != _state) {
+		_state = state;
+		
+		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
 	}
 }
 
@@ -82,38 +82,10 @@
 
 - (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
-		self.state = kFXEmployeeStartedWork;
-		
-//		[self performSelectorInBackground:@selector(startJobWithObjectInBackground:) 
-//							   withObject:object];
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			[self startJobWithObjectInBackground:object];
+			[self processObject:object];
 		});
 	}
-}
-
-- (void)startJobWithObjectInBackground:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	@autoreleasepool {
-		@synchronized(object) {
-			[self processObject:object];
-		}
-	}
-	
-//	[self performSelectorOnMainThread:@selector(finishJobWithObjectOnMainThread:) 
-//						   withObject:object 
-//						waitUntilDone:NO];
-	dispatch_async(dispatch_get_main_queue(), ^{
-		[self finishJobWithObjectOnMainThread:object];
-	});
-}
-
-- (void)finishJobWithObjectOnMainThread:(id<FXMoneyFlow, FXEmployeeObserver>)object {
-	FXEmployee *employee = object;
-	if ([employee isKindOfClass:[FXEmployee class]]) {
-		employee.state = kFXEmployeeIsReady;
-	}
-	
-	self.state = kFXEmployeeFinishedWork;
 }
 
 #pragma mark -

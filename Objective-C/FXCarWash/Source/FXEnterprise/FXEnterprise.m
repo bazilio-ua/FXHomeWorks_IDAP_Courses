@@ -70,12 +70,9 @@ static const NSUInteger kFXDirectorsNumber = 1;
 
 - (void)performWorkWithObject:(id)object {
 	if (nil != object) {
-		@autoreleasepool {
-//			[self.washerDispatcher processWorkFlowWithObject:object];
-			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-				[self.washerDispatcher processWorkFlowWithObject:object];
-			});
-		}
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			[self.washerDispatcher processWorkFlowWithObject:object];
+		});
 	}
 }
 
@@ -120,22 +117,14 @@ static const NSUInteger kFXDirectorsNumber = 1;
 }
 
 - (void)employeeDidFinishWork:(FXEmployee *)employee {
-	@synchronized(employee) {
-		if (kFXEmployeeFinishedWork == employee.state) {
-			if ([employee isMemberOfClass:[FXDirector class]]) {
-				employee.state = kFXEmployeeIsReady;
-			} else if ([employee isMemberOfClass:[FXAccountant class]]) {
-//				[self.directorDispatcher processWorkFlowWithObject:employee];
-				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-					[self.directorDispatcher processWorkFlowWithObject:employee];
-				});
+	if (kFXEmployeeFinishedWork == employee.state) {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			if ([employee isMemberOfClass:[FXAccountant class]]) {
+				[self.directorDispatcher processWorkFlowWithObject:employee];
 			} else if ([employee isMemberOfClass:[FXWasher class]]) {
-//				[self.accountantDispatcher processWorkFlowWithObject:employee];
-				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-					[self.accountantDispatcher processWorkFlowWithObject:employee];
-				});
+				[self.accountantDispatcher processWorkFlowWithObject:employee];
 			}
-		}
+		});
 	}
 }
 

@@ -349,15 +349,15 @@
 		426BFEC51B9F6915007C6849 /* FXCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCar.h; sourceTree = "<group>"; };
 		426BFEC61B9F6915007C6849 /* FXCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCar.m; sourceTree = "<group>"; };
 		426BFEC81B9F6915007C6849 /* FXDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDispatcher.h; sourceTree = "<group>"; };
-		426BFEC91B9F6915007C6849 /* FXDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDispatcher.m; sourceTree = "<group>"; };
+		426BFEC91B9F6915007C6849 /* FXDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXDispatcher.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		426BFECB1B9F6915007C6849 /* FXAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAccountant.h; sourceTree = "<group>"; };
 		426BFECC1B9F6915007C6849 /* FXAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAccountant.m; sourceTree = "<group>"; };
 		426BFECD1B9F6915007C6849 /* FXDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDirector.h; sourceTree = "<group>"; };
 		426BFECE1B9F6915007C6849 /* FXDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDirector.m; sourceTree = "<group>"; };
 		426BFECF1B9F6915007C6849 /* FXEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployee.h; sourceTree = "<group>"; };
 		426BFED01B9F6915007C6849 /* FXEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployee.m; sourceTree = "<group>"; };
-		426BFED11B9F6915007C6849 /* FXEmployeesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployeesPool.h; sourceTree = "<group>"; };
-		426BFED21B9F6915007C6849 /* FXEmployeesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXEmployeesPool.m; sourceTree = "<group>"; };
+		426BFED11B9F6915007C6849 /* FXEmployeesPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FXEmployeesPool.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		426BFED21B9F6915007C6849 /* FXEmployeesPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXEmployeesPool.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		426BFED31B9F6915007C6849 /* FXWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWasher.h; sourceTree = "<group>"; };
 		426BFED41B9F6915007C6849 /* FXWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWasher.m; sourceTree = "<group>"; };
 		426BFED61B9F6915007C6849 /* FXEmployeeObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXEmployeeObserver.h; sourceTree = "<group>"; };
@@ -1274,6 +1274,7 @@
 			isa = PBXGroup;
 			children = (
 				426BFEC11B9F6915007C6849 /* FXBuilding */,
+				426BFEEB1B9F6915007C6849 /* FXRoom */,
 				426BFEC41B9F6915007C6849 /* FXCar */,
 				426BFEC71B9F6915007C6849 /* FXDispatcher */,
 				426BFECA1B9F6915007C6849 /* FXEmployee */,
@@ -1283,7 +1284,6 @@
 				426BFEDC1B9F6915007C6849 /* FXObservableObject */,
 				426BFEDF1B9F6915007C6849 /* FXQueue */,
 				426BFEE21B9F6915007C6849 /* FXReference */,
-				426BFEEB1B9F6915007C6849 /* FXRoom */,
 				426BFEF01B9F6915007C6849 /* main.m */,
 			);
 			path = Source;
@@ -1319,16 +1319,16 @@
 		426BFECA1B9F6915007C6849 /* FXEmployee */ = {
 			isa = PBXGroup;
 			children = (
+				426BFECF1B9F6915007C6849 /* FXEmployee.h */,
+				426BFED01B9F6915007C6849 /* FXEmployee.m */,
+				426BFED31B9F6915007C6849 /* FXWasher.h */,
+				426BFED41B9F6915007C6849 /* FXWasher.m */,
 				426BFECB1B9F6915007C6849 /* FXAccountant.h */,
 				426BFECC1B9F6915007C6849 /* FXAccountant.m */,
 				426BFECD1B9F6915007C6849 /* FXDirector.h */,
 				426BFECE1B9F6915007C6849 /* FXDirector.m */,
-				426BFECF1B9F6915007C6849 /* FXEmployee.h */,
-				426BFED01B9F6915007C6849 /* FXEmployee.m */,
 				426BFED11B9F6915007C6849 /* FXEmployeesPool.h */,
 				426BFED21B9F6915007C6849 /* FXEmployeesPool.m */,
-				426BFED31B9F6915007C6849 /* FXWasher.h */,
-				426BFED41B9F6915007C6849 /* FXWasher.m */,
 			);
 			path = FXEmployee;
 			sourceTree = "<group>";

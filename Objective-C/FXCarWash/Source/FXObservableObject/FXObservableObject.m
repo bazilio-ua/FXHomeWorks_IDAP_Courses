@@ -43,10 +43,9 @@
 #pragma mark Public Accessors
 
 - (NSSet *)observers {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
+	@synchronized(self.mutableObservers) {
 		NSMutableSet *observers = [NSMutableSet set];
-		for (FXReference *reference in syncObservers) {
+		for (FXReference *reference in self.mutableObservers) {
 			[observers addObject:reference.target];
 		}
 		
@@ -58,23 +57,20 @@
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
-		[syncObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	@synchronized(self.mutableObservers) {
+		[self.mutableObservers addObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 
 - (void)removeObserver:(id)observer {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
-		[syncObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	@synchronized(self.mutableObservers) {
+		[self.mutableObservers removeObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 
 - (BOOL)containsObserver:(id)observer {
-	id syncObservers = self.mutableObservers;
-	@synchronized(syncObservers) {
-		return [syncObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
+	@synchronized(self.mutableObservers) {
+		return [self.mutableObservers containsObject:[[[FXAssignReference alloc] initWithTarget:observer] autorelease]];
 	}
 }
 

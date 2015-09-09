@@ -83,7 +83,9 @@
 - (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			[self processObject:object];
+			@synchronized(object) {
+				[self processObject:object];
+			}
 		});
 	}
 }

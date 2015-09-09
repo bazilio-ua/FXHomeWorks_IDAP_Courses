@@ -58,12 +58,14 @@
 }
 
 - (void)processWorkFlowWithObject:(id)object {
-	FXEmployee *handler = [self.handlers reservedEmployee];
-	if (nil != handler) {
-		[handler processJobWithObject:object];
-	} else {
-//		NSLog(@"All employee handled by %@ are busy right now", self);
-		[self.queue enqueueObject:object];
+	@synchronized(self) {
+		FXEmployee *handler = [self.handlers reservedEmployee];
+		if (nil != handler) {
+			[handler processJobWithObject:object];
+		} else {
+			NSLog(@"All employee handled by %@ are busy right now", self);
+			[self.queue enqueueObject:object];
+		}
 	}
 }
 
@@ -72,10 +74,14 @@
 
 // optional
 - (void)employeeIsReady:(FXEmployee *)employee {
-	if (kFXEmployeeIsReady == employee.state) {
-		employee.state = kFXEmployeeStartedWork;
-		[employee processJobWithObject:[self.queue dequeueObject]];
-	}
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		@synchronized(self.queue) {
+			if (![self.queue isEmpty] && kFXEmployeeIsReady == employee.state) {
+				employee.state = kFXEmployeeStartedWork;
+				[employee processJobWithObject:[self.queue dequeueObject]];
+			}
+		}
+	});
 }
 
 - (void)employeeDidStartWork:(FXEmployee *)employee {

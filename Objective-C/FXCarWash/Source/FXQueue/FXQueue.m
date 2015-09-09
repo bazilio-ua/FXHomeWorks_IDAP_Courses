@@ -43,9 +43,8 @@
 #pragma mark Accessors
 
 - (NSArray *)queue {
-	id syncQueue = self.mutableQueue;
-	@synchronized(syncQueue) {
-		return [[syncQueue copy] autorelease];
+	@synchronized(self.mutableQueue) {
+		return [[self.mutableQueue copy] autorelease];
 	}
 }
 
@@ -53,21 +52,19 @@
 #pragma mark Public Methods
 
 - (void)enqueueObject:(id)object {
-	id syncQueue = self.mutableQueue;
-	@synchronized(syncQueue) {
-		if (NO == [syncQueue containsObject:object]) {
-			[syncQueue addObject:object];
+	@synchronized(self.mutableQueue) {
+		if (NO == [self.mutableQueue containsObject:object]) {
+			[self.mutableQueue addObject:object];
 			NSLog(@"object %@ added to queue %@", object, self);
 		}
 	}
 }
 
 - (id)dequeueObject {
-	id syncQueue = self.mutableQueue;
-	@synchronized(syncQueue) {
-		id object = [[[syncQueue firstObject] retain] autorelease]; // get first
+	@synchronized(self.mutableQueue) {
+		id object = [[[self.mutableQueue firstObject] retain] autorelease]; // get first
 		if (nil != object) {
-			[syncQueue removeObject:object];
+			[self.mutableQueue removeObject:object];
 			NSLog(@"object %@ removed from queue %@", object, self);
 		}
 		
@@ -76,17 +73,19 @@
 }
 
 - (BOOL)containsObject:(id)object {
-	id syncQueue = self.mutableQueue;
-	@synchronized(syncQueue) {
-		return [syncQueue containsObject:object];
+	@synchronized(self.mutableQueue) {
+		return [self.mutableQueue containsObject:object];
 	}	
 }
 
 - (BOOL)isEmpty {
-	id syncQueue = self.mutableQueue;
-	@synchronized(syncQueue) {
-//		NSLog(@"queue %@ is empty", self);
-		return 0 == [syncQueue count];
+	@synchronized(self.mutableQueue) {
+		if (0 == [self.mutableQueue count]) {
+			NSLog(@"queue %@ is empty", self);
+			return YES;
+		}
+		
+		return NO;
 	}
 }
 

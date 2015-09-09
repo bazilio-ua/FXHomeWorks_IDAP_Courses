@@ -42,9 +42,8 @@
 #pragma mark Public Accessors
 
 - (NSArray *)employees {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		return [[syncEmployees copy] autorelease];
+	@synchronized(self.mutableEmployees) {
+		return [[self.mutableEmployees copy] autorelease];
 	}
 }
 
@@ -52,30 +51,26 @@
 #pragma mark Public Methods
 
 - (void)addEmployee:(id)employee {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		[syncEmployees addObject:employee];
+	@synchronized(self.mutableEmployees) {
+		[self.mutableEmployees addObject:employee];
 	}
 }
 
 - (void)removeEmployee:(id)employee {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		[syncEmployees removeObject:employee];
+	@synchronized(self.mutableEmployees) {
+		[self.mutableEmployees removeObject:employee];
 	}
 }
 
 - (BOOL)containsEmployee:(id)employee {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		return [syncEmployees containsObject:employee];
+	@synchronized(self.mutableEmployees) {
+		return [self.mutableEmployees containsObject:employee];
 	}	
 }
 
 - (id)reservedEmployee {
-	id syncEmployees = self.mutableEmployees;
-	@synchronized(syncEmployees) {
-		for (FXEmployee *employee in syncEmployees) {
+	@synchronized(self.mutableEmployees) {
+		for (FXEmployee *employee in self.mutableEmployees) {
 			if (kFXEmployeeIsReady == employee.state) {
 				employee.state = kFXEmployeeStartedWork;
 				return employee;

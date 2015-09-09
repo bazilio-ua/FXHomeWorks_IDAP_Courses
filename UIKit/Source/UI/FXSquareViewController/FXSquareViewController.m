@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXViewController.h"
+#import "FXSquareViewController.h"
 
-@implementation FXViewController
+@implementation FXSquareViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

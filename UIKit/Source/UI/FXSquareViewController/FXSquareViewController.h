@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FXViewController : UIViewController
+@interface FXSquareViewController : UIViewController
 
 @end

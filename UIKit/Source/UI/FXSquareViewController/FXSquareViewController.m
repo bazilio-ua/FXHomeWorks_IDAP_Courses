@@ -35,7 +35,7 @@
 #pragma mark User interactions
 
 - (IBAction)onSquareMove:(id)sender {
-	
+	NSLog(@"Move button pressed");
 }
 
 #pragma mark - 

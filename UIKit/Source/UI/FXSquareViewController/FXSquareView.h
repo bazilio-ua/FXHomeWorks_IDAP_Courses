@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class FXSquareModel;
+
 @interface FXSquareView : UIView
+@property (nonatomic, strong)	FXSquareModel	*squareModel;
 
 @end

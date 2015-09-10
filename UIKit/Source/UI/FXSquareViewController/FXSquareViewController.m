@@ -8,14 +8,43 @@
 
 #import "FXSquareViewController.h"
 
+#import "FXMainView.h"
+
+@interface FXSquareViewController ()
+@property (nonatomic, readonly)	FXMainView	*mainView;
+
+@end
+
 @implementation FXSquareViewController
+
+@synthesize squareModel = _squareModel;
+@dynamic 	mainView;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (FXMainView *)mainView {
+	if ([self isViewLoaded] && [self.view isKindOfClass:[FXMainView class]]) {
+		return (FXMainView *)self.view;
+	}
+	
+	return nil;
+}
+
+#pragma mark -
+#pragma mark User interactions
+
+- (IBAction)onSquareMove:(id)sender {
+	
+}
+
+#pragma mark - 
+#pragma mark View lifecycle
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
-
-#pragma mark - View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];

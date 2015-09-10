@@ -8,7 +8,14 @@
 
 #import "FXSquareView.h"
 
+#import "FXSquareModel.h"
+
 @implementation FXSquareView
+
+@synthesize squareModel = _squareModel;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -22,10 +29,8 @@
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     // Drawing code
-}
-*/
+}*/
 
 @end

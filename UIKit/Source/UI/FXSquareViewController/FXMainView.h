@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class FXSquareView;
+
 @interface FXMainView : UIView
+@property (nonatomic, strong)	IBOutlet	FXSquareView	*squareView;
+@property (nonatomic, strong)	IBOutlet	UIButton		*squareMove;
 
 @end

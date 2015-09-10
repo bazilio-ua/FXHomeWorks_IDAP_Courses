@@ -10,4 +10,6 @@
 
 @implementation FXSquareModel
 
+@synthesize squarePosition = _squarePosition;
+
 @end

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class FXSquareModel;
+
 @interface FXSquareViewController : UIViewController
+@property (nonatomic, strong)	FXSquareModel	*squareModel;
+
+- (IBAction)onSquareMove:(id)sender;
 
 @end

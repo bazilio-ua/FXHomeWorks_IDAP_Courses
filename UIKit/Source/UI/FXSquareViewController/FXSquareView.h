@@ -13,5 +13,4 @@
 @interface FXSquareView : UIView
 @property (nonatomic, strong)	FXSquareModel	*squareModel;
 
-
 @end

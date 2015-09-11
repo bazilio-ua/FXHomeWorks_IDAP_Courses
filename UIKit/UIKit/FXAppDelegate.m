@@ -9,6 +9,7 @@
 #import "FXAppDelegate.h"
 
 #import "FXSquareViewController.h"
+#import "FXSquareModel.h"
 
 #import "UIViewController+FXInitialization.h"
 
@@ -21,6 +22,7 @@
 	
     // Override point for customization after application launch.
 	FXSquareViewController *controller = [FXSquareViewController newViewControllerWithDefaultNib];
+	controller.squareModel = [FXSquareModel new];
 	
 	window.rootViewController = controller;
     [window makeKeyAndVisible];

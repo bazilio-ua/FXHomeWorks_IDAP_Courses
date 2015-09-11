@@ -55,6 +55,8 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0;
 - (void)setSquarePosition:(FXSquarePosition)position 
 				 animated:(BOOL)animated 
 		 completionHanler:(void (^)(BOOL finished))completion {
+	self.squareView.squareModel.squarePosition = position;
+	
 	NSTimeInterval duration = animated ? kFXSquareViewAnimationDuration : 0;
 	
 	[UIView animateWithDuration:duration 
@@ -64,7 +66,7 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0;
 						 self.squareView.frame = [self frameForSquarePosition:position];
 					 } 
 					 completion:^(BOOL finished) {
-						 self.squareView.squareModel.squarePosition = position;
+//						 self.squareView.squareModel.squarePosition = position;
 						 
 						 if (completion) {
 							 completion(finished);
@@ -81,7 +83,7 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0;
 	CGPoint point = CGPointZero;
 	
 	switch (position) {
-		case kFXSquarePositionTopLeft:
+		case kFXSquarePositionTopLeft: // default
 			break;
 			
 		case kFXSquarePositionTopRight:

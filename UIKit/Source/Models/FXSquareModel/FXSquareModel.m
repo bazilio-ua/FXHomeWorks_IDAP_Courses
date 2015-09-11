@@ -12,4 +12,11 @@
 
 @synthesize squarePosition = _squarePosition;
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (FXSquarePosition)moveSquarePosition {
+	return (self.squarePosition + 1) % kFXSquarePositionCount;
+}
+
 @end

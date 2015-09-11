@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class FXSquareViewController;
-
 @interface FXAppDelegate : UIResponder <UIApplicationDelegate>
 @property (nonatomic, strong)	UIWindow				*window;
-@property (nonatomic, strong)	FXSquareViewController	*viewController;
 
 @end

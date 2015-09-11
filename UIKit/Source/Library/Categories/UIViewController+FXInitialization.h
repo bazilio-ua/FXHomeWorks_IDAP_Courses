@@ -11,6 +11,5 @@
 @interface UIViewController (FXInitialization)
 
 + (id)newViewControllerWithDefaultNib;
-//+ (id)viewControllerWithDefaultNib;
 
 @end

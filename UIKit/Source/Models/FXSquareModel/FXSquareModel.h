@@ -19,4 +19,6 @@ typedef enum {
 @interface FXSquareModel : NSObject
 @property (nonatomic, assign)	FXSquarePosition	squarePosition;
 
+- (FXSquarePosition)moveSquarePosition;
+
 @end

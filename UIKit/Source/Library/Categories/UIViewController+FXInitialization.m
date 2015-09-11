@@ -14,8 +14,4 @@
 	return [[self alloc] initWithNibName:NSStringFromClass(self) bundle:nil];
 }
 
-//+ (id)viewControllerWithDefaultNib {
-//	return [[self newViewControllerWithDefaultNib] autorelease];
-//}
-
 @end

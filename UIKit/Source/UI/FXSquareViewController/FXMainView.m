@@ -8,8 +8,6 @@
 
 #import "FXMainView.h"
 
-#import "FXSquareView.h"
-
 @implementation FXMainView
 
 @synthesize squareView = _squareView;

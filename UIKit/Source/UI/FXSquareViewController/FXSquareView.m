@@ -8,8 +8,6 @@
 
 #import "FXSquareView.h"
 
-//#import "FXSquareModel.h"
-
 static const NSTimeInterval kFXSquareViewAnimationDuration = 0.5;
 static const NSTimeInterval kFXSquareViewAnimationDelay = 0.1;
 
@@ -64,8 +62,6 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0.1;
 						 self.frame = [self frameForSquarePosition:position];
 					 } 
 					 completion:^(BOOL finished) {
-						 //						 self.squareView.squareModel.squarePosition = position;
-						 
 						 if (completion) {
 							 completion(finished);
 						 }

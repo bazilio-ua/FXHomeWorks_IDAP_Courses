@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum { // clockwise moving
+typedef enum { // move clockwise
 	kFXSquarePositionTopLeft,
 	kFXSquarePositionTopRight,
 	kFXSquarePositionBottomRight,

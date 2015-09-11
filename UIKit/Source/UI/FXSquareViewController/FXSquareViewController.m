@@ -10,7 +10,6 @@
 
 #import "FXMainView.h"
 #import "FXSquareView.h"
-#import "FXSquareModel.h"
 
 @interface FXSquareViewController ()
 @property (nonatomic, readonly)	FXMainView	*mainView;
@@ -38,10 +37,12 @@
 
 - (IBAction)onSquareMove:(id)sender {
 	NSLog(@"Move button pressed");
-//	self.squareModel.squarePosition = [self.squareModel moveSquarePosition];
 	
-	self.mainView.squareView.squareModel = self.squareModel;
-	[self.mainView.squareView setSquarePosition:[self.squareModel moveSquarePosition] animated:YES];
+	FXSquareModel *squareModel = self.squareModel;
+	FXSquareView *squareView = self.mainView.squareView;
+	
+	squareView.squareModel = squareModel;
+	[squareView setSquarePosition:[squareModel moveSquarePosition] animated:YES];
 }
 
 #pragma mark - 

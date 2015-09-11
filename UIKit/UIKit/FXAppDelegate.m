@@ -10,6 +10,8 @@
 
 #import "FXSquareViewController.h"
 
+#import "UIViewController+FXInitialization.h"
+
 @implementation FXAppDelegate
 
 @synthesize window			= _window;
@@ -17,10 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
     // Override point for customization after application launch.
-	self.viewController = [[FXSquareViewController alloc] initWithNibName:@"FXSquareViewController" bundle:nil];
+//	self.viewController = [[FXSquareViewController alloc] initWithNibName:@"FXSquareViewController" bundle:nil];
+	self.viewController = [FXSquareViewController newViewControllerWithDefaultNib];
+	
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+	
     return YES;
 }
 

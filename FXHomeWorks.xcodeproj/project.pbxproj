@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
+		4250943B1BA2C14C0015E950 /* UIViewController+FXInitialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4250943A1BA2C14C0015E950 /* UIViewController+FXInitialization.m */; };
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		426BFDEE1B9F654D007C6849 /* FXParentOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BFDE21B9F654D007C6849 /* FXParentOutput.c */; };
 		426BFDEF1B9F654D007C6849 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BFDE61B9F654D007C6849 /* main.c */; };
@@ -262,6 +263,8 @@
 		42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4236B3481B6BB041003510F9 /* FXAlphabet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAlphabet; sourceTree = BUILT_PRODUCTS_DIR; };
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
+		425094391BA2C14C0015E950 /* UIViewController+FXInitialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FXInitialization.h"; sourceTree = "<group>"; };
+		4250943A1BA2C14C0015E950 /* UIViewController+FXInitialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FXInitialization.m"; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D17161B9F5A61009A30BE /* UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42643CE61B2320AF00B90F83 /* FXString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXString; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -611,6 +614,15 @@
 				42219C7C1B4EDCCC00B9AC0C /* Frameworks */,
 			);
 			name = "Objective-C";
+			sourceTree = "<group>";
+		};
+		425094341BA2C0880015E950 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				425094391BA2C14C0015E950 /* UIViewController+FXInitialization.h */,
+				4250943A1BA2C14C0015E950 /* UIViewController+FXInitialization.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		425D17181B9F5A61009A30BE /* Frameworks */ = {
@@ -1495,6 +1507,7 @@
 		4297468C1BA0BAA90063FE20 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				425094341BA2C0880015E950 /* Categories */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1982,6 +1995,7 @@
 				428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */,
 				428F3C8F1BA0BED10039C3A8 /* FXMainView.m in Sources */,
 				428F3C921BA0BF000039C3A8 /* FXSquareView.m in Sources */,
+				4250943B1BA2C14C0015E950 /* UIViewController+FXInitialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,14 @@
 
 #import "FXMainView.h"
 
+#import "FXSquareModel.h"
+
+@interface FXMainView ()
+
+- (CGRect)frameForSquarePosition:(FXSquarePosition)position;
+
+@end
+
 @implementation FXMainView
 
 @synthesize squareView = _squareView;
@@ -23,6 +31,34 @@
     }
 	
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setSquarePosition:(FXSquarePosition)position {
+	[self setSquarePosition:position 
+				   animated:NO];
+}
+
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated {
+	[self setSquarePosition:position 
+				   animated:animated 
+		   completionHanler:nil];
+}
+
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated 
+		 completionHanler:(void (^)(BOOL finished))completion {
+	
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (CGRect)frameForSquarePosition:(FXSquarePosition)position {
+	return CGRectNull;
 }
 
 @end

@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FXSquareModel.h"
+
 @class FXSquareView;
 
 @interface FXMainView : UIView
 @property (nonatomic, strong)	IBOutlet	FXSquareView	*squareView;
 @property (nonatomic, strong)	IBOutlet	UIButton		*squareMove;
+
+- (void)setSquarePosition:(FXSquarePosition)position;
+
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated;
+
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated 
+		 completionHanler:(void (^)(BOOL finished))completion;
 
 @end

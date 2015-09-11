@@ -9,6 +9,8 @@
 #import "FXSquareViewController.h"
 
 #import "FXMainView.h"
+#import "FXSquareView.h"
+#import "FXSquareModel.h"
 
 @interface FXSquareViewController ()
 @property (nonatomic, readonly)	FXMainView	*mainView;
@@ -18,7 +20,7 @@
 @implementation FXSquareViewController
 
 @synthesize squareModel = _squareModel;
-@dynamic 	mainView;
+@dynamic mainView;
 
 #pragma mark -
 #pragma mark Accessors
@@ -36,6 +38,7 @@
 
 - (IBAction)onSquareMove:(id)sender {
 	NSLog(@"Move button pressed");
+	self.squareModel.squarePosition = [self.squareModel moveSquarePosition];
 }
 
 #pragma mark - 

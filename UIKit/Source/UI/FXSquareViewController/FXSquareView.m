@@ -8,8 +8,6 @@
 
 #import "FXSquareView.h"
 
-#import "FXSquareModel.h"
-
 @implementation FXSquareView
 
 @synthesize squareModel = _squareModel;
@@ -24,27 +22,6 @@
     }
 	
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setSquarePosition:(FXSquarePosition)position {
-	[self setSquarePosition:position 
-				   animated:NO];
-}
-
-- (void)setSquarePosition:(FXSquarePosition)position 
-				 animated:(BOOL)animated {
-	[self setSquarePosition:position 
-				   animated:animated 
-		   completionHanler:nil];
-}
-
-- (void)setSquarePosition:(FXSquarePosition)position 
-				 animated:(BOOL)animated 
-		 completionHanler:(void (^)(BOOL finished))completion {
-	
 }
 
 @end

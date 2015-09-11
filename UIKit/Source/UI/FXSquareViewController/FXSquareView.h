@@ -8,18 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FXSquareModel.h"
+@class FXSquareModel;
 
 @interface FXSquareView : UIView
 @property (nonatomic, strong)	FXSquareModel	*squareModel;
 
-- (void)setSquarePosition:(FXSquarePosition)position;
-
-- (void)setSquarePosition:(FXSquarePosition)position 
-				 animated:(BOOL)animated;
-
-- (void)setSquarePosition:(FXSquarePosition)position 
-				 animated:(BOOL)animated 
-		 completionHanler:(void (^)(BOOL finished))completion;
 
 @end

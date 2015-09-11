@@ -40,9 +40,8 @@
 	NSLog(@"Move button pressed");
 //	self.squareModel.squarePosition = [self.squareModel moveSquarePosition];
 	
-	
 	self.mainView.squareView.squareModel = self.squareModel;
-	[self.mainView setSquarePosition:[self.squareModel moveSquarePosition] animated:YES];
+	[self.mainView.squareView setSquarePosition:[self.squareModel moveSquarePosition] animated:YES];
 }
 
 #pragma mark - 

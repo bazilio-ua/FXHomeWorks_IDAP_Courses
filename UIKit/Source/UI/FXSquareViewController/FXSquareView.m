@@ -9,7 +9,7 @@
 #import "FXSquareView.h"
 
 static const NSTimeInterval kFXSquareViewAnimationDuration = 0.5;
-static const NSTimeInterval kFXSquareViewAnimationDelay = 0.1;
+static const NSTimeInterval kFXSquareViewAnimationDelay = 0.05;
 
 @interface FXSquareView ()
 
@@ -42,7 +42,8 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0.1;
 }
 
 - (void)setSquarePosition:(FXSquarePosition)position 
-				 animated:(BOOL)animated {
+				 animated:(BOOL)animated 
+{
 	[self setSquarePosition:position 
 				   animated:animated 
 		   completionHanler:nil];
@@ -50,18 +51,18 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0.1;
 
 - (void)setSquarePosition:(FXSquarePosition)position 
 				 animated:(BOOL)animated 
-		 completionHanler:(void (^)(BOOL finished))completion {
-	self.squareModel.squarePosition = position;
-	
+		 completionHanler:(void (^)(BOOL finished))completion 
+{
 	NSTimeInterval duration = animated ? kFXSquareViewAnimationDuration : 0;
 	
 	[UIView animateWithDuration:duration 
 						  delay:kFXSquareViewAnimationDelay 
-						options:UIViewAnimationOptionBeginFromCurrentState 
+						options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear 
 					 animations:^{
 						 self.frame = [self frameForSquarePosition:position];
 					 } 
 					 completion:^(BOOL finished) {
+						 self.squareModel.squarePosition = position;
 						 if (completion) {
 							 completion(finished);
 						 }

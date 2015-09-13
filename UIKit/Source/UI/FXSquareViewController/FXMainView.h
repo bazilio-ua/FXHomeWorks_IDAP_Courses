@@ -14,5 +14,4 @@
 @property (nonatomic, strong)	IBOutlet	FXSquareView	*squareView;
 @property (nonatomic, strong)	IBOutlet	UIButton		*squareMove;
 
-
 @end

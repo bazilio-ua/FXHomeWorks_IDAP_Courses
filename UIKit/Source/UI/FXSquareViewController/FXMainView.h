@@ -13,5 +13,6 @@
 @interface FXMainView : UIView
 @property (nonatomic, strong)	IBOutlet	FXSquareView	*squareView;
 @property (nonatomic, strong)	IBOutlet	UIButton		*squareMove;
+@property (nonatomic, strong)	IBOutlet	UIButton		*squareCyclicMove;
 
 @end

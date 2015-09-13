@@ -20,6 +20,7 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0.05;
 @implementation FXSquareView
 
 @synthesize squareModel = _squareModel;
+@synthesize cyclicMove	= _cyclicMove;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations

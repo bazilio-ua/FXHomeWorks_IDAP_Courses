@@ -11,13 +11,12 @@
 #import "FXSquareModel.h"
 
 @interface FXSquareView : UIView
-@property (nonatomic, strong)	FXSquareModel	*squareModel;
+@property (nonatomic, strong)	FXSquareModel					*squareModel;
+@property (nonatomic, assign, getter = isCyclicMove)	BOOL	cyclicMove;
 
 - (void)setSquarePosition:(FXSquarePosition)position;
-
 - (void)setSquarePosition:(FXSquarePosition)position 
 				 animated:(BOOL)animated;
-
 - (void)setSquarePosition:(FXSquarePosition)position 
 				 animated:(BOOL)animated 
 		 completionHanler:(void (^)(BOOL finished))completion;

@@ -14,5 +14,6 @@
 @property (nonatomic, strong)	FXSquareModel	*squareModel;
 
 - (IBAction)onSquareMove:(id)sender;
+- (IBAction)onSquareCyclicMove:(id)sender;
 
 @end

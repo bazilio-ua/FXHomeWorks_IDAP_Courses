@@ -10,8 +10,9 @@
 
 @implementation FXMainView
 
-@synthesize squareView = _squareView;
-@synthesize squareMove = _squareMove;
+@synthesize squareView			= _squareView;
+@synthesize squareMove			= _squareMove;
+@synthesize squareCyclicMove	= _squareCyclicMove;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations

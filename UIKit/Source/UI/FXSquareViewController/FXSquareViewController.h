@@ -13,7 +13,7 @@
 @interface FXSquareViewController : UIViewController
 @property (nonatomic, strong)	FXSquareModel	*squareModel;
 
-- (IBAction)onSquareMove:(id)sender;
-- (IBAction)onSquareCyclicMove:(id)sender;
+- (IBAction)onMoveButton:(id)sender;
+- (IBAction)onCyclicMoveButton:(id)sender;
 
 @end

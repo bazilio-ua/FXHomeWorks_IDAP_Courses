@@ -8,8 +8,8 @@
 
 #import "FXSquareView.h"
 
-static const NSTimeInterval kFXSquareViewAnimationDuration = 0.5;
-static const NSTimeInterval kFXSquareViewAnimationDelay = 0.05;
+static const NSTimeInterval kFXSquareViewAnimationDuration	= 0.5;
+static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 
 @interface FXSquareView ()
 
@@ -21,18 +21,6 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0.05;
 
 @synthesize squareModel = _squareModel;
 @synthesize cyclicMove	= _cyclicMove;
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-	
-    return self;
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -77,24 +65,23 @@ static const NSTimeInterval kFXSquareViewAnimationDelay = 0.05;
 	CGRect frame = self.frame;
 	CGRect bounds = self.superview.bounds;
 	CGPoint point = CGPointZero;
+	CGFloat pointX = CGRectGetWidth(bounds) - CGRectGetWidth(frame);
+	CGFloat pointY = CGRectGetHeight(bounds) - CGRectGetHeight(frame);
 	
 	switch (position) {
-		case kFXSquarePositionTopLeft: // default
-			break;
-			
 		case kFXSquarePositionTopRight:
-			point.x = CGRectGetWidth(bounds) - CGRectGetWidth(frame);
+			point.x = pointX;
 			break;
 			
 		case kFXSquarePositionBottomRight:
-			point.x = CGRectGetWidth(bounds) - CGRectGetWidth(frame);
-			point.y = CGRectGetHeight(bounds) - CGRectGetHeight(frame);
+			point = CGPointMake(pointX, pointY);
 			break;
 			
 		case kFXSquarePositionBottomLeft:
-			point.y = CGRectGetHeight(bounds) - CGRectGetHeight(frame);
+			point.y = pointY;
 			break;
 			
+		case kFXSquarePositionTopLeft: // default
 		default:
 			break;
 	}

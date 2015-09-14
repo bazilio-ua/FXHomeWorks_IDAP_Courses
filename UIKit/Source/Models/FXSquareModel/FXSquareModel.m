@@ -15,7 +15,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (FXSquarePosition)moveSquarePosition {
+- (FXSquarePosition)nextPosition {
 	return (self.squarePosition + 1) % kFXSquarePositionCount;
 }
 

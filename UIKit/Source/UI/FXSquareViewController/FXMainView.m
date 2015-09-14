@@ -8,22 +8,20 @@
 
 #import "FXMainView.h"
 
+#import "FXSquareView.h"
+
 @implementation FXMainView
 
 @synthesize squareView			= _squareView;
-@synthesize squareMove			= _squareMove;
-@synthesize squareCyclicMove	= _squareCyclicMove;
+@synthesize moveButton			= _moveButton;
+@synthesize cyclicMoveButton	= _cyclicMoveButton;
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark Public Methods
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-	
-    return self;
+- (void)updateCyclicMoveButtonTitle {
+	[self.cyclicMoveButton setTitle:self.squareView.isCyclicMove ? @"Stop Cycle" : @"Cyclic Move" 
+						   forState:UIControlStateNormal];
 }
 
 @end

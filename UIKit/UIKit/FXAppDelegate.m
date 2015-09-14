@@ -21,7 +21,7 @@
 	UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
     // Override point for customization after application launch.
-	FXSquareViewController *controller = [FXSquareViewController newViewControllerWithDefaultNib];
+	FXSquareViewController *controller = [FXSquareViewController controller];
 	controller.squareModel = [FXSquareModel new];
 	
 	window.rootViewController = controller;

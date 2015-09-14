@@ -32,7 +32,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="774585933">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="54911014">
@@ -40,7 +40,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{32, 32}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="477110726"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -53,7 +52,6 @@
 						<int key="NSvFlags">301</int>
 						<string key="NSFrame">{{104, 175}, {112, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="67564530"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -88,8 +86,6 @@
 						<int key="NSvFlags">301</int>
 						<string key="NSFrame">{{104, 220}, {112, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -107,8 +103,6 @@
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="54911014"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -142,37 +136,37 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">squareMove</string>
+						<string key="label">moveButton</string>
 						<reference key="source" ref="774585933"/>
 						<reference key="destination" ref="477110726"/>
 					</object>
-					<int key="connectionID">11</int>
+					<int key="connectionID">22</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">squareCyclicMove</string>
+						<string key="label">cyclicMoveButton</string>
 						<reference key="source" ref="774585933"/>
 						<reference key="destination" ref="67564530"/>
 					</object>
-					<int key="connectionID">15</int>
+					<int key="connectionID">23</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">onSquareMove:</string>
+						<string key="label">onMoveButton:</string>
 						<reference key="source" ref="477110726"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">12</int>
+					<int key="connectionID">20</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">onSquareCyclicMove:</string>
+						<string key="label">onCyclicMoveButton:</string>
 						<reference key="source" ref="67564530"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">14</int>
+					<int key="connectionID">21</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -237,7 +231,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">15</int>
+			<int key="maxID">23</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -245,17 +239,17 @@
 					<string key="className">FXMainView</string>
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="squareCyclicMove">UIButton</string>
-						<string key="squareMove">UIButton</string>
+						<string key="squareCyclicMoveButton">UIButton</string>
+						<string key="squareMoveButton">UIButton</string>
 						<string key="squareView">FXSquareView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="squareCyclicMove">
-							<string key="name">squareCyclicMove</string>
+						<object class="IBToOneOutletInfo" key="squareCyclicMoveButton">
+							<string key="name">squareCyclicMoveButton</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="squareMove">
-							<string key="name">squareMove</string>
+						<object class="IBToOneOutletInfo" key="squareMoveButton">
+							<string key="name">squareMoveButton</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="squareView">

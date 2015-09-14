@@ -10,7 +10,7 @@
 
 @implementation UIViewController (FXInitialization)
 
-+ (id)newViewControllerWithDefaultNib {
++ (id)controller {
 	return [[self alloc] initWithNibName:NSStringFromClass(self) bundle:nil];
 }
 

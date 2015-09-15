@@ -21,4 +21,6 @@
 				 animated:(BOOL)animated 
 		 completionHanler:(void (^)(BOOL finished))completion;
 
+- (void)moveSquareToNextPosition;
+
 @end

@@ -14,8 +14,6 @@
 @interface FXSquareViewController ()
 @property (nonatomic, readonly)	FXMainView	*mainView;
 
-- (void)moveSquareToNextPosition;
-
 @end
 
 @implementation FXSquareViewController
@@ -40,7 +38,7 @@
 - (IBAction)onMoveButton:(id)sender {
 	NSLog(@"Move button pressed");
 	
-	[self moveSquareToNextPosition];
+	[self.mainView.squareView moveSquareToNextPosition];
 }
 
 - (IBAction)onCyclicMoveButton:(id)sender {
@@ -52,31 +50,7 @@
 	NSLog(@"isCyclicMove=%d", squareView.isCyclicMove);
 	[mainView updateCyclicMoveButtonTitle];
 	
-	[self moveSquareToNextPosition];
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)moveSquareToNextPosition {
-	FXSquareModel *squareModel = self.squareModel;
-	FXSquareView *squareView = self.mainView.squareView;
-	
-	squareView.squareModel = squareModel;
-	FXSquarePosition position = [squareModel nextPosition];
-	
-	if (squareView.isCyclicMove) {
-		[squareView setSquarePosition:position 
-							 animated:YES 
-					 completionHanler:^(BOOL finished) {
-						 if (finished) {
-							 [self moveSquareToNextPosition];
-						 }
-					 }];
-	} else {
-		[squareView setSquarePosition:position 
-							 animated:YES];
-	}
+	[squareView moveSquareToNextPosition];
 }
 
 #pragma mark - 
@@ -84,18 +58,16 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	self.mainView.squareView.squareModel = self.squareModel;
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

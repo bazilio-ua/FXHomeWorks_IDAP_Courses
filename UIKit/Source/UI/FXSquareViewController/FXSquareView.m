@@ -60,6 +60,28 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 }
 
 #pragma mark -
+#pragma mark Public Methods
+
+- (void)moveSquareToNextPosition {
+	FXSquarePosition position = [self.squareModel nextPosition];
+	
+	if (self.isCyclicMove) {
+		id __weak weakSelf = self;
+		[self setSquarePosition:position 
+					   animated:YES 
+			   completionHanler:^(BOOL finished) {
+				   if (finished) {
+					   id __strong strongSelf = weakSelf;
+					   [strongSelf moveSquareToNextPosition];
+				   }
+			   }];
+	} else {
+		[self setSquarePosition:position 
+					   animated:YES];
+	}
+}
+
+#pragma mark -
 #pragma mark Private Methods
 
 - (CGRect)frameForSquarePosition:(FXSquarePosition)position {

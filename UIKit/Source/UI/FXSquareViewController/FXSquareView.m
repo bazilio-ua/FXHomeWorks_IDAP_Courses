@@ -43,9 +43,10 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 		 completionHanler:(void (^)(BOOL finished))completion 
 {
 	NSTimeInterval duration = animated ? kFXSquareViewAnimationDuration : 0;
+	NSTimeInterval delay = animated ? kFXSquareViewAnimationDelay : 0;
 	
 	[UIView animateWithDuration:duration 
-						  delay:kFXSquareViewAnimationDelay 
+						  delay:delay 
 						options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear 
 					 animations:^{
 						 self.frame = [self frameForSquarePosition:position];

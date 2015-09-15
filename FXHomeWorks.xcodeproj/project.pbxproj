@@ -117,6 +117,7 @@
 		428F3C921BA0BF000039C3A8 /* FXSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C911BA0BF000039C3A8 /* FXSquareView.m */; };
 		429746931BA0BAA90063FE20 /* FXSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429746911BA0BAA90063FE20 /* FXSquareViewController.m */; };
 		429746941BA0BAA90063FE20 /* FXSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 429746921BA0BAA90063FE20 /* FXSquareViewController.xib */; };
+		429C26101BA89B6C006FE7FF /* UIWindow+FXInitialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 429C260F1BA89B6C006FE7FF /* UIWindow+FXInitialization.m */; };
 		42A4C7891B9F5B9F0098B140 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C7881B9F5B9F0098B140 /* UIKit.framework */; };
 		42A4C78B1B9F5BAF0098B140 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78A1B9F5BAF0098B140 /* Foundation.framework */; };
 		42A4C78D1B9F5BBE0098B140 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */; };
@@ -415,6 +416,8 @@
 		429746901BA0BAA90063FE20 /* FXSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSquareViewController.h; sourceTree = "<group>"; };
 		429746911BA0BAA90063FE20 /* FXSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSquareViewController.m; sourceTree = "<group>"; };
 		429746921BA0BAA90063FE20 /* FXSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXSquareViewController.xib; sourceTree = "<group>"; };
+		429C260E1BA89B6C006FE7FF /* UIWindow+FXInitialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+FXInitialization.h"; sourceTree = "<group>"; };
+		429C260F1BA89B6C006FE7FF /* UIWindow+FXInitialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+FXInitialization.m"; sourceTree = "<group>"; };
 		42A4C7881B9F5B9F0098B140 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78A1B9F5BAF0098B140 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -621,6 +624,8 @@
 			children = (
 				425094391BA2C14C0015E950 /* UIViewController+FXInitialization.h */,
 				4250943A1BA2C14C0015E950 /* UIViewController+FXInitialization.m */,
+				429C260E1BA89B6C006FE7FF /* UIWindow+FXInitialization.h */,
+				429C260F1BA89B6C006FE7FF /* UIWindow+FXInitialization.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1996,6 +2001,7 @@
 				428F3C8F1BA0BED10039C3A8 /* FXMainView.m in Sources */,
 				428F3C921BA0BF000039C3A8 /* FXSquareView.m in Sources */,
 				4250943B1BA2C14C0015E950 /* UIViewController+FXInitialization.m in Sources */,
+				429C26101BA89B6C006FE7FF /* UIWindow+FXInitialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

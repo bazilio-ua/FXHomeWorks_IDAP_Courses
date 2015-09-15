@@ -11,5 +11,6 @@
 @interface UIViewController (FXInitialization)
 
 + (id)controller;
++ (id)controllerWithNibName:(NSString *)nibName;
 
 @end

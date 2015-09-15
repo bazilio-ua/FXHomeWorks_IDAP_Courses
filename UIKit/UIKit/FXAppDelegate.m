@@ -11,6 +11,7 @@
 #import "FXSquareViewController.h"
 #import "FXSquareModel.h"
 
+#import "UIWindow+FXInitialization.h"
 #import "UIViewController+FXInitialization.h"
 
 @implementation FXAppDelegate
@@ -18,7 +19,7 @@
 @synthesize window			= _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	UIWindow *window = [UIWindow window];
 	
     // Override point for customization after application launch.
 	FXSquareViewController *controller = [FXSquareViewController controller];

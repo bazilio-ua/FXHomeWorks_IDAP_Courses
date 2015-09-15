@@ -48,7 +48,7 @@
 	
 	FXMainView *mainView = self.mainView;
 	FXSquareView *squareView = mainView.squareView;
-	squareView.cyclicMove ^= YES;
+	squareView.cyclicMove = !squareView.cyclicMove;
 	NSLog(@"isCyclicMove=%d", squareView.isCyclicMove);
 	[mainView updateCyclicMoveButtonTitle];
 	

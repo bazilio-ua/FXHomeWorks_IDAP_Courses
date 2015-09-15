@@ -16,7 +16,7 @@
 
 @implementation FXAppDelegate
 
-@synthesize window			= _window;
+@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	UIWindow *window = [UIWindow window];

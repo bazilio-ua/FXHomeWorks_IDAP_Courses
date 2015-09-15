@@ -14,7 +14,7 @@
 @interface FXSquareViewController ()
 @property (nonatomic, readonly)	FXMainView	*mainView;
 
-- (void)moveToNextPosition;
+- (void)moveSquareToNextPosition;
 
 @end
 
@@ -40,7 +40,7 @@
 - (IBAction)onMoveButton:(id)sender {
 	NSLog(@"Move button pressed");
 	
-	[self moveToNextPosition];
+	[self moveSquareToNextPosition];
 }
 
 - (IBAction)onCyclicMoveButton:(id)sender {
@@ -52,13 +52,13 @@
 	NSLog(@"isCyclicMove=%d", squareView.isCyclicMove);
 	[mainView updateCyclicMoveButtonTitle];
 	
-	[self moveToNextPosition];
+	[self moveSquareToNextPosition];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)moveToNextPosition {
+- (void)moveSquareToNextPosition {
 	FXSquareModel *squareModel = self.squareModel;
 	FXSquareView *squareView = self.mainView.squareView;
 	
@@ -70,7 +70,7 @@
 							 animated:YES 
 					 completionHanler:^(BOOL finished) {
 						 if (finished) {
-							 [self moveToNextPosition];
+							 [self moveSquareToNextPosition];
 						 }
 					 }];
 	} else {

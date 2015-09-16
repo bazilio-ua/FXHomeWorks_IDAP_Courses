@@ -1,5 +1,5 @@
 //
-//  UIWindow+FXInitialization.h
+//  UIWindow+FXExtensions.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/15/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIWindow (FXInitialization)
+@interface UIWindow (FXExtensions)
 
 + (id)window;
 

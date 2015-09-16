@@ -1,5 +1,5 @@
 //
-//  UIViewController+FXInitialization.h
+//  UIViewController+FXExtensions.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/11/15.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (FXInitialization)
+@interface UIViewController (FXExtensions)
 
 + (id)controller;
-+ (id)controllerWithNibName:(NSString *)nibName;
++ (NSString *)nibName;
 
 @end

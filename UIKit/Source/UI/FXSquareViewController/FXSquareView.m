@@ -13,14 +13,14 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 
 @interface FXSquareView ()
 
-- (CGRect)frameForSquarePosition:(FXSquarePosition)position;
-
 - (void)setSquarePosition:(FXSquarePosition)position;
 - (void)setSquarePosition:(FXSquarePosition)position 
 				 animated:(BOOL)animated;
 - (void)setSquarePosition:(FXSquarePosition)position 
 				 animated:(BOOL)animated 
 		 completionHanler:(void (^)(BOOL finished))completion;
+
+- (CGRect)frameForSquarePosition:(FXSquarePosition)position;
 
 @end
 
@@ -50,39 +50,6 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 		[self setSquarePosition:position 
 					   animated:YES];
 	}
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (CGRect)frameForSquarePosition:(FXSquarePosition)position {
-	CGRect frame = self.frame;
-	CGRect bounds = self.superview.bounds;
-	CGPoint point = CGPointZero;
-	CGFloat pointX = CGRectGetWidth(bounds) - CGRectGetWidth(frame);
-	CGFloat pointY = CGRectGetHeight(bounds) - CGRectGetHeight(frame);
-	
-	switch (position) {
-		case kFXSquarePositionTopRight:
-			point.x = pointX;
-			break;
-			
-		case kFXSquarePositionBottomRight:
-			point = CGPointMake(pointX, pointY);
-			break;
-			
-		case kFXSquarePositionBottomLeft:
-			point.y = pointY;
-			break;
-			
-		case kFXSquarePositionTopLeft: // default
-		default:
-			break;
-	}
-	
-	frame.origin = point;
-	
-	return frame;
 }
 
 #pragma mark -
@@ -122,6 +89,39 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 							 }
 						 }
 					 }];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (CGRect)frameForSquarePosition:(FXSquarePosition)position {
+	CGRect frame = self.frame;
+	CGRect bounds = self.superview.bounds;
+	CGPoint point = CGPointZero;
+	CGFloat pointX = CGRectGetWidth(bounds) - CGRectGetWidth(frame);
+	CGFloat pointY = CGRectGetHeight(bounds) - CGRectGetHeight(frame);
+	
+	switch (position) {
+		case kFXSquarePositionTopRight:
+			point.x = pointX;
+			break;
+			
+		case kFXSquarePositionBottomRight:
+			point = CGPointMake(pointX, pointY);
+			break;
+			
+		case kFXSquarePositionBottomLeft:
+			point.y = pointY;
+			break;
+			
+		case kFXSquarePositionTopLeft: // default
+		default:
+			break;
+	}
+	
+	frame.origin = point;
+	
+	return frame;
 }
 
 @end

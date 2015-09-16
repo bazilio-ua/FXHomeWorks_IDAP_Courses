@@ -13,6 +13,7 @@
 @interface FXSquareView : UIView
 @property (nonatomic, strong)	FXSquareModel					*squareModel;
 @property (nonatomic, assign, getter = isCyclicMove)	BOOL	cyclicMove;
+@property (nonatomic, assign, getter = isAnimated)		BOOL	animated;
 
 - (void)setSquarePosition:(FXSquarePosition)position;
 - (void)setSquarePosition:(FXSquarePosition)position 

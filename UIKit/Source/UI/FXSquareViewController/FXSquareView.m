@@ -46,16 +46,20 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 			}
 		};
 		
-		FXSquarePosition position = [self.squareModel nextPosition];
+//		FXSquarePosition position = [self.squareModel nextPosition];
+//		
+//		if (self.isCyclicMoving) {
+//			[self setSquarePosition:position 
+//						   animated:YES 
+//				   completionHanler:completionBlock];
+//		} else {
+//			[self setSquarePosition:position 
+//						   animated:YES];
+//		}
 		
-		if (self.isCyclicMoving) {
-			[self setSquarePosition:position 
-						   animated:YES 
-				   completionHanler:completionBlock];
-		} else {
-			[self setSquarePosition:position 
-						   animated:YES];
-		}
+		[self setSquarePosition:[self.squareModel nextPosition] 
+					   animated:YES 
+			   completionHanler:self.isCyclicMoving ? completionBlock : nil];
 		
 	}
 	

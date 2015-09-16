@@ -52,9 +52,11 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 						 self.frame = [self frameForSquarePosition:position];
 					 } 
 					 completion:^(BOOL finished) {
-						 self.squareModel.squarePosition = position;
-						 if (completion) {
-							 completion(finished);
+						 if (finished) {
+							 self.squareModel.squarePosition = position;
+							 if (completion) {
+								 completion(finished);
+							 }
 						 }
 					 }];
 }

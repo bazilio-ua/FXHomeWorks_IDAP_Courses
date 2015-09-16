@@ -34,24 +34,31 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 #pragma mark Public Methods
 
 - (void)moveSquareToNextPosition {
-	id __weak weakSelf = self;
-	void(^completionBlock)(BOOL finished) = ^(BOOL finished) {
-		if (finished) {
-			id __strong strongSelf = weakSelf;
-			[strongSelf moveSquareToNextPosition];
+	
+	if (!self.isAnimated) {
+		self.animated = YES;
+		
+		id __weak weakSelf = self;
+		void(^completionBlock)(BOOL finished) = ^(BOOL finished) {
+			if (finished) {
+				id __strong strongSelf = weakSelf;
+				[strongSelf moveSquareToNextPosition];
+			}
+		};
+		
+		FXSquarePosition position = [self.squareModel nextPosition];
+		
+		if (self.isCyclicMoving) {
+			[self setSquarePosition:position 
+						   animated:YES 
+				   completionHanler:completionBlock];
+		} else {
+			[self setSquarePosition:position 
+						   animated:YES];
 		}
-	};
-	
-	FXSquarePosition position = [self.squareModel nextPosition];
-	
-	if (self.isCyclicMoving) {
-		[self setSquarePosition:position 
-					   animated:YES 
-			   completionHanler:completionBlock];
-	} else {
-		[self setSquarePosition:position 
-					   animated:YES];
+		
 	}
+	
 }
 
 #pragma mark -
@@ -85,6 +92,7 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 					 } 
 					 completion:^(BOOL finished) {
 						 if (finished) {
+							 self.animated = NO;
 							 self.squareModel.squarePosition = position;
 							 if (completion) {
 								 completion(finished);

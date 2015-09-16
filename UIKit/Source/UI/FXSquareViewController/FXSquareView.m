@@ -15,52 +15,20 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 
 - (CGRect)frameForSquarePosition:(FXSquarePosition)position;
 
+- (void)setSquarePosition:(FXSquarePosition)position;
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated;
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated 
+		 completionHanler:(void (^)(BOOL finished))completion;
+
 @end
 
 @implementation FXSquareView
 
-@synthesize squareModel = _squareModel;
-@synthesize cyclicMove	= _cyclicMove;
-@synthesize animated 	= _animated;
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setSquarePosition:(FXSquarePosition)position {
-	[self setSquarePosition:position 
-				   animated:NO];
-}
-
-- (void)setSquarePosition:(FXSquarePosition)position 
-				 animated:(BOOL)animated 
-{
-	[self setSquarePosition:position 
-				   animated:animated 
-		   completionHanler:nil];
-}
-
-- (void)setSquarePosition:(FXSquarePosition)position 
-				 animated:(BOOL)animated 
-		 completionHanler:(void (^)(BOOL finished))completion 
-{
-	NSTimeInterval duration = animated ? kFXSquareViewAnimationDuration : 0;
-	NSTimeInterval delay = animated ? kFXSquareViewAnimationDelay : 0;
-	
-	[UIView animateWithDuration:duration 
-						  delay:delay 
-						options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear 
-					 animations:^{
-						 self.frame = [self frameForSquarePosition:position];
-					 } 
-					 completion:^(BOOL finished) {
-						 if (finished) {
-							 self.squareModel.squarePosition = position;
-							 if (completion) {
-								 completion(finished);
-							 }
-						 }
-					 }];
-}
+@synthesize squareModel 	= _squareModel;
+@synthesize cyclicMoving	= _cyclicMoving;
+@synthesize animated 		= _animated;
 
 #pragma mark -
 #pragma mark Public Methods
@@ -68,7 +36,7 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 - (void)moveSquareToNextPosition {
 	FXSquarePosition position = [self.squareModel nextPosition];
 	
-	if (self.isCyclicMove) {
+	if (self.isCyclicMoving) {
 		id __weak weakSelf = self;
 		[self setSquarePosition:position 
 					   animated:YES 
@@ -115,6 +83,45 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 	frame.origin = point;
 	
 	return frame;
+}
+
+#pragma mark -
+#pragma mark Private Accessors
+
+- (void)setSquarePosition:(FXSquarePosition)position {
+	[self setSquarePosition:position 
+				   animated:NO];
+}
+
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated 
+{
+	[self setSquarePosition:position 
+				   animated:animated 
+		   completionHanler:nil];
+}
+
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated 
+		 completionHanler:(void (^)(BOOL finished))completion 
+{
+	NSTimeInterval duration = animated ? kFXSquareViewAnimationDuration : 0;
+	NSTimeInterval delay = animated ? kFXSquareViewAnimationDelay : 0;
+	
+	[UIView animateWithDuration:duration 
+						  delay:delay 
+						options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear 
+					 animations:^{
+						 self.frame = [self frameForSquarePosition:position];
+					 } 
+					 completion:^(BOOL finished) {
+						 if (finished) {
+							 self.squareModel.squarePosition = position;
+							 if (completion) {
+								 completion(finished);
+							 }
+						 }
+					 }];
 }
 
 @end

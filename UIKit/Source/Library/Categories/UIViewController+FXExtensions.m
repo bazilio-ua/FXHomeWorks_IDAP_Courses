@@ -10,6 +10,9 @@
 
 @implementation UIViewController (FXExtensions)
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (id)controller {
 	return [[self alloc] initWithNibName:[self nibName] bundle:nil];
 }

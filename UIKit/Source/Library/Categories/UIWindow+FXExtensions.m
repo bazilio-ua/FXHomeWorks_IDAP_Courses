@@ -10,6 +10,9 @@
 
 @implementation UIWindow (FXExtensions)
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (id)window {
 	return [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 }

@@ -20,7 +20,7 @@
 #pragma mark Public Methods
 
 - (void)updateCyclicMoveButtonTitle {
-	[self.cyclicMoveButton setTitle:self.squareView.isCyclicMoving ? @"Stop Cycle" : @"Cyclic Move" 
+	[self.cyclicMoveButton setTitle:[self.squareView isCyclicMoving] ? @"Stop Cycle" : @"Cyclic Move" 
 						   forState:UIControlStateNormal];
 }
 

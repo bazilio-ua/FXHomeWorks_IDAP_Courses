@@ -48,10 +48,10 @@
 	FXSquareView *squareView = mainView.squareView;
 	
 	squareView.cyclicMoving = !squareView.cyclicMoving;
-	NSLog(@"isCyclicMoving=%d", squareView.isCyclicMoving);
+	NSLog(@"isCyclicMoving=%d", [squareView isCyclicMoving]);
 	[mainView updateCyclicMoveButtonTitle];
 	
-	[squareView moveSquareToNextPosition];
+	[squareView cyclicMoveSquareToNextPosition];
 }
 
 #pragma mark - 

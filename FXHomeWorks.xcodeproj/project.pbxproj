@@ -413,8 +413,8 @@
 		428F3C881BA0BE330039C3A8 /* FXSquareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSquareModel.m; sourceTree = "<group>"; };
 		428F3C8D1BA0BED00039C3A8 /* FXMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMainView.h; sourceTree = "<group>"; };
 		428F3C8E1BA0BED10039C3A8 /* FXMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXMainView.m; sourceTree = "<group>"; };
-		428F3C901BA0BF000039C3A8 /* FXSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSquareView.h; sourceTree = "<group>"; };
-		428F3C911BA0BF000039C3A8 /* FXSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSquareView.m; sourceTree = "<group>"; };
+		428F3C901BA0BF000039C3A8 /* FXSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FXSquareView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		428F3C911BA0BF000039C3A8 /* FXSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXSquareView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		429746901BA0BAA90063FE20 /* FXSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSquareViewController.h; sourceTree = "<group>"; };
 		429746911BA0BAA90063FE20 /* FXSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSquareViewController.m; sourceTree = "<group>"; };
 		429746921BA0BAA90063FE20 /* FXSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXSquareViewController.xib; sourceTree = "<group>"; };

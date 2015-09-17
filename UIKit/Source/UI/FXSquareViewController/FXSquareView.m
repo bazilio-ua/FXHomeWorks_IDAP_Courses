@@ -28,41 +28,32 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 
 @synthesize squareModel 	= _squareModel;
 @synthesize cyclicMoving	= _cyclicMoving;
-@synthesize animated 		= _animated;
+@synthesize animating 		= _animating;
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)moveSquareToNextPosition {
-	
-	if (!self.isAnimated) {
-		self.animated = YES;
-		
+	if (![self isAnimating]) {
+		[self setSquarePosition:[self.squareModel nextPosition] 
+					   animated:YES];
+	}
+}
+
+- (void)cyclicMoveSquareToNextPosition {
+	if ([self isCyclicMoving] && ![self isAnimating]) {
 		id __weak weakSelf = self;
 		void(^completionBlock)(BOOL finished) = ^(BOOL finished) {
 			if (finished) {
 				id __strong strongSelf = weakSelf;
-				[strongSelf moveSquareToNextPosition];
+				[strongSelf cyclicMoveSquareToNextPosition];
 			}
 		};
 		
-//		FXSquarePosition position = [self.squareModel nextPosition];
-//		
-//		if (self.isCyclicMoving) {
-//			[self setSquarePosition:position 
-//						   animated:YES 
-//				   completionHanler:completionBlock];
-//		} else {
-//			[self setSquarePosition:position 
-//						   animated:YES];
-//		}
-		
 		[self setSquarePosition:[self.squareModel nextPosition] 
 					   animated:YES 
-			   completionHanler:self.isCyclicMoving ? completionBlock : nil];
-		
+			   completionHanler:completionBlock];
 	}
-	
 }
 
 #pragma mark -
@@ -92,11 +83,12 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 						  delay:delay 
 						options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear 
 					 animations:^{
+						 self.animating = YES;
 						 self.frame = [self frameForSquarePosition:position];
 					 } 
 					 completion:^(BOOL finished) {
 						 if (finished) {
-							 self.animated = NO;
+							 self.animating = NO;
 							 self.squareModel.squarePosition = position;
 							 if (completion) {
 								 completion(finished);

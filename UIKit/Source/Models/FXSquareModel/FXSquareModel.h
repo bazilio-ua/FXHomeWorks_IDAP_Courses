@@ -20,5 +20,6 @@ typedef enum { // move clockwise
 @property (nonatomic, assign)	FXSquarePosition	squarePosition;
 
 - (FXSquarePosition)nextPosition;
+- (FXSquarePosition)randomPosition;
 
 @end

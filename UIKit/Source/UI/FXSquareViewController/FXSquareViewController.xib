@@ -52,7 +52,7 @@
 					<object class="IBUIButton" id="477110726">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{104, 175}, {112, 37}}</string>
+						<string key="NSFrame">{{124, 175}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="67564530"/>
@@ -87,15 +87,16 @@
 					<object class="IBUIButton" id="67564530">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{104, 220}, {112, 37}}</string>
+						<string key="NSFrame">{{124, 220}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Cyclic Move</string>
+						<string key="IBUINormalTitle">Cycle</string>
 						<reference key="IBUIHighlightedTitleColor" ref="568802226"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -238,7 +239,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">25</int>
+			<int key="maxID">27</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

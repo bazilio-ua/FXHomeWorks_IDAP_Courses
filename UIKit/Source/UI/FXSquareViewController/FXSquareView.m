@@ -8,15 +8,17 @@
 
 #import "FXSquareView.h"
 
-static const NSTimeInterval kFXSquareViewAnimationDuration	= 1.0;
+static const NSTimeInterval kFXSquareViewAnimationDuration	= 0.5;
 static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.0;
 
-static NSString * const kFXCyclicMoveButtonTitleStart 		= @"Cyclic Move";
-static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop Cycle";
+static NSString * const kFXCyclicMoveButtonTitleStart 		= @"Cycle";
+static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop";
 
 @interface FXSquareView ()
 
 - (CGRect)frameForSquarePosition:(FXSquarePosition)position;
+
+- (void)updateCyclicMoveButtonTitle;
 
 @end
 
@@ -38,7 +40,7 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop Cycle";
 	if (_cyclicMoving != cyclicMoving) {
 		_cyclicMoving = cyclicMoving;
 		
-		[self cyclicMoveSquareToNextPosition];
+		[self cyclicMoveSquareToRandomPosition];
 	}
 }
 
@@ -60,30 +62,24 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop Cycle";
 	}
 }
 
-- (void)cyclicMoveSquareToNextPosition {
+- (void)cyclicMoveSquareToRandomPosition {
 	if ([self isCyclicMoving] && ![self isAnimating]) {
 		id __weak weakSelf = self;
 		void(^completionBlock)(BOOL finished) = ^(BOOL finished) {
 			if (finished) {
 				id __strong strongSelf = weakSelf;
-				[strongSelf cyclicMoveSquareToNextPosition];
+				[strongSelf cyclicMoveSquareToRandomPosition];
 			}
 		};
 		
-		[self setSquarePosition:[self.squareModel nextPosition] 
+		[self setSquarePosition:[self.squareModel randomPosition] 
 					   animated:YES 
 			   completionHanler:completionBlock];
 	}
 }
 
-- (void)updateCyclicMoveButtonTitle {
-	NSString *title = [self isCyclicMoving] ? kFXCyclicMoveButtonTitleStop : kFXCyclicMoveButtonTitleStart;
-	[self.cyclicMoveButton setTitle:title
-						   forState:UIControlStateNormal];
-}
-
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Public Accessors
 
 - (void)setSquarePosition:(FXSquarePosition)position {
 	[self setSquarePosition:position 
@@ -105,6 +101,7 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop Cycle";
 	NSTimeInterval duration = animated ? kFXSquareViewAnimationDuration : 0;
 	NSTimeInterval delay = animated ? kFXSquareViewAnimationDelay : 0;
 	
+	NSLog(@"position %d", position);
 	[UIView animateWithDuration:duration 
 						  delay:delay 
 						options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear 
@@ -127,8 +124,9 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop Cycle";
 #pragma mark Private Methods
 
 - (CGRect)frameForSquarePosition:(FXSquarePosition)position {
-	CGRect frame = self.squareView.frame;
-	CGRect bounds = self.superview.bounds;
+	UIView *squareView = self.squareView;
+	CGRect frame = squareView.frame;
+	CGRect bounds = squareView.superview.bounds;
 	CGPoint point = CGPointZero;
 	CGFloat pointX = CGRectGetWidth(bounds) - CGRectGetWidth(frame);
 	CGFloat pointY = CGRectGetHeight(bounds) - CGRectGetHeight(frame);
@@ -154,6 +152,12 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop Cycle";
 	frame.origin = point;
 	
 	return frame;
+}
+
+- (void)updateCyclicMoveButtonTitle {
+	NSString *title = [self isCyclicMoving] ? kFXCyclicMoveButtonTitleStop : kFXCyclicMoveButtonTitleStart;
+	[self.cyclicMoveButton setTitle:title
+						   forState:UIControlStateNormal];
 }
 
 @end

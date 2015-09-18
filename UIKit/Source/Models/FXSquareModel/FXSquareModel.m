@@ -19,4 +19,8 @@
 	return (self.squarePosition + 1) % kFXSquarePositionCount;
 }
 
+- (FXSquarePosition)randomPosition {
+	return arc4random() % kFXSquarePositionCount;
+}
+
 @end

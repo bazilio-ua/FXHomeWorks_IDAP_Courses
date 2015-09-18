@@ -21,9 +21,7 @@
 @property (nonatomic, assign, getter = isAnimating)		BOOL	animating;
 
 - (void)moveSquareToNextPosition;
-- (void)cyclicMoveSquareToNextPosition;
-
-- (void)updateCyclicMoveButtonTitle;
+- (void)cyclicMoveSquareToRandomPosition;
 
 - (void)setSquarePosition:(FXSquarePosition)position;
 - (void)setSquarePosition:(FXSquarePosition)position 

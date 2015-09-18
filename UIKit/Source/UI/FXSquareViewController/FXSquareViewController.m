@@ -36,13 +36,13 @@
 #pragma mark User Interactions
 
 - (IBAction)onMoveButton:(id)sender {
-//	NSLog(@"Move button pressed");
+	NSLog(@"Move button pressed");
 	
 	[self.squareView moveSquareToNextPosition];
 }
 
 - (IBAction)onCyclicMoveButton:(id)sender {
-//	NSLog(@"Cyclic Move button pressed");
+	NSLog(@"Cyclic Move button pressed");
 	
 	FXSquareView *squareView = self.squareView;
 	squareView.cyclicMoving = !squareView.cyclicMoving;

@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum { // move clockwise
+	kFXSquarePositionTopLeft,
+	kFXSquarePositionTopRight,
+	kFXSquarePositionBottomRight,
+	kFXSquarePositionBottomLeft,
+	kFXSquarePositionCount
+} FXSquarePosition;
+
 @interface FXSquareModel : NSObject
+@property (nonatomic, assign)	FXSquarePosition	squarePosition;
+
+- (FXSquarePosition)nextPosition;
+- (FXSquarePosition)randomPosition;
 
 @end

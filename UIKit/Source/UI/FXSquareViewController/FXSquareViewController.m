@@ -1,6 +1,6 @@
 //
 //  FXViewController.m
-//  UIKit
+//  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/8/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
@@ -8,24 +8,61 @@
 
 #import "FXSquareViewController.h"
 
+#import "FXSquareView.h"
+
+@interface FXSquareViewController ()
+@property (nonatomic, readonly)	FXSquareView	*squareView;
+
+@end
+
 @implementation FXSquareViewController
+
+@synthesize squareModel = _squareModel;
+
+@dynamic squareView;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (FXSquareView *)squareView {
+	if ([self isViewLoaded] && [self.view isKindOfClass:[FXSquareView class]]) {
+		return (FXSquareView *)self.view;
+	}
+	
+	return nil;
+}
+
+#pragma mark -
+#pragma mark User Interactions
+
+- (IBAction)onMoveButton:(id)sender {
+	NSLog(@"Move button pressed");
+	
+	[self.squareView moveSquareToNextPosition];
+}
+
+- (IBAction)onCyclicMoveButton:(id)sender {
+	NSLog(@"Cyclic Move button pressed");
+	
+	FXSquareView *squareView = self.squareView;
+	squareView.cyclicMoving = !squareView.cyclicMoving;
+}
+
+#pragma mark - 
+#pragma mark View lifecycle
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
-
-#pragma mark - View lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	self.squareView.squareModel = self.squareModel;
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

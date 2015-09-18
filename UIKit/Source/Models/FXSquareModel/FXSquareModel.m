@@ -10,4 +10,17 @@
 
 @implementation FXSquareModel
 
+@synthesize squarePosition = _squarePosition;
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (FXSquarePosition)nextPosition {
+	return (self.squarePosition + 1) % kFXSquarePositionCount;
+}
+
+- (FXSquarePosition)randomPosition {
+	return arc4random() % kFXSquarePositionCount;
+}
+
 @end

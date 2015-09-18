@@ -38,20 +38,19 @@
 - (IBAction)onMoveButton:(id)sender {
 	NSLog(@"Move button pressed");
 	
-	[self.squareView.squareFrame moveSquareToNextPosition];
+	[self.squareView moveSquareToNextPosition];
 }
 
 - (IBAction)onCyclicMoveButton:(id)sender {
 	NSLog(@"Cyclic Move button pressed");
 	
 	FXSquareView *squareView = self.squareView;
-	FXSquareFrame *squareFrame = squareView.squareFrame;
 	
-	squareFrame.cyclicMoving = !squareFrame.cyclicMoving;
-	NSLog(@"isCyclicMoving=%d", [squareFrame isCyclicMoving]);
+	squareView.cyclicMoving = !squareView.cyclicMoving;
+	NSLog(@"isCyclicMoving=%d", [squareView isCyclicMoving]);
 	[squareView updateCyclicMoveButtonTitle];
 	
-	[squareFrame cyclicMoveSquareToNextPosition];
+	[squareView cyclicMoveSquareToNextPosition];
 }
 
 #pragma mark - 

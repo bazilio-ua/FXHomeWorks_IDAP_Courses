@@ -20,34 +20,7 @@ static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.05;
 @implementation FXSquareFrame
 
 @synthesize squareModel 	= _squareModel;
-@synthesize cyclicMoving	= _cyclicMoving;
 @synthesize animating 		= _animating;
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)moveSquareToNextPosition {
-	if (![self isAnimating]) {
-		[self setSquarePosition:[self.squareModel nextPosition] 
-					   animated:YES];
-	}
-}
-
-- (void)cyclicMoveSquareToNextPosition {
-	if ([self isCyclicMoving] && ![self isAnimating]) {
-		id __weak weakSelf = self;
-		void(^completionBlock)(BOOL finished) = ^(BOOL finished) {
-			if (finished) {
-				id __strong strongSelf = weakSelf;
-				[strongSelf cyclicMoveSquareToNextPosition];
-			}
-		};
-		
-		[self setSquarePosition:[self.squareModel nextPosition] 
-					   animated:YES 
-			   completionHanler:completionBlock];
-	}
-}
 
 #pragma mark -
 #pragma mark Private Accessors

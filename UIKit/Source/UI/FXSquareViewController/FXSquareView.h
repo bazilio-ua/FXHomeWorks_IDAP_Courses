@@ -11,9 +11,15 @@
 @class FXSquareFrame;
 
 @interface FXSquareView : UIView
+
 @property (nonatomic, strong)	IBOutlet	FXSquareFrame	*squareFrame;
 @property (nonatomic, strong)	IBOutlet	UIButton		*moveButton;
 @property (nonatomic, strong)	IBOutlet	UIButton		*cyclicMoveButton;
+
+@property (nonatomic, assign, getter = isCyclicMoving)	BOOL	cyclicMoving;
+
+- (void)moveSquareToNextPosition;
+- (void)cyclicMoveSquareToNextPosition;
 
 - (void)updateCyclicMoveButtonTitle;
 

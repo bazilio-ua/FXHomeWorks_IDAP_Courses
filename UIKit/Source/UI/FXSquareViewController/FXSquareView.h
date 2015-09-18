@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FXSquareModel.h"
+@class FXSquareFrame;
 
 @interface FXSquareView : UIView
-@property (nonatomic, strong)	FXSquareModel					*squareModel;
-@property (nonatomic, assign, getter = isCyclicMoving)	BOOL	cyclicMoving;
-@property (nonatomic, assign, getter = isAnimating)		BOOL	animating;
+@property (nonatomic, strong)	IBOutlet	FXSquareFrame	*squareFrame;
+@property (nonatomic, strong)	IBOutlet	UIButton		*moveButton;
+@property (nonatomic, strong)	IBOutlet	UIButton		*cyclicMoveButton;
 
-- (void)moveSquareToNextPosition;
-- (void)cyclicMoveSquareToNextPosition;
+- (void)updateCyclicMoveButtonTitle;
 
 @end

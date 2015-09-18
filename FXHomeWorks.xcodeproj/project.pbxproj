@@ -114,8 +114,8 @@
 		426BFF241B9F69CD007C6849 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		426BFF251B9F69E6007C6849 /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF201B9F6944007C6849 /* NSString+FXExtensions.m */; };
 		428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C881BA0BE330039C3A8 /* FXSquareModel.m */; };
-		428F3C8F1BA0BED10039C3A8 /* FXMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C8E1BA0BED10039C3A8 /* FXMainView.m */; };
-		428F3C921BA0BF000039C3A8 /* FXSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C911BA0BF000039C3A8 /* FXSquareView.m */; };
+		428F3C8F1BA0BED10039C3A8 /* FXSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C8E1BA0BED10039C3A8 /* FXSquareView.m */; };
+		428F3C921BA0BF000039C3A8 /* FXSquareFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C911BA0BF000039C3A8 /* FXSquareFrame.m */; };
 		429746931BA0BAA90063FE20 /* FXSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429746911BA0BAA90063FE20 /* FXSquareViewController.m */; };
 		429746941BA0BAA90063FE20 /* FXSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 429746921BA0BAA90063FE20 /* FXSquareViewController.xib */; };
 		42A4C7891B9F5B9F0098B140 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C7881B9F5B9F0098B140 /* UIKit.framework */; };
@@ -411,10 +411,10 @@
 		428980501B4442130057D669 /* FXAutoreleasingStack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAutoreleasingStack; sourceTree = BUILT_PRODUCTS_DIR; };
 		428F3C871BA0BE330039C3A8 /* FXSquareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSquareModel.h; sourceTree = "<group>"; };
 		428F3C881BA0BE330039C3A8 /* FXSquareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSquareModel.m; sourceTree = "<group>"; };
-		428F3C8D1BA0BED00039C3A8 /* FXMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMainView.h; sourceTree = "<group>"; };
-		428F3C8E1BA0BED10039C3A8 /* FXMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXMainView.m; sourceTree = "<group>"; };
-		428F3C901BA0BF000039C3A8 /* FXSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FXSquareView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		428F3C911BA0BF000039C3A8 /* FXSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXSquareView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		428F3C8D1BA0BED00039C3A8 /* FXSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FXSquareView.h; sourceTree = "<group>"; };
+		428F3C8E1BA0BED10039C3A8 /* FXSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSquareView.m; sourceTree = "<group>"; };
+		428F3C901BA0BF000039C3A8 /* FXSquareFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lineEnding = 0; path = FXSquareFrame.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		428F3C911BA0BF000039C3A8 /* FXSquareFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXSquareFrame.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		429746901BA0BAA90063FE20 /* FXSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSquareViewController.h; sourceTree = "<group>"; };
 		429746911BA0BAA90063FE20 /* FXSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXSquareViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		429746921BA0BAA90063FE20 /* FXSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXSquareViewController.xib; sourceTree = "<group>"; };
@@ -1539,10 +1539,10 @@
 				429746901BA0BAA90063FE20 /* FXSquareViewController.h */,
 				429746911BA0BAA90063FE20 /* FXSquareViewController.m */,
 				429746921BA0BAA90063FE20 /* FXSquareViewController.xib */,
-				428F3C8D1BA0BED00039C3A8 /* FXMainView.h */,
-				428F3C8E1BA0BED10039C3A8 /* FXMainView.m */,
-				428F3C901BA0BF000039C3A8 /* FXSquareView.h */,
-				428F3C911BA0BF000039C3A8 /* FXSquareView.m */,
+				428F3C8D1BA0BED00039C3A8 /* FXSquareView.h */,
+				428F3C8E1BA0BED10039C3A8 /* FXSquareView.m */,
+				428F3C901BA0BF000039C3A8 /* FXSquareFrame.h */,
+				428F3C911BA0BF000039C3A8 /* FXSquareFrame.m */,
 			);
 			path = FXSquareViewController;
 			sourceTree = "<group>";
@@ -1998,8 +1998,8 @@
 				42A4C7A01B9F5EBE0098B140 /* main.m in Sources */,
 				429746931BA0BAA90063FE20 /* FXSquareViewController.m in Sources */,
 				428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */,
-				428F3C8F1BA0BED10039C3A8 /* FXMainView.m in Sources */,
-				428F3C921BA0BF000039C3A8 /* FXSquareView.m in Sources */,
+				428F3C8F1BA0BED10039C3A8 /* FXSquareView.m in Sources */,
+				428F3C921BA0BF000039C3A8 /* FXSquareFrame.m in Sources */,
 				423DF59C1BA99CB2002A6ACB /* UIViewController+FXExtensions.m in Sources */,
 				423DF59D1BA99CB2002A6ACB /* UIWindow+FXExtensions.m in Sources */,
 			);

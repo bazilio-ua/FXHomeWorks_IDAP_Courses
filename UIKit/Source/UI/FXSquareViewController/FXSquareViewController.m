@@ -8,11 +8,11 @@
 
 #import "FXSquareViewController.h"
 
-#import "FXMainView.h"
 #import "FXSquareView.h"
+#import "FXSquareFrame.h"
 
 @interface FXSquareViewController ()
-@property (nonatomic, readonly)	FXMainView	*squareView;
+@property (nonatomic, readonly)	FXSquareView	*squareView;
 
 @end
 
@@ -24,9 +24,9 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (FXMainView *)squareView {
-	if ([self isViewLoaded] && [self.view isKindOfClass:[FXMainView class]]) {
-		return (FXMainView *)self.view;
+- (FXSquareView *)squareView {
+	if ([self isViewLoaded] && [self.view isKindOfClass:[FXSquareView class]]) {
+		return (FXSquareView *)self.view;
 	}
 	
 	return nil;
@@ -44,8 +44,8 @@
 - (IBAction)onCyclicMoveButton:(id)sender {
 	NSLog(@"Cyclic Move button pressed");
 	
-	FXMainView *squareView = self.squareView;
-	FXSquareView *squareFrame = squareView.squareFrame;
+	FXSquareView *squareView = self.squareView;
+	FXSquareFrame *squareFrame = squareView.squareFrame;
 	
 	squareFrame.cyclicMoving = !squareFrame.cyclicMoving;
 	NSLog(@"isCyclicMoving=%d", [squareFrame isCyclicMoving]);

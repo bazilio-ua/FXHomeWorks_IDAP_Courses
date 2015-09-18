@@ -11,7 +11,7 @@
 @class FXSquareView;
 
 @interface FXMainView : UIView
-@property (nonatomic, strong)	IBOutlet	FXSquareView	*squareView;
+@property (nonatomic, strong)	IBOutlet	FXSquareView	*squareFrame;
 @property (nonatomic, strong)	IBOutlet	UIButton		*moveButton;
 @property (nonatomic, strong)	IBOutlet	UIButton		*cyclicMoveButton;
 

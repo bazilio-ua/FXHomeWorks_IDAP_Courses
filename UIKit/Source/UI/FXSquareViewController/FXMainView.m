@@ -12,7 +12,7 @@
 
 @implementation FXMainView
 
-@synthesize squareView			= _squareView;
+@synthesize squareFrame			= _squareView;
 @synthesize moveButton			= _moveButton;
 @synthesize cyclicMoveButton	= _cyclicMoveButton;
 
@@ -20,7 +20,7 @@
 #pragma mark Public Methods
 
 - (void)updateCyclicMoveButtonTitle {
-	[self.cyclicMoveButton setTitle:[self.squareView isCyclicMoving] ? @"Stop Cycle" : @"Cyclic Move" 
+	[self.cyclicMoveButton setTitle:[self.squareFrame isCyclicMoving] ? @"Stop Cycle" : @"Cyclic Move" 
 						   forState:UIControlStateNormal];
 }
 

@@ -12,19 +12,19 @@
 #import "FXSquareView.h"
 
 @interface FXSquareViewController ()
-@property (nonatomic, readonly)	FXMainView	*mainView;
+@property (nonatomic, readonly)	FXMainView	*squareView;
 
 @end
 
 @implementation FXSquareViewController
 
 @synthesize squareModel = _squareModel;
-@dynamic mainView;
+@dynamic squareView;
 
 #pragma mark -
 #pragma mark Accessors
 
-- (FXMainView *)mainView {
+- (FXMainView *)squareView {
 	if ([self isViewLoaded] && [self.view isKindOfClass:[FXMainView class]]) {
 		return (FXMainView *)self.view;
 	}
@@ -38,20 +38,20 @@
 - (IBAction)onMoveButton:(id)sender {
 	NSLog(@"Move button pressed");
 	
-	[self.mainView.squareView moveSquareToNextPosition];
+	[self.squareView.squareFrame moveSquareToNextPosition];
 }
 
 - (IBAction)onCyclicMoveButton:(id)sender {
 	NSLog(@"Cyclic Move button pressed");
 	
-	FXMainView *mainView = self.mainView;
-	FXSquareView *squareView = mainView.squareView;
+	FXMainView *squareView = self.squareView;
+	FXSquareView *squareFrame = squareView.squareFrame;
 	
-	squareView.cyclicMoving = !squareView.cyclicMoving;
-	NSLog(@"isCyclicMoving=%d", [squareView isCyclicMoving]);
-	[mainView updateCyclicMoveButtonTitle];
+	squareFrame.cyclicMoving = !squareFrame.cyclicMoving;
+	NSLog(@"isCyclicMoving=%d", [squareFrame isCyclicMoving]);
+	[squareView updateCyclicMoveButtonTitle];
 	
-	[squareView cyclicMoveSquareToNextPosition];
+	[squareFrame cyclicMoveSquareToNextPosition];
 }
 
 #pragma mark - 
@@ -64,7 +64,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.mainView.squareView.squareModel = self.squareModel;
+	self.squareView.squareFrame.squareModel = self.squareModel;
 }
 
 - (void)viewDidUnload {

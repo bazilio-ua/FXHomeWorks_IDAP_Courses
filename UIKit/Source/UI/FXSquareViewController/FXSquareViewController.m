@@ -9,7 +9,6 @@
 #import "FXSquareViewController.h"
 
 #import "FXSquareView.h"
-#import "FXSquareFrame.h"
 
 @interface FXSquareViewController ()
 @property (nonatomic, readonly)	FXSquareView	*squareView;
@@ -19,6 +18,7 @@
 @implementation FXSquareViewController
 
 @synthesize squareModel = _squareModel;
+
 @dynamic squareView;
 
 #pragma mark -
@@ -36,21 +36,16 @@
 #pragma mark User Interactions
 
 - (IBAction)onMoveButton:(id)sender {
-	NSLog(@"Move button pressed");
+//	NSLog(@"Move button pressed");
 	
 	[self.squareView moveSquareToNextPosition];
 }
 
 - (IBAction)onCyclicMoveButton:(id)sender {
-	NSLog(@"Cyclic Move button pressed");
+//	NSLog(@"Cyclic Move button pressed");
 	
 	FXSquareView *squareView = self.squareView;
-	
 	squareView.cyclicMoving = !squareView.cyclicMoving;
-	NSLog(@"isCyclicMoving=%d", [squareView isCyclicMoving]);
-	[squareView updateCyclicMoveButtonTitle];
-	
-	[squareView cyclicMoveSquareToNextPosition];
 }
 
 #pragma mark - 
@@ -63,7 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.squareView.squareFrame.squareModel = self.squareModel;
+	self.squareView.squareModel = self.squareModel;
 }
 
 - (void)viewDidUnload {

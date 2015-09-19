@@ -11,6 +11,15 @@
 		423DF59C1BA99CB2002A6ACB /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF5991BA99CB2002A6ACB /* UIViewController+FXExtensions.m */; };
 		423DF59D1BA99CB2002A6ACB /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */; };
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
+		425FDA7E1BAD7F32007132BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 425FDA7C1BAD7F32007132BE /* InfoPlist.strings */; };
+		425FDA871BAD80F6007132BE /* FXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FDA851BAD80F6007132BE /* FXTableViewController.m */; };
+		425FDA881BAD80F6007132BE /* FXTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FDA861BAD80F6007132BE /* FXTableViewController.xib */; };
+		425FDA8F1BAD8125007132BE /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FDA8B1BAD8125007132BE /* FXAppDelegate.m */; };
+		425FDA911BAD8125007132BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FDA8E1BAD8125007132BE /* main.m */; };
+		425FDA921BAD86F4007132BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C7881B9F5B9F0098B140 /* UIKit.framework */; };
+		425FDA931BAD86F4007132BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78A1B9F5BAF0098B140 /* Foundation.framework */; };
+		425FDA941BAD86F4007132BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */; };
+		425FDA951BAD8841007132BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 425FDA801BAD80C8007132BE /* InfoPlist.strings */; };
 		426BFDEE1B9F654D007C6849 /* FXParentOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BFDE21B9F654D007C6849 /* FXParentOutput.c */; };
 		426BFDEF1B9F654D007C6849 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BFDE61B9F654D007C6849 /* main.c */; };
 		426BFDF01B9F654D007C6849 /* FXParentOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BFDE91B9F654D007C6849 /* FXParentOutputTests.c */; };
@@ -120,7 +129,6 @@
 		42A4C7891B9F5B9F0098B140 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C7881B9F5B9F0098B140 /* UIKit.framework */; };
 		42A4C78B1B9F5BAF0098B140 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78A1B9F5BAF0098B140 /* Foundation.framework */; };
 		42A4C78D1B9F5BBE0098B140 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */; };
-		42A4C79C1B9F5EBE0098B140 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42A4C78F1B9F5EBE0098B140 /* InfoPlist.strings */; };
 		42C3A4B51B6BC23000D2AF51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		42D6CF681BAC3D9E0015E925 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF641BAC3D9E0015E925 /* FXAppDelegate.m */; };
 		42D6CF6A1BAC3D9E0015E925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF671BAC3D9E0015E925 /* main.m */; };
@@ -269,6 +277,17 @@
 		423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+FXExtensions.m"; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D17161B9F5A61009A30BE /* FXSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		425FDA5C1BAD7E45007132BE /* FXTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		425FDA7D1BAD7F32007132BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		425FDA811BAD80C8007132BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		425FDA841BAD80F6007132BE /* FXTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTableViewController.h; sourceTree = "<group>"; };
+		425FDA851BAD80F6007132BE /* FXTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableViewController.m; sourceTree = "<group>"; };
+		425FDA861BAD80F6007132BE /* FXTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXTableViewController.xib; sourceTree = "<group>"; };
+		425FDA8A1BAD8125007132BE /* FXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAppDelegate.h; sourceTree = "<group>"; };
+		425FDA8B1BAD8125007132BE /* FXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAppDelegate.m; sourceTree = "<group>"; };
+		425FDA8C1BAD8125007132BE /* FXTableView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FXTableView-Info.plist"; sourceTree = "<group>"; };
+		425FDA8D1BAD8125007132BE /* FXTableView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXTableView-Prefix.pch"; sourceTree = "<group>"; };
+		425FDA8E1BAD8125007132BE /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42643CE61B2320AF00B90F83 /* FXString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXString; sourceTree = BUILT_PRODUCTS_DIR; };
 		426BFDE21B9F654D007C6849 /* FXParentOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXParentOutput.c; sourceTree = "<group>"; };
 		426BFDE31B9F654D007C6849 /* FXParentOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXParentOutput.h; sourceTree = "<group>"; };
@@ -418,7 +437,6 @@
 		42A4C7881B9F5B9F0098B140 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78A1B9F5BAF0098B140 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		42A4C7901B9F5EBE0098B140 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42B4746B1AFAA1EB00AD71F0 /* Lection_4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_4; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6CF631BAC3D9E0015E925 /* FXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAppDelegate.h; sourceTree = "<group>"; };
 		42D6CF641BAC3D9E0015E925 /* FXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAppDelegate.m; sourceTree = "<group>"; };
@@ -490,6 +508,16 @@
 				42A4C7891B9F5B9F0098B140 /* UIKit.framework in Frameworks */,
 				42A4C78B1B9F5BAF0098B140 /* Foundation.framework in Frameworks */,
 				42A4C78D1B9F5BBE0098B140 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425FDA591BAD7E45007132BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425FDA921BAD86F4007132BE /* UIKit.framework in Frameworks */,
+				425FDA931BAD86F4007132BE /* Foundation.framework in Frameworks */,
+				425FDA941BAD86F4007132BE /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +620,7 @@
 				425448BC1B559E8F0006EE8D /* FXCarWash */,
 				4236B3481B6BB041003510F9 /* FXAlphabet */,
 				425D17161B9F5A61009A30BE /* FXSquare.app */,
+				425FDA5C1BAD7E45007132BE /* FXTableView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -644,9 +673,48 @@
 				42A4C78E1B9F5EBE0098B140 /* Resource */,
 				42A4C7911B9F5EBE0098B140 /* Source */,
 				42D6CF621BAC3D9E0015E925 /* FXSquare */,
+				425FDA891BAD8125007132BE /* FXTableView */,
 				425D17181B9F5A61009A30BE /* Frameworks */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		425FDA7B1BAD7F32007132BE /* FXSquare */ = {
+			isa = PBXGroup;
+			children = (
+				425FDA7C1BAD7F32007132BE /* InfoPlist.strings */,
+			);
+			path = FXSquare;
+			sourceTree = "<group>";
+		};
+		425FDA7F1BAD80C8007132BE /* FXTableView */ = {
+			isa = PBXGroup;
+			children = (
+				425FDA801BAD80C8007132BE /* InfoPlist.strings */,
+			);
+			path = FXTableView;
+			sourceTree = "<group>";
+		};
+		425FDA831BAD80F6007132BE /* FXTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				425FDA841BAD80F6007132BE /* FXTableViewController.h */,
+				425FDA851BAD80F6007132BE /* FXTableViewController.m */,
+				425FDA861BAD80F6007132BE /* FXTableViewController.xib */,
+			);
+			path = FXTableViewController;
+			sourceTree = "<group>";
+		};
+		425FDA891BAD8125007132BE /* FXTableView */ = {
+			isa = PBXGroup;
+			children = (
+				425FDA8E1BAD8125007132BE /* main.m */,
+				425FDA8A1BAD8125007132BE /* FXAppDelegate.h */,
+				425FDA8B1BAD8125007132BE /* FXAppDelegate.m */,
+				425FDA8C1BAD8125007132BE /* FXTableView-Info.plist */,
+				425FDA8D1BAD8125007132BE /* FXTableView-Prefix.pch */,
+			);
+			path = FXTableView;
 			sourceTree = "<group>";
 		};
 		426BFDDF1B9F654D007C6849 /* Lection_1 */ = {
@@ -1525,6 +1593,7 @@
 		4297468E1BA0BAA90063FE20 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				425FDA831BAD80F6007132BE /* FXTableViewController */,
 				4297468F1BA0BAA90063FE20 /* FXSquareViewController */,
 			);
 			path = UI;
@@ -1545,7 +1614,8 @@
 		42A4C78E1B9F5EBE0098B140 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				42A4C78F1B9F5EBE0098B140 /* InfoPlist.strings */,
+				425FDA7F1BAD80C8007132BE /* FXTableView */,
+				425FDA7B1BAD7F32007132BE /* FXSquare */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1711,6 +1781,23 @@
 			productReference = 425D17161B9F5A61009A30BE /* FXSquare.app */;
 			productType = "com.apple.product-type.application";
 		};
+		425FDA5B1BAD7E45007132BE /* FXTableView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 425FDA791BAD7E46007132BE /* Build configuration list for PBXNativeTarget "FXTableView" */;
+			buildPhases = (
+				425FDA581BAD7E45007132BE /* Sources */,
+				425FDA591BAD7E45007132BE /* Frameworks */,
+				425FDA5A1BAD7E45007132BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXTableView;
+			productName = FXTableView;
+			productReference = 425FDA5C1BAD7E45007132BE /* FXTableView.app */;
+			productType = "com.apple.product-type.application";
+		};
 		42643CE51B2320AF00B90F83 /* FXString */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42643CEF1B2320AF00B90F83 /* Build configuration list for PBXNativeTarget "FXString" */;
@@ -1865,6 +1952,7 @@
 				425448BB1B559E8F0006EE8D /* FXCarWash */,
 				4236B3471B6BB041003510F9 /* FXAlphabet */,
 				425D17151B9F5A61009A30BE /* FXSquare */,
+				425FDA5B1BAD7E45007132BE /* FXTableView */,
 			);
 		};
 /* End PBXProject section */
@@ -1874,8 +1962,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42A4C79C1B9F5EBE0098B140 /* InfoPlist.strings in Resources */,
 				429746941BA0BAA90063FE20 /* FXSquareViewController.xib in Resources */,
+				425FDA7E1BAD7F32007132BE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425FDA5A1BAD7E45007132BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425FDA881BAD80F6007132BE /* FXTableViewController.xib in Resources */,
+				425FDA951BAD8841007132BE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1999,6 +2096,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		425FDA581BAD7E45007132BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425FDA871BAD80F6007132BE /* FXTableViewController.m in Sources */,
+				425FDA8F1BAD8125007132BE /* FXAppDelegate.m in Sources */,
+				425FDA911BAD8125007132BE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42643CE21B2320AF00B90F83 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2099,10 +2206,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		42A4C78F1B9F5EBE0098B140 /* InfoPlist.strings */ = {
+		425FDA7C1BAD7F32007132BE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				42A4C7901B9F5EBE0098B140 /* en */,
+				425FDA7D1BAD7F32007132BE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		425FDA801BAD80C8007132BE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				425FDA811BAD80C8007132BE /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -2322,6 +2437,50 @@
 			};
 			name = Release;
 		};
+		425FDA771BAD7E46007132BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIKit/FXTableView/FXTableView-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "UIKit/FXTableView/FXTableView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		425FDA781BAD7E46007132BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIKit/FXTableView/FXTableView-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "UIKit/FXTableView/FXTableView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		42643CED1B2320AF00B90F83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2503,6 +2662,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		425FDA791BAD7E46007132BE /* Build configuration list for PBXNativeTarget "FXTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				425FDA771BAD7E46007132BE /* Debug */,
+				425FDA781BAD7E46007132BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		42643CEF1B2320AF00B90F83 /* Build configuration list for PBXNativeTarget "FXString" */ = {
 			isa = XCConfigurationList;

@@ -1,5 +1,5 @@
 //
-//  FXViewController.h
+//  FXSquareViewController.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/8/15.

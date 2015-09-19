@@ -24,7 +24,7 @@
 	NSLog(@"NSString extensions tests 1: random string generation");
 	NSLog(@"%@", [NSString randomString]);
 	NSLog(@"%@", [NSString randomStringWithLength:5]);
-	NSLog(@"%@", [NSString randomStringWithLength:10 alphabet:[NSString numericAlphabet]]);
+	NSLog(@"%@", [NSString randomStringWithLength:10 alphabet:[FXAlphabet numericAlphabet]]);
 	NSLog(@" ");
 	
 	NSLog(@"NSString extensions tests 2: alphabet generation");
@@ -38,7 +38,7 @@
 	};
 	
 	NSUInteger count = sizeof(selectors) / sizeof(*selectors);
-	id class = [NSString class];
+	id class = [FXAlphabet class];
 	
 	for (NSUInteger index = 0; index < count; index++) {
 		NSLog(@"%@", [class performSelector:selectors[index]]);
@@ -46,20 +46,19 @@
 	
 	NSLog(@" ");
 	NSLog(@"NSString extensions tests 3: custom (hebrew) alphabet generation");
-	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(1488, 1514 - 1488 + 1)]);
+	NSLog(@"%@", [[FXAlphabet alphabetWithRange:NSMakeRange(1488, 1514 - 1488 + 1)] string]);
 	
 	NSLog(@" ");
 	NSLog(@"NSString extensions tests 4: custom (runic) alphabet generation");
-	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(5792, 5872 - 5792 + 1)]);
+	NSLog(@"%@", [[FXAlphabet alphabetWithRange:NSMakeRange(5792, 5872 - 5792 + 1)] string]);
 	
 	NSLog(@" ");
 	NSLog(@"NSString extensions tests 5: custom (devanagari) alphabet generation");
-	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(2309, 2361 - 2309 + 1)]);
+	NSLog(@"%@", [[FXAlphabet alphabetWithRange:NSMakeRange(2309, 2361 - 2309 + 1)] string]);
 	
-//	NSLog(@" ");
-//	NSLog(@"%@", [NSCharacterSet alphanumericCharacterSet]);
-//	
-//	NSLog(@"%@", [NSString alphabetWithUnicodeRange:NSMakeRange(0x0400, 0x04FF - 0x0400 + 0x1)]);
+	NSLog(@" ");
+	NSLog(@"NSString extensions tests 6: custom (cyrillic) alphabet generation");
+	NSLog(@"%@", [[FXAlphabet alphabetWithRange:NSMakeRange(0x0400, 0x04FF - 0x0400 + 0x1)] string]);
 }
 
 // TODO: make these tests with kiwi Framework!
@@ -125,7 +124,7 @@
 	}
 	NSLog(@"enumerated cluster alphabet: %@", string);
 	NSLog(@"count: %lu, [alphabet count]: %lu", count, [alphabet count]); // 62 == 62
-	count = 0;
+//	count = 0;
 	alphabet = nil;
 }
 

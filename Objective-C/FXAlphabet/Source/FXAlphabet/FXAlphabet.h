@@ -15,6 +15,12 @@
 + (id)alphabetWithRange:(NSRange)range;
 + (id)alphabetWithAlphabets:(NSArray *)alphabets;
 
++ (id)alphanumericAlphabet;
++ (id)numericAlphabet;
++ (id)lowercaseLetterAlphabet;
++ (id)uppercaseLetterAlphabet;
++ (id)letterAlphabet;
+
 - (id)initWithSymbols:(NSString *)symbols;
 - (id)initWithStrings:(NSArray *)strings;
 - (id)initWithRange:(NSRange)range;

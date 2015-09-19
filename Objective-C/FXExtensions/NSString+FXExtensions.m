@@ -8,53 +8,14 @@
 
 #import "NSString+FXExtensions.h"
 
-static const NSUInteger kFXDefaultRandomStringLength = 40;
+#import "FXAlphabet.h"
+
+static const NSUInteger kFXDefaultRandomStringLength = 50;
 
 @implementation NSString (FXExtensions)
 
 #pragma mark -
 #pragma mark Class Methods
-
-// english alphabet with numbers
-+ (id)alphanumericAlphabet {
-	NSMutableString *string = [NSMutableString string];
-	[string appendString:[self letterAlphabet]];
-	[string appendString:[self numericAlphabet]];
-	
-	return [self stringWithString:string];
-}
-
-+ (id)numericAlphabet {
-	return [self alphabetWithUnicodeRange:NSMakeRange('0', 
-													  '9' - '0' + 1)];
-}
-
-+ (id)lowercaseLetterAlphabet {
-	return [self alphabetWithUnicodeRange:NSMakeRange('a', 
-													  'z' - 'a' + 1)];
-}
-
-+ (id)uppercaseLetterAlphabet {
-	return [self alphabetWithUnicodeRange:NSMakeRange('A', 
-													  'Z' - 'A' + 1)];
-}
-
-+ (id)letterAlphabet {
-	NSMutableString *string = [NSMutableString string];
-	[string appendString:[self lowercaseLetterAlphabet]];
-	[string appendString:[self uppercaseLetterAlphabet]];
-	
-	return [self stringWithString:string];
-}
-
-+ (id)alphabetWithUnicodeRange:(NSRange)range {
-	NSMutableString *string = [NSMutableString string];
-	for (unichar character = range.location; character < NSMaxRange(range); character++) {
-		[string appendFormat:@"%C", character];
-	}
-	
-	return [self stringWithString:string];
-}
 
 + (id)randomString {
 	return [self randomStringWithLength:(arc4random() % (kFXDefaultRandomStringLength + 1))]; /* TODO: update xcode to 
@@ -62,15 +23,14 @@ static const NSUInteger kFXDefaultRandomStringLength = 40;
 }
 
 + (id)randomStringWithLength:(NSUInteger)length {
-	return [self randomStringWithLength:length alphabet:[self alphanumericAlphabet]];
+	return [self randomStringWithLength:length alphabet:[FXAlphabet alphanumericAlphabet]];
 }
 
-+ (id)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
++ (id)randomStringWithLength:(NSUInteger)length alphabet:(FXAlphabet *)alphabet {
 	NSMutableString *string = [NSMutableString stringWithCapacity:length];
-	NSUInteger alphabetLength = [alphabet length];
+	NSUInteger alphabetLength = [alphabet count];
 	for (NSUInteger index = 0; index < length; index++) {
-		unichar character = [alphabet characterAtIndex:(arc4random() % alphabetLength)];
-		[string appendFormat:@"%C", character];
+		[string appendFormat:@"%@", [alphabet stringAtIndex:(arc4random() % alphabetLength)]];
 	}
 	
 	return [self stringWithString:string];

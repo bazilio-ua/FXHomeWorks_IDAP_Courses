@@ -35,6 +35,39 @@
 	return [[[FXAlphabetCluster alloc] initWithAlphabets:alphabets] autorelease];
 }
 
+// english alphabet with numbers
++ (id)alphanumericAlphabet {
+	FXAlphabet *letterAlphabet = [FXAlphabet letterAlphabet];
+	FXAlphabet *numericAlphabet = [FXAlphabet numericAlphabet];
+	NSArray *alphabetsArray = [[[NSArray alloc] initWithObjects:letterAlphabet, numericAlphabet, nil] autorelease];
+	
+	return [self alphabetWithAlphabets:alphabetsArray];
+}
+
++ (id)numericAlphabet {
+	return [[[self alloc] initWithRange:NSMakeRange('0', 
+													'9' - '0' + 1)] autorelease];
+}
+
++ (id)lowercaseLetterAlphabet {
+	return [[[self alloc] initWithRange:NSMakeRange('a', 
+													'z' - 'a' + 1)] autorelease];
+}
+
++ (id)uppercaseLetterAlphabet {
+	return [[[self alloc] initWithRange:NSMakeRange('A', 
+													'Z' - 'A' + 1)] autorelease];
+}
+
++ (id)letterAlphabet {
+	FXAlphabet *lowercaseLetterAlphabet = [FXAlphabet lowercaseLetterAlphabet];
+	FXAlphabet *uppercaseLetterAlphabet = [FXAlphabet uppercaseLetterAlphabet];
+	NSArray *lettersArray = [[[NSArray alloc] 
+							  initWithObjects:lowercaseLetterAlphabet, uppercaseLetterAlphabet, nil] autorelease];
+	
+	return [self alphabetWithAlphabets:lettersArray];
+}
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 

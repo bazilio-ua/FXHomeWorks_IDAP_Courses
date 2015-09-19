@@ -122,6 +122,8 @@
 		426BFF231B9F69AA007C6849 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1E1B9F6944007C6849 /* NSObject+FXExtensions.m */; };
 		426BFF241B9F69CD007C6849 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		426BFF251B9F69E6007C6849 /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF201B9F6944007C6849 /* NSString+FXExtensions.m */; };
+		426F6EA51BAD8EEB00A71F6C /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF5991BA99CB2002A6ACB /* UIViewController+FXExtensions.m */; };
+		426F6EA71BAD8EF000A71F6C /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */; };
 		428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C881BA0BE330039C3A8 /* FXSquareModel.m */; };
 		428F3C8F1BA0BED10039C3A8 /* FXSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C8E1BA0BED10039C3A8 /* FXSquareView.m */; };
 		429746931BA0BAA90063FE20 /* FXSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429746911BA0BAA90063FE20 /* FXSquareViewController.m */; };
@@ -2103,6 +2105,8 @@
 				425FDA871BAD80F6007132BE /* FXTableViewController.m in Sources */,
 				425FDA8F1BAD8125007132BE /* FXAppDelegate.m in Sources */,
 				425FDA911BAD8125007132BE /* main.m in Sources */,
+				426F6EA51BAD8EEB00A71F6C /* UIViewController+FXExtensions.m in Sources */,
+				426F6EA71BAD8EF000A71F6C /* UIWindow+FXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2670,6 +2674,7 @@
 				425FDA781BAD7E46007132BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42643CEF1B2320AF00B90F83 /* Build configuration list for PBXNativeTarget "FXString" */ = {
 			isa = XCConfigurationList;

@@ -18,13 +18,11 @@
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//	UIWindow *window = [UIWindow window];
+	UIWindow *window = [UIWindow window];
 	self.window = window;
 	
     // Override point for customization after application launch.
-	FXTableViewController *controller = [[FXTableViewController alloc] initWithNibName:@"FXTableViewController" bundle:nil];
-//	FXTableViewController *controller = [FXTableViewController controller];
+	FXTableViewController *controller = [FXTableViewController controller];
 	
 	window.rootViewController = controller;
     [window makeKeyAndVisible];

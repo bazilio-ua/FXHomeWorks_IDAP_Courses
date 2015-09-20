@@ -134,6 +134,9 @@
 		42C3A4B51B6BC23000D2AF51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		42D6CF681BAC3D9E0015E925 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF641BAC3D9E0015E925 /* FXAppDelegate.m */; };
 		42D6CF6A1BAC3D9E0015E925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF671BAC3D9E0015E925 /* main.m */; };
+		42DDCFD71BAEA15D000ADABB /* FXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFD61BAEA15D000ADABB /* FXTableView.m */; };
+		42DDCFDD1BAEA2B1000ADABB /* FXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */; };
+		42DDCFE01BAEA2DE000ADABB /* FXDataArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -448,6 +451,12 @@
 		42D78C5A1B08AD290036BA48 /* FXHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXHuman; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D7BC561B358C0E00617635 /* FXLinkedList */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXLinkedList; sourceTree = BUILT_PRODUCTS_DIR; };
 		42DB73F11B44ECBD0064BBAD /* FXAutoreleasePool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAutoreleasePool; sourceTree = BUILT_PRODUCTS_DIR; };
+		42DDCFD51BAEA15D000ADABB /* FXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTableView.h; sourceTree = "<group>"; };
+		42DDCFD61BAEA15D000ADABB /* FXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableView.m; sourceTree = "<group>"; };
+		42DDCFDB1BAEA2B1000ADABB /* FXDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataModel.h; sourceTree = "<group>"; };
+		42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModel.m; sourceTree = "<group>"; };
+		42DDCFDE1BAEA2DE000ADABB /* FXDataArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataArrayModel.h; sourceTree = "<group>"; };
+		42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataArrayModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +712,8 @@
 				425FDA841BAD80F6007132BE /* FXTableViewController.h */,
 				425FDA851BAD80F6007132BE /* FXTableViewController.m */,
 				425FDA861BAD80F6007132BE /* FXTableViewController.xib */,
+				42DDCFD51BAEA15D000ADABB /* FXTableView.h */,
+				42DDCFD61BAEA15D000ADABB /* FXTableView.m */,
 			);
 			path = FXTableViewController;
 			sourceTree = "<group>";
@@ -1587,6 +1598,8 @@
 		4297468D1BA0BAA90063FE20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42DDCFDA1BAEA26B000ADABB /* FXDataModel */,
+				42DDCFD91BAEA26B000ADABB /* FXDataArrayModel */,
 				428F3C831BA0BC9B0039C3A8 /* FXSquareModel */,
 			);
 			path = Models;
@@ -1642,6 +1655,24 @@
 				42D6CF661BAC3D9E0015E925 /* FXSquare-Prefix.pch */,
 			);
 			path = FXSquare;
+			sourceTree = "<group>";
+		};
+		42DDCFD91BAEA26B000ADABB /* FXDataArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				42DDCFDE1BAEA2DE000ADABB /* FXDataArrayModel.h */,
+				42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */,
+			);
+			path = FXDataArrayModel;
+			sourceTree = "<group>";
+		};
+		42DDCFDA1BAEA26B000ADABB /* FXDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				42DDCFDB1BAEA2B1000ADABB /* FXDataModel.h */,
+				42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */,
+			);
+			path = FXDataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2107,6 +2138,9 @@
 				425FDA911BAD8125007132BE /* main.m in Sources */,
 				426F6EA51BAD8EEB00A71F6C /* UIViewController+FXExtensions.m in Sources */,
 				426F6EA71BAD8EF000A71F6C /* UIWindow+FXExtensions.m in Sources */,
+				42DDCFD71BAEA15D000ADABB /* FXTableView.m in Sources */,
+				42DDCFDD1BAEA2B1000ADABB /* FXDataModel.m in Sources */,
+				42DDCFE01BAEA2DE000ADABB /* FXDataArrayModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

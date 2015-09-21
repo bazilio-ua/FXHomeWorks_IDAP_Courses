@@ -8,9 +8,24 @@
 
 #import "FXDataModel.h"
 
+#import "NSString+FXExtensions.h"
+
+static const NSUInteger kFXDefaultDataStringLength = 10;
+
 @implementation FXDataModel
 
-@synthesize image	= _image;
-@synthesize text	= _text;
+@dynamic image;
+@dynamic text;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (UIImage *)image {
+	return [UIImage imageNamed:@"objc.png"];
+}
+
+- (NSString *)text {
+	return [NSString randomStringWithLength:kFXDefaultDataStringLength];
+}
 
 @end

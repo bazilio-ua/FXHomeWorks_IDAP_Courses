@@ -137,6 +137,10 @@
 		42DDCFD71BAEA15D000ADABB /* FXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFD61BAEA15D000ADABB /* FXTableView.m */; };
 		42DDCFDD1BAEA2B1000ADABB /* FXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */; };
 		42DDCFE01BAEA2DE000ADABB /* FXDataArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */; };
+		42E932AB1BB082910053597E /* FXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E932AA1BB082910053597E /* FXTableViewCell.m */; };
+		42E932B01BB083AB0053597E /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E932AE1BB083AB0053597E /* FXDataCell.m */; };
+		42E932B11BB083AB0053597E /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42E932AF1BB083AB0053597E /* FXDataCell.xib */; };
+		42E932B41BB089D30053597E /* objc.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E932B31BB089D30053597E /* objc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -457,6 +461,12 @@
 		42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModel.m; sourceTree = "<group>"; };
 		42DDCFDE1BAEA2DE000ADABB /* FXDataArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataArrayModel.h; sourceTree = "<group>"; };
 		42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataArrayModel.m; sourceTree = "<group>"; };
+		42E932A91BB082910053597E /* FXTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTableViewCell.h; sourceTree = "<group>"; };
+		42E932AA1BB082910053597E /* FXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableViewCell.m; sourceTree = "<group>"; };
+		42E932AD1BB083AB0053597E /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
+		42E932AE1BB083AB0053597E /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
+		42E932AF1BB083AB0053597E /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
+		42E932B31BB089D30053597E /* objc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = objc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,6 +711,7 @@
 		425FDA7F1BAD80C8007132BE /* FXTableView */ = {
 			isa = PBXGroup;
 			children = (
+				42E932B21BB089D30053597E /* Images */,
 				425FDA801BAD80C8007132BE /* InfoPlist.strings */,
 			);
 			path = FXTableView;
@@ -709,6 +720,7 @@
 		425FDA831BAD80F6007132BE /* FXTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				42E932AC1BB083670053597E /* Views */,
 				425FDA841BAD80F6007132BE /* FXTableViewController.h */,
 				425FDA851BAD80F6007132BE /* FXTableViewController.m */,
 				425FDA861BAD80F6007132BE /* FXTableViewController.xib */,
@@ -1590,6 +1602,7 @@
 		4297468C1BA0BAA90063FE20 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				42E932A71BB0823D0053597E /* Classes */,
 				425094341BA2C0880015E950 /* Categories */,
 			);
 			path = Library;
@@ -1673,6 +1686,33 @@
 				42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */,
 			);
 			path = FXDataModel;
+			sourceTree = "<group>";
+		};
+		42E932A71BB0823D0053597E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				42E932A91BB082910053597E /* FXTableViewCell.h */,
+				42E932AA1BB082910053597E /* FXTableViewCell.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		42E932AC1BB083670053597E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42E932AD1BB083AB0053597E /* FXDataCell.h */,
+				42E932AE1BB083AB0053597E /* FXDataCell.m */,
+				42E932AF1BB083AB0053597E /* FXDataCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42E932B21BB089D30053597E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				42E932B31BB089D30053597E /* objc.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2006,6 +2046,8 @@
 			files = (
 				425FDA881BAD80F6007132BE /* FXTableViewController.xib in Resources */,
 				425FDA951BAD8841007132BE /* InfoPlist.strings in Resources */,
+				42E932B11BB083AB0053597E /* FXDataCell.xib in Resources */,
+				42E932B41BB089D30053597E /* objc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2141,6 +2183,8 @@
 				42DDCFD71BAEA15D000ADABB /* FXTableView.m in Sources */,
 				42DDCFDD1BAEA2B1000ADABB /* FXDataModel.m in Sources */,
 				42DDCFE01BAEA2DE000ADABB /* FXDataArrayModel.m in Sources */,
+				42E932AB1BB082910053597E /* FXTableViewCell.m in Sources */,
+				42E932B01BB083AB0053597E /* FXDataCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

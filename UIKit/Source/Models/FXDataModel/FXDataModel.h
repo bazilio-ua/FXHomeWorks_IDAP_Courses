@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FXDataModel : NSObject
-@property (nonatomic, strong, readonly)	UIImage		*image;
-@property (nonatomic, strong, readonly)	NSString	*text;
+@property (nonatomic, readonly)	UIImage		*image;
+@property (nonatomic, readonly)	NSString	*text;
 
 @end

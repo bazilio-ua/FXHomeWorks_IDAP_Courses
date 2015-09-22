@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
+		423649B71BB1D7DF0020C57E /* FXObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEDE1B9F6915007C6849 /* FXObservableObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649B91BB1D8650020C57E /* FXAssignReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEE41B9F6915007C6849 /* FXAssignReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649BA1BB1D8650020C57E /* FXCopyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEE61B9F6915007C6849 /* FXCopyReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649BB1BB1D8650020C57E /* FXReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEE81B9F6915007C6849 /* FXReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649BC1BB1D8650020C57E /* FXRetainReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEEA1B9F6915007C6849 /* FXRetainReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649BD1BB1D8CE0020C57E /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF201B9F6944007C6849 /* NSString+FXExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649BE1BB1D90B0020C57E /* FXAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEAD1B9F6904007C6849 /* FXAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649BF1BB1D9120020C57E /* FXAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEB01B9F6904007C6849 /* FXAlphabetCluster.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649C01BB1D9150020C57E /* FXAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEB21B9F6904007C6849 /* FXAlphabetRange.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		423649C11BB1D9180020C57E /* FXAlphabetStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEB41B9F6904007C6849 /* FXAlphabetStrings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		423DF59C1BA99CB2002A6ACB /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF5991BA99CB2002A6ACB /* UIViewController+FXExtensions.m */; };
 		423DF59D1BA99CB2002A6ACB /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */; };
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
@@ -2185,6 +2195,16 @@
 				42DDCFE01BAEA2DE000ADABB /* FXDataArrayModel.m in Sources */,
 				42E932AB1BB082910053597E /* FXTableViewCell.m in Sources */,
 				42E932B01BB083AB0053597E /* FXDataCell.m in Sources */,
+				423649B71BB1D7DF0020C57E /* FXObservableObject.m in Sources */,
+				423649B91BB1D8650020C57E /* FXAssignReference.m in Sources */,
+				423649BA1BB1D8650020C57E /* FXCopyReference.m in Sources */,
+				423649BB1BB1D8650020C57E /* FXReference.m in Sources */,
+				423649BC1BB1D8650020C57E /* FXRetainReference.m in Sources */,
+				423649BD1BB1D8CE0020C57E /* NSString+FXExtensions.m in Sources */,
+				423649BE1BB1D90B0020C57E /* FXAlphabet.m in Sources */,
+				423649BF1BB1D9120020C57E /* FXAlphabetCluster.m in Sources */,
+				423649C01BB1D9150020C57E /* FXAlphabetRange.m in Sources */,
+				423649C11BB1D9180020C57E /* FXAlphabetStrings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

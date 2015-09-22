@@ -9,6 +9,13 @@
 #import "FXTableViewController.h"
 
 #import "FXTableView.h"
+#import "FXDataCell.h"
+
+#import "FXDataModel.h"
+#import "FXDataArrayModel.h"
+
+#import "UINib+FXExtensions.h"
+#import "UITableView+FXExtensions.h"
 
 @interface FXTableViewController ()
 @property (nonatomic, readonly)	FXTableView	*tableView;
@@ -23,10 +30,24 @@
 @dynamic tableView;
 
 #pragma mark -
+#pragma mark Accessors
+
+- (FXTableView *)tableView {
+	if ([self isViewLoaded] && [self.view isKindOfClass:[FXTableView class]]) {
+		return (FXTableView *)self.view;
+	}
+	
+	return nil;
+}
+
+#pragma mark -
 #pragma mark User Interactions
 
 - (IBAction)onTapAddButton:(id)sender {
 	NSLog(@"Add");
+
+	[self.dataArrayModel addObject:[FXDataModel new]];
+	[self.tableView.tableView reloadData];
 }
 
 - (IBAction)onTapRemoveButton:(id)sender {
@@ -35,6 +56,9 @@
 
 - (IBAction)onTapEditButton:(id)sender {
 	NSLog(@"Edit");
+	
+	FXTableView *tableView = self.tableView;
+	tableView.editing = !tableView.editing;
 }
 
 #pragma mark -
@@ -46,6 +70,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	[self.tableView.tableView reloadData];
 }
 
 - (void)viewDidUnload {
@@ -61,11 +87,14 @@
 #pragma mark UITableViewDataSource protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 0;
+	return [self.dataArrayModel count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return nil;
+	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
+	cell.dataModel = [self.dataArrayModel objectAtIndexedSubscript:indexPath.row];
+	
+	return cell;
 }
 
 #pragma mark -

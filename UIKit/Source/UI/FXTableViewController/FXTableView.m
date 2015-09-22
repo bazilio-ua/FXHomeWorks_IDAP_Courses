@@ -15,4 +15,17 @@
 @synthesize removeButton	= _removeButton;
 @synthesize editButton		= _editButton;
 
+@dynamic editing;
+
+#pragma mark - 
+#pragma mark Accessors
+
+- (void)setEditing:(BOOL)editing {
+	[self.tableView setEditing:editing animated:YES];
+}
+
+- (BOOL)isEditing {
+	return self.tableView.editing;
+}
+
 @end

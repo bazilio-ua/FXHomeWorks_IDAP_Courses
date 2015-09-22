@@ -10,4 +10,19 @@
 
 @interface UINib (FXExtensions)
 
++ (UINib *)nibWithClass:(Class)aClass;
++ (UINib *)nibWithClass:(Class)aClass 
+				 bundle:(NSBundle *)bundle;
+
++ (id)objectWithClass:(Class)aClass;
++ (id)objectWithClass:(Class)aClass 
+			   bundle:(NSBundle *)bundle 
+				owner:(id)owner 
+			  options:(NSDictionary *)options;
+
+- (id)objectWithClass:(Class)aClass;
+- (id)objectWithClass:(Class)aClass 
+				owner:(id)owner 
+			  options:(NSDictionary *)options;
+
 @end

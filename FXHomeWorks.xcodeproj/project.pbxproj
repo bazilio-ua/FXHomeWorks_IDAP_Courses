@@ -18,8 +18,13 @@
 		423649BF1BB1D9120020C57E /* FXAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEB01B9F6904007C6849 /* FXAlphabetCluster.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		423649C01BB1D9150020C57E /* FXAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEB21B9F6904007C6849 /* FXAlphabetRange.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		423649C11BB1D9180020C57E /* FXAlphabetStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEB41B9F6904007C6849 /* FXAlphabetStrings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		423DF59C1BA99CB2002A6ACB /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF5991BA99CB2002A6ACB /* UIViewController+FXExtensions.m */; };
-		423DF59D1BA99CB2002A6ACB /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */; };
+		423649E01BB1E0BD0020C57E /* UINib+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649D61BB1E0BB0020C57E /* UINib+FXExtensions.m */; };
+		423649E11BB1E0BD0020C57E /* UITableView+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649D91BB1E0BB0020C57E /* UITableView+FXExtensions.m */; };
+		423649E21BB1E0BD0020C57E /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */; };
+		423649E31BB1E0BD0020C57E /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */; };
+		423649E41BB1E0F00020C57E /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */; };
+		423649E51BB1E0F40020C57E /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */; };
+		423649E91BB1E1390020C57E /* FXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649E81BB1E1390020C57E /* FXTableViewCell.m */; };
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		425FDA7E1BAD7F32007132BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 425FDA7C1BAD7F32007132BE /* InfoPlist.strings */; };
 		425FDA871BAD80F6007132BE /* FXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FDA851BAD80F6007132BE /* FXTableViewController.m */; };
@@ -132,8 +137,6 @@
 		426BFF231B9F69AA007C6849 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1E1B9F6944007C6849 /* NSObject+FXExtensions.m */; };
 		426BFF241B9F69CD007C6849 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		426BFF251B9F69E6007C6849 /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF201B9F6944007C6849 /* NSString+FXExtensions.m */; };
-		426F6EA51BAD8EEB00A71F6C /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF5991BA99CB2002A6ACB /* UIViewController+FXExtensions.m */; };
-		426F6EA71BAD8EF000A71F6C /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */; };
 		428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C881BA0BE330039C3A8 /* FXSquareModel.m */; };
 		428F3C8F1BA0BED10039C3A8 /* FXSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C8E1BA0BED10039C3A8 /* FXSquareView.m */; };
 		429746931BA0BAA90063FE20 /* FXSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429746911BA0BAA90063FE20 /* FXSquareViewController.m */; };
@@ -147,7 +150,6 @@
 		42DDCFD71BAEA15D000ADABB /* FXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFD61BAEA15D000ADABB /* FXTableView.m */; };
 		42DDCFDD1BAEA2B1000ADABB /* FXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */; };
 		42DDCFE01BAEA2DE000ADABB /* FXDataArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */; };
-		42E932AB1BB082910053597E /* FXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E932AA1BB082910053597E /* FXTableViewCell.m */; };
 		42E932B01BB083AB0053597E /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E932AE1BB083AB0053597E /* FXDataCell.m */; };
 		42E932B11BB083AB0053597E /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42E932AF1BB083AB0053597E /* FXDataCell.xib */; };
 		42E932B41BB089D30053597E /* objc.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E932B31BB089D30053597E /* objc.png */; };
@@ -288,12 +290,18 @@
 		4214E91C1AFA9E1A00D0E018 /* Lection_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_3; sourceTree = BUILT_PRODUCTS_DIR; };
 		42219C7A1B4EDCCC00B9AC0C /* FXCreature */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCreature; sourceTree = BUILT_PRODUCTS_DIR; };
 		42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		423649D51BB1E0BB0020C57E /* UINib+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+FXExtensions.h"; sourceTree = "<group>"; };
+		423649D61BB1E0BB0020C57E /* UINib+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+FXExtensions.m"; sourceTree = "<group>"; };
+		423649D81BB1E0BB0020C57E /* UITableView+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FXExtensions.h"; sourceTree = "<group>"; };
+		423649D91BB1E0BB0020C57E /* UITableView+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FXExtensions.m"; sourceTree = "<group>"; };
+		423649DB1BB1E0BC0020C57E /* UIViewController+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FXExtensions.h"; sourceTree = "<group>"; };
+		423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FXExtensions.m"; sourceTree = "<group>"; };
+		423649DE1BB1E0BD0020C57E /* UIWindow+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+FXExtensions.h"; sourceTree = "<group>"; };
+		423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+FXExtensions.m"; sourceTree = "<group>"; };
+		423649E71BB1E1390020C57E /* FXTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTableViewCell.h; sourceTree = "<group>"; };
+		423649E81BB1E1390020C57E /* FXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableViewCell.m; sourceTree = "<group>"; };
 		4236B3481B6BB041003510F9 /* FXAlphabet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAlphabet; sourceTree = BUILT_PRODUCTS_DIR; };
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
-		423DF5981BA99CB2002A6ACB /* UIViewController+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FXExtensions.h"; sourceTree = "<group>"; };
-		423DF5991BA99CB2002A6ACB /* UIViewController+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FXExtensions.m"; sourceTree = "<group>"; };
-		423DF59A1BA99CB2002A6ACB /* UIWindow+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+FXExtensions.h"; sourceTree = "<group>"; };
-		423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+FXExtensions.m"; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D17161B9F5A61009A30BE /* FXSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FDA5C1BAD7E45007132BE /* FXTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,8 +479,6 @@
 		42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModel.m; sourceTree = "<group>"; };
 		42DDCFDE1BAEA2DE000ADABB /* FXDataArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataArrayModel.h; sourceTree = "<group>"; };
 		42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataArrayModel.m; sourceTree = "<group>"; };
-		42E932A91BB082910053597E /* FXTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTableViewCell.h; sourceTree = "<group>"; };
-		42E932AA1BB082910053597E /* FXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableViewCell.m; sourceTree = "<group>"; };
 		42E932AD1BB083AB0053597E /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
 		42E932AE1BB083AB0053597E /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
 		42E932AF1BB083AB0053597E /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
@@ -676,13 +682,58 @@
 			name = "Objective-C";
 			sourceTree = "<group>";
 		};
+		423649D41BB1E0BA0020C57E /* UINib+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				423649D51BB1E0BB0020C57E /* UINib+FXExtensions.h */,
+				423649D61BB1E0BB0020C57E /* UINib+FXExtensions.m */,
+			);
+			path = "UINib+FXExtensions";
+			sourceTree = "<group>";
+		};
+		423649D71BB1E0BB0020C57E /* UITableView+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				423649D81BB1E0BB0020C57E /* UITableView+FXExtensions.h */,
+				423649D91BB1E0BB0020C57E /* UITableView+FXExtensions.m */,
+			);
+			path = "UITableView+FXExtensions";
+			sourceTree = "<group>";
+		};
+		423649DA1BB1E0BB0020C57E /* UIViewController+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				423649DB1BB1E0BC0020C57E /* UIViewController+FXExtensions.h */,
+				423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */,
+			);
+			path = "UIViewController+FXExtensions";
+			sourceTree = "<group>";
+		};
+		423649DD1BB1E0BC0020C57E /* UIWindow+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				423649DE1BB1E0BD0020C57E /* UIWindow+FXExtensions.h */,
+				423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */,
+			);
+			path = "UIWindow+FXExtensions";
+			sourceTree = "<group>";
+		};
+		423649E61BB1E1390020C57E /* FXTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				423649E71BB1E1390020C57E /* FXTableViewCell.h */,
+				423649E81BB1E1390020C57E /* FXTableViewCell.m */,
+			);
+			path = FXTableViewCell;
+			sourceTree = "<group>";
+		};
 		425094341BA2C0880015E950 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				423DF5981BA99CB2002A6ACB /* UIViewController+FXExtensions.h */,
-				423DF5991BA99CB2002A6ACB /* UIViewController+FXExtensions.m */,
-				423DF59A1BA99CB2002A6ACB /* UIWindow+FXExtensions.h */,
-				423DF59B1BA99CB2002A6ACB /* UIWindow+FXExtensions.m */,
+				423649D41BB1E0BA0020C57E /* UINib+FXExtensions */,
+				423649D71BB1E0BB0020C57E /* UITableView+FXExtensions */,
+				423649DA1BB1E0BB0020C57E /* UIViewController+FXExtensions */,
+				423649DD1BB1E0BC0020C57E /* UIWindow+FXExtensions */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1701,8 +1752,7 @@
 		42E932A71BB0823D0053597E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				42E932A91BB082910053597E /* FXTableViewCell.h */,
-				42E932AA1BB082910053597E /* FXTableViewCell.m */,
+				423649E61BB1E1390020C57E /* FXTableViewCell */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -2174,10 +2224,10 @@
 				429746931BA0BAA90063FE20 /* FXSquareViewController.m in Sources */,
 				428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */,
 				428F3C8F1BA0BED10039C3A8 /* FXSquareView.m in Sources */,
-				423DF59C1BA99CB2002A6ACB /* UIViewController+FXExtensions.m in Sources */,
-				423DF59D1BA99CB2002A6ACB /* UIWindow+FXExtensions.m in Sources */,
 				42D6CF681BAC3D9E0015E925 /* FXAppDelegate.m in Sources */,
 				42D6CF6A1BAC3D9E0015E925 /* main.m in Sources */,
+				423649E41BB1E0F00020C57E /* UIViewController+FXExtensions.m in Sources */,
+				423649E51BB1E0F40020C57E /* UIWindow+FXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2188,12 +2238,9 @@
 				425FDA871BAD80F6007132BE /* FXTableViewController.m in Sources */,
 				425FDA8F1BAD8125007132BE /* FXAppDelegate.m in Sources */,
 				425FDA911BAD8125007132BE /* main.m in Sources */,
-				426F6EA51BAD8EEB00A71F6C /* UIViewController+FXExtensions.m in Sources */,
-				426F6EA71BAD8EF000A71F6C /* UIWindow+FXExtensions.m in Sources */,
 				42DDCFD71BAEA15D000ADABB /* FXTableView.m in Sources */,
 				42DDCFDD1BAEA2B1000ADABB /* FXDataModel.m in Sources */,
 				42DDCFE01BAEA2DE000ADABB /* FXDataArrayModel.m in Sources */,
-				42E932AB1BB082910053597E /* FXTableViewCell.m in Sources */,
 				42E932B01BB083AB0053597E /* FXDataCell.m in Sources */,
 				423649B71BB1D7DF0020C57E /* FXObservableObject.m in Sources */,
 				423649B91BB1D8650020C57E /* FXAssignReference.m in Sources */,
@@ -2205,6 +2252,11 @@
 				423649BF1BB1D9120020C57E /* FXAlphabetCluster.m in Sources */,
 				423649C01BB1D9150020C57E /* FXAlphabetRange.m in Sources */,
 				423649C11BB1D9180020C57E /* FXAlphabetStrings.m in Sources */,
+				423649E01BB1E0BD0020C57E /* UINib+FXExtensions.m in Sources */,
+				423649E11BB1E0BD0020C57E /* UITableView+FXExtensions.m in Sources */,
+				423649E21BB1E0BD0020C57E /* UIViewController+FXExtensions.m in Sources */,
+				423649E31BB1E0BD0020C57E /* UIWindow+FXExtensions.m in Sources */,
+				423649E91BB1E1390020C57E /* FXTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

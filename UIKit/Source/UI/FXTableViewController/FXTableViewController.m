@@ -91,7 +91,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
+//	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
+	FXDataCell *cell = [tableView cellWithClass:[FXDataCell class]];
 	cell.dataModel = [self.dataArrayModel objectAtIndexedSubscript:indexPath.row];
 	
 	return cell;

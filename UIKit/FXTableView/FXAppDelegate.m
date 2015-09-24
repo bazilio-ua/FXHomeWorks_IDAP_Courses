@@ -9,13 +9,13 @@
 #import "FXAppDelegate.h"
 
 #import "FXTableViewController.h"
+#import "FXDataModel.h"
+#import "FXDataArrayModel.h"
 
 #import "UIWindow+FXExtensions.h"
 #import "UIViewController+FXExtensions.h"
 
-//
-#import "FXDataArrayModel.h"
-#import "FXDataModel.h"
+static const NSUInteger kFXDefaultModelsCount = 10;
 
 @implementation FXAppDelegate
 
@@ -25,15 +25,9 @@
 	UIWindow *window = [UIWindow window];
 	self.window = window;
 	
-	FXDataArrayModel *dataArrayModel = [FXDataArrayModel new];
-	for (NSUInteger index = 0; index < 10; index++) {
-		[dataArrayModel addObject:[FXDataModel new]];
-	}
-	
     // Override point for customization after application launch.
 	FXTableViewController *controller = [FXTableViewController controller];
-	controller.dataModel = [FXDataModel new];
-	controller.dataArrayModel = dataArrayModel;
+	controller.dataArrayModel = [[FXDataArrayModel alloc] initWithDataModelsCount:kFXDefaultModelsCount];
 	
 	window.rootViewController = controller;
     [window makeKeyAndVisible];

@@ -91,18 +91,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
-	FXDataCell *cell = [tableView cellWithClass:[FXDataCell class]];
+	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
 	cell.dataModel = [self.dataArrayModel objectAtIndexedSubscript:indexPath.row];
 	
 	return cell;
 }
 
-#pragma mark -
-#pragma mark UITableViewDelegate protocol
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-}
+//#pragma mark -
+//#pragma mark UITableViewDelegate protocol
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//	
+//}
 
 @end

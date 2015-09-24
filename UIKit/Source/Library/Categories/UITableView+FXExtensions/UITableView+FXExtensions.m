@@ -15,31 +15,13 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (id)cellWithClass:(Class)aClass {
-	return [self cellWithClass:aClass 
-						bundle:nil 
-						 owner:nil 
-					   options:nil];
-}
-
-- (id)cellWithClass:(Class)aClass 
-			 bundle:(NSBundle *)bundle 
-			  owner:(id)owner 
-			options:(NSDictionary *)options 
-{
-	id cell = [self dequeueReusableCellWithClass:aClass];
-	if (nil == cell) {
-		cell = [UINib objectWithClass:aClass 
-							   bundle:bundle 
-								owner:owner 
-							  options:options];
+- (id)dequeueReusableCellWithClass:(Class)aClass {
+	id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(aClass)];
+	if (!cell) {
+		cell = [UINib objectWithClass:aClass];
 	}
 	
 	return cell;
-}
-
-- (id)dequeueReusableCellWithClass:(Class)aClass {
-	return [self dequeueReusableCellWithIdentifier:NSStringFromClass(aClass)];
 }
 
 @end

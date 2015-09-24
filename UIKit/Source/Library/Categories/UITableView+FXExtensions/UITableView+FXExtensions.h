@@ -10,12 +10,6 @@
 
 @interface UITableView (FXExtensions)
 
-- (id)cellWithClass:(Class)aClass;
-- (id)cellWithClass:(Class)aClass 
-			 bundle:(NSBundle *)bundle 
-			  owner:(id)owner 
-			options:(NSDictionary *)options;
-
 - (id)dequeueReusableCellWithClass:(Class)aClass;
 
 @end

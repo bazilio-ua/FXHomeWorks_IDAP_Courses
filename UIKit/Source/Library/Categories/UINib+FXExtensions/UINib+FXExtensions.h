@@ -16,11 +16,14 @@
 
 + (id)objectWithClass:(Class)aClass;
 + (id)objectWithClass:(Class)aClass 
-			   bundle:(NSBundle *)bundle 
+				owner:(id)owner;
++ (id)objectWithClass:(Class)aClass 
 				owner:(id)owner 
 			  options:(NSDictionary *)options;
 
 - (id)objectWithClass:(Class)aClass;
+- (id)objectWithClass:(Class)aClass 
+				owner:(id)owner;
 - (id)objectWithClass:(Class)aClass 
 				owner:(id)owner 
 			  options:(NSDictionary *)options;

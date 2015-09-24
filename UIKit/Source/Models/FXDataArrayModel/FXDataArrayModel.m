@@ -8,6 +8,8 @@
 
 #import "FXDataArrayModel.h"
 
+#import "FXDataModel.h"
+
 @interface FXDataArrayModel ()
 @property (nonatomic, strong)	NSMutableArray *mutableDataArray;
 
@@ -26,6 +28,20 @@
 	self = [super init];
 	if (self) {
 		self.mutableDataArray = [NSMutableArray array];
+	}
+	
+	return self;
+}
+
+- (id)initWithDataModelsCount:(NSUInteger)count {
+	self = [super init];
+	if (self) {
+		self.mutableDataArray = [NSMutableArray array];
+		
+		NSMutableArray *array = self.mutableDataArray;
+		for (NSUInteger index = 0; index < count; index++) {
+			[array addObject:[FXDataModel new]];
+		}
 	}
 	
 	return self;

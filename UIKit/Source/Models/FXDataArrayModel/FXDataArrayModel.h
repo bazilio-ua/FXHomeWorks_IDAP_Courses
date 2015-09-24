@@ -13,6 +13,8 @@
 @interface FXDataArrayModel : FXObservableObject
 @property (nonatomic, readonly)	NSArray	*dataArray;
 
+- (id)initWithDataModelsCount:(NSUInteger)count;
+
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;
 

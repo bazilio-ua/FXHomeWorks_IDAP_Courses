@@ -11,7 +11,7 @@
 @class FXDataModel;
 @class FXDataArrayModel;
 
-@interface FXTableViewController : UIViewController <UITableViewDataSource>//, UITableViewDelegate>
+@interface FXTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong)	FXDataModel			*dataModel;
 @property (nonatomic, strong)	FXDataArrayModel	*dataArrayModel;
 

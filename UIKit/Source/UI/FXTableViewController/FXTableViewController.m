@@ -97,11 +97,11 @@
 	return cell;
 }
 
-//#pragma mark -
-//#pragma mark UITableViewDelegate protocol
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//	
-//}
+#pragma mark -
+#pragma mark UITableViewDelegate protocol
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+}
 
 @end

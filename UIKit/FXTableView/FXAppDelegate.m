@@ -15,7 +15,7 @@
 #import "UIWindow+FXExtensions.h"
 #import "UIViewController+FXExtensions.h"
 
-static const NSUInteger kFXDefaultModelsCount = 10;
+static const NSUInteger kFXDefaultModelsCount = 9;
 
 @implementation FXAppDelegate
 

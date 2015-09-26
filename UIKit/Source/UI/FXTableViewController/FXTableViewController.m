@@ -92,9 +92,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
-	cell.dataModel = [self.dataArrayModel objectAtIndexedSubscript:indexPath.row];
+	NSLog(@"row: %d", indexPath.row);
+	cell.dataModel = [self.dataArrayModel objectAtIndex:indexPath.row];
 	
 	return cell;
+}
+
+- (void)  tableView:(UITableView *)tableView 
+ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+  forRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	FXDataArrayModel *dataArrayModel = self.dataArrayModel;
+	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
+	if (UITableViewCellEditingStyleInsert == editingStyle) {
+		NSIndexPath *insertIndexPath = [NSIndexPath indexPathForRow:[dataArrayModel count] inSection:0];
+		[dataArrayModel addObject:[FXDataModel new]];
+		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+		[tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:insertIndexPath] 
+						 withRowAnimation:UITableViewRowAnimationMiddle];
+	} else if (UITableViewCellEditingStyleDelete == editingStyle) {
+		[dataArrayModel removeObjectAtIndex:indexPath.row];
+		[tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+	} 
+}
+
+- (void)  tableView:(UITableView *)tableView 
+ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath 
+		toIndexPath:(NSIndexPath *)destinationIndexPath 
+{
+	
 }
 
 #pragma mark -
@@ -102,6 +128,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView 
+		   editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	if (indexPath.row == [self.dataArrayModel count] - 1) {
+		return UITableViewCellEditingStyleInsert; //fixme -- instead 'add' button
+	} else {
+		return UITableViewCellEditingStyleDelete;
+	}
 }
 
 @end

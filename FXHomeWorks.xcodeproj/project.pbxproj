@@ -13,9 +13,9 @@
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		425D44121BB7235E005BFAF9 /* FXDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D440A1BB7235E005BFAF9 /* FXDataView.m */; };
 		425D44131BB7235E005BFAF9 /* FXDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D440C1BB7235E005BFAF9 /* FXDataViewController.m */; };
-		425D44141BB7235E005BFAF9 /* FXDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425D440D1BB7235E005BFAF9 /* FXDataViewController.xib */; };
 		425D44151BB7235E005BFAF9 /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D44101BB7235E005BFAF9 /* FXDataCell.m */; };
 		425D44161BB7235E005BFAF9 /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425D44111BB7235E005BFAF9 /* FXDataCell.xib */; };
+		425D44181BB74343005BFAF9 /* FXDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425D44171BB74342005BFAF9 /* FXDataViewController.xib */; };
 		425FDA7E1BAD7F32007132BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 425FDA7C1BAD7F32007132BE /* InfoPlist.strings */; };
 		426BFDEE1B9F654D007C6849 /* FXParentOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BFDE21B9F654D007C6849 /* FXParentOutput.c */; };
 		426BFDEF1B9F654D007C6849 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 426BFDE61B9F654D007C6849 /* main.c */; };
@@ -308,10 +308,10 @@
 		425D440A1BB7235E005BFAF9 /* FXDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataView.m; sourceTree = "<group>"; };
 		425D440B1BB7235E005BFAF9 /* FXDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataViewController.h; sourceTree = "<group>"; };
 		425D440C1BB7235E005BFAF9 /* FXDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataViewController.m; sourceTree = "<group>"; };
-		425D440D1BB7235E005BFAF9 /* FXDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataViewController.xib; sourceTree = "<group>"; };
 		425D440F1BB7235E005BFAF9 /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
 		425D44101BB7235E005BFAF9 /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
 		425D44111BB7235E005BFAF9 /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
+		425D44171BB74342005BFAF9 /* FXDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataViewController.xib; sourceTree = "<group>"; };
 		425FDA7D1BAD7F32007132BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42643CE61B2320AF00B90F83 /* FXString */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXString; sourceTree = BUILT_PRODUCTS_DIR; };
 		426BFDE21B9F654D007C6849 /* FXParentOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FXParentOutput.c; sourceTree = "<group>"; };
@@ -767,7 +767,7 @@
 				425D440E1BB7235E005BFAF9 /* Views */,
 				425D440B1BB7235E005BFAF9 /* FXDataViewController.h */,
 				425D440C1BB7235E005BFAF9 /* FXDataViewController.m */,
-				425D440D1BB7235E005BFAF9 /* FXDataViewController.xib */,
+				425D44171BB74342005BFAF9 /* FXDataViewController.xib */,
 				425D44091BB7235E005BFAF9 /* FXDataView.h */,
 				425D440A1BB7235E005BFAF9 /* FXDataView.m */,
 			);
@@ -2106,8 +2106,8 @@
 			files = (
 				428F93F31BB71B970032DFA6 /* InfoPlist.strings in Resources */,
 				428F93F41BB71B970032DFA6 /* objc.png in Resources */,
-				425D44141BB7235E005BFAF9 /* FXDataViewController.xib in Resources */,
 				425D44161BB7235E005BFAF9 /* FXDataCell.xib in Resources */,
+				425D44181BB74343005BFAF9 /* FXDataViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

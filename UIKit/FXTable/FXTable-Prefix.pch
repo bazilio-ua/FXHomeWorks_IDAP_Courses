@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'FXTableView' target in the 'FXHomeWorks' project
+// Prefix header for all source files of the 'FXDataView' target in the 'FXHomeWorks' project
 //
 
 #import <Availability.h>

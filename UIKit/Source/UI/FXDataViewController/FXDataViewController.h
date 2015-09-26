@@ -1,6 +1,6 @@
 //
-//  FXTableViewController.h
-//  FXTableView
+//  FXDataViewController.h
+//  FXDataView
 //
 //  Created by Basil Nikityuk on 9/19/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
@@ -11,7 +11,7 @@
 @class FXDataModel;
 @class FXDataArrayModel;
 
-@interface FXTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FXDataViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong)	FXDataModel			*dataModel;
 @property (nonatomic, strong)	FXDataArrayModel	*dataArrayModel;
 

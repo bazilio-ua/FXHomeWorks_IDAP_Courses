@@ -1,14 +1,14 @@
 //
-//  FXTableViewController.m
-//  FXTableView
+//  FXDataViewController.m
+//  FXDataView
 //
 //  Created by Basil Nikityuk on 9/19/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXTableViewController.h"
+#import "FXDataViewController.h"
 
-#import "FXTableView.h"
+#import "FXDataView.h"
 #import "FXDataCell.h"
 
 #import "FXDataModel.h"
@@ -17,24 +17,24 @@
 #import "UINib+FXExtensions.h"
 #import "UITableView+FXExtensions.h"
 
-@interface FXTableViewController ()
-@property (nonatomic, readonly)	FXTableView	*tableView;
+@interface FXDataViewController ()
+@property (nonatomic, readonly)	FXDataView	*dataView;
 
 @end
 
-@implementation FXTableViewController
+@implementation FXDataViewController
 
 @synthesize dataModel		= _dataModel;
 @synthesize dataArrayModel	= _dataArrayModel;
 
-@dynamic tableView;
+@dynamic dataView;
 
 #pragma mark -
 #pragma mark Accessors
 
-- (FXTableView *)tableView {
-	if ([self isViewLoaded] && [self.view isKindOfClass:[FXTableView class]]) {
-		return (FXTableView *)self.view;
+- (FXDataView *)dataView {
+	if ([self isViewLoaded] && [self.view isKindOfClass:[FXDataView class]]) {
+		return (FXDataView *)self.view;
 	}
 	
 	return nil;
@@ -47,7 +47,7 @@
 	NSLog(@"Add");
 
 	[self.dataArrayModel addObject:[FXDataModel new]];
-	[self.tableView.tableView reloadData];
+	[self.dataView.tableView reloadData];
 }
 
 - (IBAction)onTapRemoveButton:(id)sender {
@@ -57,8 +57,8 @@
 - (IBAction)onTapEditButton:(id)sender {
 	NSLog(@"Edit");
 	
-	FXTableView *tableView = self.tableView;
-	tableView.editing = !tableView.editing;
+	FXDataView *dataView = self.dataView;
+	dataView.editing = !dataView.editing;
 }
 
 #pragma mark -
@@ -71,7 +71,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	[self.tableView.tableView reloadData];
+	[self.dataView.tableView reloadData];
 }
 
 - (void)viewDidUnload {

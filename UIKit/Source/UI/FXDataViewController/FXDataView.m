@@ -1,14 +1,14 @@
 //
-//  FXTableView.m
+//  FXDataView.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/20/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXTableView.h"
+#import "FXDataView.h"
 
-@implementation FXTableView
+@implementation FXDataView
 
 @synthesize tableView		= _tableView;
 @synthesize addButton		= _addButton;

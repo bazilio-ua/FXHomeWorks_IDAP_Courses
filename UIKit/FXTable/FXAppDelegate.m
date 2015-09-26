@@ -8,7 +8,7 @@
 
 #import "FXAppDelegate.h"
 
-#import "FXTableViewController.h"
+#import "FXDataViewController.h"
 #import "FXDataModel.h"
 #import "FXDataArrayModel.h"
 
@@ -26,7 +26,7 @@ static const NSUInteger kFXDefaultModelsCount = 9;
 	self.window = window;
 	
     // Override point for customization after application launch.
-	FXTableViewController *controller = [FXTableViewController controller];
+	FXDataViewController *controller = [FXDataViewController controller];
 	controller.dataArrayModel = [[FXDataArrayModel alloc] initWithDataModelsCount:kFXDefaultModelsCount];
 	
 	window.rootViewController = controller;

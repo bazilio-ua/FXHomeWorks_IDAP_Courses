@@ -1,5 +1,5 @@
 //
-//  FXTableView.h
+//  FXDataView.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/20/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FXTableView : UIView
+@interface FXDataView : UIView
 @property (nonatomic, strong)	IBOutlet	UITableView	*tableView;
 @property (nonatomic, strong)	IBOutlet	UIButton	*addButton;
 @property (nonatomic, strong)	IBOutlet	UIButton	*removeButton;

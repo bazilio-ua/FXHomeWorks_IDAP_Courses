@@ -12,7 +12,6 @@
 @class FXDataArrayModel;
 
 @interface FXDataViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong)	FXDataModel			*dataModel;
 @property (nonatomic, strong)	FXDataArrayModel	*dataArrayModel;
 
 - (IBAction)onTapAddButton:(id)sender;

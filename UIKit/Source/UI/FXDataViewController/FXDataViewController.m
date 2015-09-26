@@ -24,7 +24,6 @@
 
 @implementation FXDataViewController
 
-@synthesize dataModel		= _dataModel;
 @synthesize dataArrayModel	= _dataArrayModel;
 
 @dynamic dataView;

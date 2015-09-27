@@ -52,6 +52,10 @@
 
 - (IBAction)onTapRemoveButton:(id)sender {
 	NSLog(@"Remove");
+	
+	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
+	[self.dataArrayModel removeObjectAtIndex:selectedIndexPath.row];
+	[self.dataView.tableView reloadData];
 }
 
 - (IBAction)onTapEditButton:(id)sender {

@@ -72,7 +72,9 @@
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-	[self.mutableDataArray removeObjectAtIndex:index];
+	if (index < [self count]) {
+		[self.mutableDataArray removeObjectAtIndex:index];
+	}
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {

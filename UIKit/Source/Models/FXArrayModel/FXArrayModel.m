@@ -6,22 +6,22 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXDataArrayModel.h"
+#import "FXArrayModel.h"
 
 #import "FXDataModel.h"
 
 #import "NSMutableArray+FXExtensions.h"
 
-@interface FXDataArrayModel ()
-@property (nonatomic, strong)	NSMutableArray *mutableDataArray;
+@interface FXArrayModel ()
+@property (nonatomic, strong)	NSMutableArray	*mutableArray;
 
 @end
 
-@implementation FXDataArrayModel
+@implementation FXArrayModel
 
-@synthesize mutableDataArray = _mutableDataArray;
+@synthesize mutableArray = _mutableArray;
 
-@dynamic dataArray;
+@dynamic array;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -29,7 +29,7 @@
 - (id)init {
 	self = [super init];
 	if (self) {
-		self.mutableDataArray = [NSMutableArray array];
+		self.mutableArray = [NSMutableArray array];
 	}
 	
 	return self;
@@ -38,9 +38,9 @@
 - (id)initWithDataModelsCount:(NSUInteger)count {
 	self = [super init];
 	if (self) {
-		self.mutableDataArray = [NSMutableArray array];
+		self.mutableArray = [NSMutableArray array];
 		
-		NSMutableArray *array = self.mutableDataArray;
+		NSMutableArray *array = self.mutableArray;
 		for (NSUInteger index = 0; index < count; index++) {
 			[array addObject:[FXDataModel new]];
 		}
@@ -52,48 +52,48 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)dataArray {
-	return [self.mutableDataArray copy];
+- (NSArray *)array {
+	return [self.mutableArray copy];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addObject:(id)object {
-	[self.mutableDataArray addObject:object];
+	[self.mutableArray addObject:object];
 }
 
 - (void)removeObject:(id)object {
-	[self.mutableDataArray removeObject:object];
+	[self.mutableArray removeObject:object];
 }
 
 - (void)insertObjectAtIndex:(id)object index:(NSUInteger)index {
-	[self.mutableDataArray insertObject:object atIndex:index];
+	[self.mutableArray insertObject:object atIndex:index];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
 	if (index < [self count]) {
-		[self.mutableDataArray removeObjectAtIndex:index];
+		[self.mutableArray removeObjectAtIndex:index];
 	}
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
-	[self.mutableDataArray moveObjectAtIndex:fromIndex toIndex:toIndex];
+	[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
-	return [self.mutableDataArray objectAtIndex:index];
+	return [self.mutableArray objectAtIndex:index];
 }
 
 /*
  -objectAtIndexedSubscript: for NSArray* does the exact same thing as -objectAtIndex:
  */
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
-	return [self.mutableDataArray objectAtIndex:index];
+	return [self.mutableArray objectAtIndex:index];
 }
 
 - (NSUInteger)count {
-	return [self.mutableDataArray count];
+	return [self.mutableArray count];
 }
 
 @end

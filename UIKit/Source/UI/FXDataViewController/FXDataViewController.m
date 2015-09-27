@@ -12,7 +12,7 @@
 #import "FXDataCell.h"
 
 #import "FXDataModel.h"
-#import "FXDataArrayModel.h"
+#import "FXArrayModel.h"
 
 #import "UINib+FXExtensions.h"
 #import "UITableView+FXExtensions.h"
@@ -25,7 +25,7 @@
 
 @implementation FXDataViewController
 
-@synthesize dataArrayModel	= _dataArrayModel;
+@synthesize arrayModel	= _arrayModel;
 
 @dynamic dataView;
 
@@ -46,20 +46,20 @@
 - (IBAction)onTapAddButton:(id)sender {
 	NSLog(@"Add");
 
-	[self.dataArrayModel addObject:[FXDataModel new]];
+	[self.arrayModel addObject:[FXDataModel new]];
 	[self.dataView.tableView reloadData];
 	
-	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
+	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
 - (IBAction)onTapRemoveButton:(id)sender {
 	NSLog(@"Remove");
 	
 	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
-	[self.dataArrayModel removeObjectAtIndex:selectedIndexPath.row];
+	[self.arrayModel removeObjectAtIndex:selectedIndexPath.row];
 	[self.dataView.tableView reloadData];
 	
-	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
+	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
 - (IBAction)onTapEditButton:(id)sender {
@@ -81,7 +81,7 @@
 	
 	[self.dataView.tableView reloadData];
 	
-	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
+	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
 - (void)viewDidUnload {
@@ -97,12 +97,12 @@
 #pragma mark UITableViewDataSource protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [self.dataArrayModel count];
+	return [self.arrayModel count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
-	cell.dataModel = [self.dataArrayModel objectAtIndex:indexPath.row];
+	cell.dataModel = [self.arrayModel objectAtIndex:indexPath.row];
 	
 	NSLog(@"row: %d", indexPath.row); // DEBUG
 	
@@ -113,7 +113,7 @@
  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
   forRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	FXDataArrayModel *dataArrayModel = self.dataArrayModel;
+	FXArrayModel *dataArrayModel = self.arrayModel;
 	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
 	if (UITableViewCellEditingStyleInsert == editingStyle) {
 		[dataArrayModel insertObjectAtIndex:[FXDataModel new] index:indexPath.row];
@@ -128,9 +128,9 @@
  moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath 
 		toIndexPath:(NSIndexPath *)destinationIndexPath 
 {
-	[self.dataArrayModel moveObjectAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+	[self.arrayModel moveObjectAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 	
-	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
+	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
 #pragma mark -
@@ -140,7 +140,7 @@
 		   editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
 	UITableViewCellEditingStyle editingStyle = UITableViewCellEditingStyleDelete;
-	if (indexPath.row == [self.dataArrayModel count] - 1) {
+	if (indexPath.row == [self.arrayModel count] - 1) {
 		editingStyle = UITableViewCellEditingStyleInsert;
 	}
 	

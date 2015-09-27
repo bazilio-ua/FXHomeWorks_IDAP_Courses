@@ -12,6 +12,7 @@
 		423649E51BB1E0F40020C57E /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */; };
 		4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AECE1BB7E7030008544C /* NSIndexPath+FXExtensions.m */; };
 		4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */; };
+		4247AF2B1BB848CC0008544C /* FXArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF2A1BB848CC0008544C /* FXArrayModel.m */; };
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		425D44121BB7235E005BFAF9 /* FXDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D440A1BB7235E005BFAF9 /* FXDataView.m */; };
 		425D44131BB7235E005BFAF9 /* FXDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D440C1BB7235E005BFAF9 /* FXDataViewController.m */; };
@@ -124,7 +125,6 @@
 		428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C881BA0BE330039C3A8 /* FXSquareModel.m */; };
 		428F3C8F1BA0BED10039C3A8 /* FXSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C8E1BA0BED10039C3A8 /* FXSquareView.m */; };
 		428F93C31BB718EE0032DFA6 /* FXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */; };
-		428F93C41BB718EE0032DFA6 /* FXDataArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */; };
 		428F93C61BB718EE0032DFA6 /* FXObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEDE1B9F6915007C6849 /* FXObservableObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		428F93C71BB718EE0032DFA6 /* FXAssignReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEE41B9F6915007C6849 /* FXAssignReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		428F93C81BB718EE0032DFA6 /* FXCopyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEE61B9F6915007C6849 /* FXCopyReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -309,6 +309,8 @@
 		4247AEE91BB7EFDF0008544C /* NSMutableArray+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FXExtensions.h"; sourceTree = "<group>"; };
 		4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FXExtensions.m"; sourceTree = "<group>"; };
 		4247AEF01BB8328D0008544C /* FXMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMacros.h; sourceTree = "<group>"; };
+		4247AF291BB848CC0008544C /* FXArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayModel.h; sourceTree = "<group>"; };
+		4247AF2A1BB848CC0008544C /* FXArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXArrayModel.m; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D17161B9F5A61009A30BE /* FXSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D44091BB7235E005BFAF9 /* FXDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataView.h; sourceTree = "<group>"; };
@@ -488,8 +490,6 @@
 		42DB73F11B44ECBD0064BBAD /* FXAutoreleasePool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAutoreleasePool; sourceTree = BUILT_PRODUCTS_DIR; };
 		42DDCFDB1BAEA2B1000ADABB /* FXDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataModel.h; sourceTree = "<group>"; };
 		42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModel.m; sourceTree = "<group>"; };
-		42DDCFDE1BAEA2DE000ADABB /* FXDataArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataArrayModel.h; sourceTree = "<group>"; };
-		42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataArrayModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -750,6 +750,15 @@
 				4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */,
 			);
 			path = "NSMutableArray+FXExtensions";
+			sourceTree = "<group>";
+		};
+		4247AF281BB848CC0008544C /* FXArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				4247AF291BB848CC0008544C /* FXArrayModel.h */,
+				4247AF2A1BB848CC0008544C /* FXArrayModel.m */,
+			);
+			path = FXArrayModel;
 			sourceTree = "<group>";
 		};
 		425094341BA2C0880015E950 /* Categories */ = {
@@ -1718,8 +1727,8 @@
 		4297468D1BA0BAA90063FE20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4247AF281BB848CC0008544C /* FXArrayModel */,
 				42DDCFDA1BAEA26B000ADABB /* FXDataModel */,
-				42DDCFD91BAEA26B000ADABB /* FXDataArrayModel */,
 				428F3C831BA0BC9B0039C3A8 /* FXSquareModel */,
 			);
 			path = Models;
@@ -1775,15 +1784,6 @@
 				42D6CF661BAC3D9E0015E925 /* FXSquare-Prefix.pch */,
 			);
 			path = FXSquare;
-			sourceTree = "<group>";
-		};
-		42DDCFD91BAEA26B000ADABB /* FXDataArrayModel */ = {
-			isa = PBXGroup;
-			children = (
-				42DDCFDE1BAEA2DE000ADABB /* FXDataArrayModel.h */,
-				42DDCFDF1BAEA2DE000ADABB /* FXDataArrayModel.m */,
-			);
-			path = FXDataArrayModel;
 			sourceTree = "<group>";
 		};
 		42DDCFDA1BAEA26B000ADABB /* FXDataModel */ = {
@@ -2303,7 +2303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				428F93C31BB718EE0032DFA6 /* FXDataModel.m in Sources */,
-				428F93C41BB718EE0032DFA6 /* FXDataArrayModel.m in Sources */,
 				428F93C61BB718EE0032DFA6 /* FXObservableObject.m in Sources */,
 				428F93C71BB718EE0032DFA6 /* FXAssignReference.m in Sources */,
 				428F93C81BB718EE0032DFA6 /* FXCopyReference.m in Sources */,
@@ -2326,6 +2325,7 @@
 				425D44151BB7235E005BFAF9 /* FXDataCell.m in Sources */,
 				4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */,
 				4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */,
+				4247AF2B1BB848CC0008544C /* FXArrayModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

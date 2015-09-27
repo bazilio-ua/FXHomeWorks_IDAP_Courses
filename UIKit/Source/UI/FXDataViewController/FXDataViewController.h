@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class FXDataArrayModel;
+@class FXArrayModel;
 
 @interface FXDataViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong)	FXDataArrayModel	*dataArrayModel;
+@property (nonatomic, strong)	FXArrayModel	*arrayModel;
 
 - (IBAction)onTapAddButton:(id)sender;
 - (IBAction)onTapRemoveButton:(id)sender;

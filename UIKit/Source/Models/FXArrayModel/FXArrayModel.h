@@ -10,8 +10,8 @@
 
 #import "FXObservableObject.h"
 
-@interface FXDataArrayModel : FXObservableObject
-@property (nonatomic, readonly)	NSArray	*dataArray;
+@interface FXArrayModel : FXObservableObject
+@property (nonatomic, readonly)	NSArray	*array;
 
 - (id)initWithDataModelsCount:(NSUInteger)count;
 

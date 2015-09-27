@@ -10,6 +10,8 @@
 
 #import "FXDataModel.h"
 
+#import "NSMutableArray+FXExtensions.h"
+
 @interface FXDataArrayModel ()
 @property (nonatomic, strong)	NSMutableArray *mutableDataArray;
 
@@ -71,6 +73,10 @@
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
 	[self.mutableDataArray removeObjectAtIndex:index];
+}
+
+- (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
+	[self.mutableDataArray moveObjectAtIndex:fromIndex toIndex:toIndex];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {

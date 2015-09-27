@@ -120,7 +120,7 @@
  moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath 
 		toIndexPath:(NSIndexPath *)destinationIndexPath 
 {
-	
+	[self.dataArrayModel moveObjectAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 #pragma mark -

@@ -20,6 +20,7 @@
 
 - (void)insertObjectAtIndex:(id)object index:(NSUInteger)index;
 - (void)removeObjectAtIndex:(NSUInteger)index;
+- (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;

@@ -16,6 +16,7 @@
 
 #import "UINib+FXExtensions.h"
 #import "UITableView+FXExtensions.h"
+#import "NSIndexPath+FXExtensions.h"
 
 @interface FXDataViewController ()
 @property (nonatomic, readonly)	FXDataView	*dataView;
@@ -104,7 +105,7 @@
 	FXDataArrayModel *dataArrayModel = self.dataArrayModel;
 	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
 	if (UITableViewCellEditingStyleInsert == editingStyle) {
-		NSIndexPath *insertIndexPath = [NSIndexPath indexPathForRow:[dataArrayModel count] inSection:0];
+		NSIndexPath *insertIndexPath = [NSIndexPath indexPathForRow:[dataArrayModel count]];
 		[dataArrayModel addObject:[FXDataModel new]];
 		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 		[tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:insertIndexPath] 

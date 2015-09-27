@@ -102,7 +102,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
-	cell.dataModel = [self.arrayModel objectAtIndex:indexPath.row];
+	cell.model = [self.arrayModel objectAtIndex:indexPath.row];
 	
 	NSLog(@"row: %d", indexPath.row); // DEBUG
 	

@@ -14,7 +14,7 @@
 @property (nonatomic, strong)	IBOutlet	UIImageView	*imageView;
 @property (nonatomic, strong)	IBOutlet	UILabel		*stringLabel;
 
-@property (nonatomic, strong)	FXDataModel				*dataModel;
+@property (nonatomic, strong)	FXDataModel				*model;
 
 - (void)fillWithModel:(FXDataModel *)model;
 

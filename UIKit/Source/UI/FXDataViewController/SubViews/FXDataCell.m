@@ -15,17 +15,17 @@
 @synthesize imageView	= _image;
 @synthesize stringLabel	= _string;
 
-@synthesize dataModel	= _dataModel;
+@synthesize model	= _model;
 
 #pragma mark - 
 #pragma mark Accessors
 
-- (void)setDataModel:(FXDataModel *)dataModel {
-	if (_dataModel != dataModel) {
-		_dataModel = dataModel;
+- (void)setModel:(FXDataModel *)model {
+	if (_model != model) {
+		_model = model;
 	}
 	
-	[self fillWithModel:dataModel];
+	[self fillWithModel:model];
 }
 
 #pragma mark - 

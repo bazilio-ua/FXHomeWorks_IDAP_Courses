@@ -34,11 +34,11 @@ static const NSUInteger kFXDefaultDataStringLength = 10;
 #pragma mark Accessors
 
 - (UIImage *)image {
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"objc" ofType:@"png"];
-	return [UIImage imageWithContentsOfFile:path];
+//	NSString *path = [[NSBundle mainBundle] pathForResource:@"objc" ofType:@"png"];
+//	return [UIImage imageWithContentsOfFile:path];
 	
 	// variant with method that used caches
-//	return [UIImage imageNamed:@"objc.png"];
+	return [UIImage imageNamed:@"objc.png"];
 }
 
 @end

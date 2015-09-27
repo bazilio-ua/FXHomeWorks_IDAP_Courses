@@ -11,14 +11,14 @@
 @implementation NSMutableArray (FXExtensions)
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
-	if (fromIndex == toIndex) {
-		return;
-	}
-	
 	NSUInteger count = [self count];
 	
 	NSAssert(fromIndex < count, NSRangeException);
 	NSAssert(toIndex < count, NSRangeException);
+	
+	if (fromIndex == toIndex) {
+		return;
+	}
 	
 	id movingObject = [self objectAtIndex:fromIndex];
 	if (fromIndex < toIndex) {

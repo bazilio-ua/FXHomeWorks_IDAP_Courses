@@ -7,7 +7,7 @@
 //
 
 /*
- *
+ * main View generation macro
  */
 #define FXDefineMainViewProperty(propertyName, viewClass) \
 	@property (nonatomic, readonly)	viewClass *propertyName;
@@ -36,7 +36,7 @@
 	@end
 
 /*
- *
+ * weakify / strongify macro
  */
 #define FXWeakify(object) \
 	__weak__typeof(object) __FXWeakified_##object = object

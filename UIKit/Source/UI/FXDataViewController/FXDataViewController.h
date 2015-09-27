@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class FXDataModel;
 @class FXDataArrayModel;
 
 @interface FXDataViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>

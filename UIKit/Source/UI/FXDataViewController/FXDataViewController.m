@@ -108,23 +108,12 @@
 {
 	FXDataArrayModel *dataArrayModel = self.dataArrayModel;
 	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
-	
 	if (UITableViewCellEditingStyleInsert == editingStyle) {
-		
-//		NSIndexPath *insertIndexPath = [NSIndexPath indexPathForRow:[dataArrayModel count]];
-//		[dataArrayModel addObject:[FXDataModel new]];
-//		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
-//		[tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:insertIndexPath] 
-//						 withRowAnimation:UITableViewRowAnimationMiddle];
-		
 		[dataArrayModel insertObjectAtIndex:[FXDataModel new] index:indexPath.row];
 		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
-		
 	} else if (UITableViewCellEditingStyleDelete == editingStyle) {
-		
 		[dataArrayModel removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
-		
 	} 
 }
 
@@ -138,19 +127,11 @@
 #pragma mark -
 #pragma mark UITableViewDelegate protocol
 
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//	return YES;
-//}
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//	
-//}
-
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView 
 		   editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
 	UITableViewCellEditingStyle editingStyle = UITableViewCellEditingStyleDelete;
-	if (indexPath.row == [self.dataArrayModel count] - 1 /* || indexPath.row == 0 */) {
+	if (indexPath.row == [self.dataArrayModel count] - 1) {
 		editingStyle = UITableViewCellEditingStyleInsert;
 	}
 	

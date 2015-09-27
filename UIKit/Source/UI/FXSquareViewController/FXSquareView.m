@@ -16,6 +16,13 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop";
 
 @interface FXSquareView ()
 
+- (void)setSquarePosition:(FXSquarePosition)position;
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated;
+- (void)setSquarePosition:(FXSquarePosition)position 
+				 animated:(BOOL)animated 
+		 completionHanler:(void (^)(BOOL finished))completion;
+
 - (CGRect)frameForSquarePosition:(FXSquarePosition)position;
 
 - (void)updateCyclicMoveButtonTitle;
@@ -79,7 +86,7 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop";
 }
 
 #pragma mark -
-#pragma mark Public Accessors
+#pragma mark Private Methods
 
 - (void)setSquarePosition:(FXSquarePosition)position {
 	[self setSquarePosition:position 
@@ -119,9 +126,6 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop";
 						 }
 					 }];
 }
-
-#pragma mark -
-#pragma mark Private Methods
 
 - (CGRect)frameForSquarePosition:(FXSquarePosition)position {
 	UIView *squareView = self.squareView;

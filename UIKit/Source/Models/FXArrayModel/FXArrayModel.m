@@ -1,5 +1,5 @@
 //
-//  FXDataArrayModel.m
+//  FXArrayModel.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/20/15.
@@ -7,8 +7,6 @@
 //
 
 #import "FXArrayModel.h"
-
-#import "FXDataModel.h"
 
 #import "NSMutableArray+FXExtensions.h"
 
@@ -30,20 +28,6 @@
 	self = [super init];
 	if (self) {
 		self.mutableArray = [NSMutableArray array];
-	}
-	
-	return self;
-}
-
-- (id)initWithDataModelsCount:(NSUInteger)count {
-	self = [super init];
-	if (self) {
-		self.mutableArray = [NSMutableArray array];
-		
-		NSMutableArray *array = self.mutableArray;
-		for (NSUInteger index = 0; index < count; index++) {
-			[array addObject:[FXDataModel new]];
-		}
 	}
 	
 	return self;

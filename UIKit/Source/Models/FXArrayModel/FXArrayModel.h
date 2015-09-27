@@ -1,5 +1,5 @@
 //
-//  FXDataArrayModel.h
+//  FXArrayModel.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/20/15.
@@ -12,8 +12,6 @@
 
 @interface FXArrayModel : FXObservableObject
 @property (nonatomic, readonly)	NSArray	*array;
-
-- (id)initWithDataModelsCount:(NSUInteger)count;
 
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;

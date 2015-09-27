@@ -48,6 +48,8 @@
 
 	[self.dataArrayModel addObject:[FXDataModel new]];
 	[self.dataView.tableView reloadData];
+	
+	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
 }
 
 - (IBAction)onTapRemoveButton:(id)sender {
@@ -56,6 +58,8 @@
 	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
 	[self.dataArrayModel removeObjectAtIndex:selectedIndexPath.row];
 	[self.dataView.tableView reloadData];
+	
+	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
 }
 
 - (IBAction)onTapEditButton:(id)sender {
@@ -76,6 +80,8 @@
     [super viewDidLoad];
 	
 	[self.dataView.tableView reloadData];
+	
+	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
 }
 
 - (void)viewDidUnload {
@@ -96,8 +102,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
-	NSLog(@"row: %d", indexPath.row);
 	cell.dataModel = [self.dataArrayModel objectAtIndex:indexPath.row];
+	
+	NSLog(@"row: %d", indexPath.row); // DEBUG
 	
 	return cell;
 }
@@ -122,6 +129,8 @@
 		toIndexPath:(NSIndexPath *)destinationIndexPath 
 {
 	[self.dataArrayModel moveObjectAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+	
+	NSLog(@"%@", self.dataArrayModel.dataArray); // DEBUG
 }
 
 #pragma mark -

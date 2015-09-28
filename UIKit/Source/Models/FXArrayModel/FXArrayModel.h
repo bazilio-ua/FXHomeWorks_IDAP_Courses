@@ -20,6 +20,8 @@
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
+- (NSUInteger)indexOfObject:(id)object;
+
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 

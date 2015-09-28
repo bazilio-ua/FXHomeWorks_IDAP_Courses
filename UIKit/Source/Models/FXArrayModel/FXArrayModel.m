@@ -65,6 +65,10 @@
 	[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
 }
 
+- (NSUInteger)indexOfObject:(id)object {
+	return [self.mutableArray indexOfObject:object];
+}
+
 - (id)objectAtIndex:(NSUInteger)index {
 	return [self.mutableArray objectAtIndex:index];
 }

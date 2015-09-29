@@ -38,7 +38,9 @@ FOUNDATION_EXPORT const NSUInteger kFXCarWashPrice;
 	} else {
 		NSLog(@"Washer: %@ didn't clean a Car: %@ because its doesn't have enough money", self, object);
 	}
-	
+}
+
+- (void)finalizeProcessWithObject:(id<FXMoneyFlow,FXEmployeeObserver>)object {
 	self.state = kFXEmployeeFinishedWork;
 }
 

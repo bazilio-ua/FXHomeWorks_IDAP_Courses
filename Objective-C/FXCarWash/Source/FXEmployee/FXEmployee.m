@@ -10,8 +10,6 @@
 
 #import "NSObject+FXExtensions.h"
 
-//@class FXDirector;
-
 @interface FXEmployee ()
 
 @end
@@ -80,12 +78,18 @@
 	
 }
 
+- (void)finalizeProcessWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
+	
+}
+
 - (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	if (nil != object) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			@synchronized(object) {
-				[self processObject:object];
-			}
+			[self processObject:object];
+			
+			dispatch_sync(dispatch_get_main_queue(), ^{
+				[self finalizeProcessWithObject:object];
+			});
 		});
 	}
 }

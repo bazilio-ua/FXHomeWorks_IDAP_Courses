@@ -22,8 +22,10 @@
 	} else {
 		NSLog(@"Accountant: %@ there is nothing to calculate", self);
 	}
-	
-	((FXEmployee *)object).state = kFXEmployeeIsReady;
+}
+
+- (void)finalizeProcessWithObject:(FXEmployee *)object {
+	object.state = kFXEmployeeIsReady;
 	self.state = kFXEmployeeFinishedWork;
 }
 

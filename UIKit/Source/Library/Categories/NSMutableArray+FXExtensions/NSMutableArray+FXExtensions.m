@@ -11,31 +11,17 @@
 @implementation NSMutableArray (FXExtensions)
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
-	NSUInteger count = [self count];
-	
-	NSAssert(fromIndex < count, NSRangeException);
-	NSAssert(toIndex < count, NSRangeException);
-	
 	if (fromIndex == toIndex) {
 		return;
 	}
 	
-	id movingObject = [self objectAtIndex:fromIndex];
-	if (fromIndex < toIndex) {
-		for (NSUInteger index = fromIndex; index <= toIndex; index++) {
-			[self replaceObjectAtIndex:index 
-							withObject:(index == toIndex) ? movingObject : [self objectAtIndex:index + 1]];
-		}
-	} else {
-		id currentObject = nil;
-		id previousObject = nil;
-		for (NSUInteger index = toIndex; index <= fromIndex; index++) {
-			previousObject = currentObject;
-			currentObject = [self objectAtIndex:index];
-			[self replaceObjectAtIndex:index 
-							withObject:(index == toIndex) ? movingObject : previousObject];
-		}
-	}
+	id object = [self objectAtIndex:fromIndex];
+	[self removeObjectAtIndex:fromIndex];
+	[self insertObject:object atIndex:toIndex];
+}
+
+- (void)moveObjectToFirstAtIndex:(NSUInteger)index {
+	[self moveObjectAtIndex:index toIndex:0];
 }
 
 @end

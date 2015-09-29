@@ -40,7 +40,7 @@ FOUNDATION_EXPORT const NSUInteger kFXCarWashPrice;
 	}
 }
 
-- (void)finalizeProcessWithObject:(id<FXMoneyFlow,FXEmployeeObserver>)object {
+- (void)finalizeProcessWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object {
 	self.state = kFXEmployeeFinishedWork;
 }
 

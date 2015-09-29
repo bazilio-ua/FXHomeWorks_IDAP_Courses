@@ -76,11 +76,19 @@
 	}
 }
 
+- (void)notifyObserversWithSelector:(SEL)selector {
+	[self notifyObserversWithSelector:selector withObject:self];
+}
+
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
+	[self notifyObserversWithSelector:selector withObject:object withObject:nil];
+}
+
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)anotherObject {
 	for (FXReference *reference in self.mutableObservers) {
 		if ([reference.target respondsToSelector:selector]) {
 			FXDispatchSyncOnMainQueueWithBlock(^{
-				[reference.target performSelector:selector withObject:object];
+				[reference.target performSelector:selector withObject:object withObject:anotherObject];
 			});
 		}
 	}

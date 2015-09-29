@@ -55,11 +55,17 @@
 - (IBAction)onTapRemoveButton:(id)sender {
 	NSLog(@"Remove");
 	
-	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
-	[self.arrayModel removeObjectAtIndex:selectedIndexPath.row];
-	[self.dataView.tableView reloadData];
+	FXArrayModel *arrayModel = self.arrayModel;
+	UITableView *tableView = self.dataView.tableView;
+	NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
+	NSUInteger selectedRow = selectedIndexPath.row;
+	if (selectedRow < [arrayModel count]) {
+		[arrayModel removeObjectAtIndex:selectedRow];
+	}
 	
-	NSLog(@"%@", self.arrayModel.array); // DEBUG
+	[tableView reloadData];
+	
+	NSLog(@"%@", arrayModel.array); // DEBUG
 }
 
 - (IBAction)onTapEditButton:(id)sender {
@@ -113,13 +119,13 @@
  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
   forRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	FXArrayModel *dataArrayModel = self.arrayModel;
+	FXArrayModel *arrayModel = self.arrayModel;
 	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
 	if (UITableViewCellEditingStyleInsert == editingStyle) {
-		[dataArrayModel insertObjectAtIndex:[FXDataModel new] index:indexPath.row];
+		[arrayModel insertObjectAtIndex:[FXDataModel new] index:indexPath.row];
 		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 	} else if (UITableViewCellEditingStyleDelete == editingStyle) {
-		[dataArrayModel removeObjectAtIndex:indexPath.row];
+		[arrayModel removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 	} 
 }

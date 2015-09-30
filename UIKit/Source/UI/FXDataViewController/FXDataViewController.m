@@ -18,27 +18,13 @@
 #import "UITableView+FXExtensions.h"
 #import "NSIndexPath+FXExtensions.h"
 
-@interface FXDataViewController ()
-@property (nonatomic, readonly)	FXDataView	*dataView;
+#import "FXMacros.h"
 
-@end
+FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 
 @implementation FXDataViewController
 
 @synthesize arrayModel	= _arrayModel;
-
-@dynamic dataView;
-
-#pragma mark -
-#pragma mark Accessors
-
-- (FXDataView *)dataView {
-	if ([self isViewLoaded] && [self.view isKindOfClass:[FXDataView class]]) {
-		return (FXDataView *)self.view;
-	}
-	
-	return nil;
-}
 
 #pragma mark -
 #pragma mark User Interactions

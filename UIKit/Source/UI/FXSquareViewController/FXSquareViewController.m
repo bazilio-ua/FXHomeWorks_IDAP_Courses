@@ -10,27 +10,13 @@
 
 #import "FXSquareView.h"
 
-@interface FXSquareViewController ()
-@property (nonatomic, readonly)	FXSquareView	*squareView;
+#import "FXMacros.h"
 
-@end
+FXViewControllerMainViewProperty(FXSquareViewController, squareView, FXSquareView);
 
 @implementation FXSquareViewController
 
 @synthesize squareModel = _squareModel;
-
-@dynamic squareView;
-
-#pragma mark -
-#pragma mark Accessors
-
-- (FXSquareView *)squareView {
-	if ([self isViewLoaded] && [self.view isKindOfClass:[FXSquareView class]]) {
-		return (FXSquareView *)self.view;
-	}
-	
-	return nil;
-}
 
 #pragma mark -
 #pragma mark User Interactions

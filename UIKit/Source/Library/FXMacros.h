@@ -45,10 +45,10 @@
 #define FXStrongify(object) \
 	__strong__typeof(object) object = __FXWeakified_##object
 
-#define FXStrongifyAndReturnResultIfNil(object, nil) \
+#define FXStrongifyAndReturnResultIfNil(object, result) \
 	FXStrongify(object); \
 	if (!object) { \
-		return nil; \
+		return result; \
 	}
 
 #define FXEmpty

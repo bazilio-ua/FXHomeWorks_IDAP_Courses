@@ -10,6 +10,12 @@
 
 #import "FXDataModel.h"
 
+@interface FXDataModelArray ()
+
+- (void)fillWithModels:(NSUInteger)count;
+
+@end
+
 @implementation FXDataModelArray
 
 #pragma mark -
@@ -25,12 +31,19 @@
 - (id)initWithCount:(NSUInteger)count {
 	self = [super init];
 	if (self) {
-		for (NSUInteger index = 0; index < count; index++) {
-			[self addObject:[FXDataModel new]];
-		}
+		[self fillWithModels:count];
 	}
 	
 	return self;
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)fillWithModels:(NSUInteger)count {
+	for (NSUInteger index = 0; index < count; index++) {
+		[self addObject:[FXDataModel new]];
+	}
 }
 
 @end

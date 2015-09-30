@@ -8,6 +8,8 @@
 
 #import "FXSquareView.h"
 
+#import "FXMacros.h"
+
 static const NSTimeInterval kFXSquareViewAnimationDuration	= 0.5;
 static const NSTimeInterval kFXSquareViewAnimationDelay		= 0.0;
 
@@ -71,11 +73,13 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop";
 
 - (void)cyclicMoveSquareToRandomPosition {
 	if ([self isCyclicMoving] && ![self isAnimating]) {
-		id __weak weakSelf = self;
+//		id __weak weakSelf = self;
+		FXWeakify(self);
 		void(^completionBlock)(BOOL finished) = ^(BOOL finished) {
 			if (finished) {
-				id __strong strongSelf = weakSelf;
-				[strongSelf cyclicMoveSquareToRandomPosition];
+//				id __strong strongSelf = weakSelf;
+				FXStrongify(self);
+				[self cyclicMoveSquareToRandomPosition];
 			}
 		};
 		

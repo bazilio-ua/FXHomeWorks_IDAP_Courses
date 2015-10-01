@@ -92,9 +92,9 @@
 - (void)removeObjectAtIndex:(NSUInteger)index {
 	if (index < [self count]) {
 		[self.mutableArray removeObjectAtIndex:index];
-		
-		self.state = kFXArrayModelDidChange;
 	}
+	
+	self.state = kFXArrayModelDidChange;
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {

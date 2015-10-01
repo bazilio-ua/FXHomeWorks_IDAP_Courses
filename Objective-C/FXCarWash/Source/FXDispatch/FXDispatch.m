@@ -17,3 +17,13 @@ void FXDispatchSyncOnMainQueueWithBlock(dispatch_block_t block) {
 		}
 	}
 }
+
+void FXDispatchAsyncOnMainQueueWithBlock(dispatch_block_t block) {
+	if (block) {
+		if ([NSThread isMainThread]) {
+			block();
+		} else {
+			dispatch_async(dispatch_get_main_queue(), block);
+		}
+	}
+}

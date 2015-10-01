@@ -44,7 +44,7 @@
 	if (state != _state) {
 		_state = state;
 		
-		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+		[self notifyObserversWithSelector:[self selectorForState:state]];
 	}
 }
 

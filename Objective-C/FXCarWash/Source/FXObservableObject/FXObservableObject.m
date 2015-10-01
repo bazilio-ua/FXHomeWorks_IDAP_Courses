@@ -77,11 +77,11 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
-	[self notifyObserversWithSelector:selector withObject:self];
+	[self notifyObserversWithSelector:selector withObject:nil];
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-	[self notifyObserversWithSelector:selector withObject:object withObject:nil];
+	[self notifyObserversWithSelector:selector withObject:self withObject:object];
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)anotherObject {

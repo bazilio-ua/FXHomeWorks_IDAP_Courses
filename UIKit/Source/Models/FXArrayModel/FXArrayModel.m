@@ -8,6 +8,8 @@
 
 #import "FXArrayModel.h"
 
+#import "FXArrayModelObserver.h"
+
 #import "NSMutableArray+FXExtensions.h"
 
 @interface FXArrayModel ()
@@ -17,7 +19,8 @@
 
 @implementation FXArrayModel
 
-@synthesize mutableArray = _mutableArray;
+@synthesize mutableArray	= _mutableArray;
+@synthesize state 			= _state;
 
 @dynamic array;
 
@@ -38,6 +41,35 @@
 
 - (NSArray *)array {
 	return [self.mutableArray copy];
+}
+
+- (void)setState:(FXArrayModelState)state {
+	if (state != _state) {
+		_state = state;
+		
+		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+	}
+}
+
+#pragma mark -
+#pragma mark Overloaded Methods
+
+- (SEL)selectorForState:(FXArrayModelState)state {
+	SEL selector = NULL;
+	switch (state) {
+		case kFXArrayModelUnchanged:
+			selector = @selector(arrayModelUnchanged:);
+			break;
+			
+		case kFXArrayModelDidChange:
+			selector = @selector(arrayModelDidChange:);
+			break;
+			
+		default:
+			break;
+	}
+	
+	return selector;
 }
 
 #pragma mark -

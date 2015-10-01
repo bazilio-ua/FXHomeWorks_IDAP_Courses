@@ -9,15 +9,17 @@
 #import <Foundation/Foundation.h>
 
 #import "FXObservableObject.h"
-#import "FXArrayModelObserver.h"
 
 typedef enum {
 	kFXArrayModelUnchanged,
 	kFXArrayModelDidChange
 } FXArrayModelState;
 
-@interface FXArrayModel : FXObservableObject <FXArrayModelObserver>
-@property (nonatomic, readonly)	NSArray	*array;
+@interface FXArrayModel : FXObservableObject
+@property (nonatomic, readonly)	NSArray				*array;
+@property (nonatomic, assign)	FXArrayModelState	state;
+
+- (SEL)selectorForState:(FXArrayModelState)state;
 
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;

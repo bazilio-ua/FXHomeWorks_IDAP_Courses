@@ -11,7 +11,6 @@
 #import "FXObservableObject.h"
 
 typedef enum {
-	kFXArrayModelUnchanged,
 	kFXArrayModelDidChange
 } FXArrayModelState;
 

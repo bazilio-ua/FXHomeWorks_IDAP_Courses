@@ -46,9 +46,9 @@
 - (void)setState:(FXArrayModelState)state {
 	if (state != _state) {
 		_state = state;
-		
-		[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
 	}
+	
+	[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
 }
 
 #pragma mark -
@@ -57,10 +57,6 @@
 - (SEL)selectorForState:(FXArrayModelState)state {
 	SEL selector = NULL;
 	switch (state) {
-		case kFXArrayModelUnchanged:
-			selector = @selector(arrayModelUnchanged:);
-			break;
-			
 		case kFXArrayModelDidChange:
 			selector = @selector(arrayModelDidChange:);
 			break;
@@ -77,22 +73,34 @@
 
 - (void)addObject:(id)object {
 	[self.mutableArray addObject:object];
+	
+	self.state = kFXArrayModelDidChange;
 }
 
 - (void)removeObject:(id)object {
 	[self.mutableArray removeObject:object];
+	
+	self.state = kFXArrayModelDidChange;
 }
 
 - (void)insertObjectAtIndex:(id)object index:(NSUInteger)index {
 	[self.mutableArray insertObject:object atIndex:index];
+	
+	self.state = kFXArrayModelDidChange;
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-	[self.mutableArray removeObjectAtIndex:index];
+	if (index < [self count]) {
+		[self.mutableArray removeObjectAtIndex:index];
+		
+		self.state = kFXArrayModelDidChange;
+	}
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
 	[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
+	
+	self.state = kFXArrayModelDidChange;
 }
 
 - (NSUInteger)indexOfObject:(id)object {

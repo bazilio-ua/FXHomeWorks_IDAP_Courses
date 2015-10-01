@@ -12,8 +12,7 @@
 
 @protocol FXArrayModelObserver <NSObject>
 
-@optional
-- (void)arrayModelUnchanged:(FXArrayModel *)arrayModel;
+@required
 - (void)arrayModelDidChange:(FXArrayModel *)arrayModel;
 
 @end

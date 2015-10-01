@@ -27,13 +27,31 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 @synthesize arrayModel	= _arrayModel;
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+	self.arrayModel = nil;
+}
+
+#pragma mark - 
+#pragma mark Accessors
+
+- (void)setArrayModel:(FXArrayModel *)arrayModel {
+	if (_arrayModel != arrayModel) {
+		[_arrayModel removeObserver:self];
+		_arrayModel = arrayModel;
+		[_arrayModel addObserver:self];
+	}
+}
+
+#pragma mark -
 #pragma mark User Interactions
 
 - (IBAction)onTapAddButton:(id)sender {
 	NSLog(@"Add");
 
 	[self.arrayModel addObject:[FXDataModel new]];
-	[self.dataView.tableView reloadData];
+//	[self.dataView.tableView reloadData];
 	
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
@@ -41,17 +59,11 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 - (IBAction)onTapRemoveButton:(id)sender {
 	NSLog(@"Remove");
 	
-	FXArrayModel *arrayModel = self.arrayModel;
-	UITableView *tableView = self.dataView.tableView;
-	NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
-	NSUInteger selectedRow = selectedIndexPath.row;
-	if (selectedRow < [arrayModel count]) {
-		[arrayModel removeObjectAtIndex:selectedRow];
-	}
+	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
+	[self.arrayModel removeObjectAtIndex:selectedIndexPath.row];
+//	[self.dataView.tableView reloadData];
 	
-	[tableView reloadData];
-	
-	NSLog(@"%@", arrayModel.array); // DEBUG
+	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
 - (IBAction)onTapEditButton:(id)sender {
@@ -96,7 +108,7 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
 	cell.model = [self.arrayModel objectAtIndex:indexPath.row];
 	
-	NSLog(@"row: %d", indexPath.row); // DEBUG
+//	NSLog(@"row: %d", indexPath.row); // DEBUG
 	
 	return cell;
 }
@@ -137,6 +149,14 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	}
 	
 	return editingStyle;
+}
+
+#pragma mark -
+#pragma mark FXArrayModelObserver protocol
+
+- (void)arrayModelDidChange:(FXArrayModel *)arrayModel {
+	NSLog(@"arrayModelDidChange");
+	[self.dataView.tableView reloadData];
 }
 
 @end

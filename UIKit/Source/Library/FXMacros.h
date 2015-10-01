@@ -40,12 +40,10 @@
  */
 #define FXWeakify(object) \
 	id __weak __FXWeakified_##object = object
-//	__weak __typeof__((__typeof__(object))object) __FXWeakified_##object = object
 
 // these macroses below should be called only after weakify was called for the same object
 #define FXStrongify(object) \
 	id __strong object = __FXWeakified_##object
-//	__strong __typeof__((__typeof__(object))object) object = __FXWeakified_##object
 
 #define FXStrongifyAndReturnResultIfNil(object, result) \
 	FXStrongify(object); \

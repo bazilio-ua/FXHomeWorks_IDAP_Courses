@@ -74,11 +74,8 @@ static NSString * const kFXCyclicMoveButtonTitleStop 		= @"Stop";
 - (void)cyclicMoveSquareToRandomPosition {
 	if ([self isCyclicMoving] && ![self isAnimating]) {
 		FXWeakify(self);
-//		id __weak weakSelf = self;
 		void(^completionBlock)(BOOL finished) = ^(BOOL finished) {
 			if (finished) {
-//				id __strong strongSelf = weakSelf;
-//				[strongSelf cyclicMoveSquareToRandomPosition];
 				FXStrongify(self);
 				[self cyclicMoveSquareToRandomPosition];
 			}

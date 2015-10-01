@@ -10,7 +10,7 @@
 
 #import "FXAssignReference.h"
 
-#import "FXDispatchSync.h"
+#import "FXDispatch.h"
 
 @interface FXObservableObject ()
 @property (nonatomic, retain)	NSMutableSet		*mutableObservers;

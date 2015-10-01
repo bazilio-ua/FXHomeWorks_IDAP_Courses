@@ -1,5 +1,5 @@
 //
-//  FXDispatchSync.h
+//  FXDispatch.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/29/15.

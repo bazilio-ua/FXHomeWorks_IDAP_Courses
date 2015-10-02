@@ -159,4 +159,8 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	[self.dataView.tableView reloadData];
 }
 
+- (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(MRFArrayChangesModel *)changes {
+	
+}
+
 @end

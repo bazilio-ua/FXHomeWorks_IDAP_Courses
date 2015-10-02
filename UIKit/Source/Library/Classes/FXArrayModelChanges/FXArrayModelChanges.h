@@ -30,7 +30,7 @@ typedef enum {
 
 + (FXArrayModelChangesOneIndex *)addModelWithIndex:(NSUInteger)index;
 + (FXArrayModelChangesOneIndex *)removeModelWithIndex:(NSUInteger)index;
-+ (FXArrayModelChangesTwoIndices *)moveModelWithIndex:(NSUInteger)fromIndex 
++ (FXArrayModelChangesTwoIndices *)moveModelFromIndex:(NSUInteger)fromIndex 
 											  toIndex:(NSUInteger)toIndex;
 
 @end

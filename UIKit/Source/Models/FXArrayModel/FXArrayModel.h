@@ -18,6 +18,7 @@ typedef enum {
 @property (nonatomic, readonly)	NSArray				*array;
 @property (nonatomic, assign)	FXArrayModelState	state;
 
+- (void)setState:(FXArrayModelState)state withChanges:(id)changes;
 - (SEL)selectorForState:(FXArrayModelState)state;
 
 - (void)addObject:(id)object;
@@ -27,6 +28,7 @@ typedef enum {
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
+- (BOOL)containsObject:(id)object;
 - (NSUInteger)indexOfObject:(id)object;
 
 - (id)objectAtIndex:(NSUInteger)index;

@@ -8,6 +8,7 @@
 
 #import "FXArrayModel.h"
 
+#import "FXArrayModelChanges.h"
 #import "FXArrayModelObserver.h"
 
 #import "NSMutableArray+FXExtensions.h"
@@ -44,11 +45,15 @@
 }
 
 - (void)setState:(FXArrayModelState)state {
+	[self setState:state withChanges:nil];
+}
+
+- (void)setState:(FXArrayModelState)state withChanges:(id)changes {
 	if (state != _state) {
 		_state = state;
 	}
 	
-	[self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+	[self notifyObserversWithSelector:[self selectorForState:state] withObject:changes];
 }
 
 #pragma mark -
@@ -58,7 +63,8 @@
 	SEL selector = NULL;
 	switch (state) {
 		case kFXArrayModelDidChange:
-			selector = @selector(arrayModelDidChange:);
+//			selector = @selector(arrayModelDidChange:);
+			selector = @selector(arrayModel:didChangeWithChanges:);
 			break;
 			
 		default:
@@ -72,35 +78,55 @@
 #pragma mark Public Methods
 
 - (void)addObject:(id)object {
-	[self.mutableArray addObject:object];
-	
-	self.state = kFXArrayModelDidChange;
+	if (![self containsObject:object]) {
+		[self.mutableArray addObject:object];
+		
+//		self.state = kFXArrayModelDidChange;
+		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:([self count] - 1)]];
+	}
 }
 
 - (void)removeObject:(id)object {
-	[self.mutableArray removeObject:object];
-	
-	self.state = kFXArrayModelDidChange;
+	if ([self containsObject:object]) {
+		NSUInteger index = [self indexOfObject:object];
+		[self.mutableArray removeObject:object];
+		
+//		self.state = kFXArrayModelDidChange;
+		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
+	}
 }
 
 - (void)insertObjectAtIndex:(id)object index:(NSUInteger)index {
-	[self.mutableArray insertObject:object atIndex:index];
-	
-	self.state = kFXArrayModelDidChange;
+	if (![self containsObject:object]) {
+		[self.mutableArray insertObject:object atIndex:index];
+		
+//		self.state = kFXArrayModelDidChange;
+		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:index]];
+	}
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
 	if (index < [self count]) {
 		[self.mutableArray removeObjectAtIndex:index];
+		
+//		self.state = kFXArrayModelDidChange;
+		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
 	}
-	
-	self.state = kFXArrayModelDidChange;
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
-	[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
-	
-	self.state = kFXArrayModelDidChange;
+	NSUInteger count = [self count];
+	if (fromIndex < count && toIndex < count) {
+		[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
+		
+//		self.state = kFXArrayModelDidChange;
+		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges moveModelFromIndex:fromIndex 
+																						  toIndex:toIndex]];
+	}
+}
+
+- (BOOL)containsObject:(id)object {
+	return [self.mutableArray containsObject:object];
 }
 
 - (NSUInteger)indexOfObject:(id)object {

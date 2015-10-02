@@ -118,13 +118,13 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
   forRowAtIndexPath:(NSIndexPath *)indexPath 
 {
 	FXArrayModel *arrayModel = self.arrayModel;
-	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
+//	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
 	if (UITableViewCellEditingStyleInsert == editingStyle) {
 		[arrayModel insertObjectAtIndex:[FXDataModel new] index:indexPath.row];
-		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+//		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 	} else if (UITableViewCellEditingStyleDelete == editingStyle) {
 		[arrayModel removeObjectAtIndex:indexPath.row];
-		[tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+//		[tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 	} 
 }
 
@@ -154,13 +154,14 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 #pragma mark -
 #pragma mark FXArrayModelObserver protocol
 
-- (void)arrayModelDidChange:(FXArrayModel *)arrayModel {
-	NSLog(@"arrayModelDidChange");
-	[self.dataView.tableView reloadData];
-}
+//- (void)arrayModelDidChange:(FXArrayModel *)arrayModel {
+//	NSLog(@"arrayModelDidChange");
+//	[self.dataView.tableView reloadData];
+//}
 
 - (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(MRFArrayChangesModel *)changes {
-	
+	NSLog(@"arrayModel:didChangeWithChanges: %@", changes);
+	[self.dataView.tableView updateWithChanges:changes];
 }
 
 @end

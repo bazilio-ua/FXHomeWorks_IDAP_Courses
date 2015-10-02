@@ -56,7 +56,7 @@
 												 state:kFXArrayModelChangesRemoving];
 }
 
-+ (FXArrayModelChangesTwoIndices *)moveModelWithIndex:(NSUInteger)fromIndex 
++ (FXArrayModelChangesTwoIndices *)moveModelFromIndex:(NSUInteger)fromIndex 
 											  toIndex:(NSUInteger)toIndex 
 {
 	return [FXArrayModelChangesTwoIndices modelFromIndex:fromIndex 

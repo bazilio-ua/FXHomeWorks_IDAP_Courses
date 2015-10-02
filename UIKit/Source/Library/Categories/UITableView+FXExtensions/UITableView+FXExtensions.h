@@ -11,5 +11,6 @@
 @interface UITableView (FXExtensions)
 
 - (id)dequeueReusableCellWithClass:(Class)aClass;
+- (void)updateWithChanges:(id)changes;
 
 @end

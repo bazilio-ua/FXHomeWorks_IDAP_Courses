@@ -47,17 +47,21 @@
 #pragma mark Class Methods
 
 + (FXArrayModelChangesOneIndex *)addModelWithIndex:(NSUInteger)index {
-	return nil;
+	return [FXArrayModelChangesOneIndex modelWithIndex:index 
+												 state:kFXArrayModelChangesAdding];
 }
 
 + (FXArrayModelChangesOneIndex *)removeModelWithIndex:(NSUInteger)index {
-	return nil;
+	return [FXArrayModelChangesOneIndex modelWithIndex:index 
+												 state:kFXArrayModelChangesRemoving];
 }
 
 + (FXArrayModelChangesTwoIndices *)moveModelWithIndex:(NSUInteger)fromIndex 
 											  toIndex:(NSUInteger)toIndex 
 {
-	return nil;
+	return [FXArrayModelChangesTwoIndices modelFromIndex:fromIndex 
+												 toIndex:toIndex 
+												   state:kFXArrayModelChangesMoving];
 }
 
 @end
@@ -68,17 +72,21 @@
 #pragma mark Class Methods
 
 + (FXArrayModelChangesOneIndex *)addModelWithIndexPath:(NSIndexPath *)indexPath {
-	return nil;
+	return [FXArrayModelChangesOneIndex modelWithIndexPath:indexPath 
+													 state:kFXArrayModelChangesAdding];
 }
 
 + (FXArrayModelChangesOneIndex *)removeModelWithIndexPath:(NSIndexPath *)indexPath {
-	return nil;
+	return [FXArrayModelChangesOneIndex modelWithIndexPath:indexPath 
+													 state:kFXArrayModelChangesRemoving];
 }
 
 + (FXArrayModelChangesTwoIndices *)moveModelFromIndexPath:(NSIndexPath *)fromIndexPath 
 											  toIndexPath:(NSIndexPath *)toIndexPath 
 {
-	return nil;
+	return [FXArrayModelChangesTwoIndices modelFromIndexPath:fromIndexPath 
+												 toIndexPath:toIndexPath 
+													   state:kFXArrayModelChangesMoving];
 }
 
 @end

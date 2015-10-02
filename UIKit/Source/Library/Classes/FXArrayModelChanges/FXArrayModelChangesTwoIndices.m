@@ -63,7 +63,9 @@
 			 toIndexPath:(NSIndexPath *)toIndexPath 
 				   state:(FXArrayModelChangesState)state 
 {
-	return nil;
+	return [self modelFromIndex:fromIndexPath.row 
+						toIndex:toIndexPath.row 
+						  state:state];
 }
 
 #pragma mark -

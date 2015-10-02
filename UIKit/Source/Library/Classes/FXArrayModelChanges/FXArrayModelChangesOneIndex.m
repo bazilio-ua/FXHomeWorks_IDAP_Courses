@@ -48,7 +48,7 @@
 #pragma mark Class Methods
 
 + (id)modelWithIndexPath:(NSIndexPath *)indexPath state:(FXArrayModelChangesState)state {
-	return nil;
+	return [self modelWithIndex:indexPath.row state:state];
 }
 
 #pragma mark -

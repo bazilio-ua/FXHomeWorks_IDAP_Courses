@@ -9,5 +9,25 @@
 #import "FXArrayModelChanges.h"
 
 @interface FXArrayModelChangesTwoIndices : FXArrayModelChanges
+@property (nonatomic, readonly)	NSUInteger	fromIndex;
+@property (nonatomic, readonly)	NSUInteger	toIndex;
+
++ (id)modelFromIndex:(NSUInteger)fromIndex 
+			 toIndex:(NSUInteger)toIndex 
+			   state:(FXArrayModelChangesState)state;
+
+- (id)initFromIndex:(NSUInteger)fromIndex 
+			toIndex:(NSUInteger)toIndex 
+			  state:(FXArrayModelChangesState)state;
+
+@end
+
+@interface FXArrayModelChangesTwoIndices (FXIndexPath)
+@property (nonatomic, readonly)	NSIndexPath *fromIndexPath;
+@property (nonatomic, readonly)	NSIndexPath *toIndexPath;
+
++ (id)modelFromIndexPath:(NSIndexPath *)fromIndexPath 
+			 toIndexPath:(NSIndexPath *)toIndexPath 
+				   state:(FXArrayModelChangesState)state;
 
 @end

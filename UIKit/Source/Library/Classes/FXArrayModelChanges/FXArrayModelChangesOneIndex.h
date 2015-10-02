@@ -9,5 +9,17 @@
 #import "FXArrayModelChanges.h"
 
 @interface FXArrayModelChangesOneIndex : FXArrayModelChanges
+@property (nonatomic, readonly)	NSUInteger	index;
+
++ (id)modelWithIndex:(NSUInteger)index state:(FXArrayModelChangesState)state;
+
+- (id)initWithIndex:(NSUInteger)index state:(FXArrayModelChangesState)state;
+
+@end
+
+@interface FXArrayModelChangesOneIndex (FXIndexPath)
+@property (nonatomic, readonly)	NSIndexPath	*indexPath;
+
++ (id)modelWithIndexPath:(NSIndexPath *)indexPath state:(FXArrayModelChangesState)state;
 
 @end

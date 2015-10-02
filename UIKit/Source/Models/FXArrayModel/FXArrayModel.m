@@ -63,7 +63,6 @@
 	SEL selector = NULL;
 	switch (state) {
 		case kFXArrayModelDidChange:
-//			selector = @selector(arrayModelDidChange:);
 			selector = @selector(arrayModel:didChangeWithChanges:);
 			break;
 			
@@ -81,7 +80,6 @@
 	if (![self containsObject:object]) {
 		[self.mutableArray addObject:object];
 		
-//		self.state = kFXArrayModelDidChange;
 		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:([self count] - 1)]];
 	}
 }
@@ -91,7 +89,6 @@
 		NSUInteger index = [self indexOfObject:object];
 		[self.mutableArray removeObject:object];
 		
-//		self.state = kFXArrayModelDidChange;
 		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
 	}
 }
@@ -100,7 +97,6 @@
 	if (![self containsObject:object]) {
 		[self.mutableArray insertObject:object atIndex:index];
 		
-//		self.state = kFXArrayModelDidChange;
 		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:index]];
 	}
 }
@@ -109,7 +105,6 @@
 	if (index < [self count]) {
 		[self.mutableArray removeObjectAtIndex:index];
 		
-//		self.state = kFXArrayModelDidChange;
 		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
 	}
 }
@@ -119,7 +114,6 @@
 	if (fromIndex < count && toIndex < count) {
 		[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
 		
-//		self.state = kFXArrayModelDidChange;
 		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges moveModelFromIndex:fromIndex 
 																						  toIndex:toIndex]];
 	}

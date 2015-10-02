@@ -51,7 +51,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	NSLog(@"Add");
 
 	[self.arrayModel addObject:[FXDataModel new]];
-//	[self.dataView.tableView reloadData];
 	
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
@@ -61,7 +60,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	
 	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
 	[self.arrayModel removeObjectAtIndex:selectedIndexPath.row];
-//	[self.dataView.tableView reloadData];
 	
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
@@ -108,8 +106,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	FXDataCell *cell = [tableView dequeueReusableCellWithClass:[FXDataCell class]];
 	cell.model = [self.arrayModel objectAtIndex:indexPath.row];
 	
-//	NSLog(@"row: %d", indexPath.row); // DEBUG
-	
 	return cell;
 }
 
@@ -118,13 +114,10 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
   forRowAtIndexPath:(NSIndexPath *)indexPath 
 {
 	FXArrayModel *arrayModel = self.arrayModel;
-//	NSArray *indexPathArray = [NSArray arrayWithObject:indexPath];
 	if (UITableViewCellEditingStyleInsert == editingStyle) {
 		[arrayModel insertObjectAtIndex:[FXDataModel new] index:indexPath.row];
-//		[tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 	} else if (UITableViewCellEditingStyleDelete == editingStyle) {
 		[arrayModel removeObjectAtIndex:indexPath.row];
-//		[tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
 	} 
 }
 
@@ -153,11 +146,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 
 #pragma mark -
 #pragma mark FXArrayModelObserver protocol
-
-//- (void)arrayModelDidChange:(FXArrayModel *)arrayModel {
-//	NSLog(@"arrayModelDidChange");
-//	[self.dataView.tableView reloadData];
-//}
 
 - (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(MRFArrayChangesModel *)changes {
 	NSLog(@"arrayModel:didChangeWithChanges: %@", changes);

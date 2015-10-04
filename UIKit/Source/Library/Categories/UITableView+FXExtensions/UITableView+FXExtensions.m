@@ -28,6 +28,10 @@
 	return cell;
 }
 
+- (NSInteger)numberOfRows {
+	return [self numberOfRowsInSection:0];
+}
+
 - (void)updateWithChanges:(id)changes {
 	NSIndexPath *atIndexPath = nil;
 	NSIndexPath *toIndexPath = nil;

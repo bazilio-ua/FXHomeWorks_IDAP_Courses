@@ -11,6 +11,7 @@
 @interface UITableView (FXExtensions)
 
 - (id)dequeueReusableCellWithClass:(Class)aClass;
+- (NSInteger)numberOfRows;
 - (void)updateWithChanges:(id)changes;
 
 @end

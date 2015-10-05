@@ -13,6 +13,7 @@
 #import "FXArrayModelChangesTwoIndices.h"
 
 #import "UINib+FXExtensions.h"
+#import "FXArrayModelChanges+UITableView.h"
 
 @implementation UITableView (FXExtensions)
 
@@ -33,27 +34,15 @@
 }
 
 - (void)updateWithChanges:(id)changes {
-	switch ([changes state]) {
-		case kFXArrayModelChangesAdding: {
-			[self insertRowsAtIndexPaths:[NSArray arrayWithObject:[changes indexPath]]
-						withRowAnimation:UITableViewRowAnimationAutomatic];
-		}
-			break;
-			
-		case kFXArrayModelChangesRemoving: {
-			[self deleteRowsAtIndexPaths:[NSArray arrayWithObject:[changes indexPath]]
-						withRowAnimation:UITableViewRowAnimationAutomatic];
-		}
-			break;
-			
-		case kFXArrayModelChangesMoving: {
-			[self moveRowAtIndexPath:[changes fromIndexPath] toIndexPath:[changes toIndexPath]];
-		}
-			break;
-			
-		default:
-			break;
-	}
+	[self updateWithChanges:changes rowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)updateWithChanges:(id)changes rowAnimation:(UITableViewRowAnimation)rowAnimation {
+	[self beginUpdates];
+	
+	[changes applyToTableView:self rowAnimation:rowAnimation];
+	
+	[self endUpdates];
 }
 
 @end

@@ -10,6 +10,7 @@
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		423649E41BB1E0F00020C57E /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */; };
 		423649E51BB1E0F40020C57E /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */; };
+		42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */; };
 		4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AECE1BB7E7030008544C /* NSIndexPath+FXExtensions.m */; };
 		4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */; };
 		4247AF2B1BB848CC0008544C /* FXArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF2A1BB848CC0008544C /* FXArrayModel.m */; };
@@ -310,6 +311,8 @@
 		423649E81BB1E1390020C57E /* FXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableViewCell.m; sourceTree = "<group>"; };
 		4236B3481B6BB041003510F9 /* FXAlphabet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAlphabet; sourceTree = BUILT_PRODUCTS_DIR; };
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
+		42415D391BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXArrayModelChanges+UITableView.h"; sourceTree = "<group>"; };
+		42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FXArrayModelChanges+UITableView.m"; sourceTree = "<group>"; };
 		4247AECD1BB7E7030008544C /* NSIndexPath+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+FXExtensions.h"; sourceTree = "<group>"; };
 		4247AECE1BB7E7030008544C /* NSIndexPath+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+FXExtensions.m"; sourceTree = "<group>"; };
 		4247AEE91BB7EFDF0008544C /* NSMutableArray+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FXExtensions.h"; sourceTree = "<group>"; };
@@ -751,6 +754,15 @@
 			path = FXTableViewCell;
 			sourceTree = "<group>";
 		};
+		42415D381BC2DF6400B4B181 /* FXArrayModelChanges+UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				42415D391BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.h */,
+				42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */,
+			);
+			path = "FXArrayModelChanges+UITableView";
+			sourceTree = "<group>";
+		};
 		4247AECB1BB7E6D30008544C /* NSIndexPath+FXExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +822,7 @@
 		425094341BA2C0880015E950 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				42415D381BC2DF6400B4B181 /* FXArrayModelChanges+UITableView */,
 				4247AEE81BB7EFAB0008544C /* NSMutableArray+FXExtensions */,
 				4247AECB1BB7E6D30008544C /* NSIndexPath+FXExtensions */,
 				423649D41BB1E0BA0020C57E /* UINib+FXExtensions */,
@@ -2384,6 +2397,7 @@
 				42CD7B131BBE82CE00250E58 /* FXArrayModelChanges.m in Sources */,
 				42CD7B161BBE864C00250E58 /* FXArrayModelChangesOneIndex.m in Sources */,
 				42CD7B191BBE867800250E58 /* FXArrayModelChangesTwoIndices.m in Sources */,
+				42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

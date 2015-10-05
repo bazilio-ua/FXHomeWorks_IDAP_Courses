@@ -37,12 +37,8 @@ static const NSUInteger kFXDefaultDataStringLength = 10;
 	static UIImage *__image = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-//		// without cache
-//		NSString *path = [[NSBundle mainBundle] pathForResource:@"objc" ofType:@"png"];
-//		__image = [UIImage imageWithContentsOfFile:path];
-		
-		// with cache
-		__image = [UIImage imageNamed:@"objc.png"];
+		// use cache
+		__image = [UIImage imageNamed:@"objc"];
 	});
 	
 	return __image;

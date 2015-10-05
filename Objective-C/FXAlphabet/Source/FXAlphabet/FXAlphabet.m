@@ -134,7 +134,7 @@
 }
 
 #pragma mark -
-#pragma mark NSFastEnumeration protocol for FXAlphabet
+#pragma mark NSFastEnumeration protocol
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state 
 								  objects:(id *)buffer 

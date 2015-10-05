@@ -33,31 +33,21 @@
 }
 
 - (void)updateWithChanges:(id)changes {
-	NSIndexPath *atIndexPath = nil;
-	NSIndexPath *toIndexPath = nil;
-	
-	if ([changes isMemberOfClass:[FXArrayModelChangesOneIndex class]]) {
-		atIndexPath = [changes indexPath];
-	} else if ([changes isMemberOfClass:[FXArrayModelChangesTwoIndices class]]) {
-		atIndexPath = [changes fromIndexPath];
-		toIndexPath = [changes toIndexPath];
-	}
-	
 	switch ([changes state]) {
 		case kFXArrayModelChangesAdding: {
-			[self insertRowsAtIndexPaths:[NSArray arrayWithObject:atIndexPath] 
+			[self insertRowsAtIndexPaths:[NSArray arrayWithObject:[changes indexPath]]
 						withRowAnimation:UITableViewRowAnimationAutomatic];
 		}
 			break;
 			
 		case kFXArrayModelChangesRemoving: {
-			[self deleteRowsAtIndexPaths:[NSArray arrayWithObject:atIndexPath] 
+			[self deleteRowsAtIndexPaths:[NSArray arrayWithObject:[changes indexPath]]
 						withRowAnimation:UITableViewRowAnimationAutomatic];
 		}
 			break;
 			
 		case kFXArrayModelChangesMoving: {
-			[self moveRowAtIndexPath:atIndexPath toIndexPath:toIndexPath];
+			[self moveRowAtIndexPath:[changes fromIndexPath] toIndexPath:[changes toIndexPath]];
 		}
 			break;
 			

@@ -14,7 +14,7 @@ typedef enum {
 	kFXArrayModelDidChange
 } FXArrayModelState;
 
-@interface FXArrayModel : FXObservableObject
+@interface FXArrayModel : FXObservableObject <NSFastEnumeration>
 @property (nonatomic, readonly)	NSArray				*array;
 @property (nonatomic, assign)	FXArrayModelState	state;
 

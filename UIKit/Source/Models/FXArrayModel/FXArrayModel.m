@@ -131,15 +131,25 @@
 	return [self.mutableArray objectAtIndex:index];
 }
 
-/*
- -objectAtIndexedSubscript: for NSArray* does the exact same thing as -objectAtIndex:
- */
+/* -objectAtIndexedSubscript: for NSArray* does the exact same thing as -objectAtIndex: */
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
 	return [self.mutableArray objectAtIndex:index];
 }
 
 - (NSUInteger)count {
 	return [self.mutableArray count];
+}
+
+#pragma mark -
+#pragma mark NSFastEnumeration protocol
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state 
+								  objects:(__unsafe_unretained id [])buffer 
+									count:(NSUInteger)len 
+{
+	return [self.mutableArray countByEnumeratingWithState:state 
+												  objects:buffer 
+													count:len];
 }
 
 @end

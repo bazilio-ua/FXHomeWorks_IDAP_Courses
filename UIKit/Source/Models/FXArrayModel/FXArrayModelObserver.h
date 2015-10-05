@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class FXArrayModel;
-@class FXArrayChangesModel;
+@class FXArrayModelChanges;
 
 @protocol FXArrayModelObserver <NSObject>
 
 @required
-- (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(FXArrayChangesModel *)changes;
+- (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes;
 
 @end

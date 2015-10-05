@@ -11,6 +11,7 @@
 #import "NSString+FXExtensions.h"
 
 static const NSUInteger kFXDefaultDataStringLength = 10;
+static NSString * const kFXDefaultDataImageName = @"objc";
 
 @implementation FXDataModel
 
@@ -37,8 +38,7 @@ static const NSUInteger kFXDefaultDataStringLength = 10;
 	static UIImage *__image = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		// use cache
-		__image = [UIImage imageNamed:@"objc"];
+		__image = [UIImage imageNamed:kFXDefaultDataImageName];
 	});
 	
 	return __image;

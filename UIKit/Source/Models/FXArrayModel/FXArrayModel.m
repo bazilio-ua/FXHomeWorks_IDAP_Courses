@@ -144,7 +144,7 @@
 #pragma mark NSFastEnumeration protocol
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state 
-								  objects:(__unsafe_unretained id [])buffer 
+								  objects:(__unsafe_unretained id[])buffer 
 									count:(NSUInteger)len 
 {
 	return [self.mutableArray countByEnumeratingWithState:state 

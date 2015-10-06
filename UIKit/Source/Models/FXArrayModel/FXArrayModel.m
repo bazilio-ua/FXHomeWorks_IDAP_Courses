@@ -94,7 +94,7 @@
 }
 
 - (void)insertObjectAtIndex:(id)object index:(NSUInteger)index {
-	if (![self containsObject:object]) {
+	if (![self containsObject:object] && index < [self count]) {
 		[self.mutableArray insertObject:object atIndex:index];
 		
 		[self setState:kFXArrayModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:index]];

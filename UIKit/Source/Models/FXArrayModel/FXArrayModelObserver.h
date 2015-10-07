@@ -13,6 +13,12 @@
 
 @protocol FXArrayModelObserver <NSObject>
 
+@optional
+- (void)modelDidUnload:(id)model;
+- (void)modelDidLoading:(id)model;
+- (void)modelDidLoad:(id)model;
+- (void)modelDidFailedLoading:(id)model;
+
 @required
 - (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes;
 

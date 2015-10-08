@@ -26,6 +26,6 @@ void FXDispatchAsyncOnMainQueueWithBlock(dispatch_block_t block) {
 
 void FXDispatchAsyncOnBackgroundQueueWithBlock(dispatch_block_t block) {
 	if (block) {
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block);
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 	}
 }

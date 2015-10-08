@@ -15,4 +15,4 @@ extern
 void FXDispatchAsyncOnMainQueueWithBlock(dispatch_block_t block);
 
 extern
-void FXDispatchAsyncOnGlobalQueueWithBlock(dispatch_block_t block);
+void FXDispatchAsyncOnBackgroundQueueWithBlock(dispatch_block_t block);

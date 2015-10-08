@@ -158,8 +158,8 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 #pragma mark -
 #pragma mark FXModelObserver protocol
 
-- (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes {
-	NSLog(@"arrayModel:didChangeWithChanges: %@", changes);
+- (void)model:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes {
+	NSLog(@"model:didChangeWithChanges: %@", changes);
 	[self.dataView.tableView updateWithChanges:changes];
 }
 

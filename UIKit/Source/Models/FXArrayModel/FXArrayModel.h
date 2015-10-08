@@ -10,20 +10,11 @@
 
 #import "FXModel.h"
 
-typedef enum {
-	kFXArrayModelUnloaded,
-	kFXArrayModelLoading,
-	kFXArrayModelLoaded,
-	kFXArrayModelFailedLoading,
-	kFXArrayModelDidChange
-} FXArrayModelState;
-
 @interface FXArrayModel : FXModel <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly)	NSArray				*array;
-@property (nonatomic, assign)	FXArrayModelState	state;
+@property (nonatomic, assign)	FXModelState	state;
 
-- (void)setState:(FXArrayModelState)state withChanges:(id)changes;
-- (SEL)selectorForState:(FXArrayModelState)state;
+- (void)setState:(FXModelState)state withChanges:(id)changes;
 
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;

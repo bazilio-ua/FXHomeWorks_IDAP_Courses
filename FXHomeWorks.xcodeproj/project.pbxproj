@@ -328,8 +328,8 @@
 		4247AF381BB851260008544C /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
 		424AD6FD1BBD90FF00405666 /* FXDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDispatch.h; sourceTree = "<group>"; };
 		424AD6FE1BBD90FF00405666 /* FXDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDispatch.m; sourceTree = "<group>"; };
-		424D5BA31BC6F73C00702752 /* FXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModel.h; sourceTree = "<group>"; };
-		424D5BA41BC6F73C00702752 /* FXModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModel.m; sourceTree = "<group>"; };
+		424D5BA31BC6F73C00702752 /* FXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FXModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		424D5BA41BC6F73C00702752 /* FXModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		424D5BA61BC6FDC200702752 /* FXModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelObserver.h; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D17161B9F5A61009A30BE /* FXSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };

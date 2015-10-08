@@ -17,6 +17,6 @@
 - (void)modelDidFailLoading:(id)model;
 
 @required
-- (void)arrayModel:(id)model didChangeWithChanges:(id)changes;
+- (void)model:(id)model didChangeWithChanges:(id)changes;
 
 @end

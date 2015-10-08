@@ -8,6 +8,16 @@
 
 #import "FXObservableObject.h"
 
+typedef enum {
+	kFXArrayModelUnloaded,
+	kFXArrayModelLoading,
+	kFXArrayModelLoaded,
+	kFXArrayModelFailedLoading,
+	kFXModelDidChange
+} FXModelState;
+
 @interface FXModel : FXObservableObject
+
+- (SEL)selectorForState:(FXModelState)state;
 
 @end

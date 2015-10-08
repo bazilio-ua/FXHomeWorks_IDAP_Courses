@@ -8,6 +8,25 @@
 
 #import "FXModel.h"
 
+#import "FXModelObserver.h"
+
 @implementation FXModel
+
+#pragma mark -
+#pragma mark Overloaded Methods
+
+- (SEL)selectorForState:(FXModelState)state {
+	SEL selector = NULL;
+	switch (state) {
+		case kFXModelDidChange:
+			selector = @selector(model:didChangeWithChanges:);
+			break;
+			
+		default:
+			break;
+	}
+	
+	return selector;
+}
 
 @end

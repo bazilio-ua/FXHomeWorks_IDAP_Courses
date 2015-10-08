@@ -11,7 +11,7 @@
 #import "FXModel.h"
 
 @interface FXArrayModel : FXModel <NSFastEnumeration, NSCoding>
-@property (nonatomic, readonly)	NSArray				*array;
+@property (nonatomic, readonly)	NSArray			*array;
 @property (nonatomic, assign)	FXModelState	state;
 
 - (void)setState:(FXModelState)state withChanges:(id)changes;

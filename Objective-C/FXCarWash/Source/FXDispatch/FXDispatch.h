@@ -13,3 +13,6 @@ void FXDispatchSyncOnMainQueueWithBlock(dispatch_block_t block);
 
 extern
 void FXDispatchAsyncOnMainQueueWithBlock(dispatch_block_t block);
+
+extern
+void FXDispatchAsyncOnGlobalQueueWithBlock(dispatch_block_t block);

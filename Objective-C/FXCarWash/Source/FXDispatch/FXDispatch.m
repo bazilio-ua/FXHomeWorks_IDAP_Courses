@@ -20,10 +20,12 @@ void FXDispatchSyncOnMainQueueWithBlock(dispatch_block_t block) {
 
 void FXDispatchAsyncOnMainQueueWithBlock(dispatch_block_t block) {
 	if (block) {
-		if ([NSThread isMainThread]) {
-			block();
-		} else {
-			dispatch_async(dispatch_get_main_queue(), block);
-		}
+		dispatch_async(dispatch_get_main_queue(), block);
+	}
+}
+
+void FXDispatchAsyncOnBackgroundQueueWithBlock(dispatch_block_t block) {
+	if (block) {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), block);
 	}
 }

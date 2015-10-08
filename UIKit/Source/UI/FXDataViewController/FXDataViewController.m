@@ -13,6 +13,7 @@
 
 #import "FXDataModel.h"
 #import "FXArrayModel.h"
+#import "FXArrayModelChanges.h"
 
 #import "UINib+FXExtensions.h"
 #import "UITableView+FXExtensions.h"
@@ -155,7 +156,7 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 }
 
 #pragma mark -
-#pragma mark FXArrayModelObserver protocol
+#pragma mark FXModelObserver protocol
 
 - (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes {
 	NSLog(@"arrayModel:didChangeWithChanges: %@", changes);

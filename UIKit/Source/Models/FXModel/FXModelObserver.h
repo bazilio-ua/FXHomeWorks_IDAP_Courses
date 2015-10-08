@@ -1,5 +1,5 @@
 //
-//  FXArrayModelObserver.h
+//  FXModelObserver.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 10/1/15.
@@ -8,18 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class FXArrayModel;
-@class FXArrayModelChanges;
-
-@protocol FXArrayModelObserver <NSObject>
+@protocol FXModelObserver <NSObject>
 
 @optional
 - (void)modelDidUnload:(id)model;
 - (void)modelDidLoading:(id)model;
 - (void)modelDidLoad:(id)model;
-- (void)modelDidFailedLoading:(id)model;
+- (void)modelDidFailLoading:(id)model;
 
 @required
-- (void)arrayModel:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes;
+- (void)arrayModel:(id)model didChangeWithChanges:(id)changes;
 
 @end

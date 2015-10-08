@@ -13,7 +13,7 @@
 static const NSUInteger kFXDefaultDataStringLength = 10;
 static NSString * const kFXDefaultDataImageName = @"objc";
 
-static NSString * const kFXDefaultCoderKeyName = @"text";
+static NSString * const kFXDefaultDataKeyName = @"text";
 
 @implementation FXDataModel
 
@@ -52,14 +52,14 @@ static NSString * const kFXDefaultCoderKeyName = @"text";
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
 	if (self) {
-		self.text = [decoder decodeObjectForKey:kFXDefaultCoderKeyName];
+		self.text = [decoder decodeObjectForKey:kFXDefaultDataKeyName];
 	}
 	
 	return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	[coder encodeObject:self.text forKey:kFXDefaultCoderKeyName];
+	[coder encodeObject:self.text forKey:kFXDefaultDataKeyName];
 }
 
 @end

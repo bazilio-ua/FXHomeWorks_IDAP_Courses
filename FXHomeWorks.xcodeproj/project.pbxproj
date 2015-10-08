@@ -19,6 +19,7 @@
 		4247AF3A1BB851260008544C /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4247AF381BB851260008544C /* FXDataCell.xib */; };
 		424AD6FF1BBD90FF00405666 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AD6FE1BBD90FF00405666 /* FXDispatch.m */; };
 		424AD7001BBD90FF00405666 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AD6FE1BBD90FF00405666 /* FXDispatch.m */; };
+		424D5BA51BC6F73C00702752 /* FXModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 424D5BA41BC6F73C00702752 /* FXModel.m */; };
 		425448CC1B559EE40006EE8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		425D44121BB7235E005BFAF9 /* FXDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D440A1BB7235E005BFAF9 /* FXDataView.m */; };
 		425D44131BB7235E005BFAF9 /* FXDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D440C1BB7235E005BFAF9 /* FXDataViewController.m */; };
@@ -319,7 +320,7 @@
 		4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FXExtensions.m"; sourceTree = "<group>"; };
 		4247AEF01BB8328D0008544C /* FXMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMacros.h; sourceTree = "<group>"; };
 		4247AF291BB848CC0008544C /* FXArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayModel.h; sourceTree = "<group>"; };
-		4247AF2A1BB848CC0008544C /* FXArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXArrayModel.m; sourceTree = "<group>"; };
+		4247AF2A1BB848CC0008544C /* FXArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXArrayModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4247AF321BB84DD70008544C /* FXDataModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataModelArray.h; sourceTree = "<group>"; };
 		4247AF331BB84DD70008544C /* FXDataModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModelArray.m; sourceTree = "<group>"; };
 		4247AF361BB851260008544C /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
@@ -327,12 +328,14 @@
 		4247AF381BB851260008544C /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
 		424AD6FD1BBD90FF00405666 /* FXDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDispatch.h; sourceTree = "<group>"; };
 		424AD6FE1BBD90FF00405666 /* FXDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDispatch.m; sourceTree = "<group>"; };
-		424AD7111BBD968F00405666 /* FXArrayModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FXArrayModelObserver.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		424D5BA31BC6F73C00702752 /* FXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModel.h; sourceTree = "<group>"; };
+		424D5BA41BC6F73C00702752 /* FXModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXModel.m; sourceTree = "<group>"; };
+		424D5BA61BC6FDC200702752 /* FXModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXModelObserver.h; sourceTree = "<group>"; };
 		425448BC1B559E8F0006EE8D /* FXCarWash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCarWash; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D17161B9F5A61009A30BE /* FXSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425D44091BB7235E005BFAF9 /* FXDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataView.h; sourceTree = "<group>"; };
 		425D440A1BB7235E005BFAF9 /* FXDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataView.m; sourceTree = "<group>"; };
-		425D440B1BB7235E005BFAF9 /* FXDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataViewController.h; sourceTree = "<group>"; };
+		425D440B1BB7235E005BFAF9 /* FXDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FXDataViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		425D440C1BB7235E005BFAF9 /* FXDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXDataViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		425D44171BB74342005BFAF9 /* FXDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataViewController.xib; sourceTree = "<group>"; };
 		425FDA7D1BAD7F32007132BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -786,7 +789,6 @@
 			children = (
 				4247AF291BB848CC0008544C /* FXArrayModel.h */,
 				4247AF2A1BB848CC0008544C /* FXArrayModel.m */,
-				424AD7111BBD968F00405666 /* FXArrayModelObserver.h */,
 			);
 			path = FXArrayModel;
 			sourceTree = "<group>";
@@ -817,6 +819,16 @@
 				424AD6FE1BBD90FF00405666 /* FXDispatch.m */,
 			);
 			path = FXDispatch;
+			sourceTree = "<group>";
+		};
+		424D5BA11BC6F6FA00702752 /* FXModel */ = {
+			isa = PBXGroup;
+			children = (
+				424D5BA31BC6F73C00702752 /* FXModel.h */,
+				424D5BA41BC6F73C00702752 /* FXModel.m */,
+				424D5BA61BC6FDC200702752 /* FXModelObserver.h */,
+			);
+			path = FXModel;
 			sourceTree = "<group>";
 		};
 		425094341BA2C0880015E950 /* Categories */ = {
@@ -1777,6 +1789,7 @@
 		4297468D1BA0BAA90063FE20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				424D5BA11BC6F6FA00702752 /* FXModel */,
 				4247AF311BB84DD70008544C /* FXDataModelArray */,
 				4247AF281BB848CC0008544C /* FXArrayModel */,
 				42DDCFDA1BAEA26B000ADABB /* FXDataModel */,
@@ -2398,6 +2411,7 @@
 				42CD7B161BBE864C00250E58 /* FXArrayModelChangesOneIndex.m in Sources */,
 				42CD7B191BBE867800250E58 /* FXArrayModelChangesTwoIndices.m in Sources */,
 				42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */,
+				424D5BA51BC6F73C00702752 /* FXModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

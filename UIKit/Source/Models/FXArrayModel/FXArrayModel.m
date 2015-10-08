@@ -9,9 +9,11 @@
 #import "FXArrayModel.h"
 
 #import "FXArrayModelChanges.h"
-#import "FXArrayModelObserver.h"
+#import "FXModelObserver.h"
 
 #import "NSMutableArray+FXExtensions.h"
+
+static NSString * const kFXDefaultArrayKeyName = @"mutableArray";
 
 @interface FXArrayModel ()
 @property (nonatomic, strong)	NSMutableArray	*mutableArray;
@@ -150,6 +152,22 @@
 	return [self.mutableArray countByEnumeratingWithState:state 
 												  objects:buffer 
 													count:len];
+}
+
+#pragma mark -
+#pragma mark NSCoding protocol
+
+- (id)initWithCoder:(NSCoder *)decoder {
+	self = [super init];
+	if (self) {
+		self.mutableArray = [decoder decodeObjectForKey:kFXDefaultArrayKeyName];
+	}
+	
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:self.mutableArray forKey:kFXDefaultArrayKeyName];
 }
 
 @end

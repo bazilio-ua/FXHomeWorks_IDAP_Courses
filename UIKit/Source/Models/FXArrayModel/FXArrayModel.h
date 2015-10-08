@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FXObservableObject.h"
+#import "FXModel.h"
 
 typedef enum {
 	kFXArrayModelUnloaded,
@@ -18,7 +18,7 @@ typedef enum {
 	kFXArrayModelDidChange
 } FXArrayModelState;
 
-@interface FXArrayModel : FXObservableObject <NSFastEnumeration>
+@interface FXArrayModel : FXModel <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly)	NSArray				*array;
 @property (nonatomic, assign)	FXArrayModelState	state;
 

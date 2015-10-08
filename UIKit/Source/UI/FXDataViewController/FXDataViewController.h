@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FXArrayModelObserver.h"
+#import "FXModelObserver.h"
 
 @class FXArrayModel;
 
-@interface FXDataViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FXArrayModelObserver>
+@interface FXDataViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FXModelObserver>
 @property (nonatomic, strong)	FXArrayModel	*arrayModel;
 
 - (IBAction)onTapAddButton:(id)sender;

@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXDataModel : NSObject <NSCoding>
+#import "FXModel.h"
+
+@interface FXDataModel : FXModel <NSCoding>
 @property (nonatomic, readonly)	UIImage		*image;
 @property (nonatomic, copy)		NSString	*text;
 

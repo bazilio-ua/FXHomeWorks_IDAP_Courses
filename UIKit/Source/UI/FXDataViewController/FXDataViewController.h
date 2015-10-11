@@ -15,8 +15,8 @@
 @interface FXDataViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FXModelObserver>
 @property (nonatomic, strong)	FXArrayModel	*arrayModel;
 
-- (IBAction)onTapAddButton:(id)sender;
-- (IBAction)onTapRemoveButton:(id)sender;
-- (IBAction)onTapEditButton:(id)sender;
+- (IBAction)onAddButton:(id)sender;
+- (IBAction)onRemoveButton:(id)sender;
+- (IBAction)onEditButton:(id)sender;
 
 @end

@@ -48,7 +48,7 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 #pragma mark -
 #pragma mark User Interactions
 
-- (IBAction)onTapAddButton:(id)sender {
+- (IBAction)onAddButton:(id)sender {
 	NSLog(@"Add");
 
 	[self.arrayModel addObject:[FXDataModel new]];
@@ -61,7 +61,7 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
-- (IBAction)onTapRemoveButton:(id)sender {
+- (IBAction)onRemoveButton:(id)sender {
 	NSLog(@"Remove");
 	
 	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
@@ -75,7 +75,7 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
-- (IBAction)onTapEditButton:(id)sender {
+- (IBAction)onEditButton:(id)sender {
 	NSLog(@"Edit");
 	
 	FXDataView *dataView = self.dataView;

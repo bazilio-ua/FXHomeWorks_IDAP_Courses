@@ -12,6 +12,23 @@
 
 @implementation FXModel
 
+@synthesize state 			= _state;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setState:(FXModelState)state {
+	[self setState:state withChanges:nil];
+}
+
+- (void)setState:(FXModelState)state withChanges:(id)changes {
+	if (state != _state) {
+		_state = state;
+	}
+	
+	[self notifyObserversWithSelector:[self selectorForState:state] withObject:changes];
+}
+
 #pragma mark -
 #pragma mark Overloaded Methods
 

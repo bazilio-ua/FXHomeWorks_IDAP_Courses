@@ -22,7 +22,6 @@ static NSString * const kFXDefaultArrayKeyName = @"mutableArray";
 @implementation FXArrayModel
 
 @synthesize mutableArray	= _mutableArray;
-@synthesize state 			= _state;
 
 @dynamic array;
 
@@ -43,18 +42,6 @@ static NSString * const kFXDefaultArrayKeyName = @"mutableArray";
 
 - (NSArray *)array {
 	return [self.mutableArray copy];
-}
-
-- (void)setState:(FXModelState)state {
-	[self setState:state withChanges:nil];
-}
-
-- (void)setState:(FXModelState)state withChanges:(id)changes {
-	if (state != _state) {
-		_state = state;
-	}
-	
-	[self notifyObserversWithSelector:[self selectorForState:state] withObject:changes];
 }
 
 #pragma mark -

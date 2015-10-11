@@ -17,6 +17,9 @@ typedef enum {
 } FXModelState;
 
 @interface FXModel : FXObservableObject
+@property (nonatomic, assign)	FXModelState	state;
+
+- (void)setState:(FXModelState)state withChanges:(id)changes;
 
 - (SEL)selectorForState:(FXModelState)state;
 

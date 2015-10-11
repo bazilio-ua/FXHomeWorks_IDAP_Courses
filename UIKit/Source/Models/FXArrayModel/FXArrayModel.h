@@ -12,9 +12,6 @@
 
 @interface FXArrayModel : FXModel <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly)	NSArray			*array;
-@property (nonatomic, assign)	FXModelState	state;
-
-- (void)setState:(FXModelState)state withChanges:(id)changes;
 
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;

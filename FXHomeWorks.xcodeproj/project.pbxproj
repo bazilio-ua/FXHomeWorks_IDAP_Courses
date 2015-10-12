@@ -10,6 +10,8 @@
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		423649E41BB1E0F00020C57E /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */; };
 		423649E51BB1E0F40020C57E /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */; };
+		423F77CD1BCC1EDE00EEEBEA /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423F77CB1BCC1EDD00EEEBEA /* FXLoadingView.m */; };
+		423F77CE1BCC1EDE00EEEBEA /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423F77CC1BCC1EDE00EEEBEA /* FXLoadingView.xib */; };
 		42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */; };
 		4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AECE1BB7E7030008544C /* NSIndexPath+FXExtensions.m */; };
 		4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */; };
@@ -312,6 +314,9 @@
 		423649E81BB1E1390020C57E /* FXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableViewCell.m; sourceTree = "<group>"; };
 		4236B3481B6BB041003510F9 /* FXAlphabet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAlphabet; sourceTree = BUILT_PRODUCTS_DIR; };
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
+		423F77CA1BCC1EDD00EEEBEA /* FXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
+		423F77CB1BCC1EDD00EEEBEA /* FXLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingView.m; sourceTree = "<group>"; };
+		423F77CC1BCC1EDE00EEEBEA /* FXLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoadingView.xib; sourceTree = "<group>"; };
 		42415D391BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXArrayModelChanges+UITableView.h"; sourceTree = "<group>"; };
 		42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FXArrayModelChanges+UITableView.m"; sourceTree = "<group>"; };
 		4247AECD1BB7E7030008544C /* NSIndexPath+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+FXExtensions.h"; sourceTree = "<group>"; };
@@ -808,6 +813,9 @@
 				4247AF361BB851260008544C /* FXDataCell.h */,
 				4247AF371BB851260008544C /* FXDataCell.m */,
 				4247AF381BB851260008544C /* FXDataCell.xib */,
+				423F77CA1BCC1EDD00EEEBEA /* FXLoadingView.h */,
+				423F77CB1BCC1EDD00EEEBEA /* FXLoadingView.m */,
+				423F77CC1BCC1EDE00EEEBEA /* FXLoadingView.xib */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -2214,6 +2222,7 @@
 				428F93F41BB71B970032DFA6 /* objc.png in Resources */,
 				425D44181BB74343005BFAF9 /* FXDataViewController.xib in Resources */,
 				4247AF3A1BB851260008544C /* FXDataCell.xib in Resources */,
+				423F77CE1BCC1EDE00EEEBEA /* FXLoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2412,6 +2421,7 @@
 				42CD7B191BBE867800250E58 /* FXArrayModelChangesTwoIndices.m in Sources */,
 				42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */,
 				424D5BA51BC6F73C00702752 /* FXModel.m in Sources */,
+				423F77CD1BCC1EDE00EEEBEA /* FXLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

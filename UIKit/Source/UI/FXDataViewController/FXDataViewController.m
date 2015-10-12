@@ -153,4 +153,16 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	[self.dataView.tableView updateWithChanges:changes];
 }
 
+- (void)modelWillLoad:(id)model {
+	
+}
+
+- (void)modelDidLoad:(id)model {
+	
+}
+
+- (void)modelFailedLoading:(id)model {
+	
+}
+
 @end

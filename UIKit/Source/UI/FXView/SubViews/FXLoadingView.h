@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FXLoadingView : UIView
+@property (nonatomic, readonly, getter = isVisible)	BOOL	visible;
 
 @end

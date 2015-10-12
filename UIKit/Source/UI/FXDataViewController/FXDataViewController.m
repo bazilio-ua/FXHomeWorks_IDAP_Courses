@@ -53,11 +53,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 
 	[self.arrayModel addObject:[FXDataModel new]];
 	
-	UITableView *tableView = self.dataView.tableView;
-	if (tableView.editing) {
-		[tableView reloadData]; // hack to force reload table when edition mode
-	}
-	
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
 
@@ -66,11 +61,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	
 	NSIndexPath *selectedIndexPath = [self.dataView.tableView indexPathForSelectedRow];
 	[self.arrayModel removeObjectAtIndex:selectedIndexPath.row];
-
-	UITableView *tableView = self.dataView.tableView;
-	if (tableView.editing) {
-		[tableView reloadData]; // hack to force reload table when edition mode
-	}
 	
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }

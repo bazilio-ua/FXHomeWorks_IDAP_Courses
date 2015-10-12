@@ -27,6 +27,8 @@
 		case kFXArrayModelChangesAdding: {
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:self.indexPath]
 							 withRowAnimation:rowAnimation];
+			[tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows] 
+							 withRowAnimation:rowAnimation];
 		}
 			break;
 			

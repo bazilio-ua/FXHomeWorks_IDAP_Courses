@@ -35,6 +35,18 @@
 - (SEL)selectorForState:(FXModelState)state {
 	SEL selector = NULL;
 	switch (state) {
+		case kFXModelWillLoad:
+			selector = @selector(modelWillLoad:);
+			break;
+			
+		case kFXModelDidLoad:
+			selector = @selector(modelDidLoad:);
+			break;
+			
+		case kFXModelFailedLoading:
+			selector = @selector(modelFailedLoading:);
+			break;
+			
 		case kFXModelDidChange:
 			selector = @selector(model:didChangeWithChanges:);
 			break;

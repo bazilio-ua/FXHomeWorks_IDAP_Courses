@@ -33,7 +33,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="210511975">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUITableView" id="854665759">
@@ -41,6 +41,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 398}</string>
 						<reference key="NSSuperview" ref="210511975"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="574061469"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="256279256">
 							<int key="NSColorSpace">3</int>
@@ -58,9 +59,10 @@
 					</object>
 					<object class="IBUIButton" id="257418040">
 						<reference key="NSNextResponder" ref="210511975"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">265</int>
 						<string key="NSFrame">{{228, 412}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="210511975"/>
+						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -88,9 +90,10 @@
 					</object>
 					<object class="IBUIButton" id="574061469">
 						<reference key="NSNextResponder" ref="210511975"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{20, 412}, {83, 37}}</string>
 						<reference key="NSSuperview" ref="210511975"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="605294374"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -109,9 +112,10 @@
 					</object>
 					<object class="IBUIButton" id="605294374">
 						<reference key="NSNextResponder" ref="210511975"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{111, 412}, {83, 37}}</string>
 						<reference key="NSSuperview" ref="210511975"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="257418040"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -130,6 +134,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 460}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="854665759"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -335,21 +341,21 @@
 					<string key="className">FXDataViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="onTapAddButton:">id</string>
-						<string key="onTapEditButton:">id</string>
-						<string key="onTapRemoveButton:">id</string>
+						<string key="onAddButton:">id</string>
+						<string key="onEditButton:">id</string>
+						<string key="onRemoveButton:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="onTapAddButton:">
-							<string key="name">onTapAddButton:</string>
+						<object class="IBActionInfo" key="onAddButton:">
+							<string key="name">onAddButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="onTapEditButton:">
-							<string key="name">onTapEditButton:</string>
+						<object class="IBActionInfo" key="onEditButton:">
+							<string key="name">onEditButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="onTapRemoveButton:">
-							<string key="name">onTapRemoveButton:</string>
+						<object class="IBActionInfo" key="onRemoveButton:">
+							<string key="name">onRemoveButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

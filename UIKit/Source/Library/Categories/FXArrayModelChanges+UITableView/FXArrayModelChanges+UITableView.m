@@ -27,8 +27,10 @@
 		case kFXArrayModelChangesAdding: {
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:self.indexPath]
 							 withRowAnimation:rowAnimation];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 80000
 			[tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows] 
-							 withRowAnimation:rowAnimation];
+							 withRowAnimation:UITableViewRowAnimationNone];
+#endif
 		}
 			break;
 			

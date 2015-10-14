@@ -14,4 +14,6 @@
 
 - (id)initWithCount:(NSUInteger)count;
 
+- (void)save;
+
 @end

@@ -10,6 +10,9 @@
 
 @implementation NSIndexPath (FXExtensions)
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (NSIndexPath *)indexPathForRow:(NSInteger)row {
 	return [self indexPathForRow:row inSection:0];
 }

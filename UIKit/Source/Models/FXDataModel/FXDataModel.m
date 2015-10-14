@@ -8,6 +8,8 @@
 
 #import "FXDataModel.h"
 
+#import "FXDispatch.h"
+
 #import "NSString+FXExtensions.h"
 
 static const NSUInteger kFXDefaultDataStringLength = 10;
@@ -15,9 +17,16 @@ static NSString * const kFXDefaultDataImageName = @"objc";
 
 static NSString * const kFXDefaultDataName = @"text";
 
+@interface FXDataModel ()
+@property (nonatomic, strong)	UIImage		*mutableImage;
+
+@end
+
 @implementation FXDataModel
 
 @dynamic image;
+
+@synthesize mutableImage = _mutableImage;
 
 @synthesize text = _text;
 
@@ -44,6 +53,22 @@ static NSString * const kFXDefaultDataName = @"text";
 	});
 	
 	return __image;
+}
+
+#pragma mark -
+#pragma mark Overriden Public Methods
+
+- (void)performLoading {
+	[NSThread sleepForTimeInterval:5]; // do -> Macro!
+	self.mutableImage = [UIImage imageNamed:kFXDefaultDataImageName];
+	
+	FXDispatchAsyncOnMainQueueWithBlock(^{
+		void(^block)(void) = ^{
+			self.state = kFXModelLoaded;
+		};
+		
+		[self performBlock:block withNotification:YES];
+	});
 }
 
 #pragma mark -

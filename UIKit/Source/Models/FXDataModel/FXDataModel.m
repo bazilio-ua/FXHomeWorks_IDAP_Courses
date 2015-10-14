@@ -9,13 +9,14 @@
 #import "FXDataModel.h"
 
 #import "FXDispatch.h"
+#import "FXMacros.h"
 
 #import "NSString+FXExtensions.h"
 
-static const NSUInteger kFXDefaultDataStringLength = 10;
 static NSString * const kFXDefaultDataImageName = @"objc";
-
 static NSString * const kFXDefaultDataName = @"text";
+static const NSUInteger kFXDefaultDataStringLength = 10;
+static const NSUInteger kFXDefaultSleepTimeInterval = 5;
 
 @interface FXDataModel ()
 @property (nonatomic, strong)	UIImage		*mutableImage;
@@ -59,7 +60,7 @@ static NSString * const kFXDefaultDataName = @"text";
 #pragma mark Overriden Public Methods
 
 - (void)performLoading {
-	[NSThread sleepForTimeInterval:5]; // do -> Macro!
+	FXSleep(kFXDefaultSleepTimeInterval);
 	self.mutableImage = [UIImage imageNamed:kFXDefaultDataImageName];
 	
 	FXDispatchAsyncOnMainQueueWithBlock(^{

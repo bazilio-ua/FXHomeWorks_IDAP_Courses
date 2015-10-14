@@ -10,11 +10,12 @@
 
 #import "FXDataModel.h"
 #import "FXDispatch.h"
+#import "FXMacros.h"
 
 #import "NSFileManager+FXExtensions.h"
 
+static const NSUInteger kFXDefaultSleepTimeInterval = 5;
 static const NSUInteger kFXDefaultDataModelsCount = 9;
-
 static NSString * const kFXDefaultFileName = @"FXTable.plist";
 
 @interface FXDataModelsArray ()
@@ -85,7 +86,7 @@ static NSString * const kFXDefaultFileName = @"FXTable.plist";
 
 - (void)performLoading {
 	if ([self isCached]) {
-		[NSThread sleepForTimeInterval:5]; // do -> Macro!
+		FXSleep(kFXDefaultSleepTimeInterval);
 		id modelsArray = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
 		
 		void(^block)(void) = ^{

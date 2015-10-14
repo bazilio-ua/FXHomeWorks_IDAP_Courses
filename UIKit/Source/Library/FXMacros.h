@@ -59,3 +59,13 @@
 #define FXStrongifyAndReturnNilIfNil(object) \
 	FXStrongifyAndReturnResultIfNil(object, nil)
 
+/*
+ * sleepy macro
+ */
+#define FXSleepDefine 1
+
+#ifdef FXSleepDefine
+	#define FXSleep(time) [NSThread sleepForTimeInterval:time]
+#else
+	#define FXSleep(time)
+#endif

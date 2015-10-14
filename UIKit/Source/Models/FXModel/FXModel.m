@@ -8,11 +8,19 @@
 
 #import "FXModel.h"
 
+#import "FXMacros.h"
+#import "FXDispatch.h"
 #import "FXModelObserver.h"
+
+@interface FXModel ()
+@property (nonatomic, assign)	BOOL	shouldNotify;
+
+@end
 
 @implementation FXModel
 
 @synthesize state 			= _state;
+@synthesize shouldNotify	= _shouldNotify;
 
 #pragma mark -
 #pragma mark Accessors
@@ -26,7 +34,9 @@
 		_state = state;
 	}
 	
-	[self notifyObserversWithSelector:[self selectorForState:state] withObject:changes];
+	if (self.shouldNotify) {
+		[self notifyObserversWithSelector:[self selectorForState:state] withObject:changes];
+	}
 }
 
 #pragma mark -
@@ -57,6 +67,52 @@
 	}
 	
 	return selector;
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)load {
+	@synchronized(self) {
+		FXModelState state = self.state;
+		if (kFXModelLoaded == state || kFXModelWillLoad == state) {
+			[self notifyObserversWithSelector:[self selectorForState:state]];
+			
+			return;
+		}
+		
+		void(^block)(void) = ^{
+			self.state = kFXModelWillLoad;
+		};
+		
+		[self performBlock:block shouldNotify:YES];
+	}
+	
+	[self setupLoading];
+	
+	FXWeakify(self);
+	FXDispatchAsyncOnBackgroundQueueWithBlock(^{
+		FXStrongifyAndReturnIfNil(self);
+		[self performLoading];
+	});
+}
+
+- (void)setupLoading {
+	// intended to be reloaded in subclasses
+}
+
+- (void)performLoading {
+	// intended to be reloaded in subclasses
+}
+
+- (void)performBlock:(void (^)(void))block shouldNotify:(BOOL)shouldNotify {
+	BOOL notificationState = self.shouldNotify;
+	self.shouldNotify = shouldNotify;
+	if (block) {
+		block();
+	}
+	
+	self.shouldNotify = notificationState;
 }
 
 @end

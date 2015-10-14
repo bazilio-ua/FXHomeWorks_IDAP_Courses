@@ -23,4 +23,10 @@ typedef enum {
 
 - (SEL)selectorForState:(FXModelState)state;
 
+- (void)load;
+- (void)setupLoading;
+- (void)performLoading;
+
+- (void)performBlock:(void (^)(void))block shouldNotify:(BOOL)shouldNotify;
+
 @end

@@ -11,4 +11,11 @@
 @interface FXLoadingView : UIView
 @property (nonatomic, readonly, getter = isVisible)	BOOL	visible;
 
++ (id)viewWithView:(UIView *)view;
+
+- (id)initWithView:(UIView *)view;
+
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated;
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(void))completion;
+
 @end

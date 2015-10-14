@@ -15,6 +15,7 @@
 
 - (id)initWithView:(UIView *)view;
 
+- (void)setVisible:(BOOL)visible;
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated;
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(void))completion;
 

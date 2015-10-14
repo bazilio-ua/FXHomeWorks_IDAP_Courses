@@ -154,11 +154,11 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 }
 
 - (void)modelWillLoad:(id)model {
-	
+	[self.dataView showLoadingView];
 }
 
 - (void)modelDidLoad:(id)model {
-	
+	[self.dataView hideLoadingView];
 }
 
 - (void)modelFailedLoading:(id)model {

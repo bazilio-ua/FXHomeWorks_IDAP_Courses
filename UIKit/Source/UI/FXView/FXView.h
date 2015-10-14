@@ -12,5 +12,10 @@
 
 @interface FXView : UIView
 @property (nonatomic, strong)	FXLoadingView	*loadingView;
+@property (nonatomic, readonly, getter = isLoadingViewVisible)	BOOL	loadingViewVisible;
+
+- (void)connectLoadingView;
+- (void)showLoadingView;
+- (void)hideLoadingView;
 
 @end

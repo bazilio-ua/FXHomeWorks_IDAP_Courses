@@ -8,8 +8,50 @@
 
 #import "FXView.h"
 
+#import "FXLoadingView.h"
+
 @implementation FXView
 
 @synthesize loadingView = _loadingView;
+
+@dynamic loadingViewVisible;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+	self.loadingView = nil;
+}
+
+#pragma mark - 
+#pragma mark Accessors
+
+- (BOOL)isLoadingViewVisible {
+	return self.loadingView.visible;
+}
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	
+	[self connectLoadingView];
+}
+
+#pragma mark - 
+#pragma mark Public Methods
+
+- (void)connectLoadingView {
+	self.loadingView = [FXLoadingView viewWithView:self];
+}
+
+- (void)showLoadingView {
+	[self.loadingView setVisible:YES];
+}
+
+- (void)hideLoadingView {
+	[self.loadingView setVisible:NO];
+}
 
 @end

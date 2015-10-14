@@ -17,7 +17,7 @@
 		4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AECE1BB7E7030008544C /* NSIndexPath+FXExtensions.m */; };
 		4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */; };
 		4247AF2B1BB848CC0008544C /* FXArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF2A1BB848CC0008544C /* FXArrayModel.m */; };
-		4247AF341BB84DD70008544C /* FXDataModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF331BB84DD70008544C /* FXDataModelArray.m */; };
+		4247AF341BB84DD70008544C /* FXDataModelsArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF331BB84DD70008544C /* FXDataModelsArray.m */; };
 		4247AF391BB851260008544C /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF371BB851260008544C /* FXDataCell.m */; };
 		4247AF3A1BB851260008544C /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4247AF381BB851260008544C /* FXDataCell.xib */; };
 		424AD6FF1BBD90FF00405666 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AD6FE1BBD90FF00405666 /* FXDispatch.m */; };
@@ -331,8 +331,8 @@
 		4247AEF01BB8328D0008544C /* FXMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMacros.h; sourceTree = "<group>"; };
 		4247AF291BB848CC0008544C /* FXArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayModel.h; sourceTree = "<group>"; };
 		4247AF2A1BB848CC0008544C /* FXArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXArrayModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4247AF321BB84DD70008544C /* FXDataModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataModelArray.h; sourceTree = "<group>"; };
-		4247AF331BB84DD70008544C /* FXDataModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModelArray.m; sourceTree = "<group>"; };
+		4247AF321BB84DD70008544C /* FXDataModelsArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataModelsArray.h; sourceTree = "<group>"; };
+		4247AF331BB84DD70008544C /* FXDataModelsArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModelsArray.m; sourceTree = "<group>"; };
 		4247AF361BB851260008544C /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
 		4247AF371BB851260008544C /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
 		4247AF381BB851260008544C /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
@@ -828,8 +828,8 @@
 		4247AF311BB84DD70008544C /* FXDataModelArray */ = {
 			isa = PBXGroup;
 			children = (
-				4247AF321BB84DD70008544C /* FXDataModelArray.h */,
-				4247AF331BB84DD70008544C /* FXDataModelArray.m */,
+				4247AF321BB84DD70008544C /* FXDataModelsArray.h */,
+				4247AF331BB84DD70008544C /* FXDataModelsArray.m */,
 			);
 			path = FXDataModelArray;
 			sourceTree = "<group>";
@@ -2448,7 +2448,7 @@
 				4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */,
 				4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */,
 				4247AF2B1BB848CC0008544C /* FXArrayModel.m in Sources */,
-				4247AF341BB84DD70008544C /* FXDataModelArray.m in Sources */,
+				4247AF341BB84DD70008544C /* FXDataModelsArray.m in Sources */,
 				4247AF391BB851260008544C /* FXDataCell.m in Sources */,
 				424AD7001BBD90FF00405666 /* FXDispatch.m in Sources */,
 				42CD7B131BBE82CE00250E58 /* FXArrayModelChanges.m in Sources */,

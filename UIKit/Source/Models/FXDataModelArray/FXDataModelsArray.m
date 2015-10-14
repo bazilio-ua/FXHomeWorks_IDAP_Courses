@@ -1,23 +1,23 @@
 //
-//  FXDataModelArray.m
+//  FXDataModelsArray.m
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/27/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXDataModelArray.h"
+#import "FXDataModelsArray.h"
 
 #import "FXDataModel.h"
 #import "FXDispatch.h"
 
 #import "NSFileManager+FXExtensions.h"
 
-static const NSUInteger kFXDefaultDataModelCount = 9;
+static const NSUInteger kFXDefaultDataModelsCount = 9;
 
 static NSString * const kFXDefaultFileName = @"FXTable.plist";
 
-@interface FXDataModelArray ()
+@interface FXDataModelsArray ()
 @property (nonatomic, readonly)	NSString	*fileName;
 @property (nonatomic, readonly)	NSString	*fileFolder;
 @property (nonatomic, readonly)	NSString	*filePath;
@@ -28,7 +28,7 @@ static NSString * const kFXDefaultFileName = @"FXTable.plist";
 
 @end
 
-@implementation FXDataModelArray
+@implementation FXDataModelsArray
 
 @dynamic fileName;
 @dynamic fileFolder;
@@ -96,7 +96,7 @@ static NSString * const kFXDefaultFileName = @"FXTable.plist";
 		
 		[self performBlock:block withNotification:NO];
 	} else {
-		[self fillWithModels:kFXDefaultDataModelCount];
+		[self fillWithModels:kFXDefaultDataModelsCount];
 	}
 	
 	FXDispatchAsyncOnMainQueueWithBlock(^{

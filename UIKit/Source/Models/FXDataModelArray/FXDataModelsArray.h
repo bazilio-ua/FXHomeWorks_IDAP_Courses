@@ -1,5 +1,5 @@
 //
-//  FXDataModelArray.h
+//  FXDataModelsArray.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 9/27/15.
@@ -8,7 +8,7 @@
 
 #import "FXArrayModel.h"
 
-@interface FXDataModelArray : FXArrayModel
+@interface FXDataModelsArray : FXArrayModel
 
 + (id)arrayWithCount:(NSUInteger)count;
 

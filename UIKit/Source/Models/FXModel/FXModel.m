@@ -23,6 +23,18 @@
 @synthesize shouldNotify	= _shouldNotify;
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (id)init {
+	self = [super init];
+	if (self) {
+		self.shouldNotify = YES;
+	}
+	
+	return self;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setState:(FXModelState)state {
@@ -85,7 +97,7 @@
 			self.state = kFXModelWillLoad;
 		};
 		
-		[self performBlock:block shouldNotify:YES];
+		[self performBlock:block withNotification:YES];
 	}
 	
 	[self setupLoading];
@@ -105,14 +117,14 @@
 	// intended to be reloaded in subclasses
 }
 
-- (void)performBlock:(void (^)(void))block shouldNotify:(BOOL)shouldNotify {
-	BOOL notificationState = self.shouldNotify;
-	self.shouldNotify = shouldNotify;
+- (void)performBlock:(void (^)(void))block withNotification:(BOOL)notification {
+	BOOL shouldNotify = self.shouldNotify;
+	self.shouldNotify = notification;
 	if (block) {
 		block();
 	}
 	
-	self.shouldNotify = notificationState;
+	self.shouldNotify = shouldNotify;
 }
 
 @end

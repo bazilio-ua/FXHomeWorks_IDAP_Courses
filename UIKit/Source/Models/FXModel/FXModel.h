@@ -27,6 +27,6 @@ typedef enum {
 - (void)setupLoading;
 - (void)performLoading;
 
-- (void)performBlock:(void (^)(void))block shouldNotify:(BOOL)shouldNotify;
+- (void)performBlock:(void (^)(void))block withNotification:(BOOL)notification;
 
 @end

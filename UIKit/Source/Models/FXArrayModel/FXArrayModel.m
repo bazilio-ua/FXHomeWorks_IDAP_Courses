@@ -12,7 +12,7 @@
 
 #import "NSMutableArray+FXExtensions.h"
 
-static NSString * const kFXDefaultArrayKeyName = @"mutableArray";
+static NSString * const kFXDefaultArrayName = @"mutableArray";
 
 @interface FXArrayModel ()
 @property (nonatomic, strong)	NSMutableArray	*mutableArray;
@@ -129,14 +129,14 @@ static NSString * const kFXDefaultArrayKeyName = @"mutableArray";
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
 	if (self) {
-		self.mutableArray = [decoder decodeObjectForKey:kFXDefaultArrayKeyName];
+		self.mutableArray = [decoder decodeObjectForKey:kFXDefaultArrayName];
 	}
 	
 	return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-	[coder encodeObject:self.mutableArray forKey:kFXDefaultArrayKeyName];
+	[coder encodeObject:self.mutableArray forKey:kFXDefaultArrayName];
 }
 
 @end

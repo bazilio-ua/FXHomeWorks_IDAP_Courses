@@ -161,8 +161,8 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 	[self.dataView hideLoadingView];
 }
 
-- (void)modelFailedLoading:(id)model {
-	
+- (void)modelDidFailedLoading:(id)model {
+	// TODO: add to loading view message for 'fail' case
 }
 
 @end

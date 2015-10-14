@@ -39,18 +39,19 @@
 			selector = @selector(modelWillLoad:);
 			break;
 			
-		case kFXModelDidLoad:
+		case kFXModelLoaded:
 			selector = @selector(modelDidLoad:);
 			break;
 			
 		case kFXModelFailedLoading:
-			selector = @selector(modelFailedLoading:);
+			selector = @selector(modelDidFailedLoading:);
 			break;
 			
 		case kFXModelDidChange:
 			selector = @selector(model:didChangeWithChanges:);
 			break;
 			
+		case kFXModelUnloaded:
 		default:
 			break;
 	}

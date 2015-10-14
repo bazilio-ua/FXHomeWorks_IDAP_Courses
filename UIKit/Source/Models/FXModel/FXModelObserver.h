@@ -13,7 +13,7 @@
 @optional
 - (void)modelWillLoad:(id)model;
 - (void)modelDidLoad:(id)model;
-- (void)modelFailedLoading:(id)model;
+- (void)modelDidFailedLoading:(id)model;
 
 @required
 - (void)model:(id)model didChangeWithChanges:(id)changes;

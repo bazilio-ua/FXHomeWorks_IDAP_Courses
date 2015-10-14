@@ -9,9 +9,9 @@
 #import "FXObservableObject.h"
 
 typedef enum {
-	kFXModelUnload,
+	kFXModelUnloaded,
 	kFXModelWillLoad,
-	kFXModelDidLoad,
+	kFXModelLoaded,
 	kFXModelFailedLoading,
 	kFXModelDidChange
 } FXModelState;

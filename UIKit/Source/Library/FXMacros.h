@@ -60,11 +60,32 @@
 	FXStrongifyAndReturnResultIfNil(object, nil)
 
 /*
+ * synthesize setter macro
+ */
+
+#define FXSynthesizeObservableSetterWithExpression(propertyName, expression) \
+	if (_##propertyName != propertyName) { \
+		[_##propertyName removeObserver:self]; \
+		_##propertyName = propertyName; \
+		[_##propertyName addObserver:self]; \
+		expression \
+	}
+
+#define FXLoad(propertyName) \
+	[_##propertyName load];
+
+#define FXSynthesizeObservableSetter(propertyName) \
+	FXSynthesizeObservableSetterWithExpression(propertyName, FXEmpty)
+
+#define FXSynthesizeObservableSetterAndLoad(propertyName) \
+	FXSynthesizeObservableSetterWithExpression(propertyName, FXLoad(propertyName))
+
+/*
  * sleepy macro
  */
 #define FXSleepDefine 1
 
-#ifdef FXSleepDefine
+#if FXSleepDefine
 	#define FXSleep(time) [NSThread sleepForTimeInterval:time]
 #else
 	#define FXSleep(time)

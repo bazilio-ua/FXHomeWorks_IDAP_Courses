@@ -10,10 +10,13 @@
 
 #import "FXDataModel.h"
 
+#import "FXMacros.h"
+
 @implementation FXDataCell
 
 @synthesize imageView	= _image;
 @synthesize stringLabel	= _string;
+@synthesize spinnerView = _spinner;
 
 @synthesize model	= _model;
 
@@ -21,9 +24,7 @@
 #pragma mark Accessors
 
 - (void)setModel:(FXDataModel *)model {
-	if (_model != model) {
-		_model = model;
-	}
+	FXSynthesizeObservableSetterAndLoad(model);
 	
 	[self fillWithModel:model];
 }
@@ -34,6 +35,25 @@
 - (void)fillWithModel:(FXDataModel *)model {
 	self.imageView.image = model.image;
 	self.stringLabel.text = model.text;
+}
+
+#pragma mark -
+#pragma mark FXModelObserver protocol
+
+- (void)modelWillLoad:(id)model {
+	NSLog(@"modelWillLoad:");
+	[self.spinnerView startAnimating];
+}
+
+- (void)modelDidLoad:(id)model {
+	NSLog(@"modelDidLoad:");
+	[self fillWithModel:model];
+	[self.spinnerView stopAnimating];
+	
+}
+
+- (void)modelDidFailLoading:(id)model {
+	NSLog(@"modelDidFailLoading:");
 }
 
 @end

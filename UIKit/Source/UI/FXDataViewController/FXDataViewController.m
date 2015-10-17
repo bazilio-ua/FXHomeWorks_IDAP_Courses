@@ -38,11 +38,7 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 #pragma mark Accessors
 
 - (void)setArrayModel:(FXArrayModel *)arrayModel {
-	if (_arrayModel != arrayModel) {
-		[_arrayModel removeObserver:self];
-		_arrayModel = arrayModel;
-		[_arrayModel addObserver:self];
-	}
+	FXSynthesizeObservableSetterAndLoad(arrayModel);
 }
 
 #pragma mark -

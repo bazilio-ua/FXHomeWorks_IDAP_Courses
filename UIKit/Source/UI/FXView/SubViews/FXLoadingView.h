@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface FXLoadingView : UIView
-@property (nonatomic, readonly, getter = isVisible)	BOOL	visible;
+@property (nonatomic, assign, getter = isVisible)	BOOL	visible;
 
-+ (id)viewWithView:(UIView *)view;
++ (id)viewWithSuperview:(UIView *)superview;
 
-- (id)initWithView:(UIView *)view;
+- (id)initWithSuperview:(UIView *)superview;
 
-- (void)setVisible:(BOOL)visible;
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated;
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(void))completion;
 

@@ -43,15 +43,15 @@
 #pragma mark Public Methods
 
 - (void)connectLoadingView {
-	self.loadingView = [FXLoadingView viewWithView:self];
+	self.loadingView = [FXLoadingView viewWithSuperview:self];
 }
 
 - (void)showLoadingView {
-	[self.loadingView setVisible:YES];
+	self.loadingView.visible = YES;
 }
 
 - (void)hideLoadingView {
-	[self.loadingView setVisible:NO];
+	self.loadingView.visible = NO;
 }
 
 @end

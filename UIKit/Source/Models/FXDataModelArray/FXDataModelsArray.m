@@ -14,9 +14,9 @@
 
 #import "NSFileManager+FXExtensions.h"
 
-static const NSUInteger kFXDefaultSleepTimeInterval = 5;
-static const NSUInteger kFXDefaultDataModelsCount = 9;
-static NSString * const kFXDefaultFileName = @"FXTable.plist";
+static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
+static const NSUInteger kFXDefaultDataModelsCount	= 9;
+static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 
 @interface FXDataModelsArray ()
 @property (nonatomic, readonly)	NSString	*fileName;
@@ -81,6 +81,10 @@ static NSString * const kFXDefaultFileName = @"FXTable.plist";
 	[NSKeyedArchiver archiveRootObject:self toFile:self.filePath];
 }
 
+- (void)dump {
+	
+}
+
 #pragma mark -
 #pragma mark Overriden Public Methods
 
@@ -95,7 +99,7 @@ static NSString * const kFXDefaultFileName = @"FXTable.plist";
 			}
 		};
 		
-		[self performBlock:block withNotification:NO];
+		[self performBlock:block shouldNotify:NO];
 	} else {
 		[self fillWithModels:kFXDefaultDataModelsCount];
 	}
@@ -105,7 +109,7 @@ static NSString * const kFXDefaultFileName = @"FXTable.plist";
 			self.state = kFXModelLoaded;
 		};
 		
-		[self performBlock:block withNotification:YES];
+		[self performBlock:block shouldNotify:YES];
 	});
 }
 
@@ -119,7 +123,7 @@ static NSString * const kFXDefaultFileName = @"FXTable.plist";
 		}
 	};
 	
-	[self performBlock:block withNotification:NO];
+	[self performBlock:block shouldNotify:NO];
 }
 
 @end

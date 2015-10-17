@@ -154,14 +154,17 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 }
 
 - (void)modelWillLoad:(id)model {
+	NSLog(@"modelWillLoad:");
 	[self.dataView showLoadingView];
 }
 
 - (void)modelDidLoad:(id)model {
+	NSLog(@"modelDidLoad:");
 	[self.dataView hideLoadingView];
 }
 
-- (void)modelDidFailedLoading:(id)model {
+- (void)modelDidFailLoading:(id)model {
+	NSLog(@"modelDidFailLoading:");
 	// TODO: add to loading view message for 'fail' case
 }
 

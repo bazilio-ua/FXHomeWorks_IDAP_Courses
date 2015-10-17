@@ -13,23 +13,20 @@
 
 #import "NSString+FXExtensions.h"
 
-static NSString * const kFXDefaultDataImageName = @"objc";
-static NSString * const kFXDefaultDataName = @"text";
-static const NSUInteger kFXDefaultDataStringLength = 10;
-static const NSUInteger kFXDefaultSleepTimeInterval = 5;
+static NSString * const kFXDefaultDataImageName		= @"objc";
+static NSString * const kFXDefaultDataName			= @"text";
+static const NSUInteger kFXDefaultDataStringLength	= 10;
+static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 
 @interface FXDataModel ()
-@property (nonatomic, strong)	UIImage		*mutableImage;
+@property (nonatomic, strong)	UIImage		*image;
 
 @end
 
 @implementation FXDataModel
 
-@dynamic image;
-
-@synthesize mutableImage = _mutableImage;
-
-@synthesize text = _text;
+@synthesize image	= _image;
+@synthesize text	= _text;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -46,29 +43,19 @@ static const NSUInteger kFXDefaultSleepTimeInterval = 5;
 #pragma mark -
 #pragma mark Accessors
 
-- (UIImage *)image {
-	static UIImage *__image = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		__image = [UIImage imageNamed:kFXDefaultDataImageName];
-	});
-	
-	return __image;
-}
-
 #pragma mark -
 #pragma mark Overriden Public Methods
 
 - (void)performLoading {
 	FXSleep(kFXDefaultSleepTimeInterval);
-	self.mutableImage = [UIImage imageNamed:kFXDefaultDataImageName];
+	self.image = [UIImage imageNamed:kFXDefaultDataImageName];
 	
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		void(^block)(void) = ^{
 			self.state = kFXModelLoaded;
 		};
 		
-		[self performBlock:block withNotification:YES];
+		[self performBlock:block shouldNotify:YES];
 	});
 }
 

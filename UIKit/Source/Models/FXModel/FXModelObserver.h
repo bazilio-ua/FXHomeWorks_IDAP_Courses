@@ -13,9 +13,7 @@
 @optional
 - (void)modelWillLoad:(id)model;
 - (void)modelDidLoad:(id)model;
-- (void)modelDidFailedLoading:(id)model;
-
-@required
+- (void)modelDidFailLoading:(id)model;
 - (void)model:(id)model didChangeWithChanges:(id)changes;
 
 @end

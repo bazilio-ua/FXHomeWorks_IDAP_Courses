@@ -66,7 +66,7 @@
 			break;
 			
 		case kFXModelFailedLoading:
-			selector = @selector(modelDidFailedLoading:);
+			selector = @selector(modelDidFailLoading:);
 			break;
 			
 		case kFXModelDidChange:
@@ -97,7 +97,7 @@
 			self.state = kFXModelWillLoad;
 		};
 		
-		[self performBlock:block withNotification:YES];
+		[self performBlock:block shouldNotify:YES];
 	}
 	
 	[self setupLoading];
@@ -117,14 +117,14 @@
 	// intended to be reloaded in subclasses
 }
 
-- (void)performBlock:(void (^)(void))block withNotification:(BOOL)notification {
-	BOOL shouldNotify = self.shouldNotify;
-	self.shouldNotify = notification;
+- (void)performBlock:(void (^)(void))block shouldNotify:(BOOL)shouldNotify {
+	BOOL notificationState = self.shouldNotify;
+	self.shouldNotify = shouldNotify;
 	if (block) {
 		block();
 	}
 	
-	self.shouldNotify = shouldNotify;
+	self.shouldNotify = notificationState;
 }
 
 @end

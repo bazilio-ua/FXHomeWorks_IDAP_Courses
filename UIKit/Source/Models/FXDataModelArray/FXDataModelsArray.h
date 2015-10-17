@@ -15,5 +15,6 @@
 - (id)initWithCount:(NSUInteger)count;
 
 - (void)save;
+- (void)dump;
 
 @end

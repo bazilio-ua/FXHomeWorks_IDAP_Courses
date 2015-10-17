@@ -14,7 +14,6 @@ static const NSTimeInterval kFXLoadViewAnimationDuration	= 5;
 static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 
 @interface FXLoadingView ()
-@property (nonatomic, assign)	BOOL	visible;
 
 @end
 
@@ -25,21 +24,22 @@ static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 #pragma mark -
 #pragma mark Class Methods
 
-+ (id)viewWithView:(UIView *)view {
-	return [[self alloc] initWithView:view];
+
++ (id)viewWithSuperview:(UIView *)superview {
+	return [[self alloc] initWithSuperview:superview];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (id)initWithView:(UIView *)view {
+- (id)initWithSuperview:(UIView *)superview {
 	self = [super init];
 	if (self) {
 		self = [UINib objectWithClass:[self class]];
 		
-		[view addSubview:self];
+		[superview addSubview:self];
 		
-		self.frame = view.superview.bounds;// view.bounds; // FIXME
+		self.frame = superview.bounds; // get superview
 	}
 	
 	return self;

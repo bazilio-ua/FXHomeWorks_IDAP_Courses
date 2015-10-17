@@ -39,7 +39,7 @@ static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 		
 		[superview addSubview:self];
 		
-		self.frame = superview.bounds; // get superview
+		self.frame = superview.bounds;
 	}
 	
 	return self;

@@ -137,12 +137,9 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView 
 		   editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	UITableViewCellEditingStyle editingStyle = UITableViewCellEditingStyleDelete;
-	if (indexPath.row == [tableView numberOfRows] - 1) {
-		editingStyle = UITableViewCellEditingStyleInsert;
-	}
+	BOOL editingStyle = (indexPath.row == [tableView numberOfRows] - 1);
 	
-	return editingStyle;
+	return editingStyle ? UITableViewCellEditingStyleInsert : UITableViewCellEditingStyleDelete;
 }
 
 #pragma mark -
@@ -165,7 +162,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 
 - (void)modelDidFailLoading:(id)model {
 	NSLog(@"modelDidFailLoading:");
-	// TODO: add to loading view message for 'fail' case
 }
 
 @end

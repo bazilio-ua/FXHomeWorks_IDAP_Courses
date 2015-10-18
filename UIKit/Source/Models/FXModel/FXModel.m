@@ -8,9 +8,10 @@
 
 #import "FXModel.h"
 
-#import "FXMacros.h"
-#import "FXDispatch.h"
 #import "FXModelObserver.h"
+
+#import "FXDispatch.h"
+#import "FXMacros.h"
 
 @interface FXModel ()
 @property (nonatomic, assign)	BOOL	shouldNotify;

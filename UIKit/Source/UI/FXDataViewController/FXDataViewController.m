@@ -143,18 +143,22 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 
 - (void)model:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes {
 	NSLog(@"model:didChangeWithChanges: %@", changes);
+	
 	[self.dataView.tableView updateWithChanges:changes];
 }
 
 - (void)modelWillLoad:(id)model {
 	NSLog(@"modelWillLoad: %@", model);
+	
 	[self.dataView showLoadingView];
 }
 
 - (void)modelDidLoad:(id)model {
 	NSLog(@"modelDidLoad: %@", model);
-	[self.dataView.tableView reloadData];
-	[self.dataView hideLoadingView];
+	
+	FXDataView *dataView = self.dataView;
+	[dataView.tableView reloadData];
+	[dataView hideLoadingView];
 }
 
 - (void)modelDidFailLoading:(id)model {

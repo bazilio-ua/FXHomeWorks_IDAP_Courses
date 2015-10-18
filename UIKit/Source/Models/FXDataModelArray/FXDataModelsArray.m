@@ -9,10 +9,11 @@
 #import "FXDataModelsArray.h"
 
 #import "FXDataModel.h"
-#import "FXDispatch.h"
-#import "FXMacros.h"
 
 #import "NSFileManager+FXExtensions.h"
+
+#import "FXDispatch.h"
+#import "FXMacros.h"
 
 static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 static const NSUInteger kFXDefaultDataModelsCount	= 9;

@@ -8,10 +8,10 @@
 
 #import "FXDataModel.h"
 
+#import "NSString+FXExtensions.h"
+
 #import "FXDispatch.h"
 #import "FXMacros.h"
-
-#import "NSString+FXExtensions.h"
 
 static NSString * const kFXDefaultDataImageName		= @"objc";
 static NSString * const kFXDefaultDataName			= @"text";

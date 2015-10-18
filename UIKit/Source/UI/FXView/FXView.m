@@ -43,10 +43,11 @@
 #pragma mark Public Methods
 
 - (void)connectLoadingView {
-	self.loadingView = [FXLoadingView viewWithSuperview:self];
+	self.loadingView = [FXLoadingView viewInSuperview:self];
 }
 
 - (void)showLoadingView {
+	[self bringSubviewToFront:self.loadingView];
 	self.loadingView.visible = YES;
 }
 

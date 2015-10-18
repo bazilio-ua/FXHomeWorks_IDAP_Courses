@@ -24,25 +24,21 @@ static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 #pragma mark -
 #pragma mark Class Methods
 
-
-+ (id)viewWithSuperview:(UIView *)superview {
-	return [[self alloc] initWithSuperview:superview];
++ (id)viewInSuperview:(UIView *)superview {
+	FXLoadingView *view = [UINib objectWithClass:[self class]];
+	[superview addSubview:view];
+	view.frame = superview.bounds;
+	
+	return view;
 }
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark View lifecycle
 
-- (id)initWithSuperview:(UIView *)superview {
-	self = [super init];
-	if (self) {
-		self = [UINib objectWithClass:[self class]];
-		
-		[superview addSubview:self];
-		
-		self.frame = superview.bounds;
-	}
+- (void)awakeFromNib {
+	[super awakeFromNib];
 	
-	return self;
+	self.visible = NO;
 }
 
 #pragma mark -
@@ -63,9 +59,11 @@ static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 					 animations:^{
 						 self.alpha = alpha;
 					 } completion:^(BOOL finished) {
-						 self.visible = visible;
-						 if (completion) {
-							 completion();
+						 if (finished) {
+							 self.visible = visible;
+							 if (completion) {
+								 completion();
+							 }
 						 }
 					 }];
 }

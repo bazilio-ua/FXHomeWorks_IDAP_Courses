@@ -41,19 +41,19 @@
 #pragma mark FXModelObserver protocol
 
 - (void)modelWillLoad:(id)model {
-	NSLog(@"modelWillLoad:");
+	NSLog(@"modelWillLoad: %@", model);
 	[self.spinnerView startAnimating];
 }
 
 - (void)modelDidLoad:(id)model {
-	NSLog(@"modelDidLoad:");
+	NSLog(@"modelDidLoad: %@", model);
 	[self fillWithModel:model];
 	[self.spinnerView stopAnimating];
 	
 }
 
 - (void)modelDidFailLoading:(id)model {
-	NSLog(@"modelDidFailLoading:");
+	NSLog(@"modelDidFailLoading: %@", model);
 }
 
 @end

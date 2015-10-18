@@ -78,7 +78,8 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	[self.dataView.tableView reloadData];
+	[self.arrayModel load];
+//	[self.dataView.tableView reloadData];
 	
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }
@@ -147,17 +148,18 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 }
 
 - (void)modelWillLoad:(id)model {
-	NSLog(@"modelWillLoad:");
+	NSLog(@"modelWillLoad: %@", model);
 	[self.dataView showLoadingView];
 }
 
 - (void)modelDidLoad:(id)model {
-	NSLog(@"modelDidLoad:");
+	NSLog(@"modelDidLoad: %@", model);
+	[self.dataView.tableView reloadData];
 	[self.dataView hideLoadingView];
 }
 
 - (void)modelDidFailLoading:(id)model {
-	NSLog(@"modelDidFailLoading:");
+	NSLog(@"modelDidFailLoading: %@", model);
 }
 
 @end

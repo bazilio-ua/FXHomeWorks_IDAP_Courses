@@ -10,10 +10,6 @@
 
 @interface FXDataModelsArray : FXArrayModel
 
-+ (id)arrayWithCount:(NSUInteger)count;
-
-- (id)initWithCount:(NSUInteger)count;
-
 - (void)save;
 - (void)dump;
 

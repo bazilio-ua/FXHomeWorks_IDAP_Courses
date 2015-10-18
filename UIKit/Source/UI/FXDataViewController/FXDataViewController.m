@@ -79,7 +79,6 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
     [super viewDidLoad];
 	
 	[self.arrayModel load];
-//	[self.dataView.tableView reloadData];
 	
 	NSLog(@"%@", self.arrayModel.array); // DEBUG
 }

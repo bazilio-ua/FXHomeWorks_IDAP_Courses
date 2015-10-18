@@ -22,10 +22,14 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 @property (nonatomic, readonly)	NSString	*fileName;
 @property (nonatomic, readonly)	NSString	*fileFolder;
 @property (nonatomic, readonly)	NSString	*filePath;
+@property (nonatomic, readonly)	NSArray		*notifications;
 
 @property (nonatomic, readonly, getter = isCached)	BOOL	cached;
 
 - (void)fillWithModels:(NSUInteger)count;
+
+- (void)subscribeToApplicationNotifications:(NSArray *)notifications;
+- (void)unsubscribeFromApplicationNotifications:(NSArray *)notifications;
 
 @end
 
@@ -35,21 +39,22 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 @dynamic fileFolder;
 @dynamic filePath;
 @dynamic cached;
+@dynamic notifications;
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (id)arrayWithCount:(NSUInteger)count {
-	return [[self alloc] initWithCount:count];
-}
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (id)initWithCount:(NSUInteger)count {
+- (void)dealloc {
+	[self unsubscribeFromApplicationNotifications:self.notifications];
+}
+
+- (id)init {
 	self = [super init];
 	if (self) {
-		[self fillWithModels:count];
+		[self subscribeToApplicationNotifications:self.notifications];
 	}
 	
 	return self;
@@ -74,11 +79,15 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 	return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
 }
 
+- (NSArray *)notifications { // do category?
+	return [NSArray arrayWithObjects:UIApplicationWillTerminateNotification, UIApplicationWillResignActiveNotification, nil];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)save {
-	[NSKeyedArchiver archiveRootObject:self toFile:self.filePath];
+	[NSKeyedArchiver archiveRootObject:self.array toFile:self.filePath];
 }
 
 - (void)dump {
@@ -124,6 +133,23 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 	};
 	
 	[self performBlock:block shouldNotify:NO];
+}
+
+- (void)subscribeToApplicationNotifications:(NSArray *)notifications {
+	for (NSString *notification in notifications) {
+		[[NSNotificationCenter defaultCenter] addObserver:self 
+												 selector:@selector(save) 
+													 name:notification 
+												   object:nil];
+	}
+}
+
+- (void)unsubscribeFromApplicationNotifications:(NSArray *)notifications {
+	for (NSString *notification in notifications) {
+		[[NSNotificationCenter defaultCenter] removeObserver:self 
+														name:notification 
+													  object:nil];
+	}
 }
 
 @end

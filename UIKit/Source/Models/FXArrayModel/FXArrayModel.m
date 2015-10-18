@@ -47,6 +47,12 @@ static NSString * const kFXDefaultArrayName = @"mutableArray";
 #pragma mark -
 #pragma mark Public Methods
 
+- (void)addObjects:(id)objects {
+	for (id object in objects) {
+		[self addObject:object];
+	}
+}
+
 - (void)addObject:(id)object {
 	if (![self containsObject:object]) {
 		[self.mutableArray addObject:object];

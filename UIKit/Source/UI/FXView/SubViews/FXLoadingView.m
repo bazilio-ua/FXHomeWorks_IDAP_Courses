@@ -54,7 +54,7 @@ static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 
 - (void)setVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)(void))completion {
 	NSTimeInterval duration = animated ? kFXLoadViewAnimationDuration : 0;
-	CGFloat alpha = animated ? kFXLoadViewVisibilityAlpha : 0;
+	CGFloat alpha = visible ? kFXLoadViewVisibilityAlpha : 0;
 	[UIView animateWithDuration:duration 
 					 animations:^{
 						 self.alpha = alpha;

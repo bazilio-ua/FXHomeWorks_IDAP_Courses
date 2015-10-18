@@ -98,20 +98,20 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 #pragma mark Overriden Public Methods
 
 - (void)performLoading {
+	id block = nil;
 	if (self.cached) {
 		FXSleep(kFXDefaultSleepTimeInterval);
-		id modelsArray = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
-		
-		void(^block)(void) = ^{
-			for (id model in modelsArray) {
-				[self addObject:model];
-			}
+		id array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];
+		block = ^{
+			[self addObjects:array];
 		};
-		
-		[self performBlock:block shouldNotify:NO];
 	} else {
-		[self fillWithModels:kFXDefaultDataModelsCount];
+		block = ^{
+			[self fillWithModels:kFXDefaultDataModelsCount];
+		};
 	}
+	
+	[self performBlock:block shouldNotify:NO];
 	
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		void(^block)(void) = ^{
@@ -126,13 +126,9 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 #pragma mark Private Methods
 
 - (void)fillWithModels:(NSUInteger)count {
-	void(^block)(void) = ^{
-		for (NSUInteger index = 0; index < count; index++) {
-			[self addObject:[FXDataModel new]];
-		}
-	};
-	
-	[self performBlock:block shouldNotify:NO];
+	for (NSUInteger index = 0; index < count; index++) {
+		[self addObject:[FXDataModel new]];
+	}
 }
 
 - (void)subscribeToApplicationNotifications:(NSArray *)notifications {

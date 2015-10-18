@@ -42,12 +42,14 @@
 }
 
 - (void)setState:(FXModelState)state withChanges:(id)changes {
-	if (state != _state) {
-		_state = state;
-	}
-	
-	if (self.shouldNotify) {
-		[self notifyObserversWithSelector:[self selectorForState:state] withObject:changes];
+	@synchronized(self) {
+		if (state != _state) {
+			_state = state;
+		}
+		
+		if (self.shouldNotify) {
+			[self notifyObserversWithSelector:[self selectorForState:state] withObject:changes];
+		}
 	}
 }
 
@@ -118,13 +120,15 @@
 }
 
 - (void)performBlock:(void (^)(void))block shouldNotify:(BOOL)shouldNotify {
-	BOOL notificationState = self.shouldNotify;
-	self.shouldNotify = shouldNotify;
-	if (block) {
-		block();
+	@synchronized(self) {
+		BOOL notificationState = self.shouldNotify;
+		self.shouldNotify = shouldNotify;
+		if (block) {
+			block();
+		}
+		
+		self.shouldNotify = notificationState;
 	}
-	
-	self.shouldNotify = notificationState;
 }
 
 @end

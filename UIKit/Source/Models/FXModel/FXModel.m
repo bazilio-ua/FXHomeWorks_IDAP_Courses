@@ -90,7 +90,7 @@
 - (void)load {
 	@synchronized(self) {
 		FXModelState state = self.state;
-		if (kFXModelLoaded == state || kFXModelWillLoad == state) {
+		if (kFXModelLoaded == state || kFXModelWillLoad == state || kFXModelDidChange == state) {
 			[self notifyObserversWithSelector:[self selectorForState:state]];
 			
 			return;

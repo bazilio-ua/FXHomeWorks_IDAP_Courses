@@ -13,7 +13,7 @@
 @class FXDataModel;
 
 @interface FXDataCell : FXTableViewCell <FXModelObserver>
-@property (nonatomic, strong)	IBOutlet	UIImageView				*imageView;
+@property (nonatomic, strong)	IBOutlet	UIImageView				*contentImageView;
 @property (nonatomic, strong)	IBOutlet	UILabel					*stringLabel;
 @property (nonatomic, strong)	IBOutlet	UIActivityIndicatorView	*spinnerView;
 

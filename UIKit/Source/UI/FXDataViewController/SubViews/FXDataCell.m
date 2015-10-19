@@ -14,9 +14,9 @@
 
 @implementation FXDataCell
 
-@synthesize imageView	= _image;
-@synthesize stringLabel	= _string;
-@synthesize spinnerView = _spinner;
+@synthesize contentImageView	= _contentImageView;
+@synthesize stringLabel			= _stringLabel;
+@synthesize spinnerView			= _spinnerView;
 
 @synthesize model	= _model;
 
@@ -33,7 +33,7 @@
 #pragma mark Public Methods
 
 - (void)fillWithModel:(FXDataModel *)model {
-	self.imageView.image = model.image;
+	self.contentImageView.image = model.image;
 	self.stringLabel.text = model.text;
 }
 

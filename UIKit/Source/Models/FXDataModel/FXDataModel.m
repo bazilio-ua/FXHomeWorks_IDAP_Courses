@@ -48,7 +48,8 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 
 - (void)performLoading {
 	FXSleep(kFXDefaultSleepTimeInterval);
-	self.image = [UIImage imageNamed:kFXDefaultDataImageName];
+	self.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:kFXDefaultDataImageName 
+																				  ofType:@"png"]];
 	
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		void(^block)(void) = ^{

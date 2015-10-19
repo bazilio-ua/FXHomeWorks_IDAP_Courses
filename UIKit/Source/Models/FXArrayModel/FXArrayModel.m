@@ -52,7 +52,7 @@ static NSString * const kFXDefaultArrayName = @"mutableArray";
 		[self addObject:object];
 	}
 }
-
+// TODO add @synchronized
 - (void)addObject:(id)object {
 	if (![self containsObject:object]) {
 		[self.mutableArray addObject:object];

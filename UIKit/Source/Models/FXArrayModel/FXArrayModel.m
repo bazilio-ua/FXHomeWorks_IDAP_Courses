@@ -41,80 +41,104 @@ static NSString * const kFXDefaultArrayName = @"mutableArray";
 #pragma mark Accessors
 
 - (NSArray *)array {
-	return [self.mutableArray copy];
+	@synchronized(self) {
+		return [self.mutableArray copy];
+	}
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addObjects:(id)objects {
-	for (id object in objects) {
-		[self addObject:object];
+- (void)addObjects:(id<NSFastEnumeration>)objects {
+	@synchronized(self) {
+		for (id object in objects) {
+			[self addObject:object];
+		}
 	}
 }
-// TODO add @synchronized
+
 - (void)addObject:(id)object {
-	if (![self containsObject:object]) {
-		[self.mutableArray addObject:object];
-		
-		[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:([self count] - 1)]];
+	@synchronized(self) {
+		if (![self containsObject:object]) {
+			[self.mutableArray addObject:object];
+			
+			[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:([self count] - 1)]];
+		}
 	}
 }
 
 - (void)removeObject:(id)object {
-	if ([self containsObject:object]) {
-		NSUInteger index = [self indexOfObject:object];
-		[self.mutableArray removeObject:object];
-		
-		[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
+	@synchronized(self) {
+		if ([self containsObject:object]) {
+			NSUInteger index = [self indexOfObject:object];
+			[self.mutableArray removeObject:object];
+			
+			[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
+		}
 	}
 }
 
 - (void)insertObjectAtIndex:(id)object index:(NSUInteger)index {
-	if (![self containsObject:object] && index < [self count]) {
-		[self.mutableArray insertObject:object atIndex:index];
-		
-		[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:index]];
+	@synchronized(self) {
+		if (![self containsObject:object] && index < [self count]) {
+			[self.mutableArray insertObject:object atIndex:index];
+			
+			[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges addModelWithIndex:index]];
+		}
 	}
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-	if (index < [self count]) {
-		[self.mutableArray removeObjectAtIndex:index];
-		
-		[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
+	@synchronized(self) {
+		if (index < [self count]) {
+			[self.mutableArray removeObjectAtIndex:index];
+			
+			[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges removeModelWithIndex:index]];
+		}
 	}
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
-	NSUInteger count = [self count];
-	if (fromIndex < count && toIndex < count) {
-		[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
-		
-		[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges moveModelFromIndex:fromIndex 
-																						  toIndex:toIndex]];
+	@synchronized(self) {
+		NSUInteger count = [self count];
+		if (fromIndex < count && toIndex < count) {
+			[self.mutableArray moveObjectAtIndex:fromIndex toIndex:toIndex];
+			
+			[self setState:kFXModelDidChange withChanges:[FXArrayModelChanges moveModelFromIndex:fromIndex 
+																						 toIndex:toIndex]];
+		}
 	}
 }
 
 - (BOOL)containsObject:(id)object {
-	return [self.mutableArray containsObject:object];
+	@synchronized(self) {
+		return [self.mutableArray containsObject:object];
+	}
 }
 
 - (NSUInteger)indexOfObject:(id)object {
-	return [self.mutableArray indexOfObject:object];
+	@synchronized(self) {
+		return [self.mutableArray indexOfObject:object];
+	}
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
-	return [self.mutableArray objectAtIndex:index];
+	@synchronized(self) {
+		return [self.mutableArray objectAtIndex:index];
+	}
 }
 
 /* -objectAtIndexedSubscript: for NSArray* does the exact same thing as -objectAtIndex: */
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
-	return [self.mutableArray objectAtIndex:index];
+	@synchronized(self) {
+		return [self.mutableArray objectAtIndex:index];
+	}
 }
 
 - (NSUInteger)count {
-	return [self.mutableArray count];
+	@synchronized(self) {
+		return [self.mutableArray count];
+	}
 }
 
 #pragma mark -

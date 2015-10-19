@@ -60,7 +60,7 @@ static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 						 self.alpha = alpha;
 					 } completion:^(BOOL finished) {
 						 if (finished) {
-							 self.visible = visible;
+							 _visible = visible;
 							 if (completion) {
 								 completion();
 							 }

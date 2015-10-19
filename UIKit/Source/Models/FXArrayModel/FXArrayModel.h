@@ -13,7 +13,7 @@
 @interface FXArrayModel : FXModel <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly)	NSArray			*array;
 
-- (void)addObjects:(id)objects;
+- (void)addObjects:(id<NSFastEnumeration>)objects;
 
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;

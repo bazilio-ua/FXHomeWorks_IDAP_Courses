@@ -8,7 +8,9 @@
 
 #import "FXArrayModel.h"
 
-@interface FXDataModelsArray : FXArrayModel
+#import "FXModelObserver.h"
+
+@interface FXDataModelsArray : FXArrayModel <FXModelObserver>
 
 - (void)save;
 - (void)dump;

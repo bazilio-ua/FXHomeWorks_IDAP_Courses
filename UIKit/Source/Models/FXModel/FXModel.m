@@ -96,11 +96,7 @@
 			return;
 		}
 		
-		void(^block)(void) = ^{
-			self.state = kFXModelWillLoad;
-		};
-		
-		[self performBlock:block shouldNotify:YES];
+		self.state = kFXModelWillLoad;
 	}
 	
 	[self setupLoading];

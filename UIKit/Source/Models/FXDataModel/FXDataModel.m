@@ -52,11 +52,7 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 	self.image = [UIImage imageWithContentsOfFile:path];
 	
 	FXDispatchAsyncOnMainQueueWithBlock(^{
-		void(^block)(void) = ^{
-			self.state = kFXModelLoaded;
-		};
-		
-		[self performBlock:block shouldNotify:YES];
+		self.state = kFXModelLoaded;
 	});
 }
 

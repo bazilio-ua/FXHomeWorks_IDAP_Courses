@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FXLoadingView.h"
+@class FXLoadingView;
 
 @interface FXView : UIView
 @property (nonatomic, strong)	FXLoadingView	*loadingView;

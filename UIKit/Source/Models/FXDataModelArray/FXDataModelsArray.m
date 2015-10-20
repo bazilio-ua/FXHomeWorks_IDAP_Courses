@@ -115,11 +115,7 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 	[self performBlock:block shouldNotify:NO];
 	
 	FXDispatchAsyncOnMainQueueWithBlock(^{
-		void(^block)(void) = ^{
-			self.state = kFXModelLoaded;
-		};
-		
-		[self performBlock:block shouldNotify:YES];
+		self.state = kFXModelLoaded;
 	});
 }
 

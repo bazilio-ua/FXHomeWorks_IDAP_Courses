@@ -50,14 +50,12 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 
 - (void)dealloc {
 	[self unsubscribeFromApplicationNotifications:self.notifications];
-	[self removeObserver:self];
 }
 
 - (id)init {
 	self = [super init];
 	if (self) {
 		[self subscribeToApplicationNotifications:self.notifications];
-		[self addObserver:self];
 	}
 	
 	return self;
@@ -82,7 +80,7 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 	return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
 }
 
-- (NSArray *)notifications { // do category?
+- (NSArray *)notifications {
 	return [NSArray arrayWithObjects:UIApplicationWillTerminateNotification, UIApplicationWillResignActiveNotification, nil];
 }
 
@@ -149,13 +147,6 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 														name:notification 
 													  object:nil];
 	}
-}
-
-#pragma mark -
-#pragma mark FXModelObserver protocol
-
-- (void)model:(FXArrayModel *)model didChangeWithChanges:(id)changes {	
-	[self save];
 }
 
 @end

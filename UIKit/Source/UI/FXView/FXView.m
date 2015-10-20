@@ -43,7 +43,7 @@
 #pragma mark Public Methods
 
 - (void)connectLoadingView {
-	self.loadingView = [FXLoadingView viewInSuperview:self];
+	self.loadingView = [self newLoadingView];
 }
 
 - (void)showLoadingView {
@@ -53,6 +53,10 @@
 
 - (void)hideLoadingView {
 	self.loadingView.visible = NO;
+}
+
+- (FXLoadingView *)newLoadingView {
+	return [FXLoadingView viewInSuperview:self];
 }
 
 @end

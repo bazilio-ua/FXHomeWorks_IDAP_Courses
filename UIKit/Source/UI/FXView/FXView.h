@@ -17,5 +17,7 @@
 - (void)connectLoadingView;
 - (void)showLoadingView;
 - (void)hideLoadingView;
+// overload point for custom loading view
+- (FXLoadingView *)newLoadingView;
 
 @end

@@ -20,13 +20,22 @@
 
 @synthesize model	= _model;
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+	self.model = nil;
+}
+
 #pragma mark - 
 #pragma mark Accessors
 
 - (void)setModel:(FXDataModel *)model {
-	FXSynthesizeObservableSetterAndLoad(model);
+	FXSynthesizeObservableSetter(model);
 	
 	[self fillWithModel:model];
+	
+	[model load];
 }
 
 #pragma mark - 

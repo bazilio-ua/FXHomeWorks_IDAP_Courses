@@ -161,6 +161,8 @@
 		42A4C7891B9F5B9F0098B140 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C7881B9F5B9F0098B140 /* UIKit.framework */; };
 		42A4C78B1B9F5BAF0098B140 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78A1B9F5BAF0098B140 /* Foundation.framework */; };
 		42A4C78D1B9F5BBE0098B140 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */; };
+		42B1A7B71BD811830005CC8B /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1A7B51BD811820005CC8B /* FXImageView.m */; };
+		42B1A7B81BD811830005CC8B /* FXImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B1A7B61BD811820005CC8B /* FXImageView.xib */; };
 		42C3A4B51B6BC23000D2AF51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		42CD7B131BBE82CE00250E58 /* FXArrayModelChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CD7B121BBE82CE00250E58 /* FXArrayModelChanges.m */; };
 		42CD7B161BBE864C00250E58 /* FXArrayModelChangesOneIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CD7B151BBE864B00250E58 /* FXArrayModelChangesOneIndex.m */; };
@@ -509,6 +511,9 @@
 		42A4C7881B9F5B9F0098B140 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78A1B9F5BAF0098B140 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		42B1A7B41BD811820005CC8B /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
+		42B1A7B51BD811820005CC8B /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
+		42B1A7B61BD811820005CC8B /* FXImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXImageView.xib; sourceTree = "<group>"; };
 		42B4746B1AFAA1EB00AD71F0 /* Lection_4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_4; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CD7B111BBE82CE00250E58 /* FXArrayModelChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayModelChanges.h; sourceTree = "<group>"; };
 		42CD7B121BBE82CE00250E58 /* FXArrayModelChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXArrayModelChanges.m; sourceTree = "<group>"; };
@@ -843,6 +848,9 @@
 				4247AF361BB851260008544C /* FXDataCell.h */,
 				4247AF371BB851260008544C /* FXDataCell.m */,
 				4247AF381BB851260008544C /* FXDataCell.xib */,
+				42B1A7B41BD811820005CC8B /* FXImageView.h */,
+				42B1A7B51BD811820005CC8B /* FXImageView.m */,
+				42B1A7B61BD811820005CC8B /* FXImageView.xib */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -2271,6 +2279,7 @@
 				425D44181BB74343005BFAF9 /* FXDataViewController.xib in Resources */,
 				4247AF3A1BB851260008544C /* FXDataCell.xib in Resources */,
 				423F77E11BCC3BDE00EEEBEA /* FXLoadingView.xib in Resources */,
+				42B1A7B81BD811830005CC8B /* FXImageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2474,6 +2483,7 @@
 				42D6AF8D1BCF00440078B132 /* NSFileManager+FXExtensions.m in Sources */,
 				42D6AF8E1BCF08B00078B132 /* NSArray+FXExtensions.m in Sources */,
 				426D66AB1BD2EF6A00A5F591 /* FXImageModel.m in Sources */,
+				42B1A7B71BD811830005CC8B /* FXImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

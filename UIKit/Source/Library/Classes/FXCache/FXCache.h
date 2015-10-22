@@ -1,13 +1,13 @@
 //
-//  FXObjectCache.m
+//  FXCache.h
 //  FXHomeWorks
 //
 //  Created by Basil Nikityuk on 10/22/15.
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXObjectCache.h"
+#import <Foundation/Foundation.h>
 
-@implementation FXObjectCache
+@interface FXCache : NSObject
 
 @end

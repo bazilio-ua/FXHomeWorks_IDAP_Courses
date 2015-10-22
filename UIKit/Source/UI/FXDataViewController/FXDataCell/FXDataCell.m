@@ -32,9 +32,7 @@
 
 - (void)setModel:(FXDataModel *)model {
 	FXSynthesizeObservableSetter(model);
-	
 	[self fillWithModel:model];
-	
 	[model load];
 }
 

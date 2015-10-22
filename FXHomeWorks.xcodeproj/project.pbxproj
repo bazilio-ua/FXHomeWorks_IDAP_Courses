@@ -11,15 +11,11 @@
 		423649E41BB1E0F00020C57E /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */; };
 		423649E51BB1E0F40020C57E /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */; };
 		423F77DC1BCC3BA000EEEBEA /* FXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423F77DB1BCC3BA000EEEBEA /* FXView.m */; };
-		423F77E01BCC3BDE00EEEBEA /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423F77DE1BCC3BDE00EEEBEA /* FXLoadingView.m */; };
-		423F77E11BCC3BDE00EEEBEA /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423F77DF1BCC3BDE00EEEBEA /* FXLoadingView.xib */; };
 		42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */; };
 		4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AECE1BB7E7030008544C /* NSIndexPath+FXExtensions.m */; };
 		4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */; };
 		4247AF2B1BB848CC0008544C /* FXArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF2A1BB848CC0008544C /* FXArrayModel.m */; };
 		4247AF341BB84DD70008544C /* FXDataModelsArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF331BB84DD70008544C /* FXDataModelsArray.m */; };
-		4247AF391BB851260008544C /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AF371BB851260008544C /* FXDataCell.m */; };
-		4247AF3A1BB851260008544C /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4247AF381BB851260008544C /* FXDataCell.xib */; };
 		424AD6FF1BBD90FF00405666 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AD6FE1BBD90FF00405666 /* FXDispatch.m */; };
 		424AD7001BBD90FF00405666 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AD6FE1BBD90FF00405666 /* FXDispatch.m */; };
 		424D5BA51BC6F73C00702752 /* FXModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 424D5BA41BC6F73C00702752 /* FXModel.m */; };
@@ -131,7 +127,6 @@
 		426BFF241B9F69CD007C6849 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		426BFF251B9F69E6007C6849 /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF201B9F6944007C6849 /* NSString+FXExtensions.m */; };
 		426D66AB1BD2EF6A00A5F591 /* FXImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426D66AA1BD2EF6A00A5F591 /* FXImageModel.m */; };
-		42755BD61BD8BD7400C1CB6B /* FXObjectCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 42755BD51BD8BD7400C1CB6B /* FXObjectCache.m */; };
 		428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C881BA0BE330039C3A8 /* FXSquareModel.m */; };
 		428F3C8F1BA0BED10039C3A8 /* FXSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C8E1BA0BED10039C3A8 /* FXSquareView.m */; };
 		428F93C31BB718EE0032DFA6 /* FXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */; };
@@ -162,8 +157,6 @@
 		42A4C7891B9F5B9F0098B140 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C7881B9F5B9F0098B140 /* UIKit.framework */; };
 		42A4C78B1B9F5BAF0098B140 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78A1B9F5BAF0098B140 /* Foundation.framework */; };
 		42A4C78D1B9F5BBE0098B140 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */; };
-		42B1A7B71BD811830005CC8B /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B1A7B51BD811820005CC8B /* FXImageView.m */; };
-		42B1A7B81BD811830005CC8B /* FXImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B1A7B61BD811820005CC8B /* FXImageView.xib */; };
 		42C3A4B51B6BC23000D2AF51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		42CD7B131BBE82CE00250E58 /* FXArrayModelChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CD7B121BBE82CE00250E58 /* FXArrayModelChanges.m */; };
 		42CD7B161BBE864C00250E58 /* FXArrayModelChangesOneIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CD7B151BBE864B00250E58 /* FXArrayModelChangesOneIndex.m */; };
@@ -172,6 +165,15 @@
 		42D6AF8E1BCF08B00078B132 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		42D6CF681BAC3D9E0015E925 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF641BAC3D9E0015E925 /* FXAppDelegate.m */; };
 		42D6CF6A1BAC3D9E0015E925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF671BAC3D9E0015E925 /* main.m */; };
+		42F6393D1BD97C29002927A6 /* FXCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F6393C1BD97C29002927A6 /* FXCache.m */; };
+		42F639461BD97CD8002927A6 /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F639401BD97CD7002927A6 /* FXDataCell.m */; };
+		42F639471BD97CD8002927A6 /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F639411BD97CD7002927A6 /* FXDataCell.xib */; };
+		42F639481BD97CD8002927A6 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F639441BD97CD8002927A6 /* FXImageView.m */; };
+		42F639491BD97CD8002927A6 /* FXImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F639451BD97CD8002927A6 /* FXImageView.xib */; };
+		42F6394E1BD97D7D002927A6 /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F6394C1BD97D7D002927A6 /* FXLoadingView.m */; };
+		42F6394F1BD97D7D002927A6 /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F6394D1BD97D7D002927A6 /* FXLoadingView.xib */; };
+		42F639541BD97E6F002927A6 /* FXImageModelFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F639531BD97E6F002927A6 /* FXImageModelFile.m */; };
+		42F639571BD97E9A002927A6 /* FXImageModelURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F639561BD97E9A002927A6 /* FXImageModelURL.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -323,9 +325,6 @@
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
 		423F77DA1BCC3BA000EEEBEA /* FXView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXView.h; sourceTree = "<group>"; };
 		423F77DB1BCC3BA000EEEBEA /* FXView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXView.m; sourceTree = "<group>"; };
-		423F77DD1BCC3BDE00EEEBEA /* FXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
-		423F77DE1BCC3BDE00EEEBEA /* FXLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingView.m; sourceTree = "<group>"; };
-		423F77DF1BCC3BDE00EEEBEA /* FXLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoadingView.xib; sourceTree = "<group>"; };
 		42415D391BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXArrayModelChanges+UITableView.h"; sourceTree = "<group>"; };
 		42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FXArrayModelChanges+UITableView.m"; sourceTree = "<group>"; };
 		4247AECD1BB7E7030008544C /* NSIndexPath+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+FXExtensions.h"; sourceTree = "<group>"; };
@@ -337,9 +336,6 @@
 		4247AF2A1BB848CC0008544C /* FXArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FXArrayModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4247AF321BB84DD70008544C /* FXDataModelsArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataModelsArray.h; sourceTree = "<group>"; };
 		4247AF331BB84DD70008544C /* FXDataModelsArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModelsArray.m; sourceTree = "<group>"; };
-		4247AF361BB851260008544C /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
-		4247AF371BB851260008544C /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
-		4247AF381BB851260008544C /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
 		424AD6FD1BBD90FF00405666 /* FXDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDispatch.h; sourceTree = "<group>"; };
 		424AD6FE1BBD90FF00405666 /* FXDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDispatch.m; sourceTree = "<group>"; };
 		424D5BA31BC6F73C00702752 /* FXModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FXModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -492,8 +488,6 @@
 		426BFF201B9F6944007C6849 /* NSString+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FXExtensions.m"; sourceTree = "<group>"; };
 		426D66A91BD2EF6A00A5F591 /* FXImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageModel.h; sourceTree = "<group>"; };
 		426D66AA1BD2EF6A00A5F591 /* FXImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageModel.m; sourceTree = "<group>"; };
-		42755BD41BD8BD7400C1CB6B /* FXObjectCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObjectCache.h; sourceTree = "<group>"; };
-		42755BD51BD8BD7400C1CB6B /* FXObjectCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXObjectCache.m; sourceTree = "<group>"; };
 		428083621B2458A000334F99 /* FXArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXArray; sourceTree = BUILT_PRODUCTS_DIR; };
 		428980501B4442130057D669 /* FXAutoreleasingStack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAutoreleasingStack; sourceTree = BUILT_PRODUCTS_DIR; };
 		428F3C871BA0BE330039C3A8 /* FXSquareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSquareModel.h; sourceTree = "<group>"; };
@@ -514,9 +508,6 @@
 		42A4C7881B9F5B9F0098B140 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78A1B9F5BAF0098B140 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		42A4C78C1B9F5BBE0098B140 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		42B1A7B41BD811820005CC8B /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
-		42B1A7B51BD811820005CC8B /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
-		42B1A7B61BD811820005CC8B /* FXImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXImageView.xib; sourceTree = "<group>"; };
 		42B4746B1AFAA1EB00AD71F0 /* Lection_4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_4; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CD7B111BBE82CE00250E58 /* FXArrayModelChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXArrayModelChanges.h; sourceTree = "<group>"; };
 		42CD7B121BBE82CE00250E58 /* FXArrayModelChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXArrayModelChanges.m; sourceTree = "<group>"; };
@@ -536,6 +527,21 @@
 		42DB73F11B44ECBD0064BBAD /* FXAutoreleasePool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAutoreleasePool; sourceTree = BUILT_PRODUCTS_DIR; };
 		42DDCFDB1BAEA2B1000ADABB /* FXDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataModel.h; sourceTree = "<group>"; };
 		42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModel.m; sourceTree = "<group>"; };
+		42F6393B1BD97C29002927A6 /* FXCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCache.h; sourceTree = "<group>"; };
+		42F6393C1BD97C29002927A6 /* FXCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCache.m; sourceTree = "<group>"; };
+		42F6393F1BD97CD7002927A6 /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
+		42F639401BD97CD7002927A6 /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
+		42F639411BD97CD7002927A6 /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
+		42F639431BD97CD8002927A6 /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
+		42F639441BD97CD8002927A6 /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
+		42F639451BD97CD8002927A6 /* FXImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXImageView.xib; sourceTree = "<group>"; };
+		42F6394B1BD97D7D002927A6 /* FXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
+		42F6394C1BD97D7D002927A6 /* FXLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingView.m; sourceTree = "<group>"; };
+		42F6394D1BD97D7D002927A6 /* FXLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoadingView.xib; sourceTree = "<group>"; };
+		42F639521BD97E6F002927A6 /* FXImageModelFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageModelFile.h; sourceTree = "<group>"; };
+		42F639531BD97E6F002927A6 /* FXImageModelFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageModelFile.m; sourceTree = "<group>"; };
+		42F639551BD97E9A002927A6 /* FXImageModelURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageModelURL.h; sourceTree = "<group>"; };
+		42F639561BD97E9A002927A6 /* FXImageModelURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageModelURL.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -783,21 +789,11 @@
 		423F77D81BCC3B7000EEEBEA /* FXView */ = {
 			isa = PBXGroup;
 			children = (
-				423F77D91BCC3B7300EEEBEA /* SubViews */,
+				42F6394A1BD97D7D002927A6 /* FXLoadingView */,
 				423F77DA1BCC3BA000EEEBEA /* FXView.h */,
 				423F77DB1BCC3BA000EEEBEA /* FXView.m */,
 			);
 			path = FXView;
-			sourceTree = "<group>";
-		};
-		423F77D91BCC3B7300EEEBEA /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				423F77DD1BCC3BDE00EEEBEA /* FXLoadingView.h */,
-				423F77DE1BCC3BDE00EEEBEA /* FXLoadingView.m */,
-				423F77DF1BCC3BDE00EEEBEA /* FXLoadingView.xib */,
-			);
-			path = SubViews;
 			sourceTree = "<group>";
 		};
 		42415D381BC2DF6400B4B181 /* FXArrayModelChanges+UITableView */ = {
@@ -843,19 +839,6 @@
 				4247AF331BB84DD70008544C /* FXDataModelsArray.m */,
 			);
 			path = FXDataModelArray;
-			sourceTree = "<group>";
-		};
-		4247AF351BB851250008544C /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				4247AF361BB851260008544C /* FXDataCell.h */,
-				4247AF371BB851260008544C /* FXDataCell.m */,
-				4247AF381BB851260008544C /* FXDataCell.xib */,
-				42B1A7B41BD811820005CC8B /* FXImageView.h */,
-				42B1A7B51BD811820005CC8B /* FXImageView.m */,
-				42B1A7B61BD811820005CC8B /* FXImageView.xib */,
-			);
-			path = SubViews;
 			sourceTree = "<group>";
 		};
 		424AD6FC1BBD90FF00405666 /* FXDispatch */ = {
@@ -918,7 +901,8 @@
 		425D44081BB7235E005BFAF9 /* FXDataViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4247AF351BB851250008544C /* SubViews */,
+				42F6393E1BD97CD7002927A6 /* FXDataCell */,
+				42F639421BD97CD7002927A6 /* FXImageView */,
 				425D440B1BB7235E005BFAF9 /* FXDataViewController.h */,
 				425D440C1BB7235E005BFAF9 /* FXDataViewController.m */,
 				425D44171BB74342005BFAF9 /* FXDataViewController.xib */,
@@ -1788,19 +1772,12 @@
 		426D66A71BD2EF3300A5F591 /* FXImageModel */ = {
 			isa = PBXGroup;
 			children = (
+				42F639501BD97E3C002927A6 /* FXImageModelFile */,
+				42F639511BD97E3D002927A6 /* FXImageModelURL */,
 				426D66A91BD2EF6A00A5F591 /* FXImageModel.h */,
 				426D66AA1BD2EF6A00A5F591 /* FXImageModel.m */,
 			);
 			path = FXImageModel;
-			sourceTree = "<group>";
-		};
-		42755BD21BD8BD4600C1CB6B /* FXObjectCache */ = {
-			isa = PBXGroup;
-			children = (
-				42755BD41BD8BD7400C1CB6B /* FXObjectCache.h */,
-				42755BD51BD8BD7400C1CB6B /* FXObjectCache.m */,
-			);
-			path = FXObjectCache;
 			sourceTree = "<group>";
 		};
 		428F3C831BA0BC9B0039C3A8 /* FXSquareModel */ = {
@@ -1951,11 +1928,68 @@
 		42E932A71BB0823D0053597E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				42755BD21BD8BD4600C1CB6B /* FXObjectCache */,
+				42F6393A1BD97C29002927A6 /* FXCache */,
 				42CD7B0F1BBE82B000250E58 /* FXArrayModelChanges */,
 				423649E61BB1E1390020C57E /* FXTableViewCell */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		42F6393A1BD97C29002927A6 /* FXCache */ = {
+			isa = PBXGroup;
+			children = (
+				42F6393B1BD97C29002927A6 /* FXCache.h */,
+				42F6393C1BD97C29002927A6 /* FXCache.m */,
+			);
+			path = FXCache;
+			sourceTree = "<group>";
+		};
+		42F6393E1BD97CD7002927A6 /* FXDataCell */ = {
+			isa = PBXGroup;
+			children = (
+				42F6393F1BD97CD7002927A6 /* FXDataCell.h */,
+				42F639401BD97CD7002927A6 /* FXDataCell.m */,
+				42F639411BD97CD7002927A6 /* FXDataCell.xib */,
+			);
+			path = FXDataCell;
+			sourceTree = "<group>";
+		};
+		42F639421BD97CD7002927A6 /* FXImageView */ = {
+			isa = PBXGroup;
+			children = (
+				42F639431BD97CD8002927A6 /* FXImageView.h */,
+				42F639441BD97CD8002927A6 /* FXImageView.m */,
+				42F639451BD97CD8002927A6 /* FXImageView.xib */,
+			);
+			path = FXImageView;
+			sourceTree = "<group>";
+		};
+		42F6394A1BD97D7D002927A6 /* FXLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				42F6394B1BD97D7D002927A6 /* FXLoadingView.h */,
+				42F6394C1BD97D7D002927A6 /* FXLoadingView.m */,
+				42F6394D1BD97D7D002927A6 /* FXLoadingView.xib */,
+			);
+			path = FXLoadingView;
+			sourceTree = "<group>";
+		};
+		42F639501BD97E3C002927A6 /* FXImageModelFile */ = {
+			isa = PBXGroup;
+			children = (
+				42F639521BD97E6F002927A6 /* FXImageModelFile.h */,
+				42F639531BD97E6F002927A6 /* FXImageModelFile.m */,
+			);
+			path = FXImageModelFile;
+			sourceTree = "<group>";
+		};
+		42F639511BD97E3D002927A6 /* FXImageModelURL */ = {
+			isa = PBXGroup;
+			children = (
+				42F639551BD97E9A002927A6 /* FXImageModelURL.h */,
+				42F639561BD97E9A002927A6 /* FXImageModelURL.m */,
+			);
+			path = FXImageModelURL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2290,9 +2324,9 @@
 				428F93F31BB71B970032DFA6 /* InfoPlist.strings in Resources */,
 				428F93F41BB71B970032DFA6 /* objc.png in Resources */,
 				425D44181BB74343005BFAF9 /* FXDataViewController.xib in Resources */,
-				4247AF3A1BB851260008544C /* FXDataCell.xib in Resources */,
-				423F77E11BCC3BDE00EEEBEA /* FXLoadingView.xib in Resources */,
-				42B1A7B81BD811830005CC8B /* FXImageView.xib in Resources */,
+				42F639471BD97CD8002927A6 /* FXDataCell.xib in Resources */,
+				42F639491BD97CD8002927A6 /* FXImageView.xib in Resources */,
+				42F6394F1BD97D7D002927A6 /* FXLoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2484,7 +2518,6 @@
 				4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */,
 				4247AF2B1BB848CC0008544C /* FXArrayModel.m in Sources */,
 				4247AF341BB84DD70008544C /* FXDataModelsArray.m in Sources */,
-				4247AF391BB851260008544C /* FXDataCell.m in Sources */,
 				424AD7001BBD90FF00405666 /* FXDispatch.m in Sources */,
 				42CD7B131BBE82CE00250E58 /* FXArrayModelChanges.m in Sources */,
 				42CD7B161BBE864C00250E58 /* FXArrayModelChangesOneIndex.m in Sources */,
@@ -2492,12 +2525,15 @@
 				42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */,
 				424D5BA51BC6F73C00702752 /* FXModel.m in Sources */,
 				423F77DC1BCC3BA000EEEBEA /* FXView.m in Sources */,
-				423F77E01BCC3BDE00EEEBEA /* FXLoadingView.m in Sources */,
 				42D6AF8D1BCF00440078B132 /* NSFileManager+FXExtensions.m in Sources */,
 				42D6AF8E1BCF08B00078B132 /* NSArray+FXExtensions.m in Sources */,
 				426D66AB1BD2EF6A00A5F591 /* FXImageModel.m in Sources */,
-				42B1A7B71BD811830005CC8B /* FXImageView.m in Sources */,
-				42755BD61BD8BD7400C1CB6B /* FXObjectCache.m in Sources */,
+				42F6393D1BD97C29002927A6 /* FXCache.m in Sources */,
+				42F639461BD97CD8002927A6 /* FXDataCell.m in Sources */,
+				42F639481BD97CD8002927A6 /* FXImageView.m in Sources */,
+				42F6394E1BD97D7D002927A6 /* FXLoadingView.m in Sources */,
+				42F639541BD97E6F002927A6 /* FXImageModelFile.m in Sources */,
+				42F639571BD97E9A002927A6 /* FXImageModelURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

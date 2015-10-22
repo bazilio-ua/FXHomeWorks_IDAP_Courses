@@ -14,6 +14,7 @@
 @property (nonatomic, readonly)	NSArray			*array;
 
 - (void)addObjects:(id<NSFastEnumeration>)objects;
+- (void)removeObjects:(id<NSFastEnumeration>)objects;
 
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;

@@ -57,6 +57,14 @@ static NSString * const kFXDefaultArrayName = @"mutableArray";
 	}
 }
 
+- (void)removeObjects:(id<NSFastEnumeration>)objects {
+	@synchronized(self) {
+		for (id object in objects) {
+			[self removeObject:object];
+		}
+	}
+}
+
 - (void)addObject:(id)object {
 	@synchronized(self) {
 		if (![self containsObject:object]) {

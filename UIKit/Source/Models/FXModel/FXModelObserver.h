@@ -11,6 +11,7 @@
 @protocol FXModelObserver <NSObject>
 
 @optional
+- (void)modelDidUnload:(id)model;
 - (void)modelWillLoad:(id)model;
 - (void)modelDidLoad:(id)model;
 - (void)modelDidFailLoading:(id)model;

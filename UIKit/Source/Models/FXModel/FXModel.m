@@ -60,6 +60,10 @@
 - (SEL)selectorForState:(FXModelState)state {
 	SEL selector = NULL;
 	switch (state) {
+		case kFXModelUnloaded:
+			selector = @selector(modelDidUnload:);
+			break;
+			
 		case kFXModelWillLoad:
 			selector = @selector(modelWillLoad:);
 			break;
@@ -76,7 +80,6 @@
 			selector = @selector(model:didChangeWithChanges:);
 			break;
 			
-		case kFXModelUnloaded:
 		default:
 			break;
 	}

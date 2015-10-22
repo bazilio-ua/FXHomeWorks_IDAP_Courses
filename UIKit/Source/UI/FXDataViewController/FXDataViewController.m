@@ -141,10 +141,8 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 #pragma mark -
 #pragma mark FXModelObserver protocol
 
-- (void)model:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes {
-	NSLog(@"model: %@ didChangeWithChanges: %@", model, changes);
-	
-	[self.dataView.tableView updateWithChanges:changes];
+- (void)modelDidUnload:(id)model {
+	NSLog(@"modelDidUnload: %@", model);
 }
 
 - (void)modelWillLoad:(id)model {
@@ -163,6 +161,12 @@ FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
 
 - (void)modelDidFailLoading:(id)model {
 	NSLog(@"modelDidFailLoading: %@", model);
+}
+
+- (void)model:(FXArrayModel *)model didChangeWithChanges:(FXArrayModelChanges *)changes {
+	NSLog(@"model: %@ didChangeWithChanges: %@", model, changes);
+	
+	[self.dataView.tableView updateWithChanges:changes];
 }
 
 @end

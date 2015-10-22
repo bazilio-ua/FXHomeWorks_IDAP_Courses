@@ -12,7 +12,7 @@
 
 #import "FXMacros.h"
 
-FXViewControllerMainViewProperty(FXSquareViewController, squareView, FXSquareView);
+FXViewControllerBaseViewProperty(FXSquareViewController, squareView, FXSquareView);
 
 @implementation FXSquareViewController
 

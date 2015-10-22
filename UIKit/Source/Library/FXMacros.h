@@ -7,12 +7,12 @@
 //
 
 /*
- * main View generation macro
+ * base View generation macro
  */
-#define FXDefineMainViewProperty(propertyName, viewClass) \
+#define FXDefineBaseViewProperty(propertyName, viewClass) \
 	@property (nonatomic, readonly)	viewClass *propertyName;
 
-#define FXMainViewGetterSynthesize(selector, viewClass) \
+#define FXBaseViewGetterSynthesize(selector, viewClass) \
 	- (viewClass *)selector { \
 		if ([self isViewLoaded] && [self.view isKindOfClass:[viewClass class]]) { \
 			return (viewClass *)self.view; \
@@ -21,9 +21,9 @@
 		return nil; \
 	}
 
-#define FXViewControllerMainViewProperty(viewControllerClass, propertyName, viewClass) \
+#define FXViewControllerBaseViewProperty(viewControllerClass, propertyName, viewClass) \
 	@interface viewControllerClass (__##viewClass##_##propertyName) \
-	FXDefineMainViewProperty(propertyName, viewClass) \
+	FXDefineBaseViewProperty(propertyName, viewClass) \
 	\
 	@end \
 	\
@@ -31,7 +31,7 @@
 	\
 	@dynamic propertyName; \
 	\
-	FXMainViewGetterSynthesize(propertyName, viewClass) \
+	FXBaseViewGetterSynthesize(propertyName, viewClass) \
 	\
 	@end
 
@@ -41,7 +41,7 @@
 #define FXWeakify(object) \
 	id __weak __FXWeakified_##object = object
 
-// these macroses below should be called only after weakify was called for the same object
+// you should only call this method after you called weakify for that same variable
 #define FXStrongify(object) \
 	id __strong object = __FXWeakified_##object
 
@@ -62,7 +62,6 @@
 /*
  * synthesize setter macro
  */
-
 #define FXSynthesizeObservableSetterWithExpression(propertyName, expression) \
 	if (_##propertyName != propertyName) { \
 		[_##propertyName removeObserver:self]; \

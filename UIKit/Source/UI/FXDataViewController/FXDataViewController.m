@@ -21,7 +21,7 @@
 
 #import "FXMacros.h"
 
-FXViewControllerMainViewProperty(FXDataViewController, dataView, FXDataView);
+FXViewControllerBaseViewProperty(FXDataViewController, dataView, FXDataView);
 
 @implementation FXDataViewController
 

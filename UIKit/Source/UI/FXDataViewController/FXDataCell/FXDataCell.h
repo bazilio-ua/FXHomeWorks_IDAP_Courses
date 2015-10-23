@@ -15,7 +15,7 @@
 @interface FXDataCell : FXTableViewCell <FXModelObserver>
 @property (nonatomic, strong)	IBOutlet	UIImageView				*contentImageView;
 @property (nonatomic, strong)	IBOutlet	UILabel					*stringLabel;
-@property (nonatomic, strong)	IBOutlet	UIActivityIndicatorView	*spinnerView;
+@property (nonatomic, strong)	IBOutlet	UIActivityIndicatorView	*activityIndicatorView;
 
 @property (nonatomic, strong)	FXDataModel				*model;
 

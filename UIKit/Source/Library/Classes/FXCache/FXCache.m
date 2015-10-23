@@ -8,6 +8,16 @@
 
 #import "FXCache.h"
 
+@interface FXCache ()
+
+@end
+
 @implementation FXCache
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+#pragma mark -
+#pragma mark Public Methods
 
 @end

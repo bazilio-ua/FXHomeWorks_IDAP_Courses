@@ -14,9 +14,9 @@
 
 @implementation FXDataCell
 
-@synthesize contentImageView	= _contentImageView;
-@synthesize stringLabel			= _stringLabel;
-@synthesize spinnerView			= _spinnerView;
+@synthesize contentImageView		= _contentImageView;
+@synthesize stringLabel				= _stringLabel;
+@synthesize activityIndicatorView	= _activityIndicatorView;
 
 @synthesize model	= _model;
 
@@ -49,13 +49,13 @@
 
 - (void)modelWillLoad:(id)model {
 	NSLog(@"modelWillLoad: %@", model);
-	[self.spinnerView startAnimating];
+	[self.activityIndicatorView startAnimating];
 }
 
 - (void)modelDidLoad:(id)model {
 	NSLog(@"modelDidLoad: %@", model);
 	[self fillWithModel:model];
-	[self.spinnerView stopAnimating];
+	[self.activityIndicatorView stopAnimating];
 	
 }
 

@@ -35,10 +35,10 @@
 	return self;
 }
 
-- (id)initWithCapacity:(NSUInteger)capacity {
+- (id)initWithCapacity:(NSUInteger)numItems {
 	self = [super init];
 	if (self) {
-		self.array = [NSMutableArray arrayWithCapacity:capacity];
+		self.array = [NSMutableArray arrayWithCapacity:numItems];
 	}
 	
 	return self;
@@ -58,24 +58,24 @@
 #pragma mark -
 #pragma mark NSMutableArray
 
-- (void)insertObject:(id)object atIndex:(NSUInteger)index {
-	[self.array insertObject:object atIndex:index];
+- (void)insertObject:(id)anObject atIndex:(NSUInteger)index {
+	[self.array insertObject:anObject atIndex:index];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
 	[self.array removeObjectAtIndex:index];
 }
 
-- (void)addObject:(id)object {
-	[self.array addObject:object];
+- (void)addObject:(id)anObject {
+	[self.array addObject:anObject];
 }
 
 - (void)removeLastObject {
 	[self.array removeLastObject];
 }
 
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
-	[self.array replaceObjectAtIndex:index withObject:object];
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject {
+	[self.array replaceObjectAtIndex:index withObject:anObject];
 }
 
 @end

@@ -26,21 +26,22 @@
 	
 	return reference.target;
 }
+
 #pragma mark -
 #pragma mark NSMutableArray
 
-- (void)insertObject:(id)object atIndex:(NSUInteger)index {
-	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:object] autorelease];
+- (void)insertObject:(id)anObject atIndex:(NSUInteger)index {
+	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:anObject] autorelease];
 	[super insertObject:reference atIndex:index];
 }
 
-- (void)addObject:(id)object {
-	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:object] autorelease];
+- (void)addObject:(id)anObject {
+	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:anObject] autorelease];
 	[super addObject:reference];
 }
 
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
-	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:object] autorelease];
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject {
+	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:anObject] autorelease];
 	[super replaceObjectAtIndex:index withObject:reference];
 }
 

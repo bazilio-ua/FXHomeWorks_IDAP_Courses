@@ -30,8 +30,8 @@
 	return self;
 }
 
-- (id)objectForKey:(id)key {
-	FXAssignReference *reference = [super objectForKey:key];
+- (id)objectForKey:(id)aKey {
+	FXAssignReference *reference = [super objectForKey:aKey];
 	
 	return reference.target;
 }
@@ -39,9 +39,9 @@
 #pragma mark -
 #pragma mark NSMutableDictionary
 
-- (void)setObject:(id)object forKey:(id)key {
-	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:object] autorelease];
-	[super setObject:reference forKey:key];
+- (void)setObject:(id)anObject forKey:(id)aKey {
+	FXAssignReference *reference = [[[FXAssignReference alloc] initWithTarget:anObject] autorelease];
+	[super setObject:reference forKey:aKey];
 }
 
 @end

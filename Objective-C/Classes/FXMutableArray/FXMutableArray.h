@@ -10,14 +10,4 @@
 
 @interface FXMutableArray : NSMutableArray
 
-- (id)initWithCapacity:(NSUInteger)capacity;
-
-- (NSUInteger)count;
-- (id)objectAtIndex:(NSUInteger)index;
-- (void)insertObject:(id)object atIndex:(NSUInteger)index;
-- (void)removeObjectAtIndex:(NSUInteger)index;
-- (void)addObject:(id)object;
-- (void)removeLastObject;
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;
-
 @end

@@ -35,10 +35,10 @@
 	return self;
 }
 
-- (id)initWithCapacity:(NSUInteger)capacity {
+- (id)initWithCapacity:(NSUInteger)numItems {
 	self = [super init];
 	if (self) {
-		self.dictionary = [NSMutableDictionary dictionaryWithCapacity:capacity];
+		self.dictionary = [NSMutableDictionary dictionaryWithCapacity:numItems];
 	}
 	
 	return self;
@@ -61,8 +61,8 @@
 	return [self.dictionary count];
 }
 
-- (id)objectForKey:(id)key {
-	return [self.dictionary objectForKey:key];
+- (id)objectForKey:(id)aKey {
+	return [self.dictionary objectForKey:aKey];
 }
 
 - (NSEnumerator *)keyEnumerator {
@@ -72,12 +72,12 @@
 #pragma mark -
 #pragma mark NSMutableDictionary
 
-- (void)setObject:(id)object forKey:(id)key {
-	[self.dictionary setObject:object forKey:key];
+- (void)setObject:(id)anObject forKey:(id)aKey {
+	[self.dictionary setObject:anObject forKey:aKey];
 }
 
-- (void)removeObjectForKey:(id)key {
-	[self.dictionary removeObjectForKey:key];
+- (void)removeObjectForKey:(id)aKey {
+	[self.dictionary removeObjectForKey:aKey];
 }
 
 @end

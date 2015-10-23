@@ -13,3 +13,9 @@
 - (id)firstObject;
 
 @end
+
+@interface NSMutableArray (FXExtensions)
+
++ (NSMutableArray *)weakArray;
+
+@end

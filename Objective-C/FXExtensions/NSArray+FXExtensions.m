@@ -8,10 +8,20 @@
 
 #import "NSArray+FXExtensions.h"
 
+#import "FXWeakMutableArray.h"
+
 @implementation NSArray (FXExtensions)
 
 - (id)firstObject {
 	return [self count] ? [self objectAtIndex:0] : nil;
+}
+
+@end
+
+@implementation NSMutableArray (FXExtensions)
+
++ (NSMutableArray *)weakArray {
+	return [FXWeakMutableArray array];
 }
 
 @end

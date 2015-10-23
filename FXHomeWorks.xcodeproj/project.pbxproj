@@ -10,9 +10,15 @@
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
 		423082F71BDABAE4000304F7 /* FXFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 423082F31BDABAE4000304F7 /* FXFileImageModel.m */; };
 		423082F81BDABAE4000304F7 /* FXURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 423082F61BDABAE4000304F7 /* FXURLImageModel.m */; };
+		423083191BDABF7E000304F7 /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4230830C1BDABF7E000304F7 /* FXDataCell.m */; };
+		4230831A1BDABF7E000304F7 /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4230830D1BDABF7E000304F7 /* FXDataCell.xib */; };
+		4230831B1BDABF7E000304F7 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083101BDABF7E000304F7 /* FXImageView.m */; };
+		4230831C1BDABF7E000304F7 /* FXImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423083111BDABF7E000304F7 /* FXImageView.xib */; };
+		4230831D1BDABF7E000304F7 /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083141BDABF7E000304F7 /* FXLoadingView.m */; };
+		4230831E1BDABF7E000304F7 /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423083151BDABF7E000304F7 /* FXLoadingView.xib */; };
+		4230831F1BDABF7E000304F7 /* FXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083181BDABF7E000304F7 /* FXView.m */; };
 		423649E41BB1E0F00020C57E /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DC1BB1E0BC0020C57E /* UIViewController+FXExtensions.m */; };
 		423649E51BB1E0F40020C57E /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423649DF1BB1E0BD0020C57E /* UIWindow+FXExtensions.m */; };
-		423F77DC1BCC3BA000EEEBEA /* FXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423F77DB1BCC3BA000EEEBEA /* FXView.m */; };
 		42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */; };
 		4247AECF1BB7E7030008544C /* NSIndexPath+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AECE1BB7E7030008544C /* NSIndexPath+FXExtensions.m */; };
 		4247AEEB1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4247AEEA1BB7EFDF0008544C /* NSMutableArray+FXExtensions.m */; };
@@ -168,12 +174,6 @@
 		42D6CF681BAC3D9E0015E925 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF641BAC3D9E0015E925 /* FXAppDelegate.m */; };
 		42D6CF6A1BAC3D9E0015E925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF671BAC3D9E0015E925 /* main.m */; };
 		42F6393D1BD97C29002927A6 /* FXCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F6393C1BD97C29002927A6 /* FXCache.m */; };
-		42F639461BD97CD8002927A6 /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F639401BD97CD7002927A6 /* FXDataCell.m */; };
-		42F639471BD97CD8002927A6 /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F639411BD97CD7002927A6 /* FXDataCell.xib */; };
-		42F639481BD97CD8002927A6 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F639441BD97CD8002927A6 /* FXImageView.m */; };
-		42F639491BD97CD8002927A6 /* FXImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F639451BD97CD8002927A6 /* FXImageView.xib */; };
-		42F6394E1BD97D7D002927A6 /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F6394C1BD97D7D002927A6 /* FXLoadingView.m */; };
-		42F6394F1BD97D7D002927A6 /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F6394D1BD97D7D002927A6 /* FXLoadingView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -315,6 +315,17 @@
 		423082F31BDABAE4000304F7 /* FXFileImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFileImageModel.m; sourceTree = "<group>"; };
 		423082F51BDABAE4000304F7 /* FXURLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXURLImageModel.h; sourceTree = "<group>"; };
 		423082F61BDABAE4000304F7 /* FXURLImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXURLImageModel.m; sourceTree = "<group>"; };
+		4230830B1BDABF7E000304F7 /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
+		4230830C1BDABF7E000304F7 /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
+		4230830D1BDABF7E000304F7 /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
+		4230830F1BDABF7E000304F7 /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
+		423083101BDABF7E000304F7 /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
+		423083111BDABF7E000304F7 /* FXImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXImageView.xib; sourceTree = "<group>"; };
+		423083131BDABF7E000304F7 /* FXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
+		423083141BDABF7E000304F7 /* FXLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingView.m; sourceTree = "<group>"; };
+		423083151BDABF7E000304F7 /* FXLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoadingView.xib; sourceTree = "<group>"; };
+		423083171BDABF7E000304F7 /* FXView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXView.h; sourceTree = "<group>"; };
+		423083181BDABF7E000304F7 /* FXView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXView.m; sourceTree = "<group>"; };
 		423649D51BB1E0BB0020C57E /* UINib+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+FXExtensions.h"; sourceTree = "<group>"; };
 		423649D61BB1E0BB0020C57E /* UINib+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+FXExtensions.m"; sourceTree = "<group>"; };
 		423649D81BB1E0BB0020C57E /* UITableView+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FXExtensions.h"; sourceTree = "<group>"; };
@@ -327,8 +338,6 @@
 		423649E81BB1E1390020C57E /* FXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTableViewCell.m; sourceTree = "<group>"; };
 		4236B3481B6BB041003510F9 /* FXAlphabet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAlphabet; sourceTree = BUILT_PRODUCTS_DIR; };
 		423715271B074733000A4877 /* FXObjects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXObjects; sourceTree = BUILT_PRODUCTS_DIR; };
-		423F77DA1BCC3BA000EEEBEA /* FXView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXView.h; sourceTree = "<group>"; };
-		423F77DB1BCC3BA000EEEBEA /* FXView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXView.m; sourceTree = "<group>"; };
 		42415D391BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXArrayModelChanges+UITableView.h"; sourceTree = "<group>"; };
 		42415D3A1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FXArrayModelChanges+UITableView.m"; sourceTree = "<group>"; };
 		4247AECD1BB7E7030008544C /* NSIndexPath+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+FXExtensions.h"; sourceTree = "<group>"; };
@@ -533,15 +542,6 @@
 		42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataModel.m; sourceTree = "<group>"; };
 		42F6393B1BD97C29002927A6 /* FXCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCache.h; sourceTree = "<group>"; };
 		42F6393C1BD97C29002927A6 /* FXCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCache.m; sourceTree = "<group>"; };
-		42F6393F1BD97CD7002927A6 /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
-		42F639401BD97CD7002927A6 /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
-		42F639411BD97CD7002927A6 /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
-		42F639431BD97CD8002927A6 /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
-		42F639441BD97CD8002927A6 /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
-		42F639451BD97CD8002927A6 /* FXImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXImageView.xib; sourceTree = "<group>"; };
-		42F6394B1BD97D7D002927A6 /* FXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
-		42F6394C1BD97D7D002927A6 /* FXLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingView.m; sourceTree = "<group>"; };
-		42F6394D1BD97D7D002927A6 /* FXLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoadingView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -759,6 +759,56 @@
 			path = FXURLImageModel;
 			sourceTree = "<group>";
 		};
+		423083091BDABF7D000304F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4230830A1BDABF7E000304F7 /* FXDataCell */,
+				4230830E1BDABF7E000304F7 /* FXImageView */,
+				423083121BDABF7E000304F7 /* FXLoadingView */,
+				423083161BDABF7E000304F7 /* FXView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4230830A1BDABF7E000304F7 /* FXDataCell */ = {
+			isa = PBXGroup;
+			children = (
+				4230830B1BDABF7E000304F7 /* FXDataCell.h */,
+				4230830C1BDABF7E000304F7 /* FXDataCell.m */,
+				4230830D1BDABF7E000304F7 /* FXDataCell.xib */,
+			);
+			path = FXDataCell;
+			sourceTree = "<group>";
+		};
+		4230830E1BDABF7E000304F7 /* FXImageView */ = {
+			isa = PBXGroup;
+			children = (
+				4230830F1BDABF7E000304F7 /* FXImageView.h */,
+				423083101BDABF7E000304F7 /* FXImageView.m */,
+				423083111BDABF7E000304F7 /* FXImageView.xib */,
+			);
+			path = FXImageView;
+			sourceTree = "<group>";
+		};
+		423083121BDABF7E000304F7 /* FXLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				423083131BDABF7E000304F7 /* FXLoadingView.h */,
+				423083141BDABF7E000304F7 /* FXLoadingView.m */,
+				423083151BDABF7E000304F7 /* FXLoadingView.xib */,
+			);
+			path = FXLoadingView;
+			sourceTree = "<group>";
+		};
+		423083161BDABF7E000304F7 /* FXView */ = {
+			isa = PBXGroup;
+			children = (
+				423083171BDABF7E000304F7 /* FXView.h */,
+				423083181BDABF7E000304F7 /* FXView.m */,
+			);
+			path = FXView;
+			sourceTree = "<group>";
+		};
 		423649D41BB1E0BA0020C57E /* UINib+FXExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,16 +852,6 @@
 				423649E81BB1E1390020C57E /* FXTableViewCell.m */,
 			);
 			path = FXTableViewCell;
-			sourceTree = "<group>";
-		};
-		423F77D81BCC3B7000EEEBEA /* FXView */ = {
-			isa = PBXGroup;
-			children = (
-				42F6394A1BD97D7D002927A6 /* FXLoadingView */,
-				423F77DA1BCC3BA000EEEBEA /* FXView.h */,
-				423F77DB1BCC3BA000EEEBEA /* FXView.m */,
-			);
-			path = FXView;
 			sourceTree = "<group>";
 		};
 		42415D381BC2DF6400B4B181 /* FXArrayModelChanges+UITableView */ = {
@@ -919,8 +959,6 @@
 		425D44081BB7235E005BFAF9 /* FXDataViewController */ = {
 			isa = PBXGroup;
 			children = (
-				42F6393E1BD97CD7002927A6 /* FXDataCell */,
-				42F639421BD97CD7002927A6 /* FXImageView */,
 				425D440B1BB7235E005BFAF9 /* FXDataViewController.h */,
 				425D440C1BB7235E005BFAF9 /* FXDataViewController.m */,
 				425D44171BB74342005BFAF9 /* FXDataViewController.xib */,
@@ -1862,7 +1900,7 @@
 		4297468E1BA0BAA90063FE20 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				423F77D81BCC3B7000EEEBEA /* FXView */,
+				423083091BDABF7D000304F7 /* Views */,
 				425D44081BB7235E005BFAF9 /* FXDataViewController */,
 				4297468F1BA0BAA90063FE20 /* FXSquareViewController */,
 			);
@@ -1960,36 +1998,6 @@
 				42F6393C1BD97C29002927A6 /* FXCache.m */,
 			);
 			path = FXCache;
-			sourceTree = "<group>";
-		};
-		42F6393E1BD97CD7002927A6 /* FXDataCell */ = {
-			isa = PBXGroup;
-			children = (
-				42F6393F1BD97CD7002927A6 /* FXDataCell.h */,
-				42F639401BD97CD7002927A6 /* FXDataCell.m */,
-				42F639411BD97CD7002927A6 /* FXDataCell.xib */,
-			);
-			path = FXDataCell;
-			sourceTree = "<group>";
-		};
-		42F639421BD97CD7002927A6 /* FXImageView */ = {
-			isa = PBXGroup;
-			children = (
-				42F639431BD97CD8002927A6 /* FXImageView.h */,
-				42F639441BD97CD8002927A6 /* FXImageView.m */,
-				42F639451BD97CD8002927A6 /* FXImageView.xib */,
-			);
-			path = FXImageView;
-			sourceTree = "<group>";
-		};
-		42F6394A1BD97D7D002927A6 /* FXLoadingView */ = {
-			isa = PBXGroup;
-			children = (
-				42F6394B1BD97D7D002927A6 /* FXLoadingView.h */,
-				42F6394C1BD97D7D002927A6 /* FXLoadingView.m */,
-				42F6394D1BD97D7D002927A6 /* FXLoadingView.xib */,
-			);
-			path = FXLoadingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2324,9 +2332,9 @@
 				428F93F31BB71B970032DFA6 /* InfoPlist.strings in Resources */,
 				428F93F41BB71B970032DFA6 /* objc.png in Resources */,
 				425D44181BB74343005BFAF9 /* FXDataViewController.xib in Resources */,
-				42F639471BD97CD8002927A6 /* FXDataCell.xib in Resources */,
-				42F639491BD97CD8002927A6 /* FXImageView.xib in Resources */,
-				42F6394F1BD97D7D002927A6 /* FXLoadingView.xib in Resources */,
+				4230831A1BDABF7E000304F7 /* FXDataCell.xib in Resources */,
+				4230831C1BDABF7E000304F7 /* FXImageView.xib in Resources */,
+				4230831E1BDABF7E000304F7 /* FXLoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2524,16 +2532,16 @@
 				42CD7B191BBE867800250E58 /* FXArrayModelChangesTwoIndices.m in Sources */,
 				42415D3B1BC2DF6500B4B181 /* FXArrayModelChanges+UITableView.m in Sources */,
 				424D5BA51BC6F73C00702752 /* FXModel.m in Sources */,
-				423F77DC1BCC3BA000EEEBEA /* FXView.m in Sources */,
 				42D6AF8D1BCF00440078B132 /* NSFileManager+FXExtensions.m in Sources */,
 				42D6AF8E1BCF08B00078B132 /* NSArray+FXExtensions.m in Sources */,
 				426D66AB1BD2EF6A00A5F591 /* FXImageModel.m in Sources */,
 				42F6393D1BD97C29002927A6 /* FXCache.m in Sources */,
-				42F639461BD97CD8002927A6 /* FXDataCell.m in Sources */,
-				42F639481BD97CD8002927A6 /* FXImageView.m in Sources */,
-				42F6394E1BD97D7D002927A6 /* FXLoadingView.m in Sources */,
 				423082F71BDABAE4000304F7 /* FXFileImageModel.m in Sources */,
 				423082F81BDABAE4000304F7 /* FXURLImageModel.m in Sources */,
+				423083191BDABF7E000304F7 /* FXDataCell.m in Sources */,
+				4230831B1BDABF7E000304F7 /* FXImageView.m in Sources */,
+				4230831D1BDABF7E000304F7 /* FXLoadingView.m in Sources */,
+				4230831F1BDABF7E000304F7 /* FXView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

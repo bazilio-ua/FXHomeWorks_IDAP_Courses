@@ -61,7 +61,7 @@
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Overriden Public Methods
 
 - (void)performLoading {
 	FXWeakify(self);
@@ -71,6 +71,9 @@
 		[self notifyOfLoadingStateWithImage:image error:error];
 	}];
 }
+
+#pragma mark -
+#pragma mark Public Methods
 
 - (void)performLoadingWithCompletion:(void (^)(UIImage *, id))completion {
 	

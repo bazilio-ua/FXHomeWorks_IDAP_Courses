@@ -8,6 +8,60 @@
 
 #import "FXFileImageModel.h"
 
+@interface FXFileImageModel ()
+@property (nonatomic, readonly)	NSString	*filePath;
+
+@property (nonatomic, readonly, getter = isCached)	BOOL	cached;
+
+- (void)deleteFromCacheIfNeeded;
+
+@end
+
 @implementation FXFileImageModel
+
+@dynamic filePath;
+@dynamic cached;
+
+#pragma mark -
+#pragma mark Class Methods
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSString *)filePath {
+	return self.url.path;
+}
+
+- (BOOL)isCached {
+	return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)performLoadingWithCompletion:(void (^)(UIImage *, id))completion {
+	UIImage *image = [UIImage imageWithContentsOfFile:self.filePath];
+	if (!image) {
+		[self deleteFromCacheIfNeeded];
+	}
+	
+	completion(image, nil);
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)deleteFromCacheIfNeeded {
+	if (self.cached) {
+		NSError *error = nil;
+		[[NSFileManager defaultManager] removeItemAtPath:self.filePath error:&error];
+		if (error) {
+			NSLog(@"%@", [error localizedDescription]);
+		}
+	}
+}
 
 @end

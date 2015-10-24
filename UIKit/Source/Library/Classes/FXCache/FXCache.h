@@ -10,7 +10,7 @@
 
 @interface FXCache : NSObject
 
-+ (id)sharedCache;
++ (id)cache;
 
 - (void)addObject:(id)object forKey:(id)key;
 - (void)removeObjectForKey:(id)key;

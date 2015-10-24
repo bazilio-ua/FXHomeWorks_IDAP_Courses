@@ -22,14 +22,14 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (id)sharedCache {
-	static FXCache *__sharedCache = nil;
++ (id)cache {
+	static FXCache *__cache = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		__sharedCache = [[self alloc] init];
+		__cache = [[self alloc] init];
 	});
 	
-	return __sharedCache;
+	return __cache;
 }
 
 #pragma mark -

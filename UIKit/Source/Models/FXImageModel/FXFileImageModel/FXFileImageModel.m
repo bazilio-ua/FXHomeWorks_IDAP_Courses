@@ -9,9 +9,6 @@
 #import "FXFileImageModel.h"
 
 @interface FXFileImageModel ()
-@property (nonatomic, readonly)	NSString	*filePath;
-
-@property (nonatomic, readonly, getter = isCached)	BOOL	cached;
 
 - (void)deleteFromCacheIfNeeded;
 
@@ -19,6 +16,8 @@
 
 @implementation FXFileImageModel
 
+@dynamic fileName;
+@dynamic fileFolder;
 @dynamic filePath;
 @dynamic cached;
 
@@ -32,7 +31,7 @@
 #pragma mark Accessors
 
 - (NSString *)filePath {
-	return self.url.path;
+	return [self.url path];
 }
 
 - (BOOL)isCached {
@@ -48,7 +47,9 @@
 		[self deleteFromCacheIfNeeded];
 	}
 	
-	completion(image, nil);
+	if (completion) {
+		completion(image, nil);
+	}
 }
 
 #pragma mark -

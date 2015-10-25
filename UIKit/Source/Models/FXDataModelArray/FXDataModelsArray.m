@@ -100,8 +100,8 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 #pragma mark Overriden Public Methods
 
 - (void)performLoading {
-//	id block = nil;
-	void(^block)(void) = nil;
+	id block = nil;
+//	void(^block)(void) = nil;
 	if (self.cached) {
 		FXSleep(kFXDefaultSleepTimeInterval);
 		id objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];

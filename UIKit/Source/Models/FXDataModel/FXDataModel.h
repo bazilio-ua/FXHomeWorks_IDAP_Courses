@@ -10,8 +10,11 @@
 
 #import "FXModel.h"
 
+@class FXImageModel;
+
 @interface FXDataModel : FXModel <NSCoding>
 @property (nonatomic, strong, readonly)	UIImage		*image;
-@property (nonatomic, copy)				NSString	*text;
+//@property (nonatomic, strong, readonly)	FXImageModel	*imageModel;
+@property (nonatomic, copy)				NSString		*text;
 
 @end

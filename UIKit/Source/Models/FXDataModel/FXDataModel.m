@@ -8,11 +8,14 @@
 
 #import "FXDataModel.h"
 
+#import "FXImageModel.h"
+
 #import "NSString+FXExtensions.h"
 
 #import "FXDispatch.h"
 #import "FXMacros.h"
 
+//static NSString * const kFXDefaultDataImageURL		= @"objc";
 static NSString * const kFXDefaultDataImageName		= @"objc";
 static NSString * const kFXDefaultDataName			= @"text";
 static const NSUInteger kFXDefaultDataStringLength	= 10;
@@ -20,13 +23,15 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 
 @interface FXDataModel ()
 @property (nonatomic, strong)	UIImage		*image;
+//@property (nonatomic, strong)	FXImageModel	*imageModel;
 
 @end
 
 @implementation FXDataModel
 
-@synthesize image	= _image;
-@synthesize text	= _text;
+@synthesize image		= _image;
+//@synthesize imageModel	= _imageModel;
+@synthesize text		= _text;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -42,6 +47,12 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 
 #pragma mark -
 #pragma mark Accessors
+
+//- (FXImageModel *)imageModel {
+//	NSURL *url = [NSURL URLWithString:kFXDefaultDataImageURL];
+//	
+//	return [FXImageModel imageWithURL:url];
+//}
 
 #pragma mark -
 #pragma mark Overriden Public Methods

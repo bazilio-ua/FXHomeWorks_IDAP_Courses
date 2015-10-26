@@ -15,6 +15,8 @@
 #import "FXDispatch.h"
 #import "FXMacros.h"
 
+static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
+
 @interface FXImageModel ()
 @property (nonatomic, strong)	UIImage	*image;
 @property (nonatomic, strong)	NSURL	*url;
@@ -39,7 +41,10 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	[[FXCache cache] removeObjectForKey:self.url];
+	// FIXME: need synchronized on cache, cache shpuld be property of class
+	if (self.url) {
+		[[FXCache cache] removeObjectForKey:self.url];
+	}
 }
 
 - (id)initWithURL:(NSURL *)url {
@@ -66,6 +71,7 @@
 - (void)performLoading {
 	FXWeakify(self);
 	[self performLoadingWithCompletion:^(UIImage *image, id error) {
+		FXSleep(kFXDefaultSleepTimeInterval);
 		FXStrongifyAndReturnIfNil(self);
 		[self finalizeLoadingWithImage:image error:error];
 		[self notifyOfLoadingStateWithImage:image error:error];

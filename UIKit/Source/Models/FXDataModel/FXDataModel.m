@@ -15,22 +15,22 @@
 #import "FXDispatch.h"
 #import "FXMacros.h"
 
-//static NSString * const kFXDefaultDataImageURL		= @"objc";
-static NSString * const kFXDefaultDataImageName		= @"objc";
+static NSString * const kFXDefaultDataImageURL		= @"http://archiveteam.org/images/1/15/Apple-logo.jpg";
+//static NSString * const kFXDefaultDataImageName		= @"objc";
 static NSString * const kFXDefaultDataName			= @"text";
 static const NSUInteger kFXDefaultDataStringLength	= 10;
 static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 
 @interface FXDataModel ()
-@property (nonatomic, strong)	UIImage		*image;
-//@property (nonatomic, strong)	FXImageModel	*imageModel;
+//@property (nonatomic, strong)	UIImage		*image;
+@property (nonatomic, strong)	FXImageModel	*imageModel;
 
 @end
 
 @implementation FXDataModel
 
-@synthesize image		= _image;
-//@synthesize imageModel	= _imageModel;
+//@synthesize image		= _image;
+@synthesize imageModel	= _imageModel;
 @synthesize text		= _text;
 
 #pragma mark -
@@ -48,24 +48,24 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 #pragma mark -
 #pragma mark Accessors
 
-//- (FXImageModel *)imageModel {
-//	NSURL *url = [NSURL URLWithString:kFXDefaultDataImageURL];
-//	
-//	return [FXImageModel imageWithURL:url];
-//}
+- (FXImageModel *)imageModel {
+	NSURL *url = [NSURL URLWithString:kFXDefaultDataImageURL];
+	
+	return [FXImageModel imageWithURL:url];
+}
 
 #pragma mark -
 #pragma mark Overriden Public Methods
 
-- (void)performLoading {
-	FXSleep(kFXDefaultSleepTimeInterval);
-	NSString *path = [[NSBundle mainBundle] pathForResource:kFXDefaultDataImageName ofType:@"png"];
-	self.image = [UIImage imageWithContentsOfFile:path];
-	
-	FXDispatchAsyncOnMainQueueWithBlock(^{
-		self.state = kFXModelLoaded;
-	});
-}
+//- (void)performLoading {
+//	FXSleep(kFXDefaultSleepTimeInterval);
+//	NSString *path = [[NSBundle mainBundle] pathForResource:kFXDefaultDataImageName ofType:@"png"];
+//	self.image = [UIImage imageWithContentsOfFile:path];
+//	
+//	FXDispatchAsyncOnMainQueueWithBlock(^{
+//		self.state = kFXModelLoaded;
+//	});
+//}
 
 #pragma mark -
 #pragma mark NSCoding protocol

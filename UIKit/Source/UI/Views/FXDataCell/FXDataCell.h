@@ -10,12 +10,14 @@
 
 #import "FXModelObserver.h"
 
+@class FXImageView;
 @class FXDataModel;
 
-@interface FXDataCell : FXTableViewCell <FXModelObserver>
-@property (nonatomic, strong)	IBOutlet	UIImageView				*contentImageView;
+@interface FXDataCell : FXTableViewCell //<FXModelObserver>
+@property (nonatomic, strong)	IBOutlet	FXImageView				*modelImageView;
+//@property (nonatomic, strong)	IBOutlet	UIImageView				*contentImageView;
 @property (nonatomic, strong)	IBOutlet	UILabel					*stringLabel;
-@property (nonatomic, strong)	IBOutlet	UIActivityIndicatorView	*activityIndicatorView;
+//@property (nonatomic, strong)	IBOutlet	UIActivityIndicatorView	*activityIndicatorView;
 
 @property (nonatomic, strong)	FXDataModel				*model;
 

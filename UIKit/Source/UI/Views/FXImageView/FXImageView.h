@@ -8,6 +8,14 @@
 
 #import "FXView.h"
 
-@interface FXImageView : FXView
+#import "FXModelObserver.h"
+
+@class FXImageModel;
+
+@interface FXImageView : FXView <FXModelObserver>
+@property (nonatomic, strong)	IBOutlet	UIImageView		*imageView;
+@property (nonatomic, strong)				FXImageModel	*imageModel;
+
+- (void)fillWithModel:(id)model;
 
 @end

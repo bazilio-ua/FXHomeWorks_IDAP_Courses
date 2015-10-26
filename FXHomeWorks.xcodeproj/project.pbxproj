@@ -13,7 +13,6 @@
 		423083191BDABF7E000304F7 /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4230830C1BDABF7E000304F7 /* FXDataCell.m */; };
 		4230831A1BDABF7E000304F7 /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4230830D1BDABF7E000304F7 /* FXDataCell.xib */; };
 		4230831B1BDABF7E000304F7 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083101BDABF7E000304F7 /* FXImageView.m */; };
-		4230831C1BDABF7E000304F7 /* FXImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423083111BDABF7E000304F7 /* FXImageView.xib */; };
 		4230831D1BDABF7E000304F7 /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083141BDABF7E000304F7 /* FXLoadingView.m */; };
 		4230831E1BDABF7E000304F7 /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423083151BDABF7E000304F7 /* FXLoadingView.xib */; };
 		4230831F1BDABF7E000304F7 /* FXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083181BDABF7E000304F7 /* FXView.m */; };
@@ -325,7 +324,6 @@
 		4230830D1BDABF7E000304F7 /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
 		4230830F1BDABF7E000304F7 /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
 		423083101BDABF7E000304F7 /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
-		423083111BDABF7E000304F7 /* FXImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXImageView.xib; sourceTree = "<group>"; };
 		423083131BDABF7E000304F7 /* FXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
 		423083141BDABF7E000304F7 /* FXLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingView.m; sourceTree = "<group>"; };
 		423083151BDABF7E000304F7 /* FXLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoadingView.xib; sourceTree = "<group>"; };
@@ -801,7 +799,6 @@
 			children = (
 				4230830F1BDABF7E000304F7 /* FXImageView.h */,
 				423083101BDABF7E000304F7 /* FXImageView.m */,
-				423083111BDABF7E000304F7 /* FXImageView.xib */,
 			);
 			path = FXImageView;
 			sourceTree = "<group>";
@@ -2407,7 +2404,6 @@
 				428F93F41BB71B970032DFA6 /* objc.png in Resources */,
 				425D44181BB74343005BFAF9 /* FXDataViewController.xib in Resources */,
 				4230831A1BDABF7E000304F7 /* FXDataCell.xib in Resources */,
-				4230831C1BDABF7E000304F7 /* FXImageView.xib in Resources */,
 				4230831E1BDABF7E000304F7 /* FXLoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

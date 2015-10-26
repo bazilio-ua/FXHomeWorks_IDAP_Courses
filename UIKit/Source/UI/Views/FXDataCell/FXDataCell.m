@@ -8,15 +8,17 @@
 
 #import "FXDataCell.h"
 
+#import "FXImageView.h"
 #import "FXDataModel.h"
 
 #import "FXMacros.h"
 
 @implementation FXDataCell
 
-@synthesize contentImageView		= _contentImageView;
+@synthesize modelImageView			= _modelImageView;
+//@synthesize contentImageView		= _contentImageView;
 @synthesize stringLabel				= _stringLabel;
-@synthesize activityIndicatorView	= _activityIndicatorView;
+//@synthesize activityIndicatorView	= _activityIndicatorView;
 
 @synthesize model	= _model;
 
@@ -31,36 +33,41 @@
 #pragma mark Accessors
 
 - (void)setModel:(FXDataModel *)model {
-	FXSynthesizeObservableSetter(model);
+//	FXSynthesizeObservableSetter(model);
+	if (_model != model) {
+		_model = model;
+	}
+	
 	[self fillWithModel:model];
-	[model load];
+//	[model load];
 }
 
 #pragma mark - 
 #pragma mark Public Methods
 
 - (void)fillWithModel:(FXDataModel *)model {
-	self.contentImageView.image = model.image;
+//	self.contentImageView.image = model.image;
+	self.modelImageView.imageModel = model.imageModel;
 	self.stringLabel.text = model.text;
 }
 
 #pragma mark -
 #pragma mark FXModelObserver protocol
 
-- (void)modelWillLoad:(id)model {
-	NSLog(@"modelWillLoad: %@", model);
-	[self.activityIndicatorView startAnimating];
-}
-
-- (void)modelDidLoad:(id)model {
-	NSLog(@"modelDidLoad: %@", model);
-	[self fillWithModel:model];
-	[self.activityIndicatorView stopAnimating];
-	
-}
-
-- (void)modelDidFailLoading:(id)model {
-	NSLog(@"modelDidFailLoading: %@", model);
-}
+//- (void)modelWillLoad:(id)model {
+//	NSLog(@"modelWillLoad: %@", model);
+//	[self.activityIndicatorView startAnimating];
+//}
+//
+//- (void)modelDidLoad:(id)model {
+//	NSLog(@"modelDidLoad: %@", model);
+//	[self fillWithModel:model];
+//	[self.activityIndicatorView stopAnimating];
+//	
+//}
+//
+//- (void)modelDidFailLoading:(id)model {
+//	NSLog(@"modelDidFailLoading: %@", model);
+//}
 
 @end

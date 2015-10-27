@@ -32,9 +32,9 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 #pragma mark Class Methods
 
 + (id)imageWithURL:(NSURL *)url {
-	Class class = ([url isFileURL]) ? [FXFileImageModel class] : [FXURLImageModel class];
+	Class aClass = ([url isFileURL]) ? [FXFileImageModel class] : [FXURLImageModel class];
 	
-	return [[class alloc] initWithURL:url];
+	return [[aClass alloc] initWithURL:url];
 }
 
 #pragma mark -

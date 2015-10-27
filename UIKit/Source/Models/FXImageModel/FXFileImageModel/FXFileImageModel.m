@@ -8,6 +8,9 @@
 
 #import "FXFileImageModel.h"
 
+#import "NSString+FXExtensions.h"
+#import "NSFileManager+FXExtensions.h"
+
 @interface FXFileImageModel ()
 
 - (void)deleteFromCacheIfNeeded;
@@ -30,8 +33,18 @@
 #pragma mark -
 #pragma mark Accessors
 
+- (NSString *)fileName {
+	NSString *absolutePath = [self.url absoluteString];
+	
+	return [absolutePath URLEncodedString];
+}
+
+- (NSString *)fileFolder {
+	return [NSFileManager userDocumentsPath];
+}
+
 - (NSString *)filePath {
-	return [self.url path];
+	return [self.fileFolder stringByAppendingPathComponent:self.fileName];
 }
 
 - (BOOL)isCached {

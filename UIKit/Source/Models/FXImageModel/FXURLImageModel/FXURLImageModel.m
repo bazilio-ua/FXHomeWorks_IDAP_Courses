@@ -8,7 +8,6 @@
 
 #import "FXURLImageModel.h"
 
-#import "NSFileManager+FXExtensions.h"
 #import "NSURLConnection+FXExtensions.h"
 
 #import "FXMacros.h"
@@ -39,18 +38,6 @@
 		_connection = connection;
 		[_connection start];
 	}
-}
-
-- (NSString *)fileName {
-	return [self.url lastPathComponent];
-}
-
-- (NSString *)fileFolder {
-	return [NSFileManager userDocumentsPath];
-}
-
-- (NSString *)filePath {
-	return [self.fileFolder stringByAppendingPathComponent:self.fileName];
 }
 
 #pragma mark -

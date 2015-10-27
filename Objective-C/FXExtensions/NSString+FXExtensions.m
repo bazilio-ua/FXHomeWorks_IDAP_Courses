@@ -49,4 +49,12 @@ static const NSUInteger kFXDefaultRandomStringLength = 50;
 	return [[symbolsArray copy] autorelease];
 }
 
+- (NSString *)URLEncodedString {
+	return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, 
+																				 (__bridge CFStringRef)self, 
+																				 NULL, 
+																				 CFSTR("!*'();:@&=+$,/?%#[]\" "), 
+																				 kCFStringEncodingUTF8));
+}
+
 @end

@@ -18,4 +18,6 @@
 
 - (NSArray *)symbols;
 
+- (NSString *)URLEncodedString;
+
 @end

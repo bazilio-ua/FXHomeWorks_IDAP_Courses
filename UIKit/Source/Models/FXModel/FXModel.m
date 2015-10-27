@@ -11,6 +11,7 @@
 #import "FXModelObserver.h"
 
 #import "FXDispatch.h"
+
 #import "FXMacros.h"
 
 @interface FXModel ()

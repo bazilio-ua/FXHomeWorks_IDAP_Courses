@@ -11,13 +11,13 @@
 #import "FXWeakMutableDictionary.h"
 
 @interface FXCache ()
-@property (nonatomic, strong)	FXWeakMutableDictionary	*cache;
+@property (nonatomic, strong)	FXWeakMutableDictionary	*weakMutableDictionary;
 
 @end
 
 @implementation FXCache
 
-@synthesize cache = _cache;
+@synthesize weakMutableDictionary	= _weakMutableDictionary;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -38,7 +38,7 @@
 - (id)init {
 	self = [super init];
 	if (self) {
-		self.cache = [FXWeakMutableDictionary dictionary];
+		self.weakMutableDictionary = [FXWeakMutableDictionary dictionary];
 	}
 	
 	return self;
@@ -49,37 +49,37 @@
 
 - (void)addObject:(id)object forKey:(id)key {
 	@synchronized(self) {
-		[self.cache setObject:object forKey:key];
+		[self.weakMutableDictionary setObject:object forKey:key];
 	}
 }
 
 - (void)removeObjectForKey:(id)key {
 	@synchronized(self) {
-		[self.cache removeObjectForKey:key];
+		[self.weakMutableDictionary removeObjectForKey:key];
 	}
 }
 
 - (id)objectForKey:(id)key {
 	@synchronized(self) {
-		return [self.cache objectForKey:key];
+		return [self.weakMutableDictionary objectForKey:key];
 	}
 }
 
 - (BOOL)containsObjectForKey:(id)key {
 	@synchronized(self) {
-		return nil != [self.cache objectForKey:key];
+		return nil != [self.weakMutableDictionary objectForKey:key];
 	}
 }
 
 - (void)removeAllObjects {
 	@synchronized(self) {
-		[self.cache removeAllObjects];
+		[self.weakMutableDictionary removeAllObjects];
 	}
 }
 
 - (NSUInteger)count {
 	@synchronized(self) {
-		return [self.cache count];
+		return [self.weakMutableDictionary count];
 	}
 }
 

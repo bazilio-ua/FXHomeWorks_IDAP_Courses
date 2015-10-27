@@ -13,6 +13,7 @@
 #import "FXCache.h"
 
 #import "FXDispatch.h"
+
 #import "FXMacros.h"
 
 static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
@@ -20,6 +21,9 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 @interface FXImageModel ()
 @property (nonatomic, strong)	UIImage	*image;
 @property (nonatomic, strong)	NSURL	*url;
+@property (nonatomic, readonly)	FXCache	*cache;
+
++ (FXCache *)cache;
 
 @end
 
@@ -28,8 +32,14 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 @synthesize image	= _image;
 @synthesize url		= _url;
 
+@dynamic cache;
+
 #pragma mark -
 #pragma mark Class Methods
+
++ (FXCache *)cache {
+	return [FXCache cache];
+}
 
 + (id)imageWithURL:(NSURL *)url {
 	Class aClass = ([url isFileURL]) ? [FXFileImageModel class] : [FXURLImageModel class];
@@ -43,13 +53,13 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 - (void)dealloc {
 	// FIXME: need synchronized on cache, cache shpuld be property of class
 	if (self.url) {
-		[[FXCache cache] removeObjectForKey:self.url];
+		[self.cache removeObjectForKey:self.url]; // [FXCache cache]
 	}
 }
 
 - (id)initWithURL:(NSURL *)url {
 	@synchronized(self) {
-		FXCache *cache = [FXCache cache];
+		FXCache *cache = self.cache; // [FXCache cache];
 		id image = [cache objectForKey:url];
 		if (image) {
 			return image;
@@ -63,6 +73,13 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 		
 		return self;
 	}
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (FXCache *)cache {
+	return [[self class] cache];
 }
 
 #pragma mark -
@@ -90,10 +107,11 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 }
 
 - (void)notifyOfLoadingStateWithImage:(UIImage *)image error:(id)error {
-	FXWeakify(self);
+//	FXWeakify(self);
 	FXDispatchAsyncOnMainQueueWithBlock(^{
-		FXStrongifyAndReturnIfNil(self);
-		((FXModel *)self).state = image ? kFXModelLoaded : kFXModelFailedLoading;
+//		FXStrongifyAndReturnIfNil(self);
+//		((FXModel *)self).state = image ? kFXModelLoaded : kFXModelFailedLoading;
+		self.state = image ? kFXModelLoaded : kFXModelFailedLoading;
 	});
 }
 

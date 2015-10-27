@@ -59,7 +59,13 @@
 	[NSURLConnection asyncRequest:request 
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 					if (!error) {
-						[data writeToFile:self.filePath options:NSDataWritingAtomic error:nil];
+						NSError *writeError = nil;
+						[data writeToFile:self.filePath options:NSDataWritingAtomic error:&writeError];
+						if (writeError) {
+							NSLog(@"%@", [writeError localizedDescription]);
+						}
+					} else {
+						NSLog(@"%@", [error localizedDescription]);
 					}
 					
 					[super performLoadingWithCompletion:completion];

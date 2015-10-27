@@ -10,9 +10,10 @@
 
 #import "FXImageModel.h"
 
+#import "FXDispatch.h"
+
 #import "NSString+FXExtensions.h"
 
-#import "FXDispatch.h"
 #import "FXMacros.h"
 
 static NSString * const kFXDefaultDataImageURL		= @"http://archiveteam.org/images/1/15/Apple-logo.jpg";

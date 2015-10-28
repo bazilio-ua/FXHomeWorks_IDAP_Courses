@@ -51,15 +51,14 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	// FIXME: need synchronized on cache, cache shpuld be property of class
 	if (self.url) {
-		[self.cache removeObjectForKey:self.url]; // [FXCache cache]
+		[self.cache removeObjectForKey:self.url];
 	}
 }
 
 - (id)initWithURL:(NSURL *)url {
 	@synchronized(self) {
-		FXCache *cache = self.cache; // [FXCache cache];
+		FXCache *cache = self.cache;
 		id image = [cache objectForKey:url];
 		if (image) {
 			return image;
@@ -107,10 +106,7 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 }
 
 - (void)notifyOfLoadingStateWithImage:(UIImage *)image error:(id)error {
-//	FXWeakify(self);
 	FXDispatchAsyncOnMainQueueWithBlock(^{
-//		FXStrongifyAndReturnIfNil(self);
-//		((FXModel *)self).state = image ? kFXModelLoaded : kFXModelFailedLoading;
 		self.state = image ? kFXModelLoaded : kFXModelFailedLoading;
 	});
 }

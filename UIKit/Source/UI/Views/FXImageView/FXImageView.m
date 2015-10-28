@@ -29,6 +29,7 @@
 
 - (void)setImageModel:(FXImageModel *)imageModel {
 	FXSynthesizeObservableSetter(imageModel);
+	
 	[self fillWithModel:imageModel];
 	[imageModel load];
 }
@@ -46,15 +47,12 @@
 - (void)modelWillLoad:(id)model {
 	NSLog(@"modelWillLoad: %@", model);
 	[self showLoadingView];
-//	[self.activityIndicatorView startAnimating];
 }
 
 - (void)modelDidLoad:(id)model {
 	NSLog(@"modelDidLoad: %@", model);
 	[self fillWithModel:model];
 	[self hideLoadingView];
-//	[self.activityIndicatorView stopAnimating];
-	
 }
 
 - (void)modelDidFailLoading:(id)model {

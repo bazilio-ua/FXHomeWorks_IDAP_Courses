@@ -23,14 +23,12 @@ static const NSUInteger kFXDefaultDataStringLength	= 10;
 static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 
 @interface FXDataModel ()
-//@property (nonatomic, strong)	UIImage		*image;
 @property (nonatomic, strong)	FXImageModel	*imageModel;
 
 @end
 
 @implementation FXDataModel
 
-//@synthesize image		= _image;
 @synthesize imageModel	= _imageModel;
 @synthesize text		= _text;
 
@@ -54,19 +52,6 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 	
 	return [FXImageModel imageWithURL:url];
 }
-
-#pragma mark -
-#pragma mark Overriden Public Methods
-
-//- (void)performLoading {
-//	FXSleep(kFXDefaultSleepTimeInterval);
-//	NSString *path = [[NSBundle mainBundle] pathForResource:kFXDefaultDataImageName ofType:@"png"];
-//	self.image = [UIImage imageWithContentsOfFile:path];
-//	
-//	FXDispatchAsyncOnMainQueueWithBlock(^{
-//		self.state = kFXModelLoaded;
-//	});
-//}
 
 #pragma mark -
 #pragma mark NSCoding protocol

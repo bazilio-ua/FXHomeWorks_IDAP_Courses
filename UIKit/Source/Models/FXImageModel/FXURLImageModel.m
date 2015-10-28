@@ -13,7 +13,7 @@
 #import "FXMacros.h"
 
 @interface FXURLImageModel ()
-@property (nonatomic, strong)	NSURLConnection	*connection;
+//@property (nonatomic, strong)	NSURLConnection	*connection;
 
 - (void)loadImageFromInternet:(void (^)(UIImage *image, id error))completion;
 
@@ -21,7 +21,7 @@
 
 @implementation FXURLImageModel
 
-@synthesize connection = _connection;
+//@synthesize connection = _connection;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -32,13 +32,13 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setConnection:(NSURLConnection *)connection {
-	if (_connection != connection) {
-		[_connection cancel];
-		_connection = connection;
-		[_connection start];
-	}
-}
+//- (void)setConnection:(NSURLConnection *)connection {
+//	if (_connection != connection) {
+//		[_connection cancel];
+//		_connection = connection;
+//		[_connection start];
+//	}
+//}
 
 #pragma mark -
 #pragma mark Public Methods

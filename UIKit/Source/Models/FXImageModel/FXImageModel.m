@@ -57,7 +57,7 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 }
 
 - (id)initWithURL:(NSURL *)url {
-	@synchronized(self) {
+	@synchronized(self.cache) {
 		FXCache *cache = self.cache;
 		id image = [cache objectForKey:url];
 		if (image) {

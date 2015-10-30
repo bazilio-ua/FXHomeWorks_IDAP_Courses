@@ -14,8 +14,6 @@
 
 + (id)imageWithURL:(NSURL *)url;
 
-- (id)initWithURL:(NSURL *)url;
-
 // should be invoked in subclasses when loading is complete
 - (void)performLoadingWithCompletion:(void (^)(UIImage *image, id error))completion;
 - (void)finalizeLoadingWithImage:(UIImage *)image error:(id)error;

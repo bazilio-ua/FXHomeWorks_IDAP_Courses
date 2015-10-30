@@ -51,14 +51,12 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	if (self.url) {
-		[self.cache removeObjectForKey:self.url];
-	}
+	[self.cache removeObjectForKey:self.url];
 }
 
 - (id)initWithURL:(NSURL *)url {
-	@synchronized(self.cache) {
-		FXCache *cache = self.cache;
+	FXCache *cache = self.cache;
+	@synchronized(cache) {
 		id image = [cache objectForKey:url];
 		if (image) {
 			return image;
@@ -89,6 +87,7 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 	[self performLoadingWithCompletion:^(UIImage *image, id error) {
 		FXSleep(kFXDefaultSleepTimeInterval);
 		FXStrongifyAndReturnIfNil(self);
+		
 		[self finalizeLoadingWithImage:image error:error];
 		[self notifyOfLoadingStateWithImage:image error:error];
 	}];
@@ -97,7 +96,7 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performLoadingWithCompletion:(void (^)(UIImage *, id))completion {
+- (void)performLoadingWithCompletion:(void (^)(UIImage *image, id error))completion {
 	
 }
 

@@ -13,6 +13,4 @@
 @property (nonatomic, readonly)	NSString	*fileFolder;
 @property (nonatomic, readonly)	NSString	*filePath;
 
-@property (nonatomic, readonly, getter = isCached)	BOOL	cached;
-
 @end

@@ -13,10 +13,21 @@
 @interface FXURLImageModel ()
 
 - (void)loadImageFromInternet:(void (^)(UIImage *image, id error))completion;
+- (void)writeToCacheWithData:(NSData *)data;
+- (void)deleteFromCacheIfNeeded;
 
 @end
 
 @implementation FXURLImageModel
+
+@dynamic cached;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (BOOL)isCached {
+	return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
+}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -36,18 +47,35 @@
 	NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
 	[NSURLConnection asyncRequest:request 
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-					if (!error) {
-						NSError *writeError = nil;
-						[data writeToFile:self.filePath options:NSDataWritingAtomic error:&writeError];
-						if (writeError) {
-							NSLog(@"%@", [writeError localizedDescription]);
-						}
+					UIImage *image = [UIImage imageWithData:data];
+					if (image) {
+						[self writeToCacheWithData:data];
 					} else {
-						NSLog(@"%@", [error localizedDescription]);
+						[self deleteFromCacheIfNeeded];
 					}
 					
-					[super performLoadingWithCompletion:completion];
+					if (completion) {
+						completion(image, error);
+					}
 				}];
+}
+
+- (void)writeToCacheWithData:(NSData *)data {
+	NSError *error = nil;
+	[data writeToFile:self.filePath options:NSDataWritingAtomic error:&error];
+	if (error) {
+		NSLog(@"%@", [error localizedDescription]);
+	}
+}
+
+- (void)deleteFromCacheIfNeeded {
+	if (self.cached) {
+		NSError *error = nil;
+		[[NSFileManager defaultManager] removeItemAtPath:self.filePath error:&error];
+		if (error) {
+			NSLog(@"%@", [error localizedDescription]);
+		}
+	}
 }
 
 @end

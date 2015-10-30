@@ -48,14 +48,18 @@
 #pragma mark Public Methods
 
 - (void)addObject:(id)object forKey:(id)key {
-	@synchronized(self) {
-		[self.weakMutableDictionary setObject:object forKey:key];
+	if (key) {
+		@synchronized(self) {
+			[self.weakMutableDictionary setObject:object forKey:key];
+		}
 	}
 }
 
 - (void)removeObjectForKey:(id)key {
-	@synchronized(self) {
-		[self.weakMutableDictionary removeObjectForKey:key];
+	if (key) {
+		@synchronized(self) {
+			[self.weakMutableDictionary removeObjectForKey:key];
+		}
 	}
 }
 

@@ -8,9 +8,6 @@
 
 #import "FXFileImageModel.h"
 
-#import "NSString+FXExtensions.h"
-#import "NSFileManager+FXExtensions.h"
-
 @interface FXFileImageModel ()
 
 @end
@@ -30,18 +27,8 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)fileName {
-	NSString *absolutePath = [self.url absoluteString];
-	
-	return [absolutePath URLEncodedString];
-}
-
-- (NSString *)fileFolder {
-	return [NSFileManager userDocumentsPath];
-}
-
 - (NSString *)filePath {
-	return [self.fileFolder stringByAppendingPathComponent:self.fileName];
+	return [self.url path];
 }
 
 #pragma mark -

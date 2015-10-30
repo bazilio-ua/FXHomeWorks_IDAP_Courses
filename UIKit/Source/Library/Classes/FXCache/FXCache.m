@@ -49,7 +49,7 @@
 
 - (void)addObject:(id)object forKey:(id)key {
 	if (key) {
-		@synchronized(self) {
+		@synchronized(self.weakMutableDictionary) {
 			[self.weakMutableDictionary setObject:object forKey:key];
 		}
 	}
@@ -57,32 +57,32 @@
 
 - (void)removeObjectForKey:(id)key {
 	if (key) {
-		@synchronized(self) {
+		@synchronized(self.weakMutableDictionary) {
 			[self.weakMutableDictionary removeObjectForKey:key];
 		}
 	}
 }
 
 - (id)objectForKey:(id)key {
-	@synchronized(self) {
+	@synchronized(self.weakMutableDictionary) {
 		return [self.weakMutableDictionary objectForKey:key];
 	}
 }
 
 - (BOOL)containsObjectForKey:(id)key {
-	@synchronized(self) {
+	@synchronized(self.weakMutableDictionary) {
 		return nil != [self.weakMutableDictionary objectForKey:key];
 	}
 }
 
 - (void)removeAllObjects {
-	@synchronized(self) {
+	@synchronized(self.weakMutableDictionary) {
 		[self.weakMutableDictionary removeAllObjects];
 	}
 }
 
 - (NSUInteger)count {
-	@synchronized(self) {
+	@synchronized(self.weakMutableDictionary) {
 		return [self.weakMutableDictionary count];
 	}
 }

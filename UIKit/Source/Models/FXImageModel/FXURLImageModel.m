@@ -8,6 +8,8 @@
 
 #import "FXURLImageModel.h"
 
+#import "NSString+FXExtensions.h"
+#import "NSFileManager+FXExtensions.h"
 #import "NSURLConnection+FXExtensions.h"
 
 @interface FXURLImageModel ()
@@ -25,6 +27,20 @@
 #pragma mark -
 #pragma mark Accessors
 
+- (NSString *)fileName {
+	NSString *absolutePath = [self.url absoluteString];
+	
+	return [absolutePath URLEncodedString];
+}
+
+- (NSString *)fileFolder {
+	return [NSFileManager userDocumentsPath];
+}
+
+- (NSString *)filePath {
+	return [self.fileFolder stringByAppendingPathComponent:self.fileName];
+}
+
 - (BOOL)isCached {
 	return [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
 }
@@ -33,14 +49,12 @@
 #pragma mark Public Methods
 
 - (void)performLoadingWithCompletion:(void (^)(UIImage *image, id error))completion {
-	UIImage *image = nil;
-	if (self.cached && (image = [UIImage imageWithContentsOfFile:self.filePath])) {
-		if (completion) {
-			completion(image, nil);
+	if (self.cached) {
+		[super performLoadingWithCompletion:completion];
+		if (!self.image) {
+			[self deleteFromCacheIfNeeded];
 		}
-		
 	} else {
-		[self deleteFromCacheIfNeeded];
 		[self loadImageFromInternet:completion];
 	}
 }

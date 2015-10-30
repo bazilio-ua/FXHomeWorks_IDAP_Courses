@@ -33,9 +33,14 @@
 #pragma mark Public Methods
 
 - (void)performLoadingWithCompletion:(void (^)(UIImage *image, id error))completion {
-	if (self.cached) {
-		[super performLoadingWithCompletion:completion];
+	UIImage *image = nil;
+	if (self.cached && (image = [UIImage imageWithContentsOfFile:self.filePath])) {
+		if (completion) {
+			completion(image, nil);
+		}
+		
 	} else {
+		[self deleteFromCacheIfNeeded];
 		[self loadImageFromInternet:completion];
 	}
 }
@@ -50,8 +55,6 @@
 					UIImage *image = [UIImage imageWithData:data];
 					if (image) {
 						[self writeToCacheWithData:data];
-					} else {
-						[self deleteFromCacheIfNeeded];
 					}
 					
 					if (completion) {

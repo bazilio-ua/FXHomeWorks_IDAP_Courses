@@ -22,8 +22,10 @@
 	} else {
 		NSLog(@"Director: %@ there is no profit", self);
 	}
-	
-	((FXEmployee *)object).state = kFXEmployeeIsReady;
+}
+
+- (void)finalizeProcessWithObject:(FXEmployee *)object {
+	object.state = kFXEmployeeIsReady;
 	self.state = kFXEmployeeFinishedWork;
 	self.state = kFXEmployeeIsReady;
 }

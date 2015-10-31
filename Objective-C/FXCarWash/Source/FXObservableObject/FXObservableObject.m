@@ -10,6 +10,8 @@
 
 #import "FXAssignReference.h"
 
+#import "FXDispatch.h"
+
 @interface FXObservableObject ()
 @property (nonatomic, retain)	NSMutableSet		*mutableObservers;
 
@@ -74,16 +76,20 @@
 	}
 }
 
+- (void)notifyObserversWithSelector:(SEL)selector {
+	[self notifyObserversWithSelector:selector withObject:nil];
+}
+
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
+	[self notifyObserversWithSelector:selector withObject:self withObject:object];
+}
+
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)anotherObject {
 	for (FXReference *reference in self.mutableObservers) {
 		if ([reference.target respondsToSelector:selector]) {
-			if ([NSThread isMainThread]) {
-				[reference.target performSelector:selector withObject:object]; // if default thread is main notify on it
-			} else {
-				dispatch_sync(dispatch_get_main_queue(), ^{
-					[reference.target performSelector:selector withObject:object];
-				});
-			}
+			FXDispatchSyncOnMainQueueWithBlock(^{
+				[reference.target performSelector:selector withObject:object withObject:anotherObject];
+			});
 		}
 	}
 }

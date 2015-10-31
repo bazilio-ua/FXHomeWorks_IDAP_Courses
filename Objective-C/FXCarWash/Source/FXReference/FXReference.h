@@ -11,6 +11,8 @@
 @interface FXReference : NSObject <NSCopying>
 @property (nonatomic, readonly)	id	target;
 
++ (id)referenceWithTarget:(id)object;
+
 // overriding in subclasses
 - (id)initWithTarget:(id)object;
 

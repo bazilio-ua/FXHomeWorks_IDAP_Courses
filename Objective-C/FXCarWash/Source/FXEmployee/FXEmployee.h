@@ -25,6 +25,7 @@ typedef enum {
 
 // reloaded in subclasses
 - (void)processObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
+- (void)finalizeProcessWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 
 - (void)processJobWithObject:(id<FXMoneyFlow, FXEmployeeObserver>)object;
 

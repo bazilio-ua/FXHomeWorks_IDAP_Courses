@@ -51,11 +51,16 @@
 	return [strings objectAtIndex:index];
 }
 
+#pragma mark -
+#pragma mark NSFastEnumeration protocol
+
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state 
 								  objects:(id *)buffer 
 									count:(NSUInteger)count
 {
-	return [self.strings countByEnumeratingWithState:state objects:buffer count:count];
+	return [self.strings countByEnumeratingWithState:state 
+											 objects:buffer 
+											   count:count];
 }
 
 @end

@@ -18,6 +18,13 @@
 @dynamic target;
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (id)referenceWithTarget:(id)object {
+	return [[self alloc] initWithTarget:object];
+}
+
+#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
@@ -26,7 +33,6 @@
 	[super dealloc];
 }
 
-// overriding in subclasses
 - (id)initWithTarget:(id)object {
 	if (nil == object) {
 		return nil;

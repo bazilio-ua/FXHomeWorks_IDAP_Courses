@@ -6,18 +6,30 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "FXAppDelegate.h"
+
+#import "FXLoginViewController.h"
+
+#import "UIWindow+FXExtensions.h"
+#import "UIViewController+FXExtensions.h"
+#import "UINavigationController+FXExtensions.h"
 
 @implementation FXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	UIWindow *window = [UIWindow window];
+    self.window = window;
     
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    return YES;
+	FXLoginViewController *controller = [FXLoginViewController controller];
+	UINavigationController *navigationController = [UINavigationController navigationControllerWithRootViewController:controller];
+	window.rootViewController = navigationController;
+    [window makeKeyAndVisible];
+	
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+									didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -33,11 +45,18 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+	return [[FBSDKApplicationDelegate sharedInstance] application:application
+														  openURL:url
+												sourceApplication:sourceApplication
+													   annotation:annotation];
 }
 
 @end

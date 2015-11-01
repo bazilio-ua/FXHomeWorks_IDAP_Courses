@@ -22,6 +22,25 @@
 		42FB36591BE66165006D5A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB36561BE66165006D5A27 /* main.m */; };
 		42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42FB36641BE661A4006D5A27 /* InfoPlist.strings */; };
 		42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FB36661BE661A4006D5A27 /* Images.xcassets */; };
+		42FB375A1BE676AB006D5A27 /* FXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37591BE676AB006D5A27 /* FXViewController.m */; };
+		42FB375F1BE67C44006D5A27 /* FXContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB375E1BE67C44006D5A27 /* FXContext.m */; };
+		42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37611BE67CB6006D5A27 /* FXLoginViewController.m */; };
+		42FB37641BE67CB6006D5A27 /* FXLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37621BE67CB6006D5A27 /* FXLoginViewController.xib */; };
+		42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37661BE67CF8006D5A27 /* FXFriendsViewController.m */; };
+		42FB37691BE67CF8006D5A27 /* FXFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */; };
+		42FB376D1BE67D21006D5A27 /* FXFriendsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB376B1BE67D21006D5A27 /* FXFriendsDetailViewController.m */; };
+		42FB376E1BE67D21006D5A27 /* FXFriendsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB376C1BE67D21006D5A27 /* FXFriendsDetailViewController.xib */; };
+		42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37701BE67DB6006D5A27 /* FXUserModel.m */; };
+		42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37761BE67F14006D5A27 /* FXLoginContext.m */; };
+		42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37791BE67F27006D5A27 /* FXUserContext.m */; };
+		42FB377D1BE67F39006D5A27 /* FXUsersContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB377C1BE67F39006D5A27 /* FXUsersContext.m */; };
+		42FB377E1BE67FA2006D5A27 /* FXModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37301BE66537006D5A27 /* FXModel.m */; };
+		42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37811BE6800E006D5A27 /* FXObservableObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37851BE68051006D5A27 /* FXAssignReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FB378D1BE68051006D5A27 /* FXCopyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37871BE68051006D5A27 /* FXCopyReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FB378E1BE68051006D5A27 /* FXReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37891BE68051006D5A27 /* FXReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FB378F1BE68051006D5A27 /* FXRetainReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB378B1BE68051006D5A27 /* FXRetainReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37921BE6816D006D5A27 /* FXDispatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +74,105 @@
 		42FB36561BE66165006D5A27 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42FB36651BE661A4006D5A27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42FB36661BE661A4006D5A27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		42FB36F41BE66536006D5A27 /* FXArrayModelChanges+UITableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FXArrayModelChanges+UITableView.h"; sourceTree = "<group>"; };
+		42FB36F51BE66536006D5A27 /* FXArrayModelChanges+UITableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FXArrayModelChanges+UITableView.m"; sourceTree = "<group>"; };
+		42FB36F71BE66536006D5A27 /* NSFileManager+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB36F81BE66536006D5A27 /* NSFileManager+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB36FA1BE66536006D5A27 /* NSIndexPath+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB36FB1BE66536006D5A27 /* NSIndexPath+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB36FD1BE66536006D5A27 /* NSMutableArray+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB36FE1BE66536006D5A27 /* NSMutableArray+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB37001BE66536006D5A27 /* NSURLConnection+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB37011BE66536006D5A27 /* NSURLConnection+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB37031BE66536006D5A27 /* UINib+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINib+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB37041BE66536006D5A27 /* UINib+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINib+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB37061BE66536006D5A27 /* UITableView+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB37071BE66536006D5A27 /* UITableView+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB37091BE66537006D5A27 /* UIViewController+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB370A1BE66537006D5A27 /* UIViewController+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB370C1BE66537006D5A27 /* UIWindow+FXExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+FXExtensions.h"; sourceTree = "<group>"; };
+		42FB370D1BE66537006D5A27 /* UIWindow+FXExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB37101BE66537006D5A27 /* FXArrayModelChanges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXArrayModelChanges.h; sourceTree = "<group>"; };
+		42FB37111BE66537006D5A27 /* FXArrayModelChanges.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXArrayModelChanges.m; sourceTree = "<group>"; };
+		42FB37121BE66537006D5A27 /* FXArrayModelChangesOneIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXArrayModelChangesOneIndex.h; sourceTree = "<group>"; };
+		42FB37131BE66537006D5A27 /* FXArrayModelChangesOneIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXArrayModelChangesOneIndex.m; sourceTree = "<group>"; };
+		42FB37141BE66537006D5A27 /* FXArrayModelChangesTwoIndices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXArrayModelChangesTwoIndices.h; sourceTree = "<group>"; };
+		42FB37151BE66537006D5A27 /* FXArrayModelChangesTwoIndices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXArrayModelChangesTwoIndices.m; sourceTree = "<group>"; };
+		42FB37171BE66537006D5A27 /* FXCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXCache.h; sourceTree = "<group>"; };
+		42FB37181BE66537006D5A27 /* FXCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXCache.m; sourceTree = "<group>"; };
+		42FB371A1BE66537006D5A27 /* FXTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXTableViewCell.h; sourceTree = "<group>"; };
+		42FB371B1BE66537006D5A27 /* FXTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXTableViewCell.m; sourceTree = "<group>"; };
+		42FB371C1BE66537006D5A27 /* FXMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXMacros.h; sourceTree = "<group>"; };
+		42FB371F1BE66537006D5A27 /* FXArrayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXArrayModel.h; sourceTree = "<group>"; };
+		42FB37201BE66537006D5A27 /* FXArrayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXArrayModel.m; sourceTree = "<group>"; };
+		42FB37221BE66537006D5A27 /* FXDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataModel.h; sourceTree = "<group>"; };
+		42FB37231BE66537006D5A27 /* FXDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXDataModel.m; sourceTree = "<group>"; };
+		42FB37251BE66537006D5A27 /* FXDataModelsArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataModelsArray.h; sourceTree = "<group>"; };
+		42FB37261BE66537006D5A27 /* FXDataModelsArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXDataModelsArray.m; sourceTree = "<group>"; };
+		42FB37281BE66537006D5A27 /* FXFileImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXFileImageModel.h; sourceTree = "<group>"; };
+		42FB37291BE66537006D5A27 /* FXFileImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXFileImageModel.m; sourceTree = "<group>"; };
+		42FB372A1BE66537006D5A27 /* FXImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXImageModel.h; sourceTree = "<group>"; };
+		42FB372B1BE66537006D5A27 /* FXImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXImageModel.m; sourceTree = "<group>"; };
+		42FB372C1BE66537006D5A27 /* FXURLImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXURLImageModel.h; sourceTree = "<group>"; };
+		42FB372D1BE66537006D5A27 /* FXURLImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXURLImageModel.m; sourceTree = "<group>"; };
+		42FB372F1BE66537006D5A27 /* FXModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXModel.h; sourceTree = "<group>"; };
+		42FB37301BE66537006D5A27 /* FXModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXModel.m; sourceTree = "<group>"; };
+		42FB37311BE66537006D5A27 /* FXModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXModelObserver.h; sourceTree = "<group>"; };
+		42FB37331BE66537006D5A27 /* FXSquareModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXSquareModel.h; sourceTree = "<group>"; };
+		42FB37341BE66537006D5A27 /* FXSquareModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXSquareModel.m; sourceTree = "<group>"; };
+		42FB37381BE66537006D5A27 /* FXDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataView.h; sourceTree = "<group>"; };
+		42FB37391BE66537006D5A27 /* FXDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXDataView.m; sourceTree = "<group>"; };
+		42FB373A1BE66537006D5A27 /* FXDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataViewController.h; sourceTree = "<group>"; };
+		42FB373B1BE66537006D5A27 /* FXDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXDataViewController.m; sourceTree = "<group>"; };
+		42FB373C1BE66537006D5A27 /* FXDataViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXDataViewController.xib; sourceTree = "<group>"; };
+		42FB373E1BE66537006D5A27 /* FXSquareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXSquareView.h; sourceTree = "<group>"; };
+		42FB373F1BE66537006D5A27 /* FXSquareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXSquareView.m; sourceTree = "<group>"; };
+		42FB37401BE66537006D5A27 /* FXSquareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXSquareViewController.h; sourceTree = "<group>"; };
+		42FB37411BE66537006D5A27 /* FXSquareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXSquareViewController.m; sourceTree = "<group>"; };
+		42FB37421BE66537006D5A27 /* FXSquareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXSquareViewController.xib; sourceTree = "<group>"; };
+		42FB37451BE66537006D5A27 /* FXDataCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
+		42FB37461BE66537006D5A27 /* FXDataCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
+		42FB37471BE66537006D5A27 /* FXDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
+		42FB37491BE66537006D5A27 /* FXImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
+		42FB374A1BE66537006D5A27 /* FXImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
+		42FB374C1BE66537006D5A27 /* FXLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
+		42FB374D1BE66537006D5A27 /* FXLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXLoadingView.m; sourceTree = "<group>"; };
+		42FB374E1BE66537006D5A27 /* FXLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXLoadingView.xib; sourceTree = "<group>"; };
+		42FB37501BE66537006D5A27 /* FXView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXView.h; sourceTree = "<group>"; };
+		42FB37511BE66537006D5A27 /* FXView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXView.m; sourceTree = "<group>"; };
+		42FB37581BE676AB006D5A27 /* FXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXViewController.h; sourceTree = "<group>"; };
+		42FB37591BE676AB006D5A27 /* FXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXViewController.m; sourceTree = "<group>"; };
+		42FB375D1BE67C44006D5A27 /* FXContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXContext.h; sourceTree = "<group>"; };
+		42FB375E1BE67C44006D5A27 /* FXContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXContext.m; sourceTree = "<group>"; };
+		42FB37601BE67CB6006D5A27 /* FXLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoginViewController.h; sourceTree = "<group>"; };
+		42FB37611BE67CB6006D5A27 /* FXLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoginViewController.m; sourceTree = "<group>"; };
+		42FB37621BE67CB6006D5A27 /* FXLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoginViewController.xib; sourceTree = "<group>"; };
+		42FB37651BE67CF8006D5A27 /* FXFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsViewController.h; sourceTree = "<group>"; };
+		42FB37661BE67CF8006D5A27 /* FXFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsViewController.m; sourceTree = "<group>"; };
+		42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendsViewController.xib; sourceTree = "<group>"; };
+		42FB376A1BE67D21006D5A27 /* FXFriendsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsDetailViewController.h; sourceTree = "<group>"; };
+		42FB376B1BE67D21006D5A27 /* FXFriendsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsDetailViewController.m; sourceTree = "<group>"; };
+		42FB376C1BE67D21006D5A27 /* FXFriendsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendsDetailViewController.xib; sourceTree = "<group>"; };
+		42FB376F1BE67DB6006D5A27 /* FXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUserModel.h; sourceTree = "<group>"; };
+		42FB37701BE67DB6006D5A27 /* FXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUserModel.m; sourceTree = "<group>"; };
+		42FB37751BE67F14006D5A27 /* FXLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoginContext.h; sourceTree = "<group>"; };
+		42FB37761BE67F14006D5A27 /* FXLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoginContext.m; sourceTree = "<group>"; };
+		42FB37781BE67F27006D5A27 /* FXUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUserContext.h; sourceTree = "<group>"; };
+		42FB37791BE67F27006D5A27 /* FXUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUserContext.m; sourceTree = "<group>"; };
+		42FB377B1BE67F39006D5A27 /* FXUsersContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUsersContext.h; sourceTree = "<group>"; };
+		42FB377C1BE67F39006D5A27 /* FXUsersContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUsersContext.m; sourceTree = "<group>"; };
+		42FB37801BE6800E006D5A27 /* FXObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObservableObject.h; sourceTree = "<group>"; };
+		42FB37811BE6800E006D5A27 /* FXObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXObservableObject.m; sourceTree = "<group>"; };
+		42FB37841BE68051006D5A27 /* FXAssignReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAssignReference.h; sourceTree = "<group>"; };
+		42FB37851BE68051006D5A27 /* FXAssignReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAssignReference.m; sourceTree = "<group>"; };
+		42FB37861BE68051006D5A27 /* FXCopyReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXCopyReference.h; sourceTree = "<group>"; };
+		42FB37871BE68051006D5A27 /* FXCopyReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXCopyReference.m; sourceTree = "<group>"; };
+		42FB37881BE68051006D5A27 /* FXReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXReference.h; sourceTree = "<group>"; };
+		42FB37891BE68051006D5A27 /* FXReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXReference.m; sourceTree = "<group>"; };
+		42FB378A1BE68051006D5A27 /* FXRetainReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXRetainReference.h; sourceTree = "<group>"; };
+		42FB378B1BE68051006D5A27 /* FXRetainReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXRetainReference.m; sourceTree = "<group>"; };
+		42FB37911BE6816D006D5A27 /* FXDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDispatch.h; sourceTree = "<group>"; };
+		42FB37921BE6816D006D5A27 /* FXDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDispatch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +205,9 @@
 		42E35A4F1BE535640051C3A9 = {
 			isa = PBXGroup;
 			children = (
-				42FB36501BE66165006D5A27 /* FXUsers */,
+				42FB36F01BE66536006D5A27 /* Source */,
 				42FB365A1BE661A4006D5A27 /* Resource */,
+				42FB36501BE66165006D5A27 /* FXUsers */,
 				42FB36481BE660E5006D5A27 /* FXUsersTests */,
 				42E35A5A1BE535640051C3A9 /* Frameworks */,
 				42E35A591BE535640051C3A9 /* Products */,
@@ -160,6 +279,468 @@
 			);
 			path = FXUsers;
 			sourceTree = "<group>";
+		};
+		42FB36F01BE66536006D5A27 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36F11BE66536006D5A27 /* Library */,
+				42FB371D1BE66537006D5A27 /* Models */,
+				42FB37351BE66537006D5A27 /* UI */,
+			);
+			name = Source;
+			path = UIKit/Source;
+			sourceTree = "<group>";
+		};
+		42FB36F11BE66536006D5A27 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36F21BE66536006D5A27 /* Categories */,
+				42FB370E1BE66537006D5A27 /* Classes */,
+				42FB37901BE6816D006D5A27 /* FXDispatch */,
+				42FB371C1BE66537006D5A27 /* FXMacros.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		42FB36F21BE66536006D5A27 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36F31BE66536006D5A27 /* FXArrayModelChanges+UITableView */,
+				42FB36F61BE66536006D5A27 /* NSFileManager+FXExtensions */,
+				42FB36F91BE66536006D5A27 /* NSIndexPath+FXExtensions */,
+				42FB36FC1BE66536006D5A27 /* NSMutableArray+FXExtensions */,
+				42FB36FF1BE66536006D5A27 /* NSURLConnection+FXExtensions */,
+				42FB37021BE66536006D5A27 /* UINib+FXExtensions */,
+				42FB37051BE66536006D5A27 /* UITableView+FXExtensions */,
+				42FB37081BE66537006D5A27 /* UIViewController+FXExtensions */,
+				42FB370B1BE66537006D5A27 /* UIWindow+FXExtensions */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		42FB36F31BE66536006D5A27 /* FXArrayModelChanges+UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36F41BE66536006D5A27 /* FXArrayModelChanges+UITableView.h */,
+				42FB36F51BE66536006D5A27 /* FXArrayModelChanges+UITableView.m */,
+			);
+			path = "FXArrayModelChanges+UITableView";
+			sourceTree = "<group>";
+		};
+		42FB36F61BE66536006D5A27 /* NSFileManager+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36F71BE66536006D5A27 /* NSFileManager+FXExtensions.h */,
+				42FB36F81BE66536006D5A27 /* NSFileManager+FXExtensions.m */,
+			);
+			path = "NSFileManager+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB36F91BE66536006D5A27 /* NSIndexPath+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36FA1BE66536006D5A27 /* NSIndexPath+FXExtensions.h */,
+				42FB36FB1BE66536006D5A27 /* NSIndexPath+FXExtensions.m */,
+			);
+			path = "NSIndexPath+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB36FC1BE66536006D5A27 /* NSMutableArray+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36FD1BE66536006D5A27 /* NSMutableArray+FXExtensions.h */,
+				42FB36FE1BE66536006D5A27 /* NSMutableArray+FXExtensions.m */,
+			);
+			path = "NSMutableArray+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB36FF1BE66536006D5A27 /* NSURLConnection+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37001BE66536006D5A27 /* NSURLConnection+FXExtensions.h */,
+				42FB37011BE66536006D5A27 /* NSURLConnection+FXExtensions.m */,
+			);
+			path = "NSURLConnection+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB37021BE66536006D5A27 /* UINib+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37031BE66536006D5A27 /* UINib+FXExtensions.h */,
+				42FB37041BE66536006D5A27 /* UINib+FXExtensions.m */,
+			);
+			path = "UINib+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB37051BE66536006D5A27 /* UITableView+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37061BE66536006D5A27 /* UITableView+FXExtensions.h */,
+				42FB37071BE66536006D5A27 /* UITableView+FXExtensions.m */,
+			);
+			path = "UITableView+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB37081BE66537006D5A27 /* UIViewController+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37091BE66537006D5A27 /* UIViewController+FXExtensions.h */,
+				42FB370A1BE66537006D5A27 /* UIViewController+FXExtensions.m */,
+			);
+			path = "UIViewController+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB370B1BE66537006D5A27 /* UIWindow+FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FB370C1BE66537006D5A27 /* UIWindow+FXExtensions.h */,
+				42FB370D1BE66537006D5A27 /* UIWindow+FXExtensions.m */,
+			);
+			path = "UIWindow+FXExtensions";
+			sourceTree = "<group>";
+		};
+		42FB370E1BE66537006D5A27 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37831BE68051006D5A27 /* FXReference */,
+				42FB377F1BE6800E006D5A27 /* FXObservableObject */,
+				42FB370F1BE66537006D5A27 /* FXArrayModelChanges */,
+				42FB37161BE66537006D5A27 /* FXCache */,
+				42FB37191BE66537006D5A27 /* FXTableViewCell */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		42FB370F1BE66537006D5A27 /* FXArrayModelChanges */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37101BE66537006D5A27 /* FXArrayModelChanges.h */,
+				42FB37111BE66537006D5A27 /* FXArrayModelChanges.m */,
+				42FB37121BE66537006D5A27 /* FXArrayModelChangesOneIndex.h */,
+				42FB37131BE66537006D5A27 /* FXArrayModelChangesOneIndex.m */,
+				42FB37141BE66537006D5A27 /* FXArrayModelChangesTwoIndices.h */,
+				42FB37151BE66537006D5A27 /* FXArrayModelChangesTwoIndices.m */,
+			);
+			path = FXArrayModelChanges;
+			sourceTree = "<group>";
+		};
+		42FB37161BE66537006D5A27 /* FXCache */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37171BE66537006D5A27 /* FXCache.h */,
+				42FB37181BE66537006D5A27 /* FXCache.m */,
+			);
+			path = FXCache;
+			sourceTree = "<group>";
+		};
+		42FB37191BE66537006D5A27 /* FXTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				42FB371A1BE66537006D5A27 /* FXTableViewCell.h */,
+				42FB371B1BE66537006D5A27 /* FXTableViewCell.m */,
+			);
+			path = FXTableViewCell;
+			sourceTree = "<group>";
+		};
+		42FB371D1BE66537006D5A27 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37551BE6751B006D5A27 /* FXUserModel */,
+				42FB371E1BE66537006D5A27 /* FXArrayModel */,
+				42FB37211BE66537006D5A27 /* FXDataModel */,
+				42FB37241BE66537006D5A27 /* FXDataModelArray */,
+				42FB37271BE66537006D5A27 /* FXImageModel */,
+				42FB372E1BE66537006D5A27 /* FXModel */,
+				42FB37321BE66537006D5A27 /* FXSquareModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		42FB371E1BE66537006D5A27 /* FXArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				42FB371F1BE66537006D5A27 /* FXArrayModel.h */,
+				42FB37201BE66537006D5A27 /* FXArrayModel.m */,
+			);
+			path = FXArrayModel;
+			sourceTree = "<group>";
+		};
+		42FB37211BE66537006D5A27 /* FXDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37221BE66537006D5A27 /* FXDataModel.h */,
+				42FB37231BE66537006D5A27 /* FXDataModel.m */,
+			);
+			path = FXDataModel;
+			sourceTree = "<group>";
+		};
+		42FB37241BE66537006D5A27 /* FXDataModelArray */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37251BE66537006D5A27 /* FXDataModelsArray.h */,
+				42FB37261BE66537006D5A27 /* FXDataModelsArray.m */,
+			);
+			path = FXDataModelArray;
+			sourceTree = "<group>";
+		};
+		42FB37271BE66537006D5A27 /* FXImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37281BE66537006D5A27 /* FXFileImageModel.h */,
+				42FB37291BE66537006D5A27 /* FXFileImageModel.m */,
+				42FB372A1BE66537006D5A27 /* FXImageModel.h */,
+				42FB372B1BE66537006D5A27 /* FXImageModel.m */,
+				42FB372C1BE66537006D5A27 /* FXURLImageModel.h */,
+				42FB372D1BE66537006D5A27 /* FXURLImageModel.m */,
+			);
+			path = FXImageModel;
+			sourceTree = "<group>";
+		};
+		42FB372E1BE66537006D5A27 /* FXModel */ = {
+			isa = PBXGroup;
+			children = (
+				42FB372F1BE66537006D5A27 /* FXModel.h */,
+				42FB37301BE66537006D5A27 /* FXModel.m */,
+				42FB37311BE66537006D5A27 /* FXModelObserver.h */,
+			);
+			path = FXModel;
+			sourceTree = "<group>";
+		};
+		42FB37321BE66537006D5A27 /* FXSquareModel */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37331BE66537006D5A27 /* FXSquareModel.h */,
+				42FB37341BE66537006D5A27 /* FXSquareModel.m */,
+			);
+			path = FXSquareModel;
+			sourceTree = "<group>";
+		};
+		42FB37351BE66537006D5A27 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				42FB375B1BE67723006D5A27 /* Contexts */,
+				42FB37361BE66537006D5A27 /* Controllers */,
+				42FB37431BE66537006D5A27 /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		42FB37361BE66537006D5A27 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37571BE67655006D5A27 /* FXViewController */,
+				42FB37541BE66638006D5A27 /* FXLoginViewController */,
+				42FB37531BE66638006D5A27 /* FXFriendsViewController */,
+				42FB37521BE66638006D5A27 /* FXFriendsDetailViewController */,
+				42FB37371BE66537006D5A27 /* FXDataViewController */,
+				42FB373D1BE66537006D5A27 /* FXSquareViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		42FB37371BE66537006D5A27 /* FXDataViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37381BE66537006D5A27 /* FXDataView.h */,
+				42FB37391BE66537006D5A27 /* FXDataView.m */,
+				42FB373A1BE66537006D5A27 /* FXDataViewController.h */,
+				42FB373B1BE66537006D5A27 /* FXDataViewController.m */,
+				42FB373C1BE66537006D5A27 /* FXDataViewController.xib */,
+			);
+			path = FXDataViewController;
+			sourceTree = "<group>";
+		};
+		42FB373D1BE66537006D5A27 /* FXSquareViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42FB373E1BE66537006D5A27 /* FXSquareView.h */,
+				42FB373F1BE66537006D5A27 /* FXSquareView.m */,
+				42FB37401BE66537006D5A27 /* FXSquareViewController.h */,
+				42FB37411BE66537006D5A27 /* FXSquareViewController.m */,
+				42FB37421BE66537006D5A27 /* FXSquareViewController.xib */,
+			);
+			path = FXSquareViewController;
+			sourceTree = "<group>";
+		};
+		42FB37431BE66537006D5A27 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37441BE66537006D5A27 /* FXDataCell */,
+				42FB37481BE66537006D5A27 /* FXImageView */,
+				42FB374B1BE66537006D5A27 /* FXLoadingView */,
+				42FB374F1BE66537006D5A27 /* FXView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42FB37441BE66537006D5A27 /* FXDataCell */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37451BE66537006D5A27 /* FXDataCell.h */,
+				42FB37461BE66537006D5A27 /* FXDataCell.m */,
+				42FB37471BE66537006D5A27 /* FXDataCell.xib */,
+			);
+			path = FXDataCell;
+			sourceTree = "<group>";
+		};
+		42FB37481BE66537006D5A27 /* FXImageView */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37491BE66537006D5A27 /* FXImageView.h */,
+				42FB374A1BE66537006D5A27 /* FXImageView.m */,
+			);
+			path = FXImageView;
+			sourceTree = "<group>";
+		};
+		42FB374B1BE66537006D5A27 /* FXLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				42FB374C1BE66537006D5A27 /* FXLoadingView.h */,
+				42FB374D1BE66537006D5A27 /* FXLoadingView.m */,
+				42FB374E1BE66537006D5A27 /* FXLoadingView.xib */,
+			);
+			path = FXLoadingView;
+			sourceTree = "<group>";
+		};
+		42FB374F1BE66537006D5A27 /* FXView */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37501BE66537006D5A27 /* FXView.h */,
+				42FB37511BE66537006D5A27 /* FXView.m */,
+			);
+			path = FXView;
+			sourceTree = "<group>";
+		};
+		42FB37521BE66638006D5A27 /* FXFriendsDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42FB376A1BE67D21006D5A27 /* FXFriendsDetailViewController.h */,
+				42FB376B1BE67D21006D5A27 /* FXFriendsDetailViewController.m */,
+				42FB376C1BE67D21006D5A27 /* FXFriendsDetailViewController.xib */,
+			);
+			path = FXFriendsDetailViewController;
+			sourceTree = "<group>";
+		};
+		42FB37531BE66638006D5A27 /* FXFriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37651BE67CF8006D5A27 /* FXFriendsViewController.h */,
+				42FB37661BE67CF8006D5A27 /* FXFriendsViewController.m */,
+				42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */,
+			);
+			path = FXFriendsViewController;
+			sourceTree = "<group>";
+		};
+		42FB37541BE66638006D5A27 /* FXLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37601BE67CB6006D5A27 /* FXLoginViewController.h */,
+				42FB37611BE67CB6006D5A27 /* FXLoginViewController.m */,
+				42FB37621BE67CB6006D5A27 /* FXLoginViewController.xib */,
+			);
+			path = FXLoginViewController;
+			sourceTree = "<group>";
+		};
+		42FB37551BE6751B006D5A27 /* FXUserModel */ = {
+			isa = PBXGroup;
+			children = (
+				42FB376F1BE67DB6006D5A27 /* FXUserModel.h */,
+				42FB37701BE67DB6006D5A27 /* FXUserModel.m */,
+			);
+			path = FXUserModel;
+			sourceTree = "<group>";
+		};
+		42FB37571BE67655006D5A27 /* FXViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37581BE676AB006D5A27 /* FXViewController.h */,
+				42FB37591BE676AB006D5A27 /* FXViewController.m */,
+			);
+			path = FXViewController;
+			sourceTree = "<group>";
+		};
+		42FB375B1BE67723006D5A27 /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				42FB375C1BE67723006D5A27 /* FXContext */,
+				42FB37741BE67EC7006D5A27 /* FXLoginContext */,
+				42FB37731BE67EC7006D5A27 /* FXUserContext */,
+				42FB37721BE67EC7006D5A27 /* FXUsersContext */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		42FB375C1BE67723006D5A27 /* FXContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FB375D1BE67C44006D5A27 /* FXContext.h */,
+				42FB375E1BE67C44006D5A27 /* FXContext.m */,
+			);
+			path = FXContext;
+			sourceTree = "<group>";
+		};
+		42FB37721BE67EC7006D5A27 /* FXUsersContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FB377B1BE67F39006D5A27 /* FXUsersContext.h */,
+				42FB377C1BE67F39006D5A27 /* FXUsersContext.m */,
+			);
+			path = FXUsersContext;
+			sourceTree = "<group>";
+		};
+		42FB37731BE67EC7006D5A27 /* FXUserContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37781BE67F27006D5A27 /* FXUserContext.h */,
+				42FB37791BE67F27006D5A27 /* FXUserContext.m */,
+			);
+			path = FXUserContext;
+			sourceTree = "<group>";
+		};
+		42FB37741BE67EC7006D5A27 /* FXLoginContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37751BE67F14006D5A27 /* FXLoginContext.h */,
+				42FB37761BE67F14006D5A27 /* FXLoginContext.m */,
+			);
+			path = FXLoginContext;
+			sourceTree = "<group>";
+		};
+		42FB377F1BE6800E006D5A27 /* FXObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37801BE6800E006D5A27 /* FXObservableObject.h */,
+				42FB37811BE6800E006D5A27 /* FXObservableObject.m */,
+			);
+			name = FXObservableObject;
+			path = "Objective-C/FXCarWash/Source/FXObservableObject";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FB37831BE68051006D5A27 /* FXReference */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37841BE68051006D5A27 /* FXAssignReference.h */,
+				42FB37851BE68051006D5A27 /* FXAssignReference.m */,
+				42FB37861BE68051006D5A27 /* FXCopyReference.h */,
+				42FB37871BE68051006D5A27 /* FXCopyReference.m */,
+				42FB37881BE68051006D5A27 /* FXReference.h */,
+				42FB37891BE68051006D5A27 /* FXReference.m */,
+				42FB378A1BE68051006D5A27 /* FXRetainReference.h */,
+				42FB378B1BE68051006D5A27 /* FXRetainReference.m */,
+			);
+			name = FXReference;
+			path = "Objective-C/FXCarWash/Source/FXReference";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FB37901BE6816D006D5A27 /* FXDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37911BE6816D006D5A27 /* FXDispatch.h */,
+				42FB37921BE6816D006D5A27 /* FXDispatch.m */,
+			);
+			name = FXDispatch;
+			path = "Objective-C/FXCarWash/Source/FXDispatch";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -237,7 +818,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FB37691BE67CF8006D5A27 /* FXFriendsViewController.xib in Resources */,
+				42FB37641BE67CB6006D5A27 /* FXLoginViewController.xib in Resources */,
 				42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */,
+				42FB376E1BE67D21006D5A27 /* FXFriendsDetailViewController.xib in Resources */,
 				42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +841,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FB376D1BE67D21006D5A27 /* FXFriendsDetailViewController.m in Sources */,
+				42FB377D1BE67F39006D5A27 /* FXUsersContext.m in Sources */,
+				42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */,
+				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
 				42FB36591BE66165006D5A27 /* main.m in Sources */,
+				42FB378E1BE68051006D5A27 /* FXReference.m in Sources */,
+				42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */,
+				42FB375F1BE67C44006D5A27 /* FXContext.m in Sources */,
+				42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */,
+				42FB378D1BE68051006D5A27 /* FXCopyReference.m in Sources */,
+				42FB377E1BE67FA2006D5A27 /* FXModel.m in Sources */,
+				42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */,
 				42FB36571BE66165006D5A27 /* FXAppDelegate.m in Sources */,
+				42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */,
+				42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */,
+				42FB378F1BE68051006D5A27 /* FXRetainReference.m in Sources */,
+				42FB375A1BE676AB006D5A27 /* FXViewController.m in Sources */,
+				42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

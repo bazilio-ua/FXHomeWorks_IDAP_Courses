@@ -41,6 +41,9 @@
 		42FB378E1BE68051006D5A27 /* FXReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37891BE68051006D5A27 /* FXReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42FB378F1BE68051006D5A27 /* FXRetainReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB378B1BE68051006D5A27 /* FXRetainReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37921BE6816D006D5A27 /* FXDispatch.m */; };
+		42FB37961BE684E2006D5A27 /* FXLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37951BE684E2006D5A27 /* FXLoginView.m */; };
+		42FB37991BE68533006D5A27 /* FXFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37981BE68533006D5A27 /* FXFriendsView.m */; };
+		42FB379C1BE685D2006D5A27 /* FXFriendsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB379B1BE685D2006D5A27 /* FXFriendsDetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +176,12 @@
 		42FB378B1BE68051006D5A27 /* FXRetainReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXRetainReference.m; sourceTree = "<group>"; };
 		42FB37911BE6816D006D5A27 /* FXDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDispatch.h; sourceTree = "<group>"; };
 		42FB37921BE6816D006D5A27 /* FXDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDispatch.m; sourceTree = "<group>"; };
+		42FB37941BE684E2006D5A27 /* FXLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoginView.h; sourceTree = "<group>"; };
+		42FB37951BE684E2006D5A27 /* FXLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoginView.m; sourceTree = "<group>"; };
+		42FB37971BE68533006D5A27 /* FXFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsView.h; sourceTree = "<group>"; };
+		42FB37981BE68533006D5A27 /* FXFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsView.m; sourceTree = "<group>"; };
+		42FB379A1BE685D2006D5A27 /* FXFriendsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsDetailView.h; sourceTree = "<group>"; };
+		42FB379B1BE685D2006D5A27 /* FXFriendsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -614,6 +623,8 @@
 		42FB37521BE66638006D5A27 /* FXFriendsDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				42FB379A1BE685D2006D5A27 /* FXFriendsDetailView.h */,
+				42FB379B1BE685D2006D5A27 /* FXFriendsDetailView.m */,
 				42FB376A1BE67D21006D5A27 /* FXFriendsDetailViewController.h */,
 				42FB376B1BE67D21006D5A27 /* FXFriendsDetailViewController.m */,
 				42FB376C1BE67D21006D5A27 /* FXFriendsDetailViewController.xib */,
@@ -624,6 +635,8 @@
 		42FB37531BE66638006D5A27 /* FXFriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				42FB37971BE68533006D5A27 /* FXFriendsView.h */,
+				42FB37981BE68533006D5A27 /* FXFriendsView.m */,
 				42FB37651BE67CF8006D5A27 /* FXFriendsViewController.h */,
 				42FB37661BE67CF8006D5A27 /* FXFriendsViewController.m */,
 				42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */,
@@ -634,6 +647,8 @@
 		42FB37541BE66638006D5A27 /* FXLoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				42FB37941BE684E2006D5A27 /* FXLoginView.h */,
+				42FB37951BE684E2006D5A27 /* FXLoginView.m */,
 				42FB37601BE67CB6006D5A27 /* FXLoginViewController.h */,
 				42FB37611BE67CB6006D5A27 /* FXLoginViewController.m */,
 				42FB37621BE67CB6006D5A27 /* FXLoginViewController.xib */,
@@ -841,17 +856,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FB379C1BE685D2006D5A27 /* FXFriendsDetailView.m in Sources */,
 				42FB376D1BE67D21006D5A27 /* FXFriendsDetailViewController.m in Sources */,
 				42FB377D1BE67F39006D5A27 /* FXUsersContext.m in Sources */,
 				42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */,
 				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
 				42FB36591BE66165006D5A27 /* main.m in Sources */,
 				42FB378E1BE68051006D5A27 /* FXReference.m in Sources */,
+				42FB37991BE68533006D5A27 /* FXFriendsView.m in Sources */,
 				42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */,
 				42FB375F1BE67C44006D5A27 /* FXContext.m in Sources */,
 				42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */,
 				42FB378D1BE68051006D5A27 /* FXCopyReference.m in Sources */,
 				42FB377E1BE67FA2006D5A27 /* FXModel.m in Sources */,
+				42FB37961BE684E2006D5A27 /* FXLoginView.m in Sources */,
 				42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */,
 				42FB36571BE66165006D5A27 /* FXAppDelegate.m in Sources */,
 				42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */,

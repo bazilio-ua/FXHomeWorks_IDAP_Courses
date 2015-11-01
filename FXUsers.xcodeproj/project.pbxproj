@@ -44,6 +44,10 @@
 		42FB37961BE684E2006D5A27 /* FXLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37951BE684E2006D5A27 /* FXLoginView.m */; };
 		42FB37991BE68533006D5A27 /* FXFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37981BE68533006D5A27 /* FXFriendsView.m */; };
 		42FB379C1BE685D2006D5A27 /* FXFriendsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB379B1BE685D2006D5A27 /* FXFriendsDetailView.m */; };
+		42FB379D1BE6871D006D5A27 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB374A1BE66537006D5A27 /* FXImageView.m */; };
+		42FB379E1BE68722006D5A27 /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB374D1BE66537006D5A27 /* FXLoadingView.m */; };
+		42FB379F1BE68726006D5A27 /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB374E1BE66537006D5A27 /* FXLoadingView.xib */; };
+		42FB37A01BE68730006D5A27 /* FXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37511BE66537006D5A27 /* FXView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -838,6 +842,7 @@
 				42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */,
 				42FB376E1BE67D21006D5A27 /* FXFriendsDetailViewController.xib in Resources */,
 				42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */,
+				42FB379F1BE68726006D5A27 /* FXLoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +867,7 @@
 				42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */,
 				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
 				42FB36591BE66165006D5A27 /* main.m in Sources */,
+				42FB379D1BE6871D006D5A27 /* FXImageView.m in Sources */,
 				42FB378E1BE68051006D5A27 /* FXReference.m in Sources */,
 				42FB37991BE68533006D5A27 /* FXFriendsView.m in Sources */,
 				42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */,
@@ -875,7 +881,9 @@
 				42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */,
 				42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */,
 				42FB378F1BE68051006D5A27 /* FXRetainReference.m in Sources */,
+				42FB37A01BE68730006D5A27 /* FXView.m in Sources */,
 				42FB375A1BE676AB006D5A27 /* FXViewController.m in Sources */,
+				42FB379E1BE68722006D5A27 /* FXLoadingView.m in Sources */,
 				42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

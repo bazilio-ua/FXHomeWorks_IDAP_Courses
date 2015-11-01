@@ -10,4 +10,10 @@
 
 @interface FXContext : NSObject
 
+- (void)execute;
+- (void)cancel;
+
+// overriden in subclasses
+- (void)request;
+
 @end

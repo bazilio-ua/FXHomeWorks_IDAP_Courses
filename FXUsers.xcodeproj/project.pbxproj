@@ -28,8 +28,6 @@
 		42FB37641BE67CB6006D5A27 /* FXLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37621BE67CB6006D5A27 /* FXLoginViewController.xib */; };
 		42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37661BE67CF8006D5A27 /* FXFriendsViewController.m */; };
 		42FB37691BE67CF8006D5A27 /* FXFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */; };
-		42FB376D1BE67D21006D5A27 /* FXFriendsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB376B1BE67D21006D5A27 /* FXFriendsDetailViewController.m */; };
-		42FB376E1BE67D21006D5A27 /* FXFriendsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB376C1BE67D21006D5A27 /* FXFriendsDetailViewController.xib */; };
 		42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37701BE67DB6006D5A27 /* FXUserModel.m */; };
 		42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37761BE67F14006D5A27 /* FXLoginContext.m */; };
 		42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37791BE67F27006D5A27 /* FXUserContext.m */; };
@@ -43,7 +41,6 @@
 		42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37921BE6816D006D5A27 /* FXDispatch.m */; };
 		42FB37961BE684E2006D5A27 /* FXLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37951BE684E2006D5A27 /* FXLoginView.m */; };
 		42FB37991BE68533006D5A27 /* FXFriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37981BE68533006D5A27 /* FXFriendsView.m */; };
-		42FB379C1BE685D2006D5A27 /* FXFriendsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB379B1BE685D2006D5A27 /* FXFriendsDetailView.m */; };
 		42FB379D1BE6871D006D5A27 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB374A1BE66537006D5A27 /* FXImageView.m */; };
 		42FB379E1BE68722006D5A27 /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB374D1BE66537006D5A27 /* FXLoadingView.m */; };
 		42FB379F1BE68726006D5A27 /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB374E1BE66537006D5A27 /* FXLoadingView.xib */; };
@@ -51,6 +48,9 @@
 		42FB37A71BE6A44D006D5A27 /* UINavigationController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37A61BE6A44D006D5A27 /* UINavigationController+FXExtensions.m */; };
 		42FB37A81BE6A682006D5A27 /* UIWindow+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB370D1BE66537006D5A27 /* UIWindow+FXExtensions.m */; };
 		42FB37A91BE6A68C006D5A27 /* UIViewController+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB370A1BE66537006D5A27 /* UIViewController+FXExtensions.m */; };
+		42FB37B01BE6AC86006D5A27 /* FXFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37AC1BE6AC86006D5A27 /* FXFriendDetailView.m */; };
+		42FB37B11BE6AC86006D5A27 /* FXFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37AE1BE6AC86006D5A27 /* FXFriendDetailViewController.m */; };
+		42FB37B21BE6AC86006D5A27 /* FXFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37AF1BE6AC86006D5A27 /* FXFriendDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,9 +160,6 @@
 		42FB37651BE67CF8006D5A27 /* FXFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsViewController.h; sourceTree = "<group>"; };
 		42FB37661BE67CF8006D5A27 /* FXFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsViewController.m; sourceTree = "<group>"; };
 		42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendsViewController.xib; sourceTree = "<group>"; };
-		42FB376A1BE67D21006D5A27 /* FXFriendsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsDetailViewController.h; sourceTree = "<group>"; };
-		42FB376B1BE67D21006D5A27 /* FXFriendsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsDetailViewController.m; sourceTree = "<group>"; };
-		42FB376C1BE67D21006D5A27 /* FXFriendsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendsDetailViewController.xib; sourceTree = "<group>"; };
 		42FB376F1BE67DB6006D5A27 /* FXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUserModel.h; sourceTree = "<group>"; };
 		42FB37701BE67DB6006D5A27 /* FXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUserModel.m; sourceTree = "<group>"; };
 		42FB37751BE67F14006D5A27 /* FXLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoginContext.h; sourceTree = "<group>"; };
@@ -187,10 +184,13 @@
 		42FB37951BE684E2006D5A27 /* FXLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoginView.m; sourceTree = "<group>"; };
 		42FB37971BE68533006D5A27 /* FXFriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsView.h; sourceTree = "<group>"; };
 		42FB37981BE68533006D5A27 /* FXFriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsView.m; sourceTree = "<group>"; };
-		42FB379A1BE685D2006D5A27 /* FXFriendsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendsDetailView.h; sourceTree = "<group>"; };
-		42FB379B1BE685D2006D5A27 /* FXFriendsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendsDetailView.m; sourceTree = "<group>"; };
 		42FB37A51BE6A44D006D5A27 /* UINavigationController+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FXExtensions.h"; sourceTree = "<group>"; };
 		42FB37A61BE6A44D006D5A27 /* UINavigationController+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FXExtensions.m"; sourceTree = "<group>"; };
+		42FB37AB1BE6AC86006D5A27 /* FXFriendDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendDetailView.h; sourceTree = "<group>"; };
+		42FB37AC1BE6AC86006D5A27 /* FXFriendDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendDetailView.m; sourceTree = "<group>"; };
+		42FB37AD1BE6AC86006D5A27 /* FXFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendDetailViewController.h; sourceTree = "<group>"; };
+		42FB37AE1BE6AC86006D5A27 /* FXFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendDetailViewController.m; sourceTree = "<group>"; };
+		42FB37AF1BE6AC86006D5A27 /* FXFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,7 +550,7 @@
 				42FB37571BE67655006D5A27 /* FXViewController */,
 				42FB37541BE66638006D5A27 /* FXLoginViewController */,
 				42FB37531BE66638006D5A27 /* FXFriendsViewController */,
-				42FB37521BE66638006D5A27 /* FXFriendsDetailViewController */,
+				42FB37AA1BE6AC86006D5A27 /* FXFriendDetailViewController */,
 				42FB37371BE66537006D5A27 /* FXDataViewController */,
 				42FB373D1BE66537006D5A27 /* FXSquareViewController */,
 			);
@@ -628,18 +628,6 @@
 				42FB37511BE66537006D5A27 /* FXView.m */,
 			);
 			path = FXView;
-			sourceTree = "<group>";
-		};
-		42FB37521BE66638006D5A27 /* FXFriendsDetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				42FB379A1BE685D2006D5A27 /* FXFriendsDetailView.h */,
-				42FB379B1BE685D2006D5A27 /* FXFriendsDetailView.m */,
-				42FB376A1BE67D21006D5A27 /* FXFriendsDetailViewController.h */,
-				42FB376B1BE67D21006D5A27 /* FXFriendsDetailViewController.m */,
-				42FB376C1BE67D21006D5A27 /* FXFriendsDetailViewController.xib */,
-			);
-			path = FXFriendsDetailViewController;
 			sourceTree = "<group>";
 		};
 		42FB37531BE66638006D5A27 /* FXFriendsViewController */ = {
@@ -776,6 +764,18 @@
 			path = "UINavigationController+FXExtensions";
 			sourceTree = "<group>";
 		};
+		42FB37AA1BE6AC86006D5A27 /* FXFriendDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				42FB37AB1BE6AC86006D5A27 /* FXFriendDetailView.h */,
+				42FB37AC1BE6AC86006D5A27 /* FXFriendDetailView.m */,
+				42FB37AD1BE6AC86006D5A27 /* FXFriendDetailViewController.h */,
+				42FB37AE1BE6AC86006D5A27 /* FXFriendDetailViewController.m */,
+				42FB37AF1BE6AC86006D5A27 /* FXFriendDetailViewController.xib */,
+			);
+			path = FXFriendDetailViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -852,10 +852,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FB37B21BE6AC86006D5A27 /* FXFriendDetailViewController.xib in Resources */,
 				42FB37691BE67CF8006D5A27 /* FXFriendsViewController.xib in Resources */,
 				42FB37641BE67CB6006D5A27 /* FXLoginViewController.xib in Resources */,
 				42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */,
-				42FB376E1BE67D21006D5A27 /* FXFriendsDetailViewController.xib in Resources */,
 				42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */,
 				42FB379F1BE68726006D5A27 /* FXLoadingView.xib in Resources */,
 			);
@@ -876,8 +876,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42FB379C1BE685D2006D5A27 /* FXFriendsDetailView.m in Sources */,
-				42FB376D1BE67D21006D5A27 /* FXFriendsDetailViewController.m in Sources */,
 				42FB377D1BE67F39006D5A27 /* FXUsersContext.m in Sources */,
 				42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */,
 				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
@@ -891,6 +889,7 @@
 				42FB375F1BE67C44006D5A27 /* FXContext.m in Sources */,
 				42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */,
 				42FB378D1BE68051006D5A27 /* FXCopyReference.m in Sources */,
+				42FB37B01BE6AC86006D5A27 /* FXFriendDetailView.m in Sources */,
 				42FB377E1BE67FA2006D5A27 /* FXModel.m in Sources */,
 				42FB37961BE684E2006D5A27 /* FXLoginView.m in Sources */,
 				42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */,
@@ -901,6 +900,7 @@
 				42FB37A01BE68730006D5A27 /* FXView.m in Sources */,
 				42FB375A1BE676AB006D5A27 /* FXViewController.m in Sources */,
 				42FB37A81BE6A682006D5A27 /* UIWindow+FXExtensions.m in Sources */,
+				42FB37B11BE6AC86006D5A27 /* FXFriendDetailViewController.m in Sources */,
 				42FB379E1BE68722006D5A27 /* FXLoadingView.m in Sources */,
 				42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */,
 			);

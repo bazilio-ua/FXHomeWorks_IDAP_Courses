@@ -1,5 +1,5 @@
 //
-//  FXFriendsDetailView.h
+//  FXFriendDetailView.h
 //  FXUsers
 //
 //  Created by Basil Nikityuk on 11/1/15.
@@ -8,6 +8,6 @@
 
 #import "FXView.h"
 
-@interface FXFriendsDetailView : FXView
+@interface FXFriendDetailView : FXView
 
 @end

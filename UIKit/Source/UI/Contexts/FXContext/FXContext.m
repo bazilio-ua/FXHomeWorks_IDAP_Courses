@@ -10,4 +10,16 @@
 
 @implementation FXContext
 
+- (void)execute {
+	
+}
+
+- (void)cancel {
+	
+}
+
+- (void)request {
+	
+}
+
 @end

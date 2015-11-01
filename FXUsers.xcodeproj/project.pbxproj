@@ -13,15 +13,15 @@
 		42E35A751BE535650051C3A9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A741BE535650051C3A9 /* XCTest.framework */; };
 		42E35A761BE535650051C3A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5B1BE535640051C3A9 /* Foundation.framework */; };
 		42E35A771BE535650051C3A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5F1BE535640051C3A9 /* UIKit.framework */; };
-		42E35A7F1BE535650051C3A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42E35A7D1BE535650051C3A9 /* InfoPlist.strings */; };
-		42E35A811BE535650051C3A9 /* FXUsersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E35A801BE535650051C3A9 /* FXUsersTests.m */; };
-		42E35A961BE539030051C3A9 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E35A8D1BE539030051C3A9 /* FXAppDelegate.m */; };
-		42E35A981BE539030051C3A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E35A901BE539030051C3A9 /* main.m */; };
-		42E35A991BE539030051C3A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42E35A921BE539030051C3A9 /* InfoPlist.strings */; };
-		42E35A9A1BE539030051C3A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42E35A941BE539030051C3A9 /* Images.xcassets */; };
-		42E35AA51BE53E010051C3A9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35AA21BE53E010051C3A9 /* FBSDKCoreKit.framework */; };
-		42E35AA61BE53E010051C3A9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35AA31BE53E010051C3A9 /* FBSDKLoginKit.framework */; };
-		42E35AA71BE53E010051C3A9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35AA41BE53E010051C3A9 /* FBSDKShareKit.framework */; };
+		42FB36451BE660AF006D5A27 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FB36421BE660AF006D5A27 /* FBSDKShareKit.framework */; };
+		42FB36461BE660AF006D5A27 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FB36431BE660AF006D5A27 /* FBSDKCoreKit.framework */; };
+		42FB36471BE660AF006D5A27 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FB36441BE660AF006D5A27 /* FBSDKLoginKit.framework */; };
+		42FB364D1BE660E5006D5A27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42FB36491BE660E5006D5A27 /* InfoPlist.strings */; };
+		42FB364F1BE660E5006D5A27 /* FXUsersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB364C1BE660E5006D5A27 /* FXUsersTests.m */; };
+		42FB36571BE66165006D5A27 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB36521BE66165006D5A27 /* FXAppDelegate.m */; };
+		42FB36591BE66165006D5A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB36561BE66165006D5A27 /* main.m */; };
+		42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42FB36641BE661A4006D5A27 /* InfoPlist.strings */; };
+		42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FB36661BE661A4006D5A27 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,20 +41,20 @@
 		42E35A5F1BE535640051C3A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		42E35A731BE535650051C3A9 /* FXUsersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FXUsersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E35A741BE535650051C3A9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		42E35A7C1BE535650051C3A9 /* FXUsersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FXUsersTests-Info.plist"; sourceTree = "<group>"; };
-		42E35A7E1BE535650051C3A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		42E35A801BE535650051C3A9 /* FXUsersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXUsersTests.m; sourceTree = "<group>"; };
-		42E35A8C1BE539030051C3A9 /* FXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAppDelegate.h; sourceTree = "<group>"; };
-		42E35A8D1BE539030051C3A9 /* FXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAppDelegate.m; sourceTree = "<group>"; };
-		42E35A8E1BE539030051C3A9 /* FXUsers-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FXUsers-Info.plist"; sourceTree = "<group>"; };
-		42E35A8F1BE539030051C3A9 /* FXUsers-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXUsers-Prefix.pch"; sourceTree = "<group>"; };
-		42E35A901BE539030051C3A9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		42E35A931BE539030051C3A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		42E35A941BE539030051C3A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		42E35A9B1BE53B2C0051C3A9 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
-		42E35AA21BE53E010051C3A9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		42E35AA31BE53E010051C3A9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		42E35AA41BE53E010051C3A9 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		42FB36421BE660AF006D5A27 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = UIKit/Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		42FB36431BE660AF006D5A27 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = UIKit/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		42FB36441BE660AF006D5A27 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = UIKit/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		42FB364A1BE660E5006D5A27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		42FB364B1BE660E5006D5A27 /* FXUsersTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FXUsersTests-Info.plist"; sourceTree = "<group>"; };
+		42FB364C1BE660E5006D5A27 /* FXUsersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUsersTests.m; sourceTree = "<group>"; };
+		42FB36511BE66165006D5A27 /* FXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAppDelegate.h; sourceTree = "<group>"; };
+		42FB36521BE66165006D5A27 /* FXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAppDelegate.m; sourceTree = "<group>"; };
+		42FB36531BE66165006D5A27 /* FXUsers-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FXUsers-Info.plist"; sourceTree = "<group>"; };
+		42FB36541BE66165006D5A27 /* FXUsers-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FXUsers-Prefix.pch"; sourceTree = "<group>"; };
+		42FB36551BE66165006D5A27 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		42FB36561BE66165006D5A27 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		42FB36651BE661A4006D5A27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		42FB36661BE661A4006D5A27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E35AA51BE53E010051C3A9 /* FBSDKCoreKit.framework in Frameworks */,
-				42E35AA61BE53E010051C3A9 /* FBSDKLoginKit.framework in Frameworks */,
-				42E35AA71BE53E010051C3A9 /* FBSDKShareKit.framework in Frameworks */,
+				42FB36451BE660AF006D5A27 /* FBSDKShareKit.framework in Frameworks */,
+				42FB36461BE660AF006D5A27 /* FBSDKCoreKit.framework in Frameworks */,
+				42FB36471BE660AF006D5A27 /* FBSDKLoginKit.framework in Frameworks */,
 				42E35A5E1BE535640051C3A9 /* CoreGraphics.framework in Frameworks */,
 				42E35A601BE535640051C3A9 /* UIKit.framework in Frameworks */,
 				42E35A5C1BE535640051C3A9 /* Foundation.framework in Frameworks */,
@@ -87,8 +87,9 @@
 		42E35A4F1BE535640051C3A9 = {
 			isa = PBXGroup;
 			children = (
-				42E35A8A1BE539030051C3A9 /* FXUsers */,
-				42E35A7A1BE535650051C3A9 /* FXUsersTests */,
+				42FB36501BE66165006D5A27 /* FXUsers */,
+				42FB365A1BE661A4006D5A27 /* Resource */,
+				42FB36481BE660E5006D5A27 /* FXUsersTests */,
 				42E35A5A1BE535640051C3A9 /* Frameworks */,
 				42E35A591BE535640051C3A9 /* Products */,
 			);
@@ -106,9 +107,9 @@
 		42E35A5A1BE535640051C3A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42E35AA21BE53E010051C3A9 /* FBSDKCoreKit.framework */,
-				42E35AA31BE53E010051C3A9 /* FBSDKLoginKit.framework */,
-				42E35AA41BE53E010051C3A9 /* FBSDKShareKit.framework */,
+				42FB36421BE660AF006D5A27 /* FBSDKShareKit.framework */,
+				42FB36431BE660AF006D5A27 /* FBSDKCoreKit.framework */,
+				42FB36441BE660AF006D5A27 /* FBSDKLoginKit.framework */,
 				42E35A5B1BE535640051C3A9 /* Foundation.framework */,
 				42E35A5D1BE535640051C3A9 /* CoreGraphics.framework */,
 				42E35A5F1BE535640051C3A9 /* UIKit.framework */,
@@ -117,53 +118,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		42E35A7A1BE535650051C3A9 /* FXUsersTests */ = {
+		42FB36481BE660E5006D5A27 /* FXUsersTests */ = {
 			isa = PBXGroup;
 			children = (
-				42E35A801BE535650051C3A9 /* FXUsersTests.m */,
-				42E35A7B1BE535650051C3A9 /* Supporting Files */,
+				42FB36491BE660E5006D5A27 /* InfoPlist.strings */,
+				42FB364B1BE660E5006D5A27 /* FXUsersTests-Info.plist */,
+				42FB364C1BE660E5006D5A27 /* FXUsersTests.m */,
 			);
-			path = FXUsersTests;
+			name = FXUsersTests;
+			path = UIKit/FXUsersTests;
 			sourceTree = "<group>";
 		};
-		42E35A7B1BE535650051C3A9 /* Supporting Files */ = {
+		42FB36501BE66165006D5A27 /* FXUsers */ = {
 			isa = PBXGroup;
 			children = (
-				42E35A7C1BE535650051C3A9 /* FXUsersTests-Info.plist */,
-				42E35A7D1BE535650051C3A9 /* InfoPlist.strings */,
+				42FB36511BE66165006D5A27 /* FXAppDelegate.h */,
+				42FB36521BE66165006D5A27 /* FXAppDelegate.m */,
+				42FB36531BE66165006D5A27 /* FXUsers-Info.plist */,
+				42FB36541BE66165006D5A27 /* FXUsers-Prefix.pch */,
+				42FB36551BE66165006D5A27 /* Macros.h */,
+				42FB36561BE66165006D5A27 /* main.m */,
 			);
-			name = "Supporting Files";
+			name = FXUsers;
+			path = UIKit/FXUsers;
 			sourceTree = "<group>";
 		};
-		42E35A8A1BE539030051C3A9 /* FXUsers */ = {
+		42FB365A1BE661A4006D5A27 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				42E35A8C1BE539030051C3A9 /* FXAppDelegate.h */,
-				42E35A8D1BE539030051C3A9 /* FXAppDelegate.m */,
-				42E35A8E1BE539030051C3A9 /* FXUsers-Info.plist */,
-				42E35A8F1BE539030051C3A9 /* FXUsers-Prefix.pch */,
-				42E35A9B1BE53B2C0051C3A9 /* Macros.h */,
-				42E35A901BE539030051C3A9 /* main.m */,
-				42E35A951BE539030051C3A9 /* Source */,
-				42E35A911BE539030051C3A9 /* Resource */,
+				42FB36631BE661A4006D5A27 /* FXUsers */,
+			);
+			name = Resource;
+			path = UIKit/Resource;
+			sourceTree = "<group>";
+		};
+		42FB36631BE661A4006D5A27 /* FXUsers */ = {
+			isa = PBXGroup;
+			children = (
+				42FB36641BE661A4006D5A27 /* InfoPlist.strings */,
+				42FB36661BE661A4006D5A27 /* Images.xcassets */,
 			);
 			path = FXUsers;
-			sourceTree = "<group>";
-		};
-		42E35A911BE539030051C3A9 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				42E35A921BE539030051C3A9 /* InfoPlist.strings */,
-				42E35A941BE539030051C3A9 /* Images.xcassets */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		42E35A951BE539030051C3A9 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,8 +237,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E35A9A1BE539030051C3A9 /* Images.xcassets in Resources */,
-				42E35A991BE539030051C3A9 /* InfoPlist.strings in Resources */,
+				42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */,
+				42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E35A7F1BE535650051C3A9 /* InfoPlist.strings in Resources */,
+				42FB364D1BE660E5006D5A27 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E35A981BE539030051C3A9 /* main.m in Sources */,
-				42E35A961BE539030051C3A9 /* FXAppDelegate.m in Sources */,
+				42FB36591BE66165006D5A27 /* main.m in Sources */,
+				42FB36571BE66165006D5A27 /* FXAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E35A811BE535650051C3A9 /* FXUsersTests.m in Sources */,
+				42FB364F1BE660E5006D5A27 /* FXUsersTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,18 +281,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		42E35A7D1BE535650051C3A9 /* InfoPlist.strings */ = {
+		42FB36491BE660E5006D5A27 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				42E35A7E1BE535650051C3A9 /* en */,
+				42FB364A1BE660E5006D5A27 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		42E35A921BE539030051C3A9 /* InfoPlist.strings */ = {
+		42FB36641BE661A4006D5A27 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				42E35A931BE539030051C3A9 /* en */,
+				42FB36651BE661A4006D5A27 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -382,11 +377,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/UIKit/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FXUsers/FXUsers-Prefix.pch";
-				INFOPLIST_FILE = "FXUsers/FXUsers-Info.plist";
+				GCC_PREFIX_HEADER = "UIKit/FXUsers/FXUsers-Prefix.pch";
+				INFOPLIST_FILE = "UIKit/FXUsers/FXUsers-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -399,11 +394,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/UIKit/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FXUsers/FXUsers-Prefix.pch";
-				INFOPLIST_FILE = "FXUsers/FXUsers-Info.plist";
+				GCC_PREFIX_HEADER = "UIKit/FXUsers/FXUsers-Prefix.pch";
+				INFOPLIST_FILE = "UIKit/FXUsers/FXUsers-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -424,7 +419,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "FXUsersTests/FXUsersTests-Info.plist";
+				INFOPLIST_FILE = "UIKit/FXUsersTests/FXUsersTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -442,7 +437,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FXUsers/FXUsers-Prefix.pch";
-				INFOPLIST_FILE = "FXUsersTests/FXUsersTests-Info.plist";
+				INFOPLIST_FILE = "UIKit/FXUsersTests/FXUsersTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -468,6 +463,7 @@
 				42E35A861BE535650051C3A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42E35A871BE535650051C3A9 /* Build configuration list for PBXNativeTarget "FXUsersTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +472,7 @@
 				42E35A891BE535650051C3A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

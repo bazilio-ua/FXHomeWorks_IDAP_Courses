@@ -14,7 +14,7 @@
 
 @interface FXURLImageModel ()
 
-- (void)loadImageFromInternet:(void (^)(UIImage *image, id error))completion;
+- (void)loadImageFromInternetWithCompletion:(void (^)(UIImage *image, id error))completion;
 - (void)writeToCacheWithData:(NSData *)data;
 - (void)deleteFromCacheIfNeeded;
 
@@ -53,16 +53,17 @@
 		[super performLoadingWithCompletion:completion];
 		if (!self.image) {
 			[self deleteFromCacheIfNeeded];
+			[self loadImageFromInternetWithCompletion:completion];
 		}
 	} else {
-		[self loadImageFromInternet:completion];
+		[self loadImageFromInternetWithCompletion:completion];
 	}
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)loadImageFromInternet:(void (^)(UIImage *image, id error))completion {
+- (void)loadImageFromInternetWithCompletion:(void (^)(UIImage *image, id error))completion {
 	NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
 	[NSURLConnection asyncRequest:request 
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

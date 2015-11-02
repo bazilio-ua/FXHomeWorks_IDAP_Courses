@@ -9,5 +9,6 @@
 #import "FXView.h"
 
 @interface FXFriendsView : FXView
+@property (nonatomic, strong)	IBOutlet	UITableView	*tableView;
 
 @end

@@ -10,15 +10,14 @@
 
 @implementation FXContext
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (void)execute {
 	
 }
 
 - (void)cancel {
-	
-}
-
-- (void)request {
 	
 }
 

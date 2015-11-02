@@ -51,6 +51,26 @@
 		42FB37B01BE6AC86006D5A27 /* FXFriendDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37AC1BE6AC86006D5A27 /* FXFriendDetailView.m */; };
 		42FB37B11BE6AC86006D5A27 /* FXFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37AE1BE6AC86006D5A27 /* FXFriendDetailViewController.m */; };
 		42FB37B21BE6AC86006D5A27 /* FXFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37AF1BE6AC86006D5A27 /* FXFriendDetailViewController.xib */; };
+		42FC57231BE7FDB500640F40 /* FXUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC57221BE7FDB500640F40 /* FXUsersModel.m */; };
+		42FC57241BE7FDC100640F40 /* FXArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37201BE66537006D5A27 /* FXArrayModel.m */; };
+		42FC57251BE7FF6900640F40 /* FXFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37291BE66537006D5A27 /* FXFileImageModel.m */; };
+		42FC57261BE7FF6900640F40 /* FXImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB372B1BE66537006D5A27 /* FXImageModel.m */; };
+		42FC57271BE7FF6900640F40 /* FXURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB372D1BE66537006D5A27 /* FXURLImageModel.m */; };
+		42FC572F1BE80E0E00640F40 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC572A1BE80E0E00640F40 /* NSArray+FXExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC57301BE80E0E00640F40 /* NSObject+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC572C1BE80E0E00640F40 /* NSObject+FXExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC57311BE80E0E00640F40 /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC572E1BE80E0E00640F40 /* NSString+FXExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC573E1BE80E7C00640F40 /* FXMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC57341BE80E7C00640F40 /* FXMutableArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC573F1BE80E7C00640F40 /* FXMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC57371BE80E7C00640F40 /* FXMutableDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC57401BE80E7C00640F40 /* FXWeakMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC573A1BE80E7C00640F40 /* FXWeakMutableArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC57411BE80E7C00640F40 /* FXWeakMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC573D1BE80E7C00640F40 /* FXWeakMutableDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC574C1BE80F0000640F40 /* FXAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC57441BE80F0000640F40 /* FXAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC574D1BE80F0000640F40 /* FXAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC57471BE80F0000640F40 /* FXAlphabetCluster.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC574E1BE80F0000640F40 /* FXAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC57491BE80F0000640F40 /* FXAlphabetRange.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC574F1BE80F0000640F40 /* FXAlphabetStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FC574B1BE80F0000640F40 /* FXAlphabetStrings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42FC57501BE80F5500640F40 /* FXCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37181BE66537006D5A27 /* FXCache.m */; };
+		42FC57511BE80F6900640F40 /* FXArrayModelChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37111BE66537006D5A27 /* FXArrayModelChanges.m */; };
+		42FC57521BE80F6900640F40 /* FXArrayModelChangesOneIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37131BE66537006D5A27 /* FXArrayModelChangesOneIndex.m */; };
+		42FC57531BE80F6900640F40 /* FXArrayModelChangesTwoIndices.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37151BE66537006D5A27 /* FXArrayModelChangesTwoIndices.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +211,30 @@
 		42FB37AD1BE6AC86006D5A27 /* FXFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendDetailViewController.h; sourceTree = "<group>"; };
 		42FB37AE1BE6AC86006D5A27 /* FXFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendDetailViewController.m; sourceTree = "<group>"; };
 		42FB37AF1BE6AC86006D5A27 /* FXFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendDetailViewController.xib; sourceTree = "<group>"; };
+		42FC57211BE7FDB500640F40 /* FXUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUsersModel.h; sourceTree = "<group>"; };
+		42FC57221BE7FDB500640F40 /* FXUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUsersModel.m; sourceTree = "<group>"; };
+		42FC57291BE80E0E00640F40 /* NSArray+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FXExtensions.h"; sourceTree = "<group>"; };
+		42FC572A1BE80E0E00640F40 /* NSArray+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FXExtensions.m"; sourceTree = "<group>"; };
+		42FC572B1BE80E0E00640F40 /* NSObject+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FXExtensions.h"; sourceTree = "<group>"; };
+		42FC572C1BE80E0E00640F40 /* NSObject+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXExtensions.m"; sourceTree = "<group>"; };
+		42FC572D1BE80E0E00640F40 /* NSString+FXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FXExtensions.h"; sourceTree = "<group>"; };
+		42FC572E1BE80E0E00640F40 /* NSString+FXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FXExtensions.m"; sourceTree = "<group>"; };
+		42FC57331BE80E7C00640F40 /* FXMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMutableArray.h; sourceTree = "<group>"; };
+		42FC57341BE80E7C00640F40 /* FXMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXMutableArray.m; sourceTree = "<group>"; };
+		42FC57361BE80E7C00640F40 /* FXMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXMutableDictionary.h; sourceTree = "<group>"; };
+		42FC57371BE80E7C00640F40 /* FXMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXMutableDictionary.m; sourceTree = "<group>"; };
+		42FC57391BE80E7C00640F40 /* FXWeakMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWeakMutableArray.h; sourceTree = "<group>"; };
+		42FC573A1BE80E7C00640F40 /* FXWeakMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWeakMutableArray.m; sourceTree = "<group>"; };
+		42FC573C1BE80E7C00640F40 /* FXWeakMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWeakMutableDictionary.h; sourceTree = "<group>"; };
+		42FC573D1BE80E7C00640F40 /* FXWeakMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWeakMutableDictionary.m; sourceTree = "<group>"; };
+		42FC57431BE80F0000640F40 /* FXAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabet.h; sourceTree = "<group>"; };
+		42FC57441BE80F0000640F40 /* FXAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabet.m; sourceTree = "<group>"; };
+		42FC57461BE80F0000640F40 /* FXAlphabetCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetCluster.h; sourceTree = "<group>"; };
+		42FC57471BE80F0000640F40 /* FXAlphabetCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetCluster.m; sourceTree = "<group>"; };
+		42FC57481BE80F0000640F40 /* FXAlphabetRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetRange.h; sourceTree = "<group>"; };
+		42FC57491BE80F0000640F40 /* FXAlphabetRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetRange.m; sourceTree = "<group>"; };
+		42FC574A1BE80F0000640F40 /* FXAlphabetStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetStrings.h; sourceTree = "<group>"; };
+		42FC574B1BE80F0000640F40 /* FXAlphabetStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetStrings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +367,7 @@
 		42FB36F21BE66536006D5A27 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				42FC57281BE80E0E00640F40 /* FXExtensions */,
 				42FB36F31BE66536006D5A27 /* FXArrayModelChanges+UITableView */,
 				42FB36F61BE66536006D5A27 /* NSFileManager+FXExtensions */,
 				42FB36F91BE66536006D5A27 /* NSIndexPath+FXExtensions */,
@@ -421,6 +466,11 @@
 		42FB370E1BE66537006D5A27 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				42FC57421BE80F0000640F40 /* FXAlphabet */,
+				42FC57321BE80E7C00640F40 /* FXMutableArray */,
+				42FC57351BE80E7C00640F40 /* FXMutableDictionary */,
+				42FC57381BE80E7C00640F40 /* FXWeakMutableArray */,
+				42FC573B1BE80E7C00640F40 /* FXWeakMutableDictionary */,
 				42FB37831BE68051006D5A27 /* FXReference */,
 				42FB377F1BE6800E006D5A27 /* FXObservableObject */,
 				42FB370F1BE66537006D5A27 /* FXArrayModelChanges */,
@@ -464,6 +514,7 @@
 		42FB371D1BE66537006D5A27 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42FC57201BE7FD3500640F40 /* FXUsersModel */,
 				42FB37551BE6751B006D5A27 /* FXUserModel */,
 				42FB371E1BE66537006D5A27 /* FXArrayModel */,
 				42FB37211BE66537006D5A27 /* FXDataModel */,
@@ -776,6 +827,93 @@
 			path = FXFriendDetailViewController;
 			sourceTree = "<group>";
 		};
+		42FC57201BE7FD3500640F40 /* FXUsersModel */ = {
+			isa = PBXGroup;
+			children = (
+				42FC57211BE7FDB500640F40 /* FXUsersModel.h */,
+				42FC57221BE7FDB500640F40 /* FXUsersModel.m */,
+			);
+			path = FXUsersModel;
+			sourceTree = "<group>";
+		};
+		42FC57281BE80E0E00640F40 /* FXExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				42FC57291BE80E0E00640F40 /* NSArray+FXExtensions.h */,
+				42FC572A1BE80E0E00640F40 /* NSArray+FXExtensions.m */,
+				42FC572B1BE80E0E00640F40 /* NSObject+FXExtensions.h */,
+				42FC572C1BE80E0E00640F40 /* NSObject+FXExtensions.m */,
+				42FC572D1BE80E0E00640F40 /* NSString+FXExtensions.h */,
+				42FC572E1BE80E0E00640F40 /* NSString+FXExtensions.m */,
+			);
+			name = FXExtensions;
+			path = "Objective-C/FXExtensions";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FC57321BE80E7C00640F40 /* FXMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				42FC57331BE80E7C00640F40 /* FXMutableArray.h */,
+				42FC57341BE80E7C00640F40 /* FXMutableArray.m */,
+			);
+			name = FXMutableArray;
+			path = "Objective-C/Classes/FXMutableArray";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FC57351BE80E7C00640F40 /* FXMutableDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				42FC57361BE80E7C00640F40 /* FXMutableDictionary.h */,
+				42FC57371BE80E7C00640F40 /* FXMutableDictionary.m */,
+			);
+			name = FXMutableDictionary;
+			path = "Objective-C/Classes/FXMutableDictionary";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FC57381BE80E7C00640F40 /* FXWeakMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				42FC57391BE80E7C00640F40 /* FXWeakMutableArray.h */,
+				42FC573A1BE80E7C00640F40 /* FXWeakMutableArray.m */,
+			);
+			name = FXWeakMutableArray;
+			path = "Objective-C/Classes/FXWeakMutableArray";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FC573B1BE80E7C00640F40 /* FXWeakMutableDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				42FC573C1BE80E7C00640F40 /* FXWeakMutableDictionary.h */,
+				42FC573D1BE80E7C00640F40 /* FXWeakMutableDictionary.m */,
+			);
+			name = FXWeakMutableDictionary;
+			path = "Objective-C/Classes/FXWeakMutableDictionary";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FC57421BE80F0000640F40 /* FXAlphabet */ = {
+			isa = PBXGroup;
+			children = (
+				42FC57431BE80F0000640F40 /* FXAlphabet.h */,
+				42FC57441BE80F0000640F40 /* FXAlphabet.m */,
+				42FC57451BE80F0000640F40 /* PrivateSubclasses */,
+			);
+			name = FXAlphabet;
+			path = "Objective-C/FXAlphabet/Source/FXAlphabet";
+			sourceTree = SOURCE_ROOT;
+		};
+		42FC57451BE80F0000640F40 /* PrivateSubclasses */ = {
+			isa = PBXGroup;
+			children = (
+				42FC57461BE80F0000640F40 /* FXAlphabetCluster.h */,
+				42FC57471BE80F0000640F40 /* FXAlphabetCluster.m */,
+				42FC57481BE80F0000640F40 /* FXAlphabetRange.h */,
+				42FC57491BE80F0000640F40 /* FXAlphabetRange.m */,
+				42FC574A1BE80F0000640F40 /* FXAlphabetStrings.h */,
+				42FC574B1BE80F0000640F40 /* FXAlphabetStrings.m */,
+			);
+			path = PrivateSubclasses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -878,31 +1016,51 @@
 			files = (
 				42FB377D1BE67F39006D5A27 /* FXUsersContext.m in Sources */,
 				42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */,
+				42FC57261BE7FF6900640F40 /* FXImageModel.m in Sources */,
 				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
 				42FB36591BE66165006D5A27 /* main.m in Sources */,
 				42FB37A91BE6A68C006D5A27 /* UIViewController+FXExtensions.m in Sources */,
 				42FB379D1BE6871D006D5A27 /* FXImageView.m in Sources */,
+				42FC57231BE7FDB500640F40 /* FXUsersModel.m in Sources */,
 				42FB378E1BE68051006D5A27 /* FXReference.m in Sources */,
 				42FB37991BE68533006D5A27 /* FXFriendsView.m in Sources */,
 				42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */,
+				42FC57301BE80E0E00640F40 /* NSObject+FXExtensions.m in Sources */,
 				42FB37A71BE6A44D006D5A27 /* UINavigationController+FXExtensions.m in Sources */,
 				42FB375F1BE67C44006D5A27 /* FXContext.m in Sources */,
+				42FC574C1BE80F0000640F40 /* FXAlphabet.m in Sources */,
+				42FC573E1BE80E7C00640F40 /* FXMutableArray.m in Sources */,
 				42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */,
+				42FC57251BE7FF6900640F40 /* FXFileImageModel.m in Sources */,
+				42FC57501BE80F5500640F40 /* FXCache.m in Sources */,
+				42FC572F1BE80E0E00640F40 /* NSArray+FXExtensions.m in Sources */,
+				42FC57511BE80F6900640F40 /* FXArrayModelChanges.m in Sources */,
+				42FC573F1BE80E7C00640F40 /* FXMutableDictionary.m in Sources */,
 				42FB378D1BE68051006D5A27 /* FXCopyReference.m in Sources */,
 				42FB37B01BE6AC86006D5A27 /* FXFriendDetailView.m in Sources */,
+				42FC57271BE7FF6900640F40 /* FXURLImageModel.m in Sources */,
+				42FC574F1BE80F0000640F40 /* FXAlphabetStrings.m in Sources */,
 				42FB377E1BE67FA2006D5A27 /* FXModel.m in Sources */,
+				42FC574E1BE80F0000640F40 /* FXAlphabetRange.m in Sources */,
+				42FC57411BE80E7C00640F40 /* FXWeakMutableDictionary.m in Sources */,
 				42FB37961BE684E2006D5A27 /* FXLoginView.m in Sources */,
+				42FC57311BE80E0E00640F40 /* NSString+FXExtensions.m in Sources */,
 				42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */,
 				42FB36571BE66165006D5A27 /* FXAppDelegate.m in Sources */,
 				42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */,
 				42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */,
+				42FC574D1BE80F0000640F40 /* FXAlphabetCluster.m in Sources */,
 				42FB378F1BE68051006D5A27 /* FXRetainReference.m in Sources */,
 				42FB37A01BE68730006D5A27 /* FXView.m in Sources */,
 				42FB375A1BE676AB006D5A27 /* FXViewController.m in Sources */,
 				42FB37A81BE6A682006D5A27 /* UIWindow+FXExtensions.m in Sources */,
 				42FB37B11BE6AC86006D5A27 /* FXFriendDetailViewController.m in Sources */,
+				42FC57531BE80F6900640F40 /* FXArrayModelChangesTwoIndices.m in Sources */,
+				42FC57401BE80E7C00640F40 /* FXWeakMutableArray.m in Sources */,
 				42FB379E1BE68722006D5A27 /* FXLoadingView.m in Sources */,
+				42FC57521BE80F6900640F40 /* FXArrayModelChangesOneIndex.m in Sources */,
 				42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */,
+				42FC57241BE7FDC100640F40 /* FXArrayModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

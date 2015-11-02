@@ -25,6 +25,7 @@
     // Override point for customization after application launch.
 	FXLoginViewController *controller = [FXLoginViewController controller];
 	UINavigationController *navigationController = [UINavigationController navigationControllerWithRootViewController:controller];
+	
 	window.rootViewController = navigationController;
     [window makeKeyAndVisible];
 	

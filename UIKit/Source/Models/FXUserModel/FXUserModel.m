@@ -8,6 +8,17 @@
 
 #import "FXUserModel.h"
 
+#import "FXImageModel.h"
+
 @implementation FXUserModel
+
+@dynamic imageModel;
+
+#pragma mark -
+#pragma mark Accessors
+
+- (FXImageModel *)imageModel {
+	return [FXImageModel imageWithURL:[NSURL URLWithString:self.imagePath]];
+}
 
 @end

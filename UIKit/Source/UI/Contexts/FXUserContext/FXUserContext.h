@@ -8,6 +8,10 @@
 
 #import "FXContext.h"
 
+@class FXUserModel;
+
 @interface FXUserContext : FXContext
+
++ (FXUserModel *)userModelWithModel:(FXUserModel *)model;
 
 @end

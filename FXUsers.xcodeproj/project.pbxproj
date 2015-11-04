@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42AEBBFF1BEA84370034329D /* FXArrayModelChanges+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB36F51BE66536006D5A27 /* FXArrayModelChanges+UITableView.m */; };
+		42AEBC001BEA843C0034329D /* NSFileManager+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB36F81BE66536006D5A27 /* NSFileManager+FXExtensions.m */; };
+		42AEBC011BEA84410034329D /* NSIndexPath+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB36FB1BE66536006D5A27 /* NSIndexPath+FXExtensions.m */; };
+		42AEBC021BEA84470034329D /* NSMutableArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB36FE1BE66536006D5A27 /* NSMutableArray+FXExtensions.m */; };
+		42AEBC031BEA844D0034329D /* NSURLConnection+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37011BE66536006D5A27 /* NSURLConnection+FXExtensions.m */; };
+		42AEBC041BEA84560034329D /* UITableView+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37071BE66536006D5A27 /* UITableView+FXExtensions.m */; };
+		42AEBC051BEA84980034329D /* FXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB371B1BE66537006D5A27 /* FXTableViewCell.m */; };
 		42E35A5C1BE535640051C3A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5B1BE535640051C3A9 /* Foundation.framework */; };
 		42E35A5E1BE535640051C3A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5D1BE535640051C3A9 /* CoreGraphics.framework */; };
 		42E35A601BE535640051C3A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5F1BE535640051C3A9 /* UIKit.framework */; };
@@ -1026,15 +1033,20 @@
 				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
 				42FB36591BE66165006D5A27 /* main.m in Sources */,
 				42FB37A91BE6A68C006D5A27 /* UIViewController+FXExtensions.m in Sources */,
+				42AEBC031BEA844D0034329D /* NSURLConnection+FXExtensions.m in Sources */,
 				42FB379D1BE6871D006D5A27 /* FXImageView.m in Sources */,
 				42FC57231BE7FDB500640F40 /* FXUsersModel.m in Sources */,
 				42FB378E1BE68051006D5A27 /* FXReference.m in Sources */,
 				42FB37991BE68533006D5A27 /* FXFriendsView.m in Sources */,
+				42AEBBFF1BEA84370034329D /* FXArrayModelChanges+UITableView.m in Sources */,
 				42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */,
+				42AEBC051BEA84980034329D /* FXTableViewCell.m in Sources */,
 				42FC57301BE80E0E00640F40 /* NSObject+FXExtensions.m in Sources */,
 				42FB37A71BE6A44D006D5A27 /* UINavigationController+FXExtensions.m in Sources */,
+				42AEBC011BEA84410034329D /* NSIndexPath+FXExtensions.m in Sources */,
 				42FC574C1BE80F0000640F40 /* FXAlphabet.m in Sources */,
 				42FC573E1BE80E7C00640F40 /* FXMutableArray.m in Sources */,
+				42AEBC041BEA84560034329D /* UITableView+FXExtensions.m in Sources */,
 				42FC57251BE7FF6900640F40 /* FXFileImageModel.m in Sources */,
 				42FC57501BE80F5500640F40 /* FXCache.m in Sources */,
 				42FC572F1BE80E0E00640F40 /* NSArray+FXExtensions.m in Sources */,
@@ -1054,6 +1066,7 @@
 				42FB36571BE66165006D5A27 /* FXAppDelegate.m in Sources */,
 				42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */,
 				42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */,
+				42AEBC001BEA843C0034329D /* NSFileManager+FXExtensions.m in Sources */,
 				42FF03DE1BEA4AFA00FE5BBA /* FXUsersContext.m in Sources */,
 				42FC574D1BE80F0000640F40 /* FXAlphabetCluster.m in Sources */,
 				42FB378F1BE68051006D5A27 /* FXRetainReference.m in Sources */,
@@ -1067,6 +1080,7 @@
 				42FC57521BE80F6900640F40 /* FXArrayModelChangesOneIndex.m in Sources */,
 				42FB37931BE6816D006D5A27 /* FXDispatch.m in Sources */,
 				42FC57241BE7FDC100640F40 /* FXArrayModel.m in Sources */,
+				42AEBC021BEA84470034329D /* NSMutableArray+FXExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

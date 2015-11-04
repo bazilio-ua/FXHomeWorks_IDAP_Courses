@@ -12,7 +12,9 @@
 #import "FXLoginViewController.h"
 #import "FXLoginView.h"
 
+#import "FXLoadingLoginContext.h"
 #import "FXLoginContext.h"
+
 #import "FXUserModel.h"
 
 #import "FXDispatch.h"
@@ -23,7 +25,6 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 
 @interface FXLoginViewController ()
 @property (nonatomic, strong)	FXLoginContext	*loginContext;
-@property (nonatomic, strong)	FXUserModel		*userModel;
 
 - (void)makeLogOut;
 - (void)pushFriendsViewController;
@@ -35,15 +36,10 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)dealloc {
-	self.loginContext = nil;
-	self.userModel = nil;
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self) {
-		self.userModel = [FXUserModel new];
+		self.model = [FXUserModel new];
 	}
 	
 	return self;
@@ -52,12 +48,12 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setLoginContext:(FXLoginContext *)loginContext {
-	FXSynthesizeContextSetter(loginContext);
+- (Class)contextClass {
+	return [FXLoadingLoginContext class];
 }
 
-- (void)setUserModel:(FXUserModel *)userModel {
-	FXSynthesizeObservableSetter(userModel);
+- (void)setLoginContext:(FXLoginContext *)loginContext {
+	FXSynthesizeContextSetter(loginContext);
 }
 
 #pragma mark -
@@ -66,7 +62,7 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	if (self.userModel.userID) {
+	if (self.model.userID) {
 		[self pushFriendsViewController];
 	}
 }
@@ -74,15 +70,15 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-	self.loginView.userModel = self.userModel;
+	self.loginView.model = self.model;
 }
 
 #pragma mark -
 #pragma mark User Interactions
 
 - (void)onLoginButton:(id)sender {
-	if (!self.userModel.userID) {
-		self.loginContext = [[FXLoginContext alloc] initWithModel:self.userModel];
+	if (!self.model.userID) {
+		self.loginContext = [FXLoginContext contextWithModel:self.model];
 	} else {
 		[self makeLogOut];
 	}
@@ -96,11 +92,11 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 
 - (void)makeLogOut {
 	FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-	FXUserModel *userModel = self.userModel;
+	FXUserModel *model = self.model;
 	
 	[loginManager logOut];
-	userModel.userID = nil;
-	userModel.state = kFXModelUnloaded;
+	model.userID = nil;
+	model.state = kFXModelUnloaded;
 }
 
 - (void)pushFriendsViewController {
@@ -110,7 +106,7 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 #pragma mark -
 #pragma mark FXUserModelObserver protocol
 
-- (void)modelDidChangeID:(FXUserModel *)model {
+- (void)modelIDDidLoad:(FXUserModel *)model {
 	if (model.userID) {
 		FXDispatchAsyncOnMainQueueWithBlock(^{
 			[self pushFriendsViewController];

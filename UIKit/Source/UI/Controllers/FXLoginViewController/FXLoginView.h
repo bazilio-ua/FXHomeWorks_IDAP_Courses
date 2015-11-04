@@ -16,7 +16,7 @@
 @property (nonatomic, strong)	IBOutlet	UIButton	*loginButton;
 @property (nonatomic, strong)	IBOutlet	UILabel		*userIDLabel;
 
-@property (nonatomic, strong)				FXUserModel	*userModel;
+@property (nonatomic, strong)				FXUserModel	*model;
 
 - (void)fillWithModel:(FXUserModel *)model;
 

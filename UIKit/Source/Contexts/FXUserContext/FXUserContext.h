@@ -6,12 +6,8 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXContext.h"
+#import "FXGraphRequestContext.h"
 
-@class FXUserModel;
-
-@interface FXUserContext : FXContext
-
-//+ (FXUserModel *)userModelWithModel:(FXUserModel *)model;
+@interface FXUserContext : FXGraphRequestContext
 
 @end

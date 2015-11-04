@@ -16,29 +16,15 @@
 #import "FXContextsRequestConstants.h"
 
 @interface FXLoginContext ()
-@property (nonatomic, strong)	FXUserModel	*model;
 @property (nonatomic, readonly)	NSArray		*permissions;
 
 - (void)makeLogIn;
-- (void)finalizeLogIn;
 
 @end
 
 @implementation FXLoginContext
 
 @dynamic permissions;
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (id)initWithModel:(FXUserModel *)model {
-	self = [super init];
-	if (self) {
-		self.model = model;
-	}
-	
-	return self;
-}
 
 #pragma mark -
 #pragma mark Accessors
@@ -55,12 +41,19 @@
 	if (!token.userID) {
 		[self makeLogIn];
 	} else {
-		[self finalizeLogIn];
+		[self parseWithResult:nil error:nil];
 	}
 }
 
 - (void)cancel {
 	
+}
+
+- (void)parseWithResult:(id)result error:(NSError *)error {
+	FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+	if (token) {
+		self.model.userID = token.userID;
+	}
 }
 
 #pragma mark -
@@ -70,24 +63,15 @@
 	FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
 	
 	id handler = ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-		if (error) {
-			NSLog(@"Login Error");
-		} else if (result.isCancelled) {
-			NSLog(@"Login Cancelled");
+		if (result.isCancelled) {
+			NSLog(@"Login is Cancelled");
 		} else {
-			NSLog(@"Logged in");
-			[self finalizeLogIn];
+			NSLog(@"Login Result: %@", result);
+			[self parseWithResult:result error:error];
 		}
 	};
 	
 	[loginManager logInWithReadPermissions:self.permissions handler:handler];
-}
-
-- (void)finalizeLogIn {
-	FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
-	if (token) {
-		self.model.userID = token.userID;
-	}
 }
 
 @end

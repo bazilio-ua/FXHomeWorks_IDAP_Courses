@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class FXContext;
+@class FXUserModel;
+
 @interface FXViewController : UIViewController
+// property for overriding in subclasses
+@property (nonatomic, readonly)	Class		contextClass;
+@property (nonatomic, strong)	FXContext	*context;
+@property (nonatomic, strong)	FXUserModel	*model;
 
 @end

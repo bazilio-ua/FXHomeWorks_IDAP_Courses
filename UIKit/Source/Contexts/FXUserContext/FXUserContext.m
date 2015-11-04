@@ -13,43 +13,19 @@
 
 #import "FXUserModel.h"
 
-//static CGSize	kFXUserImageSize = {96, 96};
+#import "FXContextsRequestConstants.h"
 
 @implementation FXUserContext
 
 #pragma mark -
-#pragma mark Class Methods
+#pragma mark Overriden Public Methods
 
-//+ (FXUserModel *)userModelWithModel:(FXUserModel *)model {
-//	FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
-//	if (accessToken) {
-//		FBSDKProfile *profile = [FBSDKProfile currentProfile];
-//		model.userID = accessToken.userID;
-//		model.firstName = profile.firstName;
-//		model.lastName = profile.lastName;
-//		model.imagePath = [profile imagePathForPictureMode:FBSDKProfilePictureModeSquare
-//													  size:kFXUserImageSize];
-//		FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friendlists"
-//																	   parameters:nil
-//																	   HTTPMethod:@"GET"];
-//		[request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-//			if (!error) {
-//				NSLog(@"request result = %@", result);
-//			}
-//		}];
-//	}
-//	
-//	if ([FBSDKAccessToken currentAccessToken]) {
-//		[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
-//										   parameters:nil]
-//		 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-//			 if (!error) {
-//				 NSLog(@"fetched user: %@", result);
-//			 }
-//		 }];
-//	}
-//	
-//	return model;
-//}
+- (NSString *)graphPath {
+	return kFXMe;
+}
+
+- (NSDictionary *)graphPathParameters {
+	return nil;
+}
 
 @end

@@ -28,19 +28,20 @@ static NSString * const kFXLogOutTitle	= @"LogOut";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-	self.userModel = nil;
+	self.model = nil;
 }
 
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUserModel:(FXUserModel *)userModel {
-	FXSynthesizeObservableSetter(userModel);
-	[self fillWithModel:userModel];
+- (void)setModel:(FXUserModel *)model {
+	FXSynthesizeObservableSetter(model);
+	
+	[self fillWithModel:model];
 }
 
 - (NSString *)loginButtonTitle {
-	return self.userModel.userID ? kFXLogOutTitle : kFXLogInTitle;
+	return self.model.userID ? kFXLogOutTitle : kFXLogInTitle;
 }
 
 #pragma mark -
@@ -57,7 +58,7 @@ static NSString * const kFXLogOutTitle	= @"LogOut";
 #pragma mark -
 #pragma mark FXUserModelObserver protocol
 
-- (void)modelDidChangeID:(id)model {
+- (void)modelIDDidLoad:(id)model {
 	[self fillWithModel:model];
 }
 

@@ -8,11 +8,6 @@
 
 #import "FXContext.h"
 
-@class FXUserModel;
-
 @interface FXLoginContext : FXContext
-@property (nonatomic, readonly)	FXUserModel	*model;
-
-- (id)initWithModel:(FXUserModel *)model;
 
 @end

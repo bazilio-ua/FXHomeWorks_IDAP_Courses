@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FXContext : NSObject
+@class FXUserModel;
 
+@interface FXContext : NSObject
+@property (nonatomic, readonly)	FXUserModel	*model;
+
++ (id)contextWithModel:(FXUserModel *)model;
+
+- (id)initWithModel:(FXUserModel *)model;
+
+// methods for overriding in subclasses
 - (void)execute;
 - (void)cancel;
+- (void)parseWithResult:(id)result error:(NSError *)error;
 
 @end

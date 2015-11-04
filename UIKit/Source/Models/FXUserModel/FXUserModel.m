@@ -19,7 +19,7 @@
 	if (_userID != userID) {
 		_userID = userID;
 		
-		self.state = kFXUserModelDidChangeID;
+		self.state = kFXUserModelIDLoaded;
 	}
 }
 
@@ -29,8 +29,8 @@
 - (SEL)selectorForState:(FXModelState)state {
 	SEL selector = NULL;
 	switch ((FXUserModelState)state) {
-		case kFXUserModelDidChangeID:
-			selector = @selector(modelDidChangeID:);
+		case kFXUserModelIDLoaded:
+			selector = @selector(modelIDDidLoad:);
 			break;
 		
 		case kFXUserModelFriendsLoaded:

@@ -8,17 +8,45 @@
 
 #import "FXUserModel.h"
 
-#import "FXImageModel.h"
+#import "FXUserModelObserver.h"
 
 @implementation FXUserModel
-
-@dynamic imageModel;
 
 #pragma mark -
 #pragma mark Accessors
 
-- (FXImageModel *)imageModel {
-	return [FXImageModel imageWithURL:[NSURL URLWithString:self.imagePath]];
+- (void)setUserID:(NSString *)userID {
+	if (_userID != userID) {
+		_userID = userID;
+		
+		self.state = kFXUserModelDidChangeID;
+	}
+}
+
+#pragma mark -
+#pragma mark Overloaded Methods
+
+- (SEL)selectorForState:(FXModelState)state {
+	SEL selector = NULL;
+	switch ((FXUserModelState)state) {
+		case kFXUserModelDidChangeID:
+			selector = @selector(modelDidChangeID:);
+			break;
+		
+		case kFXUserModelFriendsLoaded:
+			selector = @selector(modelFriendsDidLoad:);
+			break;
+			
+		case kFXUserModelDetailLoaded:
+			selector = @selector(modelDetailDidLoad:);
+			break;
+			
+		default:
+			selector = [super selectorForState:state];
+			break;
+	}
+	
+	return selector;
 }
 
 @end

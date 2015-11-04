@@ -23,8 +23,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	FXUserModel *model = [FXUserModel new];
-	model = [FXUserContext userModelWithModel:model];
+//	FXUserModel *model = [FXUserModel new];
+//	model = [FXUserContext userModelWithModel:model];
 }
 
 #pragma mark -

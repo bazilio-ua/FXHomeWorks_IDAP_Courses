@@ -8,6 +8,16 @@
 
 #import "FXView.h"
 
-@interface FXLoginView : FXView
+#import "FXUserModelObserver.h"
+
+@class FXUserModel;
+
+@interface FXLoginView : FXView <FXUserModelObserver>
+@property (nonatomic, strong)	IBOutlet	UIButton	*loginButton;
+@property (nonatomic, strong)	IBOutlet	UILabel		*userIDLabel;
+
+@property (nonatomic, strong)				FXUserModel	*userModel;
+
+- (void)fillWithModel:(FXUserModel *)model;
 
 @end

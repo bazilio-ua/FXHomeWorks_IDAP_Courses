@@ -1,5 +1,5 @@
 //
-//  FXUserContext.h
+//  FXLoginContext.h
 //  FXUsers
 //
 //  Created by Basil Nikityuk on 11/1/15.
@@ -10,8 +10,9 @@
 
 @class FXUserModel;
 
-@interface FXUserContext : FXContext
+@interface FXLoginContext : FXContext
+@property (nonatomic, readonly)	FXUserModel	*model;
 
-+ (FXUserModel *)userModelWithModel:(FXUserModel *)model;
+- (id)initWithModel:(FXUserModel *)model;
 
 @end

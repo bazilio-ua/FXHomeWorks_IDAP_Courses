@@ -1,5 +1,5 @@
 //
-//  FXLoginContext.h
+//  FXUserContext.h
 //  FXUsers
 //
 //  Created by Basil Nikityuk on 11/1/15.
@@ -8,6 +8,10 @@
 
 #import "FXContext.h"
 
-@interface FXLoginContext : FXContext
+@class FXUserModel;
+
+@interface FXUserContext : FXContext
+
+//+ (FXUserModel *)userModelWithModel:(FXUserModel *)model;
 
 @end

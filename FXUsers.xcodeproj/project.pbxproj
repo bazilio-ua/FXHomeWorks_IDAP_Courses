@@ -23,15 +23,11 @@
 		42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42FB36641BE661A4006D5A27 /* InfoPlist.strings */; };
 		42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FB36661BE661A4006D5A27 /* Images.xcassets */; };
 		42FB375A1BE676AB006D5A27 /* FXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37591BE676AB006D5A27 /* FXViewController.m */; };
-		42FB375F1BE67C44006D5A27 /* FXContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB375E1BE67C44006D5A27 /* FXContext.m */; };
 		42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37611BE67CB6006D5A27 /* FXLoginViewController.m */; };
 		42FB37641BE67CB6006D5A27 /* FXLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37621BE67CB6006D5A27 /* FXLoginViewController.xib */; };
 		42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37661BE67CF8006D5A27 /* FXFriendsViewController.m */; };
 		42FB37691BE67CF8006D5A27 /* FXFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */; };
 		42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37701BE67DB6006D5A27 /* FXUserModel.m */; };
-		42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37761BE67F14006D5A27 /* FXLoginContext.m */; };
-		42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37791BE67F27006D5A27 /* FXUserContext.m */; };
-		42FB377D1BE67F39006D5A27 /* FXUsersContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB377C1BE67F39006D5A27 /* FXUsersContext.m */; };
 		42FB377E1BE67FA2006D5A27 /* FXModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37301BE66537006D5A27 /* FXModel.m */; };
 		42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37811BE6800E006D5A27 /* FXObservableObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37851BE68051006D5A27 /* FXAssignReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -71,6 +67,11 @@
 		42FC57511BE80F6900640F40 /* FXArrayModelChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37111BE66537006D5A27 /* FXArrayModelChanges.m */; };
 		42FC57521BE80F6900640F40 /* FXArrayModelChangesOneIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37131BE66537006D5A27 /* FXArrayModelChangesOneIndex.m */; };
 		42FC57531BE80F6900640F40 /* FXArrayModelChangesTwoIndices.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37151BE66537006D5A27 /* FXArrayModelChangesTwoIndices.m */; };
+		42FF03DB1BEA4AFA00FE5BBA /* FXContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FF03D01BEA4AFA00FE5BBA /* FXContext.m */; };
+		42FF03DC1BEA4AFA00FE5BBA /* FXLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FF03D41BEA4AFA00FE5BBA /* FXLoginContext.m */; };
+		42FF03DD1BEA4AFA00FE5BBA /* FXUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FF03D71BEA4AFA00FE5BBA /* FXUserContext.m */; };
+		42FF03DE1BEA4AFA00FE5BBA /* FXUsersContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FF03DA1BEA4AFA00FE5BBA /* FXUsersContext.m */; };
+		42FF03DF1BEA7AAD00FE5BBA /* UINib+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37041BE66536006D5A27 /* UINib+FXExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,8 +173,6 @@
 		42FB37511BE66537006D5A27 /* FXView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXView.m; sourceTree = "<group>"; };
 		42FB37581BE676AB006D5A27 /* FXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXViewController.h; sourceTree = "<group>"; };
 		42FB37591BE676AB006D5A27 /* FXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXViewController.m; sourceTree = "<group>"; };
-		42FB375D1BE67C44006D5A27 /* FXContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXContext.h; sourceTree = "<group>"; };
-		42FB375E1BE67C44006D5A27 /* FXContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXContext.m; sourceTree = "<group>"; };
 		42FB37601BE67CB6006D5A27 /* FXLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoginViewController.h; sourceTree = "<group>"; };
 		42FB37611BE67CB6006D5A27 /* FXLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoginViewController.m; sourceTree = "<group>"; };
 		42FB37621BE67CB6006D5A27 /* FXLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXLoginViewController.xib; sourceTree = "<group>"; };
@@ -182,12 +181,6 @@
 		42FB37671BE67CF8006D5A27 /* FXFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendsViewController.xib; sourceTree = "<group>"; };
 		42FB376F1BE67DB6006D5A27 /* FXUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUserModel.h; sourceTree = "<group>"; };
 		42FB37701BE67DB6006D5A27 /* FXUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUserModel.m; sourceTree = "<group>"; };
-		42FB37751BE67F14006D5A27 /* FXLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoginContext.h; sourceTree = "<group>"; };
-		42FB37761BE67F14006D5A27 /* FXLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoginContext.m; sourceTree = "<group>"; };
-		42FB37781BE67F27006D5A27 /* FXUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUserContext.h; sourceTree = "<group>"; };
-		42FB37791BE67F27006D5A27 /* FXUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUserContext.m; sourceTree = "<group>"; };
-		42FB377B1BE67F39006D5A27 /* FXUsersContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUsersContext.h; sourceTree = "<group>"; };
-		42FB377C1BE67F39006D5A27 /* FXUsersContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUsersContext.m; sourceTree = "<group>"; };
 		42FB37801BE6800E006D5A27 /* FXObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXObservableObject.h; sourceTree = "<group>"; };
 		42FB37811BE6800E006D5A27 /* FXObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXObservableObject.m; sourceTree = "<group>"; };
 		42FB37841BE68051006D5A27 /* FXAssignReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAssignReference.h; sourceTree = "<group>"; };
@@ -235,6 +228,16 @@
 		42FC57491BE80F0000640F40 /* FXAlphabetRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetRange.m; sourceTree = "<group>"; };
 		42FC574A1BE80F0000640F40 /* FXAlphabetStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlphabetStrings.h; sourceTree = "<group>"; };
 		42FC574B1BE80F0000640F40 /* FXAlphabetStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlphabetStrings.m; sourceTree = "<group>"; };
+		42FF03CA1BEA3A1400FE5BBA /* FXUserModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXUserModelObserver.h; sourceTree = "<group>"; };
+		42FF03CF1BEA4AFA00FE5BBA /* FXContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXContext.h; sourceTree = "<group>"; };
+		42FF03D01BEA4AFA00FE5BBA /* FXContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXContext.m; sourceTree = "<group>"; };
+		42FF03D11BEA4AFA00FE5BBA /* FXContextsRequestConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXContextsRequestConstants.h; path = Contexts/FXContextsRequestConstants.h; sourceTree = "<group>"; };
+		42FF03D31BEA4AFA00FE5BBA /* FXLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoginContext.h; sourceTree = "<group>"; };
+		42FF03D41BEA4AFA00FE5BBA /* FXLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoginContext.m; sourceTree = "<group>"; };
+		42FF03D61BEA4AFA00FE5BBA /* FXUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUserContext.h; sourceTree = "<group>"; };
+		42FF03D71BEA4AFA00FE5BBA /* FXUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUserContext.m; sourceTree = "<group>"; };
+		42FF03D91BEA4AFA00FE5BBA /* FXUsersContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXUsersContext.h; sourceTree = "<group>"; };
+		42FF03DA1BEA4AFA00FE5BBA /* FXUsersContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXUsersContext.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +348,8 @@
 		42FB36F01BE66536006D5A27 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				42FF03CD1BEA4AFA00FE5BBA /* Contexts */,
+				42FF03D11BEA4AFA00FE5BBA /* FXContextsRequestConstants.h */,
 				42FB36F11BE66536006D5A27 /* Library */,
 				42FB371D1BE66537006D5A27 /* Models */,
 				42FB37351BE66537006D5A27 /* UI */,
@@ -588,7 +593,6 @@
 		42FB37351BE66537006D5A27 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				42FB375B1BE67723006D5A27 /* Contexts */,
 				42FB37361BE66537006D5A27 /* Controllers */,
 				42FB37431BE66537006D5A27 /* Views */,
 			);
@@ -710,6 +714,7 @@
 			children = (
 				42FB376F1BE67DB6006D5A27 /* FXUserModel.h */,
 				42FB37701BE67DB6006D5A27 /* FXUserModel.m */,
+				42FF03CA1BEA3A1400FE5BBA /* FXUserModelObserver.h */,
 			);
 			path = FXUserModel;
 			sourceTree = "<group>";
@@ -721,53 +726,6 @@
 				42FB37591BE676AB006D5A27 /* FXViewController.m */,
 			);
 			path = FXViewController;
-			sourceTree = "<group>";
-		};
-		42FB375B1BE67723006D5A27 /* Contexts */ = {
-			isa = PBXGroup;
-			children = (
-				42FB375C1BE67723006D5A27 /* FXContext */,
-				42FB37741BE67EC7006D5A27 /* FXLoginContext */,
-				42FB37731BE67EC7006D5A27 /* FXUserContext */,
-				42FB37721BE67EC7006D5A27 /* FXUsersContext */,
-			);
-			path = Contexts;
-			sourceTree = "<group>";
-		};
-		42FB375C1BE67723006D5A27 /* FXContext */ = {
-			isa = PBXGroup;
-			children = (
-				42FB375D1BE67C44006D5A27 /* FXContext.h */,
-				42FB375E1BE67C44006D5A27 /* FXContext.m */,
-			);
-			path = FXContext;
-			sourceTree = "<group>";
-		};
-		42FB37721BE67EC7006D5A27 /* FXUsersContext */ = {
-			isa = PBXGroup;
-			children = (
-				42FB377B1BE67F39006D5A27 /* FXUsersContext.h */,
-				42FB377C1BE67F39006D5A27 /* FXUsersContext.m */,
-			);
-			path = FXUsersContext;
-			sourceTree = "<group>";
-		};
-		42FB37731BE67EC7006D5A27 /* FXUserContext */ = {
-			isa = PBXGroup;
-			children = (
-				42FB37781BE67F27006D5A27 /* FXUserContext.h */,
-				42FB37791BE67F27006D5A27 /* FXUserContext.m */,
-			);
-			path = FXUserContext;
-			sourceTree = "<group>";
-		};
-		42FB37741BE67EC7006D5A27 /* FXLoginContext */ = {
-			isa = PBXGroup;
-			children = (
-				42FB37751BE67F14006D5A27 /* FXLoginContext.h */,
-				42FB37761BE67F14006D5A27 /* FXLoginContext.m */,
-			);
-			path = FXLoginContext;
 			sourceTree = "<group>";
 		};
 		42FB377F1BE6800E006D5A27 /* FXObservableObject */ = {
@@ -914,6 +872,53 @@
 			path = PrivateSubclasses;
 			sourceTree = "<group>";
 		};
+		42FF03CD1BEA4AFA00FE5BBA /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				42FF03CE1BEA4AFA00FE5BBA /* FXContext */,
+				42FF03D21BEA4AFA00FE5BBA /* FXLoginContext */,
+				42FF03D51BEA4AFA00FE5BBA /* FXUserContext */,
+				42FF03D81BEA4AFA00FE5BBA /* FXUsersContext */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		42FF03CE1BEA4AFA00FE5BBA /* FXContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FF03CF1BEA4AFA00FE5BBA /* FXContext.h */,
+				42FF03D01BEA4AFA00FE5BBA /* FXContext.m */,
+			);
+			path = FXContext;
+			sourceTree = "<group>";
+		};
+		42FF03D21BEA4AFA00FE5BBA /* FXLoginContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FF03D31BEA4AFA00FE5BBA /* FXLoginContext.h */,
+				42FF03D41BEA4AFA00FE5BBA /* FXLoginContext.m */,
+			);
+			path = FXLoginContext;
+			sourceTree = "<group>";
+		};
+		42FF03D51BEA4AFA00FE5BBA /* FXUserContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FF03D61BEA4AFA00FE5BBA /* FXUserContext.h */,
+				42FF03D71BEA4AFA00FE5BBA /* FXUserContext.m */,
+			);
+			path = FXUserContext;
+			sourceTree = "<group>";
+		};
+		42FF03D81BEA4AFA00FE5BBA /* FXUsersContext */ = {
+			isa = PBXGroup;
+			children = (
+				42FF03D91BEA4AFA00FE5BBA /* FXUsersContext.h */,
+				42FF03DA1BEA4AFA00FE5BBA /* FXUsersContext.m */,
+			);
+			path = FXUsersContext;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1014,8 +1019,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42FB377D1BE67F39006D5A27 /* FXUsersContext.m in Sources */,
 				42FB378C1BE68051006D5A27 /* FXAssignReference.m in Sources */,
+				42FF03DB1BEA4AFA00FE5BBA /* FXContext.m in Sources */,
+				42FF03DD1BEA4AFA00FE5BBA /* FXUserContext.m in Sources */,
 				42FC57261BE7FF6900640F40 /* FXImageModel.m in Sources */,
 				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
 				42FB36591BE66165006D5A27 /* main.m in Sources */,
@@ -1027,10 +1033,8 @@
 				42FB37631BE67CB6006D5A27 /* FXLoginViewController.m in Sources */,
 				42FC57301BE80E0E00640F40 /* NSObject+FXExtensions.m in Sources */,
 				42FB37A71BE6A44D006D5A27 /* UINavigationController+FXExtensions.m in Sources */,
-				42FB375F1BE67C44006D5A27 /* FXContext.m in Sources */,
 				42FC574C1BE80F0000640F40 /* FXAlphabet.m in Sources */,
 				42FC573E1BE80E7C00640F40 /* FXMutableArray.m in Sources */,
-				42FB37771BE67F14006D5A27 /* FXLoginContext.m in Sources */,
 				42FC57251BE7FF6900640F40 /* FXFileImageModel.m in Sources */,
 				42FC57501BE80F5500640F40 /* FXCache.m in Sources */,
 				42FC572F1BE80E0E00640F40 /* NSArray+FXExtensions.m in Sources */,
@@ -1039,16 +1043,18 @@
 				42FB378D1BE68051006D5A27 /* FXCopyReference.m in Sources */,
 				42FB37B01BE6AC86006D5A27 /* FXFriendDetailView.m in Sources */,
 				42FC57271BE7FF6900640F40 /* FXURLImageModel.m in Sources */,
+				42FF03DC1BEA4AFA00FE5BBA /* FXLoginContext.m in Sources */,
 				42FC574F1BE80F0000640F40 /* FXAlphabetStrings.m in Sources */,
 				42FB377E1BE67FA2006D5A27 /* FXModel.m in Sources */,
 				42FC574E1BE80F0000640F40 /* FXAlphabetRange.m in Sources */,
 				42FC57411BE80E7C00640F40 /* FXWeakMutableDictionary.m in Sources */,
 				42FB37961BE684E2006D5A27 /* FXLoginView.m in Sources */,
 				42FC57311BE80E0E00640F40 /* NSString+FXExtensions.m in Sources */,
-				42FB377A1BE67F27006D5A27 /* FXUserContext.m in Sources */,
+				42FF03DF1BEA7AAD00FE5BBA /* UINib+FXExtensions.m in Sources */,
 				42FB36571BE66165006D5A27 /* FXAppDelegate.m in Sources */,
 				42FB37821BE6800E006D5A27 /* FXObservableObject.m in Sources */,
 				42FB37711BE67DB6006D5A27 /* FXUserModel.m in Sources */,
+				42FF03DE1BEA4AFA00FE5BBA /* FXUsersContext.m in Sources */,
 				42FC574D1BE80F0000640F40 /* FXAlphabetCluster.m in Sources */,
 				42FB378F1BE68051006D5A27 /* FXRetainReference.m in Sources */,
 				42FB37A01BE68730006D5A27 /* FXView.m in Sources */,

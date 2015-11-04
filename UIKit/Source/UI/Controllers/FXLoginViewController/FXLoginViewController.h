@@ -8,6 +8,10 @@
 
 #import "FXViewController.h"
 
-@interface FXLoginViewController : FXViewController
+#import "FXUserModelObserver.h"
+
+@interface FXLoginViewController : FXViewController <FXUserModelObserver>
+
+- (IBAction)onLoginButton:(id)sender;
 
 @end

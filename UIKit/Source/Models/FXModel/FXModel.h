@@ -13,7 +13,8 @@ typedef enum {
 	kFXModelWillLoad,
 	kFXModelLoaded,
 	kFXModelFailedLoading,
-	kFXModelDidChange
+	kFXModelDidChange,
+	kFXModelStateCount
 } FXModelState;
 
 @interface FXModel : FXObservableObject

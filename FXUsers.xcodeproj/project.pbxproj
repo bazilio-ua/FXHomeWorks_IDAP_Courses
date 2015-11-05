@@ -16,6 +16,8 @@
 		42AEBC051BEA84980034329D /* FXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB371B1BE66537006D5A27 /* FXTableViewCell.m */; };
 		42AEBC0D1BEA8A690034329D /* FXGraphRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AEBC0C1BEA8A690034329D /* FXGraphRequestContext.m */; };
 		42AEBC111BEAA9310034329D /* FXLoadingLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AEBC101BEAA9310034329D /* FXLoadingLoginContext.m */; };
+		42DA89D31BEBC58400181A7A /* FXFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA89D11BEBC58400181A7A /* FXFriendCell.m */; };
+		42DA89D41BEBC58400181A7A /* FXFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42DA89D21BEBC58400181A7A /* FXFriendCell.xib */; };
 		42E35A5C1BE535640051C3A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5B1BE535640051C3A9 /* Foundation.framework */; };
 		42E35A5E1BE535640051C3A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5D1BE535640051C3A9 /* CoreGraphics.framework */; };
 		42E35A601BE535640051C3A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5F1BE535640051C3A9 /* UIKit.framework */; };
@@ -101,6 +103,9 @@
 		42AEBC0C1BEA8A690034329D /* FXGraphRequestContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXGraphRequestContext.m; sourceTree = "<group>"; };
 		42AEBC0F1BEAA9310034329D /* FXLoadingLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingLoginContext.h; sourceTree = "<group>"; };
 		42AEBC101BEAA9310034329D /* FXLoadingLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingLoginContext.m; sourceTree = "<group>"; };
+		42DA89D01BEBC58400181A7A /* FXFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendCell.h; sourceTree = "<group>"; };
+		42DA89D11BEBC58400181A7A /* FXFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendCell.m; sourceTree = "<group>"; };
+		42DA89D21BEBC58400181A7A /* FXFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendCell.xib; sourceTree = "<group>"; };
 		42E35A581BE535640051C3A9 /* FXUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E35A5B1BE535640051C3A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42E35A5D1BE535640051C3A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -306,6 +311,16 @@
 				42AEBC101BEAA9310034329D /* FXLoadingLoginContext.m */,
 			);
 			path = FXLoadingLoginContext;
+			sourceTree = "<group>";
+		};
+		42DA89CF1BEBC4F100181A7A /* FXFriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				42DA89D01BEBC58400181A7A /* FXFriendCell.h */,
+				42DA89D11BEBC58400181A7A /* FXFriendCell.m */,
+				42DA89D21BEBC58400181A7A /* FXFriendCell.xib */,
+			);
+			path = FXFriendCell;
 			sourceTree = "<group>";
 		};
 		42E35A4F1BE535640051C3A9 = {
@@ -719,6 +734,7 @@
 		42FB37531BE66638006D5A27 /* FXFriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				42DA89CF1BEBC4F100181A7A /* FXFriendCell */,
 				42FB37971BE68533006D5A27 /* FXFriendsView.h */,
 				42FB37981BE68533006D5A27 /* FXFriendsView.m */,
 				42FB37651BE67CF8006D5A27 /* FXFriendsViewController.h */,
@@ -1032,6 +1048,7 @@
 				42FB37691BE67CF8006D5A27 /* FXFriendsViewController.xib in Resources */,
 				42FB37641BE67CB6006D5A27 /* FXLoginViewController.xib in Resources */,
 				42FB366B1BE661A4006D5A27 /* Images.xcassets in Resources */,
+				42DA89D41BEBC58400181A7A /* FXFriendCell.xib in Resources */,
 				42FB366A1BE661A4006D5A27 /* InfoPlist.strings in Resources */,
 				42FB379F1BE68726006D5A27 /* FXLoadingView.xib in Resources */,
 			);
@@ -1079,6 +1096,7 @@
 				42FC572F1BE80E0E00640F40 /* NSArray+FXExtensions.m in Sources */,
 				42FC57511BE80F6900640F40 /* FXArrayModelChanges.m in Sources */,
 				42FC573F1BE80E7C00640F40 /* FXMutableDictionary.m in Sources */,
+				42DA89D31BEBC58400181A7A /* FXFriendCell.m in Sources */,
 				42FB378D1BE68051006D5A27 /* FXCopyReference.m in Sources */,
 				42FB37B01BE6AC86006D5A27 /* FXFriendDetailView.m in Sources */,
 				42FC57271BE7FF6900640F40 /* FXURLImageModel.m in Sources */,

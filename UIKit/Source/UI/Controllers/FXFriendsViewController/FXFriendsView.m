@@ -10,4 +10,16 @@
 
 @implementation FXFriendsView
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	
+	[self showLoadingView];
+}
+
 @end

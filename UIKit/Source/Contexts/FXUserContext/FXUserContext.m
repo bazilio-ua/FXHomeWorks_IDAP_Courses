@@ -21,11 +21,19 @@
 #pragma mark Overriden Public Methods
 
 - (NSString *)graphPath {
-	return kFXMe;
+	return @"me";
 }
 
 - (NSDictionary *)graphPathParameters {
-	return nil;
+	return @{@"fields":@"name,email,picture{url}",};
+}
+
+- (void)parseWithResult:(id)result error:(NSError *)error {
+	FXUserModel *model = self.model;
+	model.name = result[kFXName];
+	model.email = result[kFXEmail];
+	model.imageURL = [NSURL URLWithString:result[kFXPicture][kFXData][kFXURL]];
+	model.state = kFXUserModelDetailLoaded;
 }
 
 @end

@@ -19,6 +19,13 @@
 @implementation FXGraphRequestContext
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+	self.connection = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (FBSDKGraphRequest *)request {
@@ -44,10 +51,6 @@
 	return nil;
 }
 
-- (void)parseWithResult:(id)result error:(NSError *)error {
-	
-}
-
 #pragma mark -
 #pragma mark Overriden Public Methods
 
@@ -61,6 +64,10 @@
 
 - (void)cancel {
 	self.connection = nil;
+}
+
+- (void)parseWithResult:(id)result error:(NSError *)error {
+	
 }
 
 @end

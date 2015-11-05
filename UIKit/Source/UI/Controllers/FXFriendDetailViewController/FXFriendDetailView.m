@@ -29,14 +29,9 @@
 #pragma mark Accessors
 
 - (void)setModel:(FXUserModel *)model {
-	if (_model != model) {
-		[_model removeObserver:self];
-		
-		_model = model;
-		[_model addObserver:self];
-		
-		[self fillWithModel:model];
-	}
+	FXSynthesizeObservableSetter(model);
+	
+	[self fillWithModel:model];
 }
 
 #pragma mark -

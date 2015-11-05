@@ -10,6 +10,8 @@
 
 #import "FXUserModel.h"
 
+#import "FXDispatch.h"
+
 #import "FXMacros.h"
 
 static NSString * const kFXLogInTitle	= @"LogIn";
@@ -59,7 +61,15 @@ static NSString * const kFXLogOutTitle	= @"LogOut";
 #pragma mark FXUserModelObserver protocol
 
 - (void)modelIDDidLoad:(id)model {
-	[self fillWithModel:model];
+	FXDispatchAsyncOnMainQueueWithBlock(^{
+		[self fillWithModel:model];
+	});
+}
+
+- (void)modelDidUnload:(id)model {
+	FXDispatchAsyncOnMainQueueWithBlock(^{
+		[self fillWithModel:model];
+	});
 }
 
 @end

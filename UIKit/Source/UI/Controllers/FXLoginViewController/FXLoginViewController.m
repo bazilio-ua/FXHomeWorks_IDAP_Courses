@@ -11,6 +11,7 @@
 
 #import "FXLoginViewController.h"
 #import "FXLoginView.h"
+#import "FXFriendsViewController.h"
 
 #import "FXLoadingLoginContext.h"
 #import "FXLoginContext.h"
@@ -18,6 +19,8 @@
 #import "FXUserModel.h"
 
 #import "FXDispatch.h"
+
+#import "UIViewController+FXExtensions.h"
 
 #import "FXMacros.h"
 
@@ -100,7 +103,10 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 }
 
 - (void)pushFriendsViewController {
+	FXFriendsViewController *controller = [FXFriendsViewController controller];
+	controller.model = [FXUserModel new];
 	
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark -

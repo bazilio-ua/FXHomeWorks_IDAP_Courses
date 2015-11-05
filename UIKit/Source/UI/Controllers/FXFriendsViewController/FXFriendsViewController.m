@@ -8,6 +8,7 @@
 
 #import "FXFriendsViewController.h"
 #import "FXFriendsView.h"
+#import "FXFriendDetailViewController.h"
 
 #import "FXUserContext.h"
 #import "FXUserModel.h"
@@ -16,9 +17,12 @@
 
 #import "FXFriendCell.h"
 
+#import "FXDispatch.h"
+
 #import "UINib+FXExtensions.h"
 #import "UITableView+FXExtensions.h"
 #import "NSIndexPath+FXExtensions.h"
+#import "UIViewController+FXExtensions.h"
 
 #import "FXMacros.h"
 
@@ -74,7 +78,26 @@ FXViewControllerBaseViewProperty(FXFriendsViewController, friendsView, FXFriends
 #pragma mark UITableViewDelegate protocol
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
+	controller.model = self.friends[indexPath.row];
 	
+	[self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark -
+#pragma mark FXUserModelObserver protocol
+
+- (void)modelFriendsDidLoad:(id)model {
+	FXDispatchAsyncOnMainQueueWithBlock(^{
+		[self.friendsView.tableView reloadData];
+		[self.friendsView hideLoadingView];
+	});
+}
+
+- (void)modelWillLoad:(id)model {
+	FXDispatchAsyncOnMainQueueWithBlock(^{
+		[self.friendsView showLoadingView];
+	});
 }
 
 @end

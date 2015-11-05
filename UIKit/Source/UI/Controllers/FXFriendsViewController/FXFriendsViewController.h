@@ -8,6 +8,8 @@
 
 #import "FXViewController.h"
 
-@interface FXFriendsViewController : FXViewController <UITableViewDataSource, UITableViewDelegate>
+#import "FXUserModelObserver.h"
+
+@interface FXFriendsViewController : FXViewController <UITableViewDataSource, UITableViewDelegate, FXUserModelObserver>
 
 @end

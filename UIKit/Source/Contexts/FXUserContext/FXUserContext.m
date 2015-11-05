@@ -25,7 +25,7 @@
 }
 
 - (NSDictionary *)graphPathParameters {
-	return @{@"fields":@"name,email,picture{url}",};
+	return @{@"fields":@"name,email,picture{url}"};
 }
 
 - (void)parseWithResult:(id)result error:(NSError *)error {

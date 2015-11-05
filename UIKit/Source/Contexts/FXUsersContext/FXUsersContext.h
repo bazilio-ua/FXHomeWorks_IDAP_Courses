@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
-#import "FXContext.h"
+#import "FXGraphRequestContext.h"
 
-@interface FXUsersContext : FXContext
+@interface FXUsersContext : FXGraphRequestContext
 
 @end

@@ -108,9 +108,9 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 
 - (void)modelIDDidLoad:(FXUserModel *)model {
 	if (model.userID) {
-		FXDispatchAsyncOnMainQueueWithBlock(^{
+//		FXDispatchAsyncOnMainQueueWithBlock(^{
 			[self pushFriendsViewController];
-		});
+//		});
 	}
 }
 

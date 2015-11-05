@@ -8,6 +8,56 @@
 
 #import "FXFriendDetailView.h"
 
+#import "FXImageView.h"
+#import "FXImageModel.h"
+#import "FXUserModel.h"
+
+#import "FXDispatch.h"
+
+#import "FXMacros.h"
+
 @implementation FXFriendDetailView
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+	self.model = nil;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setModel:(FXUserModel *)model {
+	if (_model != model) {
+		[_model removeObserver:self];
+		
+		_model = model;
+		[_model addObserver:self];
+		
+		[self fillWithModel:model];
+	}
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)fillWithModel:(FXUserModel *)model {
+	self.contentImageView.imageModel = model.imageModel;
+	self.nameLabel.text = model.name;
+}
+
+#pragma mark -
+#pragma mark FXUserModelObserver protocol
+
+- (void)modelDetailDidLoad:(id)model {
+	FXDispatchAsyncOnMainQueueWithBlock(^{
+		[self fillWithModel:model];
+	});
+}
+
 @end
+
+
+
+

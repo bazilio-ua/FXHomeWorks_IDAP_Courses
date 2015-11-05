@@ -8,6 +8,17 @@
 
 #import "FXView.h"
 
-@interface FXFriendDetailView : FXView
+#import "FXUserModelObserver.h"
+
+@class FXImageView;
+@class FXUserModel;
+
+@interface FXFriendDetailView : FXView <FXUserModelObserver>
+@property (nonatomic, strong)	IBOutlet	FXImageView		*contentImageView;
+@property (nonatomic, strong)	IBOutlet	UILabel			*nameLabel;
+
+@property (nonatomic, strong)				FXUserModel		*model;
+
+- (void)fillWithModel:(FXUserModel *)model;
 
 @end

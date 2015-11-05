@@ -7,10 +7,13 @@
 //
 
 #import "FXUserModel.h"
+#import "FXImageModel.h"
 
 #import "FXUserModelObserver.h"
 
 @implementation FXUserModel
+
+@dynamic imageModel;
 
 #pragma mark -
 #pragma mark Accessors
@@ -21,6 +24,10 @@
 		
 		self.state = kFXUserModelIDLoaded;
 	}
+}
+
+- (FXImageModel *)imageModel {
+	return [FXImageModel imageWithURL:self.imageURL];
 }
 
 #pragma mark -

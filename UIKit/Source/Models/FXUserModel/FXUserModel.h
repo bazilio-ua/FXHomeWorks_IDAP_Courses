@@ -14,13 +14,16 @@ typedef enum {
 	kFXUserModelDetailLoaded
 } FXUserModelState;
 
+@class FXImageModel;
 @class FXUsersModel;
 
 @interface FXUserModel : FXModel
 @property (nonatomic, copy)		NSString		*userID;
 @property (nonatomic, copy)		NSString		*name;
 @property (nonatomic, copy)		NSString		*email;
-@property (nonatomic, strong)	NSURL			*imageURL;
+
+@property (nonatomic, copy)		NSURL			*imageURL;
+@property (nonatomic, readonly)	FXImageModel	*imageModel;
 
 @property (nonatomic, strong)	FXUsersModel	*friends;
 

@@ -46,6 +46,7 @@
 
 - (void)setContext:(FXContext *)context {
 	if (_context != context) {
+		//TODO: observable context
 		[_context cancel];
 		_context = context;
 		[_context execute];

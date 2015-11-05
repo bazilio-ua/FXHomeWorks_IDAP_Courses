@@ -16,10 +16,10 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-- (void)awakeFromNib {
-	[super awakeFromNib];
-	
-	[self showLoadingView];
-}
+//- (void)awakeFromNib {
+//	[super awakeFromNib];
+//	
+//	[self showLoadingView];
+//}
 
 @end

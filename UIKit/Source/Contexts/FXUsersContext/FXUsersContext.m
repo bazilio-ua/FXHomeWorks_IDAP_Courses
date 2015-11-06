@@ -36,6 +36,7 @@
 			model.userID = friend[kFXID];
 			model.name = friend[kFXName];
 			model.imageURL = [NSURL URLWithString:friend[kFXPicture][kFXData][kFXURL]];
+			model.state = kFXModelLoaded;
 			[modelFriends addObject:model];
 		}
 	};

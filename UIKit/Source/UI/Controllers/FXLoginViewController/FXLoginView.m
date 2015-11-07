@@ -60,13 +60,7 @@ static NSString * const kFXLogOutTitle	= @"LogOut";
 #pragma mark -
 #pragma mark FXUserModelObserver protocol
 
-- (void)modelIDDidLoad:(id)model {
-	FXDispatchAsyncOnMainQueueWithBlock(^{
-		[self fillWithModel:model];
-	});
-}
-
-- (void)modelDidUnload:(id)model {
+- (void)modelDidChangeID:(id)model {
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		[self fillWithModel:model];
 	});

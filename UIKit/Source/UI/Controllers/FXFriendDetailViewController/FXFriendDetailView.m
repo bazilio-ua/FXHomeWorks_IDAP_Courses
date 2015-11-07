@@ -45,7 +45,7 @@
 #pragma mark -
 #pragma mark FXUserModelObserver protocol
 
-- (void)modelDetailDidLoad:(id)model {
+- (void)modelDidLoad:(id)model {
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		[self fillWithModel:model];
 	});

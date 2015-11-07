@@ -87,7 +87,7 @@ FXViewControllerBaseViewProperty(FXFriendsViewController, friendsView, FXFriends
 #pragma mark -
 #pragma mark FXUserModelObserver protocol
 
-- (void)modelFriendsDidLoad:(id)model {
+- (void)modelDidLoad:(id)model {
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		[self.friendsView.tableView reloadData];
 		[self.friendsView hideLoadingView];

@@ -113,12 +113,12 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 #pragma mark -
 #pragma mark FXUserModelObserver protocol
 
-- (void)modelIDDidLoad:(FXUserModel *)model {
-	if (model.userID) {
-//		FXDispatchAsyncOnMainQueueWithBlock(^{
+- (void)modelDidChangeID:(FXUserModel *)model {
+	FXDispatchAsyncOnMainQueueWithBlock(^{
+		if (model.userID) {
 			[self pushFriendsViewController];
-//		});
-	}
+		}
+	});
 }
 
 @end

@@ -45,7 +45,7 @@
 	[usersModel performBlock:block shouldNotify:NO];
 	
 	userModel.friends = usersModel;
-	userModel.state = kFXUserModelFriendsLoaded;
+	userModel.state = kFXModelLoaded;
 }
 
 @end

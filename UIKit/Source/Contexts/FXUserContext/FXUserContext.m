@@ -33,7 +33,7 @@
 	model.name = result[kFXName];
 	model.email = result[kFXEmail];
 	model.imageURL = [NSURL URLWithString:result[kFXPicture][kFXData][kFXURL]];
-	model.state = kFXUserModelDetailLoaded;
+	model.state = kFXModelLoaded;
 }
 
 @end

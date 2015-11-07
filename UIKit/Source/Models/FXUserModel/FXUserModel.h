@@ -9,9 +9,7 @@
 #import "FXModel.h"
 
 typedef enum {
-	kFXUserModelIDLoaded = kFXModelLoaded,
-	kFXUserModelFriendsLoaded = kFXModelStateCount,
-	kFXUserModelDetailLoaded
+	kFXUserModelDidChangeID = kFXModelStateCount
 } FXUserModelState;
 
 @class FXImageModel;

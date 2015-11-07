@@ -11,8 +11,6 @@
 @protocol FXUserModelObserver <FXModelObserver>
 
 @optional
-- (void)modelIDDidLoad:(id)model;
-- (void)modelFriendsDidLoad:(id)model;
-- (void)modelDetailDidLoad:(id)model;
+- (void)modelDidChangeID:(id)model;
 
 @end

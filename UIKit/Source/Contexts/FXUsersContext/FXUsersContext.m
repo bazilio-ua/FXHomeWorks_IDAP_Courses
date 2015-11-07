@@ -27,22 +27,25 @@
 }
 
 - (void)parseWithResult:(id)result error:(NSError *)error {
-	FXUsersModel *modelFriends = self.model.friends;
-	NSArray *friends = result[kFXFriends][kFXData];
+	NSArray *friendsArray = result[kFXFriends][kFXData];
+	FXUserModel *userModel = self.model;
+	FXUsersModel *usersModel = [FXUsersModel new];
 	
 	id block = ^{
-		for (id friend in friends) {
+		for (id friend in friendsArray) {
 			FXUserModel *model = [FXUserModel new];
 			model.userID = friend[kFXID];
 			model.name = friend[kFXName];
 			model.imageURL = [NSURL URLWithString:friend[kFXPicture][kFXData][kFXURL]];
 			model.state = kFXModelLoaded;
-			[modelFriends addObject:model];
+			[usersModel addObject:model];
 		}
 	};
 	
-	[modelFriends performBlock:block shouldNotify:NO];
-	modelFriends.state = kFXUserModelFriendsLoaded;
+	[usersModel performBlock:block shouldNotify:NO];
+	
+	userModel.friends = usersModel;
+	userModel.state = kFXUserModelFriendsLoaded;
 }
 
 @end

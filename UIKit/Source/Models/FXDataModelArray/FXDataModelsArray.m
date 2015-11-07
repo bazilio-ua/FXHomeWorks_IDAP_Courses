@@ -102,7 +102,6 @@ static NSString * const kFXDefaultFileName			= @"FXTable.plist";
 
 - (void)performLoading {
 	id block = nil;
-//	void(^block)(void) = nil;
 	if (self.cached) {
 		FXSleep(kFXDefaultSleepTimeInterval);
 		id objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath];

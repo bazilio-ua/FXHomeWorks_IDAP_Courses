@@ -106,7 +106,6 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)pushFriendsViewController {
 	FXFriendsViewController *controller = [FXFriendsViewController controller];
 	controller.model = [FXUserModel new];
-	controller.model.friends = [FXUsersModel new];
 	
 	[self.navigationController pushViewController:controller animated:YES];
 }

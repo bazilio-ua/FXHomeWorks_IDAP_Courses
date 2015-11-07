@@ -21,7 +21,8 @@
 #pragma mark Overriden Public Methods
 
 - (NSString *)graphPath {
-	return @"me";
+//	return @"me";
+	return self.model.userID;
 }
 
 - (NSDictionary *)graphPathParameters {

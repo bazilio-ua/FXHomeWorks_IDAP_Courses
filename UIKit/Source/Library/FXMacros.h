@@ -91,7 +91,7 @@
 /*
  * sleepy macro
  */
-//#define FXSleepDefine 1
+#define FXSleepDefine 1
 
 #if FXSleepDefine
 	#define FXSleep(time) [NSThread sleepForTimeInterval:time]

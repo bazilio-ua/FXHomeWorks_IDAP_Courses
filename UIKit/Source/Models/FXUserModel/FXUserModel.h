@@ -18,7 +18,9 @@ typedef enum {
 @interface FXUserModel : FXModel
 @property (nonatomic, copy)		NSString		*userID;
 @property (nonatomic, copy)		NSString		*name;
+@property (nonatomic, copy)		NSString		*gender;
 @property (nonatomic, copy)		NSString		*email;
+@property (nonatomic, copy)		NSString		*location;
 
 @property (nonatomic, copy)		NSURL			*imageURL;
 @property (nonatomic, readonly)	FXImageModel	*imageModel;

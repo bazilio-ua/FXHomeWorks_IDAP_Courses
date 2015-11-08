@@ -26,13 +26,16 @@
 }
 
 - (NSDictionary *)graphPathParameters {
-	return @{@"fields":@"name,email,picture{url}"};
+//	return @{@"fields":@"name,email,picture{url}"};
+	return @{@"fields":@"name,email,gender,location,picture{url}"};
 }
 
 - (void)parseWithResult:(id)result error:(NSError *)error {
 	FXUserModel *model = self.model;
 	model.name = result[kFXName];
+	model.gender = result[kFXGender];
 	model.email = result[kFXEmail];
+	model.location = result[kFXLocation][kFXName];
 	model.imageURL = [NSURL URLWithString:result[kFXPicture][kFXData][kFXURL]];
 	model.state = kFXModelLoaded;
 }

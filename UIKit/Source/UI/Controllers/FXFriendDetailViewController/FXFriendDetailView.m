@@ -39,7 +39,11 @@
 
 - (void)fillWithModel:(FXUserModel *)model {
 	self.contentImageView.imageModel = model.imageModel;
+	self.idLabel.text = model.userID;
 	self.nameLabel.text = model.name;
+	self.genderLabel.text = model.gender;
+	self.emailLabel.text = model.email;
+	self.locationLabel.text = model.location;
 }
 
 #pragma mark -

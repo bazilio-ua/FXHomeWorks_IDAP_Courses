@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kFXME					= @"me";
 static NSString * const kFXID					= @"id";
 static NSString * const kFXName					= @"name";
-static NSString * const kFXFirstName			= @"first_name";
+static NSString * const	kFXFirstName			= @"first_name";
 static NSString * const kFXLastName				= @"last_name";
+static NSString * const kFXGender				= @"gender";
 static NSString * const kFXEmail				= @"email";
+static NSString * const kFXLocation				= @"location";
 static NSString * const kFXPicture				= @"picture";
 static NSString * const kFXData					= @"data";
 static NSString * const kFXURL					= @"url";
 static NSString * const kFXFriends				= @"friends";
-static NSString * const kFXPublicProfile		= @"public_profile";
 static NSString * const kFXUserFriends			= @"user_friends";
+static NSString * const kFXPublicProfile		= @"public_profile";

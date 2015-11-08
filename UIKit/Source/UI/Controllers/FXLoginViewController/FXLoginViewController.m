@@ -12,6 +12,7 @@
 #import "FXLoginViewController.h"
 #import "FXLoginView.h"
 #import "FXFriendsViewController.h"
+#import "FXFriendDetailViewController.h"
 
 #import "FXLoginContext.h"
 
@@ -28,8 +29,11 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 
 @interface FXLoginViewController ()
 
-- (void)makeLogOut;
+- (void)setupNavigationItem;
+- (void)updateNavigationItem;
 - (void)pushFriendsViewController;
+- (void)pushFriendDetailViewController;
+- (void)makeLogOut;
 
 @end
 
@@ -42,6 +46,8 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self) {
 		self.model = [FXUserModel new];
+		[self setupNavigationItem];
+		[self updateNavigationItem];
 	}
 	
 	return self;
@@ -85,6 +91,46 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 #pragma mark -
 #pragma mark Private Methods
 
+- (void)setupNavigationItem {
+	UINavigationItem *item = self.navigationItem;
+	item.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Friends"
+															   style:UIBarButtonItemStylePlain
+															  target:self
+															  action:@selector(pushFriendsViewController)];
+	
+	item.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Profile"
+															  style:UIBarButtonItemStylePlain
+															 target:self
+															 action:@selector(pushFriendDetailViewController)];
+}
+
+- (void)updateNavigationItem {
+	UINavigationItem *item = self.navigationItem;
+	BOOL active = (self.model.userID) ? YES : NO;
+	
+	[item.rightBarButtonItem setEnabled:active];
+	[item.leftBarButtonItem setEnabled:active];
+}
+
+- (void)pushFriendsViewController {
+	if (self.model.userID) {
+		FXFriendsViewController *controller = [FXFriendsViewController controller];
+//		controller.model = [FXUserModel new];
+		controller.model = self.model;
+		
+		[self.navigationController pushViewController:controller animated:YES];
+	}
+}
+
+- (void)pushFriendDetailViewController {
+	if (self.model.userID) {
+		FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
+		controller.model = self.model;
+		
+		[self.navigationController pushViewController:controller animated:YES];
+	}
+}
+
 - (void)makeLogOut {
 	FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
 	FXUserModel *model = self.model;
@@ -94,21 +140,15 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 	model.state = kFXModelUnloaded;
 }
 
-- (void)pushFriendsViewController {
-	FXFriendsViewController *controller = [FXFriendsViewController controller];
-	controller.model = [FXUserModel new];
-	
-	[self.navigationController pushViewController:controller animated:YES];
-}
-
 #pragma mark -
 #pragma mark FXUserModelObserver protocol
 
 - (void)modelDidChangeID:(FXUserModel *)model {
 	FXDispatchAsyncOnMainQueueWithBlock(^{
-		if (model.userID) {
-			[self pushFriendsViewController];
-		}
+		[self updateNavigationItem];
+//		if (model.userID) {
+//			[self pushFriendsViewController];
+//		}
 	});
 }
 

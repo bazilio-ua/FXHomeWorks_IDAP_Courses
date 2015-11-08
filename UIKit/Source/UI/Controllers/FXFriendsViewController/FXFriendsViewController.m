@@ -31,6 +31,8 @@ FXViewControllerBaseViewProperty(FXFriendsViewController, friendsView, FXFriends
 @interface FXFriendsViewController ()
 @property (nonatomic, readonly)	FXUsersModel	*friends;
 
+- (void)pushFriendDetailViewControllerWithModel:(FXUserModel *)model;
+
 @end
 
 @implementation FXFriendsViewController
@@ -83,10 +85,26 @@ FXViewControllerBaseViewProperty(FXFriendsViewController, friendsView, FXFriends
 #pragma mark UITableViewDelegate protocol
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
-	controller.model = self.friends[indexPath.row];
+	FXUserModel *model = self.friends[indexPath.row];
 	
-	[self.navigationController pushViewController:controller animated:YES];
+//	FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
+//	controller.model = self.friends[indexPath.row];
+//	
+//	[self.navigationController pushViewController:controller animated:YES];
+	
+	[self pushFriendDetailViewControllerWithModel:model];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)pushFriendDetailViewControllerWithModel:(FXUserModel *)model {
+	if (model.userID) {
+		FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
+		controller.model = model;
+		
+		[self.navigationController pushViewController:controller animated:YES];
+	}
 }
 
 #pragma mark -

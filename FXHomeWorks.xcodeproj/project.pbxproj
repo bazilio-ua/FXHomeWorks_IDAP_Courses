@@ -173,6 +173,8 @@
 		42D066A61BDAD8E9005C0900 /* FXWeakMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066A51BDAD8E9005C0900 /* FXWeakMutableDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42D066AA1BDADC50005C0900 /* FXMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066A91BDADC50005C0900 /* FXMutableArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42D066C21BDADF80005C0900 /* FXWeakMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066C11BDADF80005C0900 /* FXWeakMutableArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42D1159B1BEFCFA900DABAD9 /* FXWeakMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066C11BDADF80005C0900 /* FXWeakMutableArray.m */; };
+		42D1159D1BEFCFB000DABAD9 /* FXMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066A91BDADC50005C0900 /* FXMutableArray.m */; };
 		42D6AF8D1BCF00440078B132 /* NSFileManager+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6AF8C1BCF00440078B132 /* NSFileManager+FXExtensions.m */; };
 		42D6AF8E1BCF08B00078B132 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		42D6CF681BAC3D9E0015E925 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF641BAC3D9E0015E925 /* FXAppDelegate.m */; };
@@ -2504,6 +2506,8 @@
 				426BFF221B9F69AA007C6849 /* NSObject+FXExtensions.m in Sources */,
 				426BFF241B9F69CD007C6849 /* NSArray+FXExtensions.m in Sources */,
 				424AD6FF1BBD90FF00405666 /* FXDispatch.m in Sources */,
+				42D1159B1BEFCFA900DABAD9 /* FXWeakMutableArray.m in Sources */,
+				42D1159D1BEFCFB000DABAD9 /* FXMutableArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

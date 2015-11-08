@@ -49,6 +49,7 @@ static const NSUInteger kFXDefaultRandomStringLength = 50;
 	return [[symbolsArray copy] autorelease];
 }
 
+#if TARGET_OS_IPHONE
 - (NSString *)URLEncodedString {
 	return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, 
 																				 (__bridge CFStringRef)self, 
@@ -56,5 +57,6 @@ static const NSUInteger kFXDefaultRandomStringLength = 50;
 																				 CFSTR("!*'();:@&=+$,/?%#[]\" "), 
 																				 kCFStringEncodingUTF8));
 }
+#endif
 
 @end

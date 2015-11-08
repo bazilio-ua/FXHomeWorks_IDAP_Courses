@@ -60,6 +60,12 @@ FXViewControllerBaseViewProperty(FXFriendsViewController, friendsView, FXFriends
 	self.friendsView.model = self.model;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+//	self.friendsView.model = self.model;
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource protocol
 

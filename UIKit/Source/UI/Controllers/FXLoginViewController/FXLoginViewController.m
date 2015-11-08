@@ -13,7 +13,7 @@
 #import "FXLoginView.h"
 #import "FXFriendsViewController.h"
 
-#import "FXLoadingLoginContext.h"
+//#import "FXLoadingLoginContext.h"
 #import "FXLoginContext.h"
 
 #import "FXUserModel.h"
@@ -53,6 +53,7 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 #pragma mark Accessors
 
 - (Class)contextClass {
+//	return nil;
 	return [FXContext class];
 //	return [FXLoadingLoginContext class];
 //	return [FXLoginContext class];

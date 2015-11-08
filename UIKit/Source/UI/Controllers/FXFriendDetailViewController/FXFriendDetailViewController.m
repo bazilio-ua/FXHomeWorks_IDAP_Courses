@@ -40,4 +40,10 @@ FXViewControllerBaseViewProperty(FXFriendDetailViewController, friendDetailView,
 	self.friendDetailView.model = self.model;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+//	self.friendDetailView.model = self.model;
+}
+
 @end

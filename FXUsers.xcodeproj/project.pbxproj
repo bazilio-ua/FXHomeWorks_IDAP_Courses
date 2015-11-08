@@ -15,7 +15,6 @@
 		42AEBC041BEA84560034329D /* UITableView+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB37071BE66536006D5A27 /* UITableView+FXExtensions.m */; };
 		42AEBC051BEA84980034329D /* FXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB371B1BE66537006D5A27 /* FXTableViewCell.m */; };
 		42AEBC0D1BEA8A690034329D /* FXGraphRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AEBC0C1BEA8A690034329D /* FXGraphRequestContext.m */; };
-		42AEBC111BEAA9310034329D /* FXLoadingLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AEBC101BEAA9310034329D /* FXLoadingLoginContext.m */; };
 		42DA89D31BEBC58400181A7A /* FXFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA89D11BEBC58400181A7A /* FXFriendCell.m */; };
 		42DA89D41BEBC58400181A7A /* FXFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42DA89D21BEBC58400181A7A /* FXFriendCell.xib */; };
 		42E35A5C1BE535640051C3A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E35A5B1BE535640051C3A9 /* Foundation.framework */; };
@@ -101,8 +100,6 @@
 		42AEBC091BEA875F0034329D /* FXDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
 		42AEBC0B1BEA8A690034329D /* FXGraphRequestContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXGraphRequestContext.h; sourceTree = "<group>"; };
 		42AEBC0C1BEA8A690034329D /* FXGraphRequestContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXGraphRequestContext.m; sourceTree = "<group>"; };
-		42AEBC0F1BEAA9310034329D /* FXLoadingLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingLoginContext.h; sourceTree = "<group>"; };
-		42AEBC101BEAA9310034329D /* FXLoadingLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLoadingLoginContext.m; sourceTree = "<group>"; };
 		42DA89D01BEBC58400181A7A /* FXFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFriendCell.h; sourceTree = "<group>"; };
 		42DA89D11BEBC58400181A7A /* FXFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFriendCell.m; sourceTree = "<group>"; };
 		42DA89D21BEBC58400181A7A /* FXFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXFriendCell.xib; sourceTree = "<group>"; };
@@ -302,15 +299,6 @@
 				42AEBC0C1BEA8A690034329D /* FXGraphRequestContext.m */,
 			);
 			path = FXGraphRequestContext;
-			sourceTree = "<group>";
-		};
-		42AEBC0E1BEAA90B0034329D /* FXLoadingLoginContext */ = {
-			isa = PBXGroup;
-			children = (
-				42AEBC0F1BEAA9310034329D /* FXLoadingLoginContext.h */,
-				42AEBC101BEAA9310034329D /* FXLoadingLoginContext.m */,
-			);
-			path = FXLoadingLoginContext;
 			sourceTree = "<group>";
 		};
 		42DA89CF1BEBC4F100181A7A /* FXFriendCell */ = {
@@ -924,7 +912,6 @@
 			children = (
 				42FF03CE1BEA4AFA00FE5BBA /* FXContext */,
 				42FF03D21BEA4AFA00FE5BBA /* FXLoginContext */,
-				42AEBC0E1BEAA90B0034329D /* FXLoadingLoginContext */,
 				42AEBC0A1BEA8A3C0034329D /* FXGraphRequestContext */,
 				42FF03D51BEA4AFA00FE5BBA /* FXUserContext */,
 				42FF03D81BEA4AFA00FE5BBA /* FXUsersContext */,
@@ -1075,7 +1062,6 @@
 				42FC57261BE7FF6900640F40 /* FXImageModel.m in Sources */,
 				42FB37681BE67CF8006D5A27 /* FXFriendsViewController.m in Sources */,
 				42FB36591BE66165006D5A27 /* main.m in Sources */,
-				42AEBC111BEAA9310034329D /* FXLoadingLoginContext.m in Sources */,
 				42FB37A91BE6A68C006D5A27 /* UIViewController+FXExtensions.m in Sources */,
 				42AEBC031BEA844D0034329D /* NSURLConnection+FXExtensions.m in Sources */,
 				42FB379D1BE6871D006D5A27 /* FXImageView.m in Sources */,

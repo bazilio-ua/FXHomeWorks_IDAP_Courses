@@ -8,8 +8,6 @@
 
 #import "FXLoginView.h"
 
-#import "FXImageView.h"
-#import "FXImageModel.h"
 #import "FXUserModel.h"
 
 #import "FXDispatch.h"
@@ -52,12 +50,7 @@ static NSString * const kFXLogOutTitle	= @"LogOut";
 #pragma mark Public Methods
 
 - (void)fillWithModel:(FXUserModel *)model {
-//	self.contentImageView.imageModel = model.imageModel;
 	self.userIDLabel.text = model.userID;
-//	self.nameLabel.text = model.name;
-//	self.genderLabel.text = model.gender;
-//	self.emailLabel.text = model.email;
-//	self.locationLabel.text = model.location;
 	
 	[self.loginButton setTitle:self.loginButtonTitle forState:UIControlStateNormal];
 }

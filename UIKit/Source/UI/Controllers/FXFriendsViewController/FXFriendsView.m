@@ -13,7 +13,8 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-#pragma mark -
-#pragma mark View lifecycle
+- (void)dealloc {
+	self.model = nil;
+}
 
 @end

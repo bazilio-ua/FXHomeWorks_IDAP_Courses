@@ -63,7 +63,6 @@ FXViewControllerBaseViewProperty(FXFriendsViewController, friendsView, FXFriends
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-//	self.friendsView.model = self.model;
 }
 
 #pragma mark -

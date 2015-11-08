@@ -38,10 +38,10 @@
 
 - (void)execute {
 	FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
-	if (!token.userID) {
-		[self makeLogIn];
-	} else {
+	if (token.userID) {
 		[self parseWithResult:nil error:nil];
+	} else {
+		[self makeLogIn];
 	}
 }
 

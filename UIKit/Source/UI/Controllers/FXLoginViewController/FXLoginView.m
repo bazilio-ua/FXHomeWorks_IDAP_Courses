@@ -54,10 +54,10 @@ static NSString * const kFXLogOutTitle	= @"LogOut";
 - (void)fillWithModel:(FXUserModel *)model {
 //	self.contentImageView.imageModel = model.imageModel;
 	self.userIDLabel.text = model.userID;
-	self.nameLabel.text = model.name;
-	self.genderLabel.text = model.gender;
-	self.emailLabel.text = model.email;
-	self.locationLabel.text = model.location;
+//	self.nameLabel.text = model.name;
+//	self.genderLabel.text = model.gender;
+//	self.emailLabel.text = model.email;
+//	self.locationLabel.text = model.location;
 	
 	[self.loginButton setTitle:self.loginButtonTitle forState:UIControlStateNormal];
 }

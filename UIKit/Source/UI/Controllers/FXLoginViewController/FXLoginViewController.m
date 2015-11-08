@@ -28,7 +28,7 @@
 FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 
 @interface FXLoginViewController ()
-@property (nonatomic, strong)	FXLoginContext	*loginContext;
+//@property (nonatomic, strong)	FXLoginContext	*loginContext;
 
 - (void)makeLogOut;
 - (void)pushFriendsViewController;
@@ -53,12 +53,14 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 #pragma mark Accessors
 
 - (Class)contextClass {
-	return [FXLoadingLoginContext class];
+	return [FXContext class];
+//	return [FXLoadingLoginContext class];
+//	return [FXLoginContext class];
 }
 
-- (void)setLoginContext:(FXLoginContext *)loginContext {
-	FXSynthesizeContextSetter(loginContext);
-}
+//- (void)setLoginContext:(FXLoginContext *)loginContext {
+//	FXSynthesizeContextSetter(loginContext);
+//}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -66,25 +68,29 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	if (self.model.userID) {
-		[self pushFriendsViewController];
-	}
+//	if (self.model.userID) {
+//		[self pushFriendsViewController];
+//	}
+	
+	self.loginView.model = self.model;
+	
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-	self.loginView.model = self.model;
+//	self.loginView.model = self.model;
 }
 
 #pragma mark -
 #pragma mark User Interactions
 
 - (void)onLoginButton:(id)sender {
-	if (!self.model.userID) {
-		self.loginContext = [FXLoginContext contextWithModel:self.model];
-	} else {
+	if (self.model.userID) {
 		[self makeLogOut];
+	} else {
+//		self.loginContext = [FXLoginContext contextWithModel:self.model];
+		self.context = [FXLoginContext contextWithModel:self.model];
 	}
 }
 

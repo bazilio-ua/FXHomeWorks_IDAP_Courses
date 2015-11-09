@@ -15,7 +15,6 @@
 #import "FXFriendDetailViewController.h"
 
 #import "FXLoginContext.h"
-//#import "FXUserContext.h"
 
 #import "FXUserModel.h"
 #import "FXUsersModel.h"
@@ -116,7 +115,6 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)pushFriendsViewController {
 	if (self.model.userID) {
 		FXFriendsViewController *controller = [FXFriendsViewController controller];
-//		controller.model = [FXUserModel new];
 		controller.model = self.model;
 		
 		[self.navigationController pushViewController:controller animated:YES];
@@ -124,12 +122,8 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 }
 
 - (void)pushFriendDetailViewController {
-//	self.model.state = kFXModelUnloaded;
-//	self.context = [FXUserContext contextWithModel:self.model];
-	
 	if (self.model.userID) {
 		FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
-//		controller.model = [FXUserModel new];
 		controller.model = self.model;
 		
 		[self.navigationController pushViewController:controller animated:YES];
@@ -151,11 +145,6 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)modelDidChangeID:(FXUserModel *)model {
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		[self updateNavigationItem];
-		
-//		if (model.userID) {
-//			[self pushFriendsViewController];
-//			[self pushFriendDetailViewController];
-//		}
 	});
 }
 

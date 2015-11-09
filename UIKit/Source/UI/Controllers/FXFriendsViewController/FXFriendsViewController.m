@@ -10,7 +10,6 @@
 #import "FXFriendsView.h"
 #import "FXFriendDetailViewController.h"
 
-#import "FXUserContext.h"
 #import "FXUserModel.h"
 #import "FXUsersContext.h"
 #import "FXUsersModel.h"
@@ -86,11 +85,6 @@ FXViewControllerBaseViewProperty(FXFriendsViewController, friendsView, FXFriends
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	FXUserModel *model = self.friends[indexPath.row];
-	
-//	FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
-//	controller.model = self.friends[indexPath.row];
-//	
-//	[self.navigationController pushViewController:controller animated:YES];
 	
 	[self pushFriendDetailViewControllerWithModel:model];
 }

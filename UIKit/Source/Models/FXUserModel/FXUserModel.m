@@ -34,9 +34,9 @@
 #pragma mark -
 #pragma mark Overloaded Methods
 
-- (SEL)selectorForState:(FXModelState)state {
+- (SEL)selectorForState:(NSUInteger)state {
 	SEL selector = NULL;
-	switch ((FXUserModelState)state) {
+	switch (state) {
 		case kFXUserModelDidChangeID:
 			selector = @selector(modelDidChangeID:);
 			break;

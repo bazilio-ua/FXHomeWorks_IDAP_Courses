@@ -27,7 +27,8 @@
 }
 
 - (FXImageModel *)imageModel {
-	return [FXImageModel imageWithURL:self.imageURL];
+	NSURL *imageURL = self.imageURL;
+	return imageURL ? [FXImageModel imageWithURL:imageURL] : nil;
 }
 
 #pragma mark -

@@ -15,6 +15,7 @@
 #import "FXFriendDetailViewController.h"
 
 #import "FXLoginContext.h"
+//#import "FXUserContext.h"
 
 #import "FXUserModel.h"
 #import "FXUsersModel.h"
@@ -123,6 +124,9 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 }
 
 - (void)pushFriendDetailViewController {
+//	self.model.state = kFXModelUnloaded;
+//	self.context = [FXUserContext contextWithModel:self.model];
+	
 	if (self.model.userID) {
 		FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
 //		controller.model = [FXUserModel new];

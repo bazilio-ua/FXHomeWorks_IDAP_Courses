@@ -10,7 +10,7 @@
 
 #import "FXAppDelegate.h"
 
-#import "FXLoginViewController.h"
+#import "FXFBLoginViewController.h"
 
 #import "UIWindow+FXExtensions.h"
 #import "UIViewController+FXExtensions.h"
@@ -23,7 +23,7 @@
     self.window = window;
     
     // Override point for customization after application launch.
-	FXLoginViewController *controller = [FXLoginViewController controller];
+	FXFBLoginViewController *controller = [FXFBLoginViewController controller];
 	UINavigationController *navigationController = [UINavigationController navigationControllerWithRootViewController:controller];
 	
 	window.rootViewController = navigationController;

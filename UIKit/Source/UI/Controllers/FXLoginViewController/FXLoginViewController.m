@@ -125,6 +125,7 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)pushFriendDetailViewController {
 	if (self.model.userID) {
 		FXFriendDetailViewController *controller = [FXFriendDetailViewController controller];
+//		controller.model = [FXUserModel new];
 		controller.model = self.model;
 		
 		[self.navigationController pushViewController:controller animated:YES];
@@ -146,8 +147,10 @@ FXViewControllerBaseViewProperty(FXLoginViewController, loginView, FXLoginView);
 - (void)modelDidChangeID:(FXUserModel *)model {
 	FXDispatchAsyncOnMainQueueWithBlock(^{
 		[self updateNavigationItem];
+		
 //		if (model.userID) {
 //			[self pushFriendsViewController];
+//			[self pushFriendDetailViewController];
 //		}
 	});
 }

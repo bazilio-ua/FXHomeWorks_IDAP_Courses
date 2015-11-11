@@ -30,7 +30,8 @@
 - (NSString *)fileName {
 	NSString *absolutePath = [self.url absoluteString];
 	
-	return [absolutePath URLEncodedString];
+//	return [absolutePath URLEncodedString];
+	return [absolutePath sha512EncodedString];
 }
 
 - (NSString *)fileFolder {

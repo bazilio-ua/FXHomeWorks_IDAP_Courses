@@ -19,5 +19,7 @@
 - (NSArray *)symbols;
 
 - (NSString *)URLEncodedString;
+- (NSString *)sha256EncodedString;
+- (NSString *)sha512EncodedString;
 
 @end

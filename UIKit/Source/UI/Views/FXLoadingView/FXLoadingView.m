@@ -10,7 +10,7 @@
 
 #import "UINib+FXExtensions.h"
 
-static const NSTimeInterval kFXLoadViewAnimationDuration	= 5;
+static const NSTimeInterval kFXLoadViewAnimationDuration	= 2;
 static const CGFloat		kFXLoadViewVisibilityAlpha		= 0.7f;
 
 @interface FXLoadingView ()

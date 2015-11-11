@@ -13,15 +13,16 @@ typedef enum {
 	kFXModelWillLoad,
 	kFXModelLoaded,
 	kFXModelFailedLoading,
-	kFXModelDidChange
+	kFXModelDidChange,
+	kFXModelStateCount
 } FXModelState;
 
 @interface FXModel : FXObservableObject
-@property (nonatomic, assign)	FXModelState	state;
+@property (nonatomic, assign)	NSUInteger	state;
 
-- (void)setState:(FXModelState)state withChanges:(id)changes;
+- (void)setState:(NSUInteger)state withChanges:(id)changes;
 
-- (SEL)selectorForState:(FXModelState)state;
+- (SEL)selectorForState:(NSUInteger)state;
 
 - (void)load;
 - (void)setupLoading;

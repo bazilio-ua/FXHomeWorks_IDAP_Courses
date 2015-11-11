@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		42219C7E1B4EDCCC00B9AC0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */; };
-		423083191BDABF7E000304F7 /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4230830C1BDABF7E000304F7 /* FXDataCell.m */; };
-		4230831A1BDABF7E000304F7 /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4230830D1BDABF7E000304F7 /* FXDataCell.xib */; };
 		4230831B1BDABF7E000304F7 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083101BDABF7E000304F7 /* FXImageView.m */; };
 		4230831D1BDABF7E000304F7 /* FXLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423083141BDABF7E000304F7 /* FXLoadingView.m */; };
 		4230831E1BDABF7E000304F7 /* FXLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423083151BDABF7E000304F7 /* FXLoadingView.xib */; };
@@ -138,6 +136,8 @@
 		426BFF241B9F69CD007C6849 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		426BFF251B9F69E6007C6849 /* NSString+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF201B9F6944007C6849 /* NSString+FXExtensions.m */; };
 		426D66AB1BD2EF6A00A5F591 /* FXImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426D66AA1BD2EF6A00A5F591 /* FXImageModel.m */; };
+		4288CCAF1BEA865500A57549 /* FXDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4288CCAD1BEA865500A57549 /* FXDataCell.m */; };
+		4288CCB01BEA865500A57549 /* FXDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4288CCAE1BEA865500A57549 /* FXDataCell.xib */; };
 		428F3C891BA0BE330039C3A8 /* FXSquareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F3C881BA0BE330039C3A8 /* FXSquareModel.m */; };
 		428F93C31BB718EE0032DFA6 /* FXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DDCFDC1BAEA2B1000ADABB /* FXDataModel.m */; };
 		428F93C61BB718EE0032DFA6 /* FXObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFEDE1B9F6915007C6849 /* FXObservableObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -173,6 +173,8 @@
 		42D066A61BDAD8E9005C0900 /* FXWeakMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066A51BDAD8E9005C0900 /* FXWeakMutableDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42D066AA1BDADC50005C0900 /* FXMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066A91BDADC50005C0900 /* FXMutableArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42D066C21BDADF80005C0900 /* FXWeakMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066C11BDADF80005C0900 /* FXWeakMutableArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		42D1159B1BEFCFA900DABAD9 /* FXWeakMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066C11BDADF80005C0900 /* FXWeakMutableArray.m */; };
+		42D1159D1BEFCFB000DABAD9 /* FXMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D066A91BDADC50005C0900 /* FXMutableArray.m */; };
 		42D6AF8D1BCF00440078B132 /* NSFileManager+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6AF8C1BCF00440078B132 /* NSFileManager+FXExtensions.m */; };
 		42D6AF8E1BCF08B00078B132 /* NSArray+FXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BFF1C1B9F6944007C6849 /* NSArray+FXExtensions.m */; };
 		42D6CF681BAC3D9E0015E925 /* FXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D6CF641BAC3D9E0015E925 /* FXAppDelegate.m */; };
@@ -315,9 +317,6 @@
 		4214E91C1AFA9E1A00D0E018 /* Lection_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lection_3; sourceTree = BUILT_PRODUCTS_DIR; };
 		42219C7A1B4EDCCC00B9AC0C /* FXCreature */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXCreature; sourceTree = BUILT_PRODUCTS_DIR; };
 		42219C7D1B4EDCCC00B9AC0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4230830B1BDABF7E000304F7 /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
-		4230830C1BDABF7E000304F7 /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
-		4230830D1BDABF7E000304F7 /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
 		4230830F1BDABF7E000304F7 /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
 		423083101BDABF7E000304F7 /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
 		423083131BDABF7E000304F7 /* FXLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLoadingView.h; sourceTree = "<group>"; };
@@ -512,6 +511,9 @@
 		426D66A91BD2EF6A00A5F591 /* FXImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageModel.h; sourceTree = "<group>"; };
 		426D66AA1BD2EF6A00A5F591 /* FXImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageModel.m; sourceTree = "<group>"; };
 		428083621B2458A000334F99 /* FXArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXArray; sourceTree = BUILT_PRODUCTS_DIR; };
+		4288CCAC1BEA865500A57549 /* FXDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDataCell.h; sourceTree = "<group>"; };
+		4288CCAD1BEA865500A57549 /* FXDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDataCell.m; sourceTree = "<group>"; };
+		4288CCAE1BEA865500A57549 /* FXDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FXDataCell.xib; sourceTree = "<group>"; };
 		428980501B4442130057D669 /* FXAutoreleasingStack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FXAutoreleasingStack; sourceTree = BUILT_PRODUCTS_DIR; };
 		428F3C871BA0BE330039C3A8 /* FXSquareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSquareModel.h; sourceTree = "<group>"; };
 		428F3C881BA0BE330039C3A8 /* FXSquareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSquareModel.m; sourceTree = "<group>"; };
@@ -758,22 +760,11 @@
 		423083091BDABF7D000304F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4230830A1BDABF7E000304F7 /* FXDataCell */,
 				4230830E1BDABF7E000304F7 /* FXImageView */,
 				423083121BDABF7E000304F7 /* FXLoadingView */,
 				423083161BDABF7E000304F7 /* FXView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		4230830A1BDABF7E000304F7 /* FXDataCell */ = {
-			isa = PBXGroup;
-			children = (
-				4230830B1BDABF7E000304F7 /* FXDataCell.h */,
-				4230830C1BDABF7E000304F7 /* FXDataCell.m */,
-				4230830D1BDABF7E000304F7 /* FXDataCell.xib */,
-			);
-			path = FXDataCell;
 			sourceTree = "<group>";
 		};
 		4230830E1BDABF7E000304F7 /* FXImageView */ = {
@@ -816,6 +807,7 @@
 		42351E5B1BE14C0D0065831E /* FXDataViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4288CCAB1BEA865500A57549 /* FXDataCell */,
 				42351E5C1BE14C0D0065831E /* FXDataView.h */,
 				42351E5D1BE14C0D0065831E /* FXDataView.m */,
 				42351E5E1BE14C0D0065831E /* FXDataViewController.h */,
@@ -1864,6 +1856,16 @@
 			path = FXImageModel;
 			sourceTree = "<group>";
 		};
+		4288CCAB1BEA865500A57549 /* FXDataCell */ = {
+			isa = PBXGroup;
+			children = (
+				4288CCAC1BEA865500A57549 /* FXDataCell.h */,
+				4288CCAD1BEA865500A57549 /* FXDataCell.m */,
+				4288CCAE1BEA865500A57549 /* FXDataCell.xib */,
+			);
+			path = FXDataCell;
+			sourceTree = "<group>";
+		};
 		428F3C831BA0BC9B0039C3A8 /* FXSquareModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2394,9 +2396,9 @@
 			files = (
 				428F93F31BB71B970032DFA6 /* InfoPlist.strings in Resources */,
 				428F93F41BB71B970032DFA6 /* objc.png in Resources */,
-				4230831A1BDABF7E000304F7 /* FXDataCell.xib in Resources */,
 				4230831E1BDABF7E000304F7 /* FXLoadingView.xib in Resources */,
 				42351E691BE14C0D0065831E /* FXDataViewController.xib in Resources */,
+				4288CCB01BEA865500A57549 /* FXDataCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2504,6 +2506,8 @@
 				426BFF221B9F69AA007C6849 /* NSObject+FXExtensions.m in Sources */,
 				426BFF241B9F69CD007C6849 /* NSArray+FXExtensions.m in Sources */,
 				424AD6FF1BBD90FF00405666 /* FXDispatch.m in Sources */,
+				42D1159B1BEFCFA900DABAD9 /* FXWeakMutableArray.m in Sources */,
+				42D1159D1BEFCFB000DABAD9 /* FXMutableArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2596,7 +2600,6 @@
 				42D6AF8E1BCF08B00078B132 /* NSArray+FXExtensions.m in Sources */,
 				426D66AB1BD2EF6A00A5F591 /* FXImageModel.m in Sources */,
 				42F6393D1BD97C29002927A6 /* FXCache.m in Sources */,
-				423083191BDABF7E000304F7 /* FXDataCell.m in Sources */,
 				4230831B1BDABF7E000304F7 /* FXImageView.m in Sources */,
 				4230831D1BDABF7E000304F7 /* FXLoadingView.m in Sources */,
 				4230831F1BDABF7E000304F7 /* FXView.m in Sources */,
@@ -2609,6 +2612,7 @@
 				42351E581BE14BA60065831E /* FXURLImageModel.m in Sources */,
 				42351E671BE14C0D0065831E /* FXDataView.m in Sources */,
 				42351E681BE14C0D0065831E /* FXDataViewController.m in Sources */,
+				4288CCAF1BEA865500A57549 /* FXDataCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

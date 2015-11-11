@@ -62,6 +62,7 @@
 /*
  * synthesize setter macro
  */
+// with observing
 #define FXSynthesizeObservableSetterWithExpression(propertyName, expression) \
 	if (_##propertyName != propertyName) { \
 		[_##propertyName removeObserver:self]; \
@@ -78,6 +79,14 @@
 
 #define FXSynthesizeObservableSetterAndLoad(propertyName) \
 	FXSynthesizeObservableSetterWithExpression(propertyName, FXLoad(propertyName))
+
+// with context execution
+#define FXSynthesizeContextSetter(propertyName) \
+	if (_##propertyName != propertyName) { \
+		[_##propertyName cancel]; \
+		_##propertyName = propertyName; \
+		[_##propertyName execute]; \
+	}
 
 /*
  * sleepy macro

@@ -39,11 +39,11 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setState:(FXModelState)state {
+- (void)setState:(NSUInteger)state {
 	[self setState:state withChanges:nil];
 }
 
-- (void)setState:(FXModelState)state withChanges:(id)changes {
+- (void)setState:(NSUInteger)state withChanges:(id)changes {
 	@synchronized(self) {
 		if (state != _state) {
 			_state = state;
@@ -58,7 +58,7 @@
 #pragma mark -
 #pragma mark Overloaded Methods
 
-- (SEL)selectorForState:(FXModelState)state {
+- (SEL)selectorForState:(NSUInteger)state {
 	SEL selector = NULL;
 	switch (state) {
 		case kFXModelUnloaded:
@@ -93,7 +93,7 @@
 
 - (void)load {
 	@synchronized(self) {
-		FXModelState state = self.state;
+		NSUInteger state = self.state;
 		if (kFXModelLoaded == state || kFXModelWillLoad == state || kFXModelDidChange == state) {
 			[self notifyObserversWithSelector:[self selectorForState:state]];
 			

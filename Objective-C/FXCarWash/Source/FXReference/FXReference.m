@@ -21,7 +21,7 @@
 #pragma mark Class Methods
 
 + (id)referenceWithTarget:(id)object {
-	return [[self alloc] initWithTarget:object];
+	return [[[self alloc] initWithTarget:object] autorelease];
 }
 
 #pragma mark -
@@ -34,9 +34,9 @@
 }
 
 - (id)initWithTarget:(id)object {
-	if (nil == object) {
-		return nil;
-	}
+//	if (nil == object) {
+//		return nil;
+//	}
 	
 	self = [super init];
 	if (self) {

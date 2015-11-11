@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
+#import <CommonCrypto/CommonDigest.h>
+
 #import "NSString+FXExtensions.h"
 
 #import "FXAlphabet.h"
@@ -49,12 +51,38 @@ static const NSUInteger kFXDefaultRandomStringLength = 50;
 	return [[symbolsArray copy] autorelease];
 }
 
+#if TARGET_OS_IPHONE
 - (NSString *)URLEncodedString {
 	return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, 
 																				 (__bridge CFStringRef)self, 
 																				 NULL, 
 																				 CFSTR("!*'();:@&=+$,/?%#[]\" "), 
 																				 kCFStringEncodingUTF8));
+}
+#endif
+
+- (NSString *)sha256EncodedString {
+	const char *string = [self UTF8String];
+	unsigned char digest[CC_SHA256_DIGEST_LENGTH];
+	CC_SHA256(string, (CC_LONG)strlen(string), digest);
+	NSMutableString *result = [NSMutableString string];
+	for (NSUInteger iterator = 0; iterator < CC_SHA256_DIGEST_LENGTH; iterator++) {
+		[result appendFormat:@"%02x", digest[iterator]];
+	}
+	
+	return result;
+}
+
+- (NSString *)sha512EncodedString {
+	const char *string = [self UTF8String];
+	unsigned char digest[CC_SHA512_DIGEST_LENGTH];
+	CC_SHA512(string, (CC_LONG)strlen(string), digest);
+	NSMutableString *result = [NSMutableString string];
+	for (NSUInteger iterator = 0; iterator < CC_SHA512_DIGEST_LENGTH; iterator++) {
+		[result appendFormat:@"%02x", digest[iterator]];
+	}
+	
+	return result;
 }
 
 @end

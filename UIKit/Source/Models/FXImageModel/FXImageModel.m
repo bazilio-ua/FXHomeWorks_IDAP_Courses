@@ -16,7 +16,7 @@
 
 #import "FXMacros.h"
 
-static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
+static const NSUInteger kFXDefaultSleepTimeInterval	= 1;
 
 @interface FXImageModel ()
 @property (nonatomic, strong)	UIImage	*image;
@@ -85,9 +85,9 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 - (void)performLoading {
 	FXWeakify(self);
 	[self performLoadingWithCompletion:^(UIImage *image, id error) {
-		FXSleep(kFXDefaultSleepTimeInterval);
 		FXStrongifyAndReturnIfNil(self);
 		
+		FXSleep(kFXDefaultSleepTimeInterval);
 		[self finalizeLoadingWithImage:image error:error];
 		[self notifyOfLoadingStateWithImage:image error:error];
 	}];
@@ -102,6 +102,9 @@ static const NSUInteger kFXDefaultSleepTimeInterval	= 5;
 
 - (void)finalizeLoadingWithImage:(UIImage *)image error:(id)error {
 	self.image = image;
+	if (error) {
+		NSLog(@"%@", [error localizedDescription]);
+	}
 }
 
 - (void)notifyOfLoadingStateWithImage:(UIImage *)image error:(id)error {
